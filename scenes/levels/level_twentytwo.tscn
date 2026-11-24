@@ -665,9 +665,6 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_dmskp")
 zone_size = Vector2(260, 800)
-tint = Color(1, 0.45, 0.05, 1)
-haze_alpha = 0.32
-streak_alpha = 0.95
 
 [node name="BellDraft2" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1568419595]
 position = Vector2(260, 1480)
@@ -675,9 +672,6 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_dmskp")
 zone_size = Vector2(260, 800)
-tint = Color(1, 0.45, 0.05, 1)
-haze_alpha = 0.32
-streak_alpha = 0.95
 
 [node name="BellDraft3" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=389819827]
 position = Vector2(1940, 1060)
@@ -685,9 +679,6 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_dmskp")
 zone_size = Vector2(260, 800)
-tint = Color(1, 0.45, 0.05, 1)
-haze_alpha = 0.32
-streak_alpha = 0.95
 
 [node name="BellDraft4" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1092403166]
 position = Vector2(260, 630)
@@ -695,9 +686,6 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_dmskp")
 zone_size = Vector2(260, 820)
-tint = Color(1, 0.45, 0.05, 1)
-haze_alpha = 0.32
-streak_alpha = 0.95
 
 [node name="BellCrusher0_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=196758950]
 position = Vector2(560, 1960)

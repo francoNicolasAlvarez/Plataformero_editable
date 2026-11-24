@@ -1640,10 +1640,11 @@ actualizar esos tests.
       y sentido). Suite 62: solo fallan los dos tests del nivel 8 de siempre.
     NOTA: el exe de `dist/` NO incluye este cambio; re-exportar cuando se pida.
 
-83. **Campanario más legible y nivel 5-3 con pozo (2026-11-24)**:
-    - **Nivel 22**: corrientes ascendentes naranja (`#FF730D`, neblina 0,32 y
-      rayas 0,95); `UpdraftZone` gana `haze_alpha`/`streak_alpha` y
-      `TowerKit.updraft()` acepta tinte y opacidades (por defecto igual que antes).
+83. **Corrientes de aire más legibles y nivel 5-3 con pozo (2026-11-24)**:
+    - **Corrientes ascendentes** (`UpdraftZone`, niveles 22, 24 y 25): se
+      revirtió el tinte naranja; ahora llevan contorno negro cerrado
+      (`Outline`) y aspas negras cuadradas (16x22 px, separadas 90 px) en vez de
+      rayas finas de color.
     - **Nivel 23 PUENTES (5-3)**: ya no hay bifurcación. Recorrido lineal:
       puente de cintas -> control -> **largo pozo mortal de 4500 px** con las
       14 plataformas temporizadas (antes flotaban sobre las cintas) -> isla de

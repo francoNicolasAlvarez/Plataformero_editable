@@ -43,9 +43,6 @@ const CRUSHERS := {
 	4: [700.0, 1500.0],
 }
 
-## Corriente naranja intenso: contrasta con el cielo azul claro (2026-11-24).
-const DRAFT_TINT := Color(1.0, 0.45, 0.05)
-
 
 static func floor_top(floor_index: int) -> float:
 	return FLOOR0_TOP - FLOOR_PITCH * float(floor_index)
@@ -90,7 +87,7 @@ static func build(level: Node2D) -> void:
 	for k in range(1, FLOOR_COUNT):
 		var below := floor_top(k - 1)
 		var zone_top := draft_top(k)
-		TowerKit.updraft(world, Vector2(shaft_center_x(k), (below + zone_top) * 0.5), Vector2(HOLE_WIDTH - 20.0, below - zone_top), "BellDraft%d" % k, DRAFT_TINT, 0.32, 0.95)
+		TowerKit.updraft(world, Vector2(shaft_center_x(k), (below + zone_top) * 0.5), Vector2(HOLE_WIDTH - 20.0, below - zone_top), "BellDraft%d" % k)
 	for floor_index in CRUSHERS:
 		for i in CRUSHERS[floor_index].size():
 			var x: float = CRUSHERS[floor_index][i]
