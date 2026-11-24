@@ -20,7 +20,8 @@ const FINAL_START := 6800.0
 const PORTAL_POSITION := Vector2(9500.0, 580.0)
 const BELT_LENGTH := 600.0
 const BELT_THICKNESS := 40.0
-const BELT_SPEED := 160.0
+## 2026-11-24: velocidad duplicada (antes 160).
+const BELT_SPEED := 320.0
 const CRUSHER_MOUNT := 170.0
 const CRUSHER_DROP := 94.0
 const UPPER_COUNT := 14

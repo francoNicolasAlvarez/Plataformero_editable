@@ -754,22 +754,22 @@ script = ExtResource("33_vmrbo")
 [node name="CitadelBeltR0" type="AnimatableBody2D" parent="LevelTwentyfiveGenerated" unique_id=1263380556 instance=ExtResource("13_cd4mq")]
 position = Vector2(4700, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(-180, 0)
+constant_linear_velocity = Vector2(-360, 0)
 sync_to_physics = false
 script = ExtResource("14_b2bmc")
 platform_size = Vector2(400, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = -180.0
+conveyor_speed = -360.0
 
 [node name="CitadelBeltR1" type="AnimatableBody2D" parent="LevelTwentyfiveGenerated" unique_id=821651602 instance=ExtResource("13_cd4mq")]
 position = Vector2(5100, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(180, 0)
+constant_linear_velocity = Vector2(360, 0)
 sync_to_physics = false
 script = ExtResource("14_b2bmc")
 platform_size = Vector2(400, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = 180.0
+conveyor_speed = 360.0
 
 [node name="AnimatableBody2D_97" type="AnimatableBody2D" parent="LevelTwentyfiveGenerated" unique_id=1111664752 instance=ExtResource("13_cd4mq")]
 position = Vector2(5850, 680)

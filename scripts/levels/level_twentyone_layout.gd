@@ -34,7 +34,6 @@ const HERB_FRACTION := 0.5
 const OBSTACLE_FRACTIONS := [0.2, 0.4, 0.6]
 const MINE_SCENE := preload("res://scenes/world/proximity_mine.tscn")
 const TELEPORT_SCENE := preload("res://scenes/world/teleport_trap.tscn")
-const LAUNCH_PAD_SCENE := preload("res://scenes/world/launch_pad.tscn")
 const BLADE_WHEEL_SCENE := preload("res://scenes/world/blade_wheel.tscn")
 
 
@@ -169,8 +168,10 @@ static func _backdrop(world: Node2D) -> void:
 
 static func _build_structure(world: Node2D) -> void:
 	# Losas: la del piso 0 es continua; las demás tienen los huecos de los pozos.
+	var belts := hurdle_belts()
 	for row in ROW_COUNT:
-		_slab(world, floor_top(row), holes(row), "MazeSlab%d" % row)
+		var row_belts: Array = belts.filter(func(b): return int(b["row"]) == row)
+		_slab(world, floor_top(row), holes(row), "MazeSlab%d" % row, row_belts)
 	_slab(world, floor_top(ROW_COUNT), [], "MazeCeiling")
 	var top_y := floor_top(ROW_COUNT)
 	var bottom_y := floor_top(0) + SLAB
@@ -183,7 +184,7 @@ static func _build_structure(world: Node2D) -> void:
 	DesertKit.platform(world, Vector2(TOWER_WIDTH, divider_top + divider_height * 0.5), Vector2(DIVIDER_HALF * 2.0, divider_height), STONE_DARK, Platform.Kind.STATIC, "MazeDivider")
 
 
-static func _slab(world: Node2D, top: float, hole_list: Array, node_name: String) -> void:
+static func _slab(world: Node2D, top: float, hole_list: Array, node_name: String, belts: Array = []) -> void:
 	var edges: Array = [0.0]
 	for hole in hole_list:
 		edges.append(float(hole[0]))
@@ -195,9 +196,29 @@ static func _slab(world: Node2D, top: float, hole_list: Array, node_name: String
 		var from_x: float = edges[i]
 		var to_x: float = edges[i + 1]
 		if to_x - from_x > 1.0:
-			DesertKit.platform(world, Vector2((from_x + to_x) * 0.5, top + SLAB * 0.5), Vector2(to_x - from_x, SLAB), STONE, Platform.Kind.STATIC, "%s_%d" % [node_name, piece])
-			piece += 1
+			# Las cintas dentro de la pieza la parten en tres (losa-cinta-losa).
+			var cursor := from_x
+			for belt in belts:
+				if float(belt["from"]) < from_x or float(belt["to"]) > to_x:
+					continue
+				piece = _slab_piece(world, top, cursor, float(belt["from"]), node_name, piece, 0.0)
+				piece = _slab_piece(world, top, float(belt["from"]), float(belt["to"]), node_name, piece, float(belt["speed"]))
+				cursor = float(belt["to"])
+			piece = _slab_piece(world, top, cursor, to_x, node_name, piece, 0.0)
 		i += 2
+
+
+## Crea un trozo de losa (con cinta si `belt_speed` != 0) y devuelve el
+## siguiente número de pieza.
+static func _slab_piece(world: Node2D, top: float, from_x: float, to_x: float, node_name: String, piece: int, belt_speed: float) -> int:
+	if to_x - from_x <= 1.0:
+		return piece
+	var is_belt := not is_zero_approx(belt_speed)
+	var color := BELT_COLOR if is_belt else STONE
+	var node := DesertKit.platform(world, Vector2((from_x + to_x) * 0.5, top + SLAB * 0.5), Vector2(to_x - from_x, SLAB), color, Platform.Kind.STATIC, "%s_%d" % [node_name, piece])
+	if is_belt:
+		node.conveyor_speed = belt_speed
+	return piece + 1
 
 
 static func _build_corridor(world: Node2D, row: int) -> void:
@@ -250,7 +271,10 @@ static func _build_climbs(world: Node2D) -> void:
 	for row in range(0, 4):
 		for step in range(1, 4):
 			var ledge := ledge_position(row, step)
-			DesertKit.platform(world, Vector2(ledge.x, ledge.y + 12.0), Vector2(LEDGE_WIDTH, 24.0), STONE_STEP, Platform.Kind.STATIC, "MazeStep%d_%d" % [row, step])
+			var node := DesertKit.platform(world, Vector2(ledge.x, ledge.y + 12.0), Vector2(LEDGE_WIDTH, 24.0), STONE_STEP, Platform.Kind.STATIC, "MazeStep%d_%d" % [row, step])
+			if step == LEDGE_BELT_STEP:
+				node.platform_color = BELT_COLOR
+				node.conveyor_speed = ledge_belt_speed(row)
 
 
 static func _build_checkpoint_and_herbs(world: Node2D) -> void:
@@ -264,9 +288,8 @@ static func _build_checkpoint_and_herbs(world: Node2D) -> void:
 ## Trampas nuevas (2026-11-23, ampliadas el mismo día). Todas van en huecos
 ## libres de los corredores (x; el piso se indica aparte):
 ##  - Minas: repartidas por los corredores (la del piso 0 obliga a frenar).
-##  - Lanzadores de impulso hacia atrás: uno pegado a cada muro bajo, por el
-##    lado por el que te acercas (hay que saltar lanzador y muro de una vez),
-##    y otro sobre algunas repisas de subida.
+##  - Cintas transportadoras hacia atrás: una pegada a cada muro bajo, por el
+##    lado por el que te acercas, y otra en una repisa de cada subida.
 ##  - Teletransportes saltables y ruedas de cuchillas con giro contrario en
 ##    el piso superior (centro a 140 px del suelo: pasar con la cuchilla alta).
 const MINES := [
@@ -277,14 +300,21 @@ const MINES := [
 const TELEPORTS := [[0, 985.0], [2, 1050.0], [4, 1450.0]]
 ## [x, giro horario, ángulo inicial]
 const WHEELS := [[700.0, false, 45.0], [2380.0, true, 0.0], [2850.0, false, 45.0]]
-const LEDGE_PAD_STEP := 2
-const PAD_GAP := 8.0
-const LEDGE_PAD_OFFSET := 55.0
+const LEDGE_BELT_STEP := 2
+## Cintas transportadoras (2026-11-24): sustituyen a los lanzadores. 320 px/s
+## (el doble que las cintas originales de 160). Empujan hacia atrás.
+const BELT_SPEED := 320.0
+const BELT_LENGTH := 180.0
+const BELT_GAP := 4.0
+const BELT_COLOR := Color("#3a3748")
 
 
-## Centros (x, y) de los lanzadores pegados a los muros bajos. Los pisos
-## pares se recorren hacia la derecha y los impares hacia la izquierda.
-static func hurdle_pad_positions() -> Array:
+## Cintas del suelo pegadas a cada muro bajo, por el lado por el que te
+## acercas (empujan hacia atrás: hay que cruzarlas y saltar el muro). Cada
+## entrada es {row, from, to, speed}; las cintas sustituyen un trozo de la
+## losa para quedar a ras de suelo. Los pisos pares se recorren hacia la
+## derecha y los impares hacia la izquierda.
+static func hurdle_belts() -> Array:
 	var result: Array = []
 	for row in ROW_COUNT:
 		for tower in _towers_for(row):
@@ -296,19 +326,19 @@ static func hurdle_pad_positions() -> Array:
 				if (index % 2 == 0) != hurdle_first:
 					continue
 				var x := span.x + length * float(OBSTACLE_FRACTIONS[index])
-				var offset := HURDLE_SIZE.x * 0.5 + PAD_GAP + HURDLE_SIZE.x * 0.5
-				result.append(Vector2(x - direction * offset, floor_top(row) - 15.0))
+				var near := x - direction * (HURDLE_SIZE.x * 0.5 + BELT_GAP)
+				var far := near - direction * BELT_LENGTH
+				result.append({"row": row, "from": minf(near, far), "to": maxf(near, far), "speed": -direction * BELT_SPEED})
 	return result
 
 
-## Centros (x, y) de los lanzadores sobre las repisas (lado de la pared).
-static func ledge_pad_positions() -> Array:
-	var result: Array = []
-	for row in range(0, 4):
-		var ledge := ledge_position(row, LEDGE_PAD_STEP)
-		var side := 1.0 if ledge.x > float((holes(row + 1)[0][0] + holes(row + 1)[0][1]) * 0.5) else -1.0
-		result.append(Vector2(ledge.x + side * LEDGE_PAD_OFFSET, ledge.y - 12.0))
-	return result
+## Velocidad de la cinta de la repisa de subida (step 2) del piso `row`: empuja
+## hacia el lado contrario al avance (el avance va hacia el centro del pozo).
+static func ledge_belt_speed(row: int) -> float:
+	var ledge := ledge_position(row, LEDGE_BELT_STEP)
+	var hole: Array = holes(row + 1)[0]
+	var center := (float(hole[0]) + float(hole[1])) * 0.5
+	return (1.0 if ledge.x > center else -1.0) * BELT_SPEED
 
 
 static func _build_traps(world: Node2D) -> void:
@@ -322,20 +352,6 @@ static func _build_traps(world: Node2D) -> void:
 		var teleport := DesertKit.spawn(TELEPORT_SCENE, world, Vector2(float(entry[1]), floor_top(int(entry[0])) - 20.0))
 		teleport.name = "MazeTeleport%d" % index
 		teleport.set("zone_size", Vector2(60.0, 40.0))
-		index += 1
-	index = 0
-	for position in hurdle_pad_positions():
-		var pad := DesertKit.spawn(LAUNCH_PAD_SCENE, world, position)
-		pad.name = "MazeHurdlePad%d" % index
-		pad.set("zone_size", Vector2(60.0, 30.0))
-		pad.set("launch_speed", 650.0)
-		index += 1
-	index = 0
-	for position in ledge_pad_positions():
-		var pad := DesertKit.spawn(LAUNCH_PAD_SCENE, world, position)
-		pad.name = "MazeLedgePad%d" % index
-		pad.set("zone_size", Vector2(50.0, 24.0))
-		pad.set("launch_speed", 520.0)
 		index += 1
 	var top_floor := floor_top(4)
 	for i in WHEELS.size():

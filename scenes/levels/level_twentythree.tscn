@@ -939,72 +939,72 @@ contact_damage = 25
 [node name="BridgeBelt0" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=1199203745 instance=ExtResource("13_svws3")]
 position = Vector2(1800, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(160, 0)
+constant_linear_velocity = Vector2(320, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(600, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = 160.0
+conveyor_speed = 320.0
 
 [node name="BridgeBelt1" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=1883193840 instance=ExtResource("13_svws3")]
 position = Vector2(2400, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(-160, 0)
+constant_linear_velocity = Vector2(-320, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(600, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = -160.0
+conveyor_speed = -320.0
 
 [node name="BridgeBelt2" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=1185513401 instance=ExtResource("13_svws3")]
 position = Vector2(3000, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(160, 0)
+constant_linear_velocity = Vector2(320, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(600, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = 160.0
+conveyor_speed = 320.0
 
 [node name="BridgeBelt3" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=1654250263 instance=ExtResource("13_svws3")]
 position = Vector2(3600, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(-160, 0)
+constant_linear_velocity = Vector2(-320, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(600, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = -160.0
+conveyor_speed = -320.0
 
 [node name="BridgeBelt4" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=701633586 instance=ExtResource("13_svws3")]
 position = Vector2(4200, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(160, 0)
+constant_linear_velocity = Vector2(320, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(600, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = 160.0
+conveyor_speed = 320.0
 
 [node name="BridgeBelt5" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=1644524153 instance=ExtResource("13_svws3")]
 position = Vector2(4800, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(-160, 0)
+constant_linear_velocity = Vector2(-320, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(600, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = -160.0
+conveyor_speed = -320.0
 
 [node name="BridgeBelt6" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=1791045984 instance=ExtResource("13_svws3")]
 position = Vector2(5400, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(160, 0)
+constant_linear_velocity = Vector2(320, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(600, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = 160.0
+conveyor_speed = 320.0
 
 [node name="BridgeSpearman" type="CharacterBody2D" parent="LevelTwentythreeGenerated" unique_id=1910701287 groups=["enemies"] instance=ExtResource("20_am4eb")]
 position = Vector2(3100, 610)
@@ -1065,32 +1065,32 @@ shoot_range = 520.0
 [node name="BridgeFinalBelt0" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=1444733141 instance=ExtResource("13_svws3")]
 position = Vector2(7110, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(-160, 0)
+constant_linear_velocity = Vector2(-320, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(420, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = -160.0
+conveyor_speed = -320.0
 
 [node name="BridgeFinalBelt1" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=1397609799 instance=ExtResource("13_svws3")]
 position = Vector2(7710, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(240, 0)
+constant_linear_velocity = Vector2(480, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(420, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = 240.0
+conveyor_speed = 480.0
 
 [node name="BridgeFinalBelt2" type="AnimatableBody2D" parent="LevelTwentythreeGenerated" unique_id=657962807 instance=ExtResource("13_svws3")]
 position = Vector2(8310, 660)
 collision_mask = 0
-constant_linear_velocity = Vector2(-160, 0)
+constant_linear_velocity = Vector2(-320, 0)
 sync_to_physics = false
 script = ExtResource("14_6232j")
 platform_size = Vector2(420, 40)
 platform_color = Color(0.49411765, 0.5411765, 0.65882355, 1)
-conveyor_speed = -160.0
+conveyor_speed = -320.0
 
 [node name="Area2D_129" type="Area2D" parent="LevelTwentythreeGenerated" unique_id=643516320 groups=["saws", "traps"] instance=ExtResource("24_vhp81")]
 position = Vector2(7710, 530)

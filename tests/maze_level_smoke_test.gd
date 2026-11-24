@@ -72,27 +72,32 @@ func _run() -> void:
 	# Trampas nuevas (2026-11-23).
 	_check(get_nodes_in_group("mines").size() == LevelTwentyoneLayout.MINES.size(), "Hay %d minas de proximidad" % LevelTwentyoneLayout.MINES.size())
 	_check(level.find_children("MazeTeleport*", "Area2D", true, false).size() == LevelTwentyoneLayout.TELEPORTS.size(), "Hay %d trampas de teletransporte" % LevelTwentyoneLayout.TELEPORTS.size())
-	var ledge_pads := LevelTwentyoneLayout.ledge_pad_positions()
-	var pad_nodes := level.find_children("MazeHurdlePad*", "Area2D", true, false)
+	var belts := LevelTwentyoneLayout.hurdle_belts()
 	var hurdles := level.find_children("MazeHurdle*", "Platform", true, false)
-	_check(pad_nodes.size() == hurdles.size(), "Hay un lanzador por cada muro bajo (%d)" % hurdles.size())
-	var every_hurdle_has_pad := true
-	for hurdle in hurdles:
-		var row := int(String(hurdle.name).substr(10, 1))
-		var approach := -1.0 if row % 2 == 1 else 1.0
-		var expected_x := (hurdle as Node2D).position.x - approach * 68.0
+	_check(level.find_children("MazeHurdlePad*", "Area2D", true, false).is_empty() and level.find_children("MazeLedgePad*", "Area2D", true, false).is_empty(), "Ya no quedan lanzadores: son cintas")
+	_check(belts.size() == hurdles.size(), "Hay una cinta de suelo por cada muro bajo (%d)" % hurdles.size())
+	var belt_nodes: Array = []
+	for node in level.find_children("MazeSlab*", "Platform", true, false):
+		if not is_zero_approx((node as Platform).conveyor_speed):
+			belt_nodes.append(node)
+	_check(belt_nodes.size() == belts.size(), "Las cintas de suelo están en la escena (%d)" % belt_nodes.size())
+	var belts_ok := true
+	for belt in belts:
 		var found := false
-		for pad in pad_nodes:
-			var pad_position := (pad as Node2D).position
-			found = found or (absf(pad_position.x - expected_x) < 1.0 and absf(pad_position.y - (LevelTwentyoneLayout.floor_top(row) - 15.0)) < 1.0)
-		every_hurdle_has_pad = every_hurdle_has_pad and found
-	_check(every_hurdle_has_pad, "Cada lanzador está pegado a su muro bajo, por el lado de la aproximación")
-	_check(level.find_children("MazeLedgePad*", "Area2D", true, false).size() == ledge_pads.size(), "Hay lanzadores sobre las repisas (%d)" % ledge_pads.size())
+		for node in belt_nodes:
+			var platform := node as Platform
+			found = found or (absf(platform.position.x - (float(belt["from"]) + float(belt["to"])) * 0.5) < 1.0 and is_equal_approx(platform.conveyor_speed, float(belt["speed"])) and absf(platform.position.y - (LevelTwentyoneLayout.floor_top(int(belt["row"])) + LevelTwentyoneLayout.SLAB * 0.5)) < 1.0)
+		belts_ok = belts_ok and found
+	_check(belts_ok, "Cada cinta está a ras de suelo, junto a su muro y con la velocidad del generador")
+	var double_speed := true
+	for node in belt_nodes:
+		double_speed = double_speed and is_equal_approx(absf((node as Platform).conveyor_speed), 320.0)
+	_check(double_speed, "Las cintas mueven a 320 px/s (el doble que las originales de 160)")
 	var ledge_ok := true
-	for i in ledge_pads.size():
-		var ledge_pad := level.find_child("MazeLedgePad%d" % i, true, false) as Node2D
-		ledge_ok = ledge_ok and ledge_pad != null and ledge_pad.position.distance_to(ledge_pads[i]) < 1.0
-	_check(ledge_ok, "Los lanzadores de las repisas coinciden con el generador")
+	for row in range(0, 4):
+		var ledge := level.find_child("MazeStep%d_2" % row, true, false) as Platform
+		ledge_ok = ledge_ok and ledge != null and is_equal_approx(ledge.conveyor_speed, LevelTwentyoneLayout.ledge_belt_speed(row))
+	_check(ledge_ok, "La repisa 2 de cada subida es una cinta")
 	var wheels := get_nodes_in_group("blade_wheels")
 	_check(wheels.size() == LevelTwentyoneLayout.WHEELS.size(), "Hay %d ruedas de cuchillas" % LevelTwentyoneLayout.WHEELS.size())
 	var clockwise_count := 0

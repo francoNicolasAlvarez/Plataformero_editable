@@ -1621,6 +1621,25 @@ actualizar esos tests.
       aberturas; 14 enemigos (5 magos), 9 sierras y 11 prensas.
     - Tests actualizados: `world5_levels_smoke_test` y `world5_mechanics_smoke_test`.
 
+82. **Cintas transportadoras animadas y nivel 21 (2026-11-24)**:
+    - **`ConveyorVisual`** (`scripts/world/conveyor_visual.gd`): banda de goma con
+      rodillos y tacos en chevron, animada con 3 fotogramas distintos; el
+      sentido sigue el signo de `conveyor_speed`. `Platform` la crea (nodo
+      `ConveyorBelt`) y sustituye a las flechas; el rango de `conveyor_speed`
+      pasa a ±800.
+    - **Velocidad +100 %**: cintas de los niveles 23 y 25 (y sus escenas)
+      duplicadas (160/240 -> 320/480, 180 -> 360).
+    - **Nivel 21**: los lanzadores de impulso hacia atrás se sustituyen por
+      cintas de 320 px/s que empujan hacia atrás: trozos de losa a ras de suelo
+      junto a cada muro bajo (`LevelTwentyoneLayout.hurdle_belts()`) y la repisa
+      2 de cada subida. El nivel 24 conserva su trampolín (impulso vertical).
+    - **Bug**: faltaba en la escena el muro bajo `MazeHurdle0A0` (x=495); añadido.
+    - TRAMPA: `bake_levels.gd -- 21` generó un nivel equivocado (la escena
+      generada no ejecutó su layout); las escenas 21/23/25 se editaron a mano.
+    - Tests: `maze_level` 33 y `world5_mechanics` 40 (animación de 3 fotogramas
+      y sentido). Suite 62: solo fallan los dos tests del nivel 8 de siempre.
+    NOTA: el exe de `dist/` NO incluye este cambio; re-exportar cuando se pida.
+
 ## 5. En progreso / estado actual
 
 - Suite de 52 smoke tests en verde (verificado en esta sesión) tras aplicar

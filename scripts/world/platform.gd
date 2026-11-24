@@ -43,7 +43,7 @@ const SPIKE_SOURCE_WIDTH := 140.0
 @export_range(1, 99, 1) var spike_damage: int = 15
 ## Cinta transportadora (2026-11-23): arrastra a quien está encima a esta
 ## velocidad horizontal (px/s; el signo es el sentido). 0 = plataforma normal.
-@export_range(-400.0, 400.0, 5.0) var conveyor_speed: float = 0.0:
+@export_range(-800.0, 800.0, 5.0) var conveyor_speed: float = 0.0:
 	set(value):
 		conveyor_speed = value
 		constant_linear_velocity = Vector2(value, 0.0)
@@ -166,26 +166,20 @@ func _refresh() -> void:
 
 
 func _refresh_conveyor() -> void:
-	## Flechas sobre la superficie que indican el sentido de la cinta.
-	var arrows := get_node_or_null("ConveyorArrows") as Node2D
-	if arrows != null:
-		arrows.free()
+	## Banda de fábrica animada (3 fotogramas) sobre la plataforma; el sentido
+	## sigue el signo de `conveyor_speed`.
+	var belt := get_node_or_null("ConveyorBelt")
+	if belt != null:
+		belt.free()
 	if is_zero_approx(conveyor_speed):
 		return
-	arrows = Node2D.new()
-	arrows.name = "ConveyorArrows"
-	var direction := signf(conveyor_speed)
-	var count := maxi(1, int(platform_size.x / 56.0))
-	var step := platform_size.x / float(count)
-	for i in count:
-		var arrow := Polygon2D.new()
-		arrow.color = Color(1.0, 0.9, 0.4, 0.9)
-		arrow.polygon = PackedVector2Array([
-			Vector2(7.0 * direction, 0.0), Vector2(-5.0 * direction, -6.0), Vector2(-5.0 * direction, 6.0),
-		])
-		arrow.position = Vector2(-platform_size.x * 0.5 + step * (float(i) + 0.5), 0.0)
-		arrows.add_child(arrow)
-	add_child(arrows)
+	var visual := ConveyorVisual.new()
+	visual.name = "ConveyorBelt"
+	add_child(visual)
+	visual.configure(platform_size, conveyor_speed)
+	var outline := get_node_or_null("Outline")
+	if outline != null:
+		move_child(outline, -1)
 
 
 func _refresh_spikes() -> void:

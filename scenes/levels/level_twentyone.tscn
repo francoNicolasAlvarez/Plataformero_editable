@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" path="res://scenes/pickups/healing_herb.tscn" id="27_x8aga"]
 [ext_resource type="PackedScene" path="res://scenes/world/proximity_mine.tscn" id="40_mine"]
 [ext_resource type="PackedScene" path="res://scenes/world/teleport_trap.tscn" id="41_tele"]
-[ext_resource type="PackedScene" path="res://scenes/world/launch_pad.tscn" id="42_pad"]
 [ext_resource type="PackedScene" path="res://scenes/world/blade_wheel.tscn" id="43_wheel"]
 
 [node name="LevelTwentyone" type="Node2D" unique_id=1405991063]
@@ -373,16 +372,72 @@ position = Vector2(3380, 98)
 color = Color(1, 0.82, 0.45, 0.55)
 polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
 
-[node name="MazeSlab0_0" parent="LevelTwentyoneGenerated" unique_id=1661842636 instance=ExtResource("13_si0ps")]
-position = Vector2(1800, 1724)
+[node name="MazeSlab0_0" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(140.6, 1724)
 sync_to_physics = false
-platform_size = Vector2(3600, 48)
+platform_size = Vector2(281.2, 48)
 platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
 
-[node name="MazeSlab1_0" parent="LevelTwentyoneGenerated" unique_id=1988661629 instance=ExtResource("13_si0ps")]
-position = Vector2(678, 1388)
+[node name="MazeSlab0_0b1" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(371.2, 1724)
+constant_linear_velocity = Vector2(-320, 0)
 sync_to_physics = false
-platform_size = Vector2(1356, 48)
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
+
+[node name="MazeSlab0_0b2" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(566.4, 1724)
+sync_to_physics = false
+platform_size = Vector2(210.4, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab0_0b3" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(761.6, 1724)
+constant_linear_velocity = Vector2(-320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
+
+[node name="MazeSlab0_0b4" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(1636, 1724)
+sync_to_physics = false
+platform_size = Vector2(1568.8, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab0_0b5" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2510.4, 1724)
+constant_linear_velocity = Vector2(-320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
+
+[node name="MazeSlab0_0b6" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(3100.2, 1724)
+sync_to_physics = false
+platform_size = Vector2(999.6, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab1_0" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(422.2, 1388)
+sync_to_physics = false
+platform_size = Vector2(844.4, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab1_0b1" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(934.4, 1388)
+constant_linear_velocity = Vector2(320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = 320.0
+
+[node name="MazeSlab1_0b2" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(1190.2, 1388)
+sync_to_physics = false
+platform_size = Vector2(331.6, 48)
 platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
 
 [node name="MazeSlab1_1" parent="LevelTwentyoneGenerated" unique_id=778799761 instance=ExtResource("13_si0ps")]
@@ -391,22 +446,106 @@ sync_to_physics = false
 platform_size = Vector2(48, 48)
 platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
 
-[node name="MazeSlab1_2" parent="LevelTwentyoneGenerated" unique_id=951156448 instance=ExtResource("13_si0ps")]
-position = Vector2(2922, 1388)
+[node name="MazeSlab1_2" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2378.6, 1388)
 sync_to_physics = false
-platform_size = Vector2(1356, 48)
+platform_size = Vector2(269.2, 48)
 platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
 
-[node name="MazeSlab2_0" parent="LevelTwentyoneGenerated" unique_id=1519325046 instance=ExtResource("13_si0ps")]
-position = Vector2(1800, 1052)
+[node name="MazeSlab1_2b1" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2603.2, 1388)
+constant_linear_velocity = Vector2(320, 0)
 sync_to_physics = false
-platform_size = Vector2(2760, 48)
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = 320.0
+
+[node name="MazeSlab1_2b2" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2758.4, 1388)
+sync_to_physics = false
+platform_size = Vector2(130.4, 48)
 platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
 
-[node name="MazeSlab3_0" parent="LevelTwentyoneGenerated" unique_id=1681095580 instance=ExtResource("13_si0ps")]
-position = Vector2(678, 716)
+[node name="MazeSlab1_2b3" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2913.6, 1388)
+constant_linear_velocity = Vector2(320, 0)
 sync_to_physics = false
-platform_size = Vector2(1356, 48)
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = 320.0
+
+[node name="MazeSlab1_2b4" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(3301.8, 1388)
+sync_to_physics = false
+platform_size = Vector2(596.4, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab2_0" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(430.6, 1052)
+sync_to_physics = false
+platform_size = Vector2(21.2, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab2_0b1" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(531.2, 1052)
+constant_linear_velocity = Vector2(-320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
+
+[node name="MazeSlab2_0b2" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(686.4, 1052)
+sync_to_physics = false
+platform_size = Vector2(130.4, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab2_0b3" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(841.6, 1052)
+constant_linear_velocity = Vector2(-320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
+
+[node name="MazeSlab2_0b4" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(1676, 1052)
+sync_to_physics = false
+platform_size = Vector2(1488.8, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab2_0b5" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2510.4, 1052)
+constant_linear_velocity = Vector2(-320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
+
+[node name="MazeSlab2_0b6" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2890.2, 1052)
+sync_to_physics = false
+platform_size = Vector2(579.6, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab3_0" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(422.2, 716)
+sync_to_physics = false
+platform_size = Vector2(844.4, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab3_0b1" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(934.4, 716)
+constant_linear_velocity = Vector2(320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = 320.0
+
+[node name="MazeSlab3_0b2" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(1190.2, 716)
+sync_to_physics = false
+platform_size = Vector2(331.6, 48)
 platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
 
 [node name="MazeSlab3_1" parent="LevelTwentyoneGenerated" unique_id=408090981 instance=ExtResource("13_si0ps")]
@@ -415,16 +554,72 @@ sync_to_physics = false
 platform_size = Vector2(48, 48)
 platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
 
-[node name="MazeSlab3_2" parent="LevelTwentyoneGenerated" unique_id=1478912549 instance=ExtResource("13_si0ps")]
-position = Vector2(2922, 716)
+[node name="MazeSlab3_2" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2378.6, 716)
 sync_to_physics = false
-platform_size = Vector2(1356, 48)
+platform_size = Vector2(269.2, 48)
 platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
 
-[node name="MazeSlab4_0" parent="LevelTwentyoneGenerated" unique_id=2072648903 instance=ExtResource("13_si0ps")]
-position = Vector2(1800, 380)
+[node name="MazeSlab3_2b1" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2603.2, 716)
+constant_linear_velocity = Vector2(320, 0)
 sync_to_physics = false
-platform_size = Vector2(2760, 48)
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = 320.0
+
+[node name="MazeSlab3_2b2" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2758.4, 716)
+sync_to_physics = false
+platform_size = Vector2(130.4, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab3_2b3" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2913.6, 716)
+constant_linear_velocity = Vector2(320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = 320.0
+
+[node name="MazeSlab3_2b4" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(3301.8, 716)
+sync_to_physics = false
+platform_size = Vector2(596.4, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab4_0" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(613, 380)
+sync_to_physics = false
+platform_size = Vector2(386, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab4_0b1" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(896, 380)
+constant_linear_velocity = Vector2(-320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
+
+[node name="MazeSlab4_0b2" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(1416, 380)
+sync_to_physics = false
+platform_size = Vector2(860, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab4_0b3" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(1936, 380)
+constant_linear_velocity = Vector2(-320, 0)
+sync_to_physics = false
+platform_size = Vector2(180, 48)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
+
+[node name="MazeSlab4_0b4" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(2603, 380)
+sync_to_physics = false
+platform_size = Vector2(1154, 48)
 platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
 
 [node name="MazeCeiling_0" parent="LevelTwentyoneGenerated" unique_id=988734015 instance=ExtResource("13_si0ps")]
@@ -455,6 +650,12 @@ platform_color = Color(0.25490198, 0.23921569, 0.33333334, 1)
 position = Vector2(690.4, 1487)
 sync_to_physics = false
 platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle0A0" parent="LevelTwentyoneGenerated" instance=ExtResource("13_si0ps")]
+position = Vector2(495, 1652)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
 platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
 
 [node name="MazeHurdle0A2" parent="LevelTwentyoneGenerated" unique_id=981219 instance=ExtResource("13_si0ps")]
@@ -643,9 +844,11 @@ platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
 
 [node name="MazeStep0_2" parent="LevelTwentyoneGenerated" unique_id=1198758791 instance=ExtResource("13_si0ps")]
 position = Vector2(1446, 1544)
+constant_linear_velocity = Vector2(-320, 0)
 sync_to_physics = false
 platform_size = Vector2(180, 24)
-platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
 
 [node name="MazeStep0_3" parent="LevelTwentyoneGenerated" unique_id=2102839530 instance=ExtResource("13_si0ps")]
 position = Vector2(1686, 1460)
@@ -661,9 +864,11 @@ platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
 
 [node name="MazeStep1_2" parent="LevelTwentyoneGenerated" unique_id=193515973 instance=ExtResource("13_si0ps")]
 position = Vector2(330, 1208)
+constant_linear_velocity = Vector2(320, 0)
 sync_to_physics = false
 platform_size = Vector2(180, 24)
-platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = 320.0
 
 [node name="MazeStep1_3" parent="LevelTwentyoneGenerated" unique_id=1335135008 instance=ExtResource("13_si0ps")]
 position = Vector2(90, 1124)
@@ -679,9 +884,11 @@ platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
 
 [node name="MazeStep2_2" parent="LevelTwentyoneGenerated" unique_id=1490370957 instance=ExtResource("13_si0ps")]
 position = Vector2(1446, 872)
+constant_linear_velocity = Vector2(-320, 0)
 sync_to_physics = false
 platform_size = Vector2(180, 24)
-platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = -320.0
 
 [node name="MazeStep2_3" parent="LevelTwentyoneGenerated" unique_id=1033956386 instance=ExtResource("13_si0ps")]
 position = Vector2(1686, 788)
@@ -697,9 +904,11 @@ platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
 
 [node name="MazeStep3_2" parent="LevelTwentyoneGenerated" unique_id=1439300296 instance=ExtResource("13_si0ps")]
 position = Vector2(330, 536)
+constant_linear_velocity = Vector2(320, 0)
 sync_to_physics = false
 platform_size = Vector2(180, 24)
-platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+platform_color = Color(0.22745098, 0.21568628, 0.28235295, 1)
+conveyor_speed = 320.0
 
 [node name="MazeStep3_3" parent="LevelTwentyoneGenerated" unique_id=1685584118 instance=ExtResource("13_si0ps")]
 position = Vector2(90, 452)
@@ -773,91 +982,6 @@ zone_size = Vector2(60, 40)
 [node name="MazeTeleport2" parent="LevelTwentyoneGenerated" instance=ExtResource("41_tele")]
 position = Vector2(1450, 336)
 zone_size = Vector2(60, 40)
-
-[node name="MazeHurdlePad0" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(817.6, 1685)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad1" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(2566.4, 1685)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad2" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(878.4, 1349)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad3" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(2547.2, 1349)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad4" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(2857.6, 1349)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad5" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(587.2, 1013)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad6" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(897.6, 1013)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad7" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(2566.4, 1013)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad8" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(878.4, 677)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad9" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(2547.2, 677)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad10" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(2857.6, 677)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad11" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(952, 341)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeHurdlePad12" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(1992, 341)
-zone_size = Vector2(60, 30)
-launch_speed = 650.0
-
-[node name="MazeLedgePad0" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(1391, 1520)
-zone_size = Vector2(50, 24)
-launch_speed = 520.0
-
-[node name="MazeLedgePad1" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(385, 1184)
-zone_size = Vector2(50, 24)
-launch_speed = 520.0
-
-[node name="MazeLedgePad2" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(1391, 848)
-zone_size = Vector2(50, 24)
-launch_speed = 520.0
-
-[node name="MazeLedgePad3" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
-position = Vector2(385, 512)
-zone_size = Vector2(50, 24)
-launch_speed = 520.0
 
 [node name="MazeBladeWheel0" parent="LevelTwentyoneGenerated" instance=ExtResource("43_wheel")]
 position = Vector2(700, 216)

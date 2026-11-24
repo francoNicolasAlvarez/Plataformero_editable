@@ -90,9 +90,9 @@ static func _build_right_spoke(world: Node2D) -> void:
 	DesertKit.slug(world, "CitadelSlugR", 4250.0, GROUND_Y)
 	# Abismo 4500..5300 con dos cintas de sentidos opuestos.
 	var belt_a := DesertKit.platform(world, Vector2(4700.0, GROUND_Y + 20.0), Vector2(400.0, 40.0), Color("#7e8aa8"), Platform.Kind.STATIC, "CitadelBeltR0")
-	belt_a.conveyor_speed = -180.0
+	belt_a.conveyor_speed = -360.0
 	var belt_b := DesertKit.platform(world, Vector2(5100.0, GROUND_Y + 20.0), Vector2(400.0, 40.0), Color("#7e8aa8"), Platform.Kind.STATIC, "CitadelBeltR1")
-	belt_b.conveyor_speed = 180.0
+	belt_b.conveyor_speed = 360.0
 	DesertKit.ground(world, 5300.0, WIDTH, TowerKit.STONE_DARK)
 	TowerKit.crusher(world, Vector2(5600.0, GROUND_Y - CRUSHER_MOUNT), "CitadelCrusherR", CRUSHER_DROP)
 	TowerKit.wheel(world, Vector2(5900.0, GROUND_Y - 140.0), "CitadelWheelR", false, 110.0, 0.25, 45.0)

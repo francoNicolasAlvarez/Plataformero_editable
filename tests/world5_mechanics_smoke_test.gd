@@ -91,7 +91,7 @@ func _test_conveyor(level: Node, player: Player, at: Vector2) -> void:
 	belt.global_position = at
 	belt.conveyor_speed = 150.0
 	_check(is_equal_approx(belt.constant_linear_velocity.x, 150.0), "La cinta guarda su velocidad")
-	_check(belt.get_node_or_null("ConveyorArrows") != null, "La cinta dibuja flechas")
+	_check(belt.get_node_or_null("ConveyorBelt") != null, "La cinta dibuja la banda animada")
 	player.health.reset()
 	player.global_position = at + Vector2(-300.0, -40.0)
 	player.velocity = Vector2.ZERO
@@ -100,8 +100,21 @@ func _test_conveyor(level: Node, player: Player, at: Vector2) -> void:
 	await _wait_physics(30)
 	_check(player.is_on_floor(), "El jugador se apoya en la cinta")
 	_check(player.global_position.x - x0 > 40.0, "La cinta arrastra al jugador hacia delante (%.0f px)" % (player.global_position.x - x0))
+	var visual := belt.get_node_or_null("ConveyorBelt") as ConveyorVisual
+	var seen := {}
+	var offsets := {}
+	for i in 40:
+		visual._process(0.04)
+		seen[visual.frame] = true
+		offsets[snappedf(visual.tread_offset(), 0.01)] = true
+	_check(seen.size() == ConveyorVisual.FRAME_COUNT and offsets.size() == 3, "La animación de la cinta usa 3 fotogramas distintos")
+	var forward_offset := visual.tread_offset()
+	belt.conveyor_speed = -150.0
+	var reversed := belt.get_node_or_null("ConveyorBelt") as ConveyorVisual
+	reversed.frame = 1
+	_check(reversed.tread_offset() < 0.0 and forward_offset >= 0.0, "Los tacos se desplazan en el sentido de la cinta")
 	belt.conveyor_speed = 0.0
-	_check(belt.get_node_or_null("ConveyorArrows") == null, "Sin velocidad no hay flechas")
+	_check(belt.get_node_or_null("ConveyorBelt") == null, "Sin velocidad no hay banda")
 	belt.queue_free()
 
 
