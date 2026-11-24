@@ -1,0 +1,260 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_overlay.gd" id="1_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/control_guide.tscn" id="2_guide"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pause_panel"]
+bg_color = Color(0.0431373, 0.0627451, 0.0980392, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.309804, 0.827451, 1, 0.85)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0.0745098, 0.152941, 0.25098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25098, 0.690196, 1, 0.7)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
+bg_color = Color(0.117647, 0.25098, 0.4, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.431373, 0.827451, 1, 0.95)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="PauseOverlay" type="CanvasLayer"]
+layer = 20
+process_mode = 3
+script = ExtResource("1_pause")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MenuPanel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(500, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause_panel")
+
+[node name="Margin" type="MarginContainer" parent="Center/MenuPanel"]
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 34
+theme_override_constants/margin_bottom = 26
+
+[node name="VBox" type="VBoxContainer" parent="Center/MenuPanel/Margin"]
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Center/MenuPanel/Margin/VBox"]
+theme_override_colors/font_color = Color(0.431373, 0.960784, 1, 1)
+theme_override_font_sizes/font_size = 34
+text = "PAUSA"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Center/MenuPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 48)
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "CONTINUAR"
+
+[node name="GuideButton" type="Button" parent="Center/MenuPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "GUÍA"
+
+[node name="SettingsButton" type="Button" parent="Center/MenuPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "CONFIGURACIÓN"
+
+[node name="MainMenuButton" type="Button" parent="Center/MenuPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "VOLVER AL MENÚ PRINCIPAL"
+
+[node name="QuitButton" type="Button" parent="Center/MenuPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "SALIR"
+
+[node name="Footer" type="Label" parent="Center/MenuPanel/Margin/VBox"]
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+theme_override_font_sizes/font_size = 14
+text = "Pulsa Enter para continuar"
+horizontal_alignment = 1
+
+[node name="GuidePanel" type="PanelContainer" parent="Center"]
+visible = false
+custom_minimum_size = Vector2(620, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause_panel")
+
+[node name="Margin" type="MarginContainer" parent="Center/GuidePanel"]
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 22
+
+[node name="VBox" type="VBoxContainer" parent="Center/GuidePanel/Margin"]
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Center/GuidePanel/Margin/VBox"]
+theme_override_colors/font_color = Color(0.431373, 0.960784, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "GUÍA"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="Center/GuidePanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 480)
+horizontal_scroll_mode = 0
+
+[node name="ControlGuide" parent="Center/GuidePanel/Margin/VBox/Scroll" instance=ExtResource("2_guide")]
+columns = 1
+
+[node name="BackButton" type="Button" parent="Center/GuidePanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 42)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "VOLVER"
+
+[node name="SettingsPanel" type="PanelContainer" parent="Center"]
+visible = false
+custom_minimum_size = Vector2(680, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause_panel")
+
+[node name="Margin" type="MarginContainer" parent="Center/SettingsPanel"]
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="Center/SettingsPanel/Margin"]
+theme_override_constants/separation = 7
+
+[node name="Title" type="Label" parent="Center/SettingsPanel/Margin/VBox"]
+theme_override_colors/font_color = Color(0.431373, 0.960784, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "CONFIGURACIÓN"
+horizontal_alignment = 1
+
+[node name="BrightnessTitle" type="Label" parent="Center/SettingsPanel/Margin/VBox"]
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Brillo"
+
+[node name="BrightnessRow" type="HBoxContainer" parent="Center/SettingsPanel/Margin/VBox"]
+theme_override_constants/separation = 12
+
+[node name="BrightnessSlider" type="HSlider" parent="Center/SettingsPanel/Margin/VBox/BrightnessRow"]
+custom_minimum_size = Vector2(0, 26)
+size_flags_horizontal = 3
+min_value = 55.0
+max_value = 135.0
+step = 1.0
+value = 100.0
+
+[node name="BrightnessValue" type="Label" parent="Center/SettingsPanel/Margin/VBox/BrightnessRow"]
+custom_minimum_size = Vector2(58, 0)
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+text = "100%"
+horizontal_alignment = 2
+
+[node name="VolumeTitle" type="Label" parent="Center/SettingsPanel/Margin/VBox"]
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Volumen"
+
+[node name="VolumeRow" type="HBoxContainer" parent="Center/SettingsPanel/Margin/VBox"]
+theme_override_constants/separation = 12
+
+[node name="VolumeSlider" type="HSlider" parent="Center/SettingsPanel/Margin/VBox/VolumeRow"]
+custom_minimum_size = Vector2(0, 26)
+size_flags_horizontal = 3
+max_value = 100.0
+step = 1.0
+value = 80.0
+
+[node name="VolumeValue" type="Label" parent="Center/SettingsPanel/Margin/VBox/VolumeRow"]
+custom_minimum_size = Vector2(58, 0)
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+text = "80%"
+horizontal_alignment = 2
+
+[node name="ControlsTitle" type="Label" parent="Center/SettingsPanel/Margin/VBox"]
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Controles"
+
+[node name="ControlsGrid" type="GridContainer" parent="Center/SettingsPanel/Margin/VBox"]
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="StatusLabel" type="Label" parent="Center/SettingsPanel/Margin/VBox"]
+theme_override_colors/font_color = Color(0.431373, 0.960784, 1, 0.85)
+theme_override_font_sizes/font_size = 12
+text = "Ajusta los valores y pulsa Volver para guardar."
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Center/SettingsPanel/Margin/VBox"]
+theme_override_constants/separation = 12
+
+[node name="ResetControlsButton" type="Button" parent="Center/SettingsPanel/Margin/VBox/Buttons"]
+custom_minimum_size = Vector2(0, 42)
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "Restaurar controles"
+
+[node name="BackButton" type="Button" parent="Center/SettingsPanel/Margin/VBox/Buttons"]
+custom_minimum_size = Vector2(0, 42)
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "Volver"

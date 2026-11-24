@@ -1,0 +1,427 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/control_guide.tscn" id="2_guide"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.0313726, 0.054902, 0.105882, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.219608, 0.560784, 0.890196, 0.8)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0.0745098, 0.152941, 0.25098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25098, 0.690196, 1, 0.7)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
+bg_color = Color(0.117647, 0.25098, 0.4, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.431373, 0.827451, 1, 0.95)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Brightness" type="CanvasModulate" parent="."]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0313726, 0.0588235, 0.121569, 1)
+
+[node name="SkyBand" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 180.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.0705882, 0.145098, 0.278431, 1)
+
+[node name="Moon" type="Polygon2D" parent="."]
+position = Vector2(980, 110)
+color = Color(0.882353, 0.941176, 1, 0.95)
+polygon = PackedVector2Array(-34, 0, -25, -17, -8, -27, 10, -25, 25, -13, 33, 4, 25, 21, 8, 30, -10, 28, -26, 16)
+z_index = 1
+
+[node name="Stars" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -340.0
+offset_top = 28.0
+offset_right = -24.0
+offset_bottom = 80.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.75, 0.86, 1, 0.75)
+theme_override_font_sizes/font_size = 17
+text = "*    .      *        .    *"
+
+[node name="MainPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_right = 576.0
+grow_horizontal = 1
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="PanelMargin" type="MarginContainer" parent="MainPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 34
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="MainPanel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MainPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.541176, 0.909804, 1, 1)
+theme_override_font_sizes/font_size = 44
+text = "GRANJA DE ALTURA"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MainPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.827451, 0.941176, 1)
+theme_override_font_sizes/font_size = 15
+text = "Corre, salta en el aire y esquiva enemigos"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MainPanel/PanelMargin/VBox"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MainPanel/PanelMargin/VBox"]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "INICIO"
+
+[node name="SelectLevelButton" type="Button" parent="MainPanel/PanelMargin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "SELECCIÓN DE NIVEL"
+
+[node name="InstructionsButton" type="Button" parent="MainPanel/PanelMargin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "CÓMO JUGAR"
+
+[node name="OptionsButton" type="Button" parent="MainPanel/PanelMargin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "OPCIONES"
+
+[node name="QuitButton" type="Button" parent="MainPanel/PanelMargin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "CERRAR JUEGO"
+
+[node name="TotalLabel" type="Label" parent="MainPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+theme_override_font_sizes/font_size = 14
+text = "NIVEL 1-1 · ZONA 1 DE 8"
+horizontal_alignment = 1
+
+[node name="InstructionsPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -300.0
+offset_right = 390.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="PanelMargin" type="MarginContainer" parent="InstructionsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="InstructionsPanel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="InstructionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.541176, 0.909804, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "INSTRUCCIONES"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="InstructionsPanel/PanelMargin/VBox"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Content" type="VBoxContainer" parent="InstructionsPanel/PanelMargin/VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="ControlGuide" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content" instance=ExtResource("2_guide")]
+columns = 2
+
+[node name="ObjectiveTitle" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+theme_override_font_sizes/font_size = 14
+text = "OBJETIVO"
+
+[node name="ObjectiveText" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+custom_minimum_size = Vector2(700, 0)
+theme_override_colors/font_color = Color(0.87, 0.93, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Completa todos los niveles en el menor tiempo posible: llega al portal de cada uno esquivando enemigos y obstáculos. Al morir reapareces en el último control (bandera) con una vida menos."
+autowrap_mode = 3
+
+[node name="ObjectsTitle" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+theme_override_font_sizes/font_size = 14
+text = "OBJETOS DEL NIVEL"
+
+[node name="ObjectsText" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+custom_minimum_size = Vector2(700, 0)
+theme_override_colors/font_color = Color(0.87, 0.93, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Hierba curativa: recupera un punto de vida.
+Control (bandera): guarda el punto de reaparición y recupera toda la vida.
+Portal de salida: completa el nivel y pasa al siguiente.
+Plataformas móviles, sierras y pinchos: obstáculos; los pinchos y los pozos cuestan un golpe.
+Enemigos: no puedes atacarlos, esquívalos saltando. El mago lanza 3 bolas de fuego, el arquero una flecha rápida y los voladores cruzan la pantalla ondulando. En el nivel 7 el mundo está invertido y los enemigos llevan sombrero triangular amarillo. En el nivel 8 el recorrido del nivel 2 va en espejo y los controles horizontales están invertidos."
+autowrap_mode = 3
+
+[node name="TimeTitle" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+theme_override_font_sizes/font_size = 14
+text = "TIEMPO"
+
+[node name="TimeText" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+custom_minimum_size = Vector2(700, 0)
+theme_override_colors/font_color = Color(0.87, 0.93, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Todos los niveles jugables tienen 70 segundos; la hoja de ruta prevé 40. El reloj sigue corriendo al morir y no regala tiempo. Termina antes de 35 s para oro, 50 s para plata y 70 s para bronce. Bajo 10 s el tiempo se muestra en rojo."
+autowrap_mode = 3
+
+[node name="ItemsTitle" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+theme_override_font_sizes/font_size = 14
+text = "HABILIDADES Y VIDAS"
+
+[node name="ItemsText" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+custom_minimum_size = Vector2(700, 0)
+theme_override_colors/font_color = Color(0.87, 0.93, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Vidas: tienes 3 por nivel; al morir reapareces en el último control con la cuenta regresiva reiniciada. Si se agotan, eliges repetir el nivel o volver a empezar la zona.
+Correr: el personaje corre siempre por defecto.
+Doble salto: disponible siempre en el aire; pulsa saltar otra vez para impulsarte.
+Impulso: pulsa Ctrl para lanzarte rápido hacia delante; no cuenta como salto y mientras dura atraviesas enemigos y proyectiles sin recibir daño (las trampas sí hacen daño).
+Caer rápido: mantén Abajo o S en el aire para caer al instante."
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="InstructionsPanel/PanelMargin/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "VOLVER"
+
+[node name="OptionsPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_right = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="PanelMargin" type="MarginContainer" parent="OptionsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 14
+
+[node name="VBox" type="VBoxContainer" parent="OptionsPanel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="OptionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.541176, 0.909804, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "OPCIONES"
+horizontal_alignment = 1
+
+[node name="BrightnessTitle" type="Label" parent="OptionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Brillo"
+
+[node name="BrightnessRow" type="HBoxContainer" parent="OptionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BrightnessSlider" type="HSlider" parent="OptionsPanel/PanelMargin/VBox/BrightnessRow"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 55.0
+max_value = 135.0
+step = 1.0
+value = 100.0
+
+[node name="BrightnessValue" type="Label" parent="OptionsPanel/PanelMargin/VBox/BrightnessRow"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+text = "100%"
+horizontal_alignment = 2
+
+[node name="VolumeTitle" type="Label" parent="OptionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Volumen general"
+
+[node name="VolumeRow" type="HBoxContainer" parent="OptionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsPanel/PanelMargin/VBox/VolumeRow"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+step = 1.0
+value = 80.0
+
+[node name="VolumeValue" type="Label" parent="OptionsPanel/PanelMargin/VBox/VolumeRow"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+text = "80%"
+horizontal_alignment = 2
+
+[node name="ControlsTitle" type="Label" parent="OptionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Controles"
+
+[node name="ControlsGrid" type="GridContainer" parent="OptionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="StatusLabel" type="Label" parent="OptionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.431373, 0.960784, 1, 0.85)
+theme_override_font_sizes/font_size = 12
+text = "Ajusta los valores y pulsa Volver para guardar."
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="OptionsPanel/PanelMargin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ResetControlsButton" type="Button" parent="OptionsPanel/PanelMargin/VBox/Buttons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "Restaurar controles"
+
+[node name="BackButton" type="Button" parent="OptionsPanel/PanelMargin/VBox/Buttons"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+text = "Volver"

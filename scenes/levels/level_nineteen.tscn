@@ -1,0 +1,1443 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/levels/test_level.gd" id="1_qwjmf"]
+[ext_resource type="Script" path="res://scripts/levels/level_one_extension.gd" id="2_j3cj4"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_jxyx2"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="4_bblgm"]
+[ext_resource type="Resource" path="res://resources/player/player_stats.tres" id="5_s5kf0"]
+[ext_resource type="PackedScene" path="res://scenes/world/exit_portal.tscn" id="6_um7ve"]
+[ext_resource type="Script" path="res://scripts/world/exit_portal.gd" id="7_kimcr"]
+[ext_resource type="PackedScene" path="res://scenes/camera/horizontal_camera.tscn" id="8_s8c05"]
+[ext_resource type="Script" path="res://scripts/camera/horizontal_camera.gd" id="9_j0f86"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_hud.tscn" id="10_i8bro"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_overlay.tscn" id="11_p1uw0"]
+[ext_resource type="Script" path="res://scripts/ui/pause_overlay.gd" id="12_fvfjk"]
+[ext_resource type="PackedScene" path="res://scenes/world/platform.tscn" id="13_eym22"]
+[ext_resource type="Script" path="res://scripts/world/platform.gd" id="14_cm7yg"]
+[ext_resource type="PackedScene" path="res://scenes/world/spike_trap.tscn" id="15_s66i3"]
+[ext_resource type="Script" path="res://scripts/world/spike_trap.gd" id="16_u0sf2"]
+[ext_resource type="PackedScene" path="res://scenes/world/fall_zone.tscn" id="17_srr02"]
+[ext_resource type="Script" path="res://scripts/world/fall_zone.gd" id="18_uaw56"]
+[ext_resource type="Script" path="res://scripts/world/crumbling_platform.gd" id="19_56224"]
+[ext_resource type="PackedScene" path="res://scenes/world/saw_trap.tscn" id="20_irxny"]
+[ext_resource type="Script" path="res://scripts/world/saw_trap.gd" id="21_swti5"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spread_enemy.tscn" id="22_stmhu"]
+[ext_resource type="Script" path="res://scripts/enemies/spread_enemy.gd" id="23_yxymx"]
+[ext_resource type="PackedScene" path="res://scenes/pickups/healing_herb.tscn" id="24_5kdo6"]
+[ext_resource type="Script" path="res://scripts/pickups/healing_herb.gd" id="25_7ngi0"]
+[ext_resource type="PackedScene" path="res://scenes/world/checkpoint.tscn" id="26_5blga"]
+[ext_resource type="Script" path="res://scripts/world/checkpoint.gd" id="27_1j68q"]
+[ext_resource type="Script" path="res://scripts/world/steam_vent.gd" id="28_7luml"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/ranged_enemy.tscn" id="29_35vaj"]
+[ext_resource type="Script" path="res://scripts/enemies/ranged_enemy.gd" id="30_ym2tu"]
+[ext_resource type="Script" path="res://scripts/world/dark_zone.gd" id="31_cfxn5"]
+[ext_resource type="Script" path="res://scripts/enemies/flying_spawner.gd" id="32_wo0ih"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/sky_sentry.tscn" id="33_x8he3"]
+[ext_resource type="Script" path="res://scripts/enemies/sky_sentry.gd" id="34_65nhj"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spearman_enemy.tscn" id="35_y88xe"]
+[ext_resource type="Script" path="res://scripts/enemies/spearman_enemy.gd" id="36_yu4oh"]
+
+[sub_resource type="Gradient" id="Gradient_cfeno"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(0.09019608, 0.07058824, 0.16862746, 1, 0.16470589, 0.12941177, 0.2784314, 1, 0.25490198, 0.2, 0.41568628, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q8pti"]
+gradient = SubResource("Gradient_cfeno")
+width = 16
+height = 256
+fill_to = Vector2(0, 1)
+
+[node name="LevelNineteen" type="Node2D" unique_id=348395999]
+script = ExtResource("1_qwjmf")
+level_variant = 19
+next_level_path = "res://scenes/levels/level_twenty.tscn"
+level_name = "NIVEL 4-4"
+baked = true
+route_points = PackedVector2Array()
+gold_medal_time = 39.0
+silver_medal_time = 49.0
+
+[node name="Brightness" type="CanvasModulate" parent="." unique_id=2033298401]
+
+[node name="Background" type="ColorRect" parent="." unique_id=538648417]
+visible = false
+z_index = -20
+offset_right = 22400.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.0705882, 0.105882, 0.156863, 1)
+
+[node name="BackgroundDecor" type="Parallax2D" parent="." unique_id=1068732454]
+visible = false
+z_index = -16
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Hill1" type="Polygon2D" parent="BackgroundDecor" unique_id=1507266163]
+position = Vector2(250, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill2" type="Polygon2D" parent="BackgroundDecor" unique_id=86988411]
+position = Vector2(760, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill3" type="Polygon2D" parent="BackgroundDecor" unique_id=1559373905]
+position = Vector2(1500, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill4" type="Polygon2D" parent="BackgroundDecor" unique_id=1643857714]
+position = Vector2(2230, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill5" type="Polygon2D" parent="BackgroundDecor" unique_id=873682271]
+position = Vector2(3150, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill6" type="Polygon2D" parent="BackgroundDecor" unique_id=729031989]
+position = Vector2(3660, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill7" type="Polygon2D" parent="BackgroundDecor" unique_id=246894465]
+position = Vector2(4400, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill8" type="Polygon2D" parent="BackgroundDecor" unique_id=1483437395]
+position = Vector2(5030, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill9" type="Polygon2D" parent="BackgroundDecor" unique_id=495577272]
+position = Vector2(6050, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill10" type="Polygon2D" parent="BackgroundDecor" unique_id=948628337]
+position = Vector2(6560, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill11" type="Polygon2D" parent="BackgroundDecor" unique_id=1543354087]
+position = Vector2(7300, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill12" type="Polygon2D" parent="BackgroundDecor" unique_id=1665329782]
+position = Vector2(7930, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="LevelOneExtension" type="Node2D" parent="." unique_id=1810072112]
+script = ExtResource("2_j3cj4")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=511774503]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=745657074 groups=["player"] instance=ExtResource("3_jxyx2")]
+position = Vector2(70, 600)
+collision_layer = 2
+collision_mask = 5
+floor_snap_length = 6.0
+script = ExtResource("4_bblgm")
+stats = ExtResource("5_s5kf0")
+
+[node name="ExitPortal" type="Area2D" parent="." unique_id=762859362 instance=ExtResource("6_um7ve")]
+position = Vector2(15400, 580)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_kimcr")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=304653834 groups=["camera"] instance=ExtResource("8_s8c05")]
+position = Vector2(70, 360)
+zoom = Vector2(0.62, 0.62)
+limit_left = 0
+limit_top = 0
+limit_right = 16000
+limit_bottom = 720
+limit_smoothed = true
+script = ExtResource("9_j0f86")
+target_path = NodePath("../Player")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1913398666 instance=ExtResource("10_i8bro")]
+layer = 10
+
+[node name="PauseOverlay" type="CanvasLayer" parent="." unique_id=1983120068 instance=ExtResource("11_p1uw0")]
+process_mode = 3
+layer = 20
+visible = false
+script = ExtResource("12_fvfjk")
+
+[node name="LevelNineteenGenerated" type="Node2D" parent="." unique_id=910543604]
+
+[node name="CaveSky" type="TextureRect" parent="LevelNineteenGenerated" unique_id=268721026]
+z_index = -30
+offset_right = 16000.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_q8pti")
+
+[node name="FarParallax" type="Parallax2D" parent="LevelNineteenGenerated" unique_id=222885614]
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Polygon2D_1" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=567449242]
+z_index = -23
+color = Color(0.18039216, 0.14509805, 0.3137255, 1)
+polygon = PackedVector2Array(-400, 650, 16400, 650, 16400, 720, -400, 720)
+
+[node name="Polygon2D_2" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1886038281]
+z_index = -22
+position = Vector2(150, 650)
+color = Color(0.18039216, 0.14509805, 0.3137255, 1)
+polygon = PackedVector2Array(-110, 0, -30, -150, 0, -180, 40, -140, 130, 0)
+
+[node name="Polygon2D_3" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1412540047]
+z_index = -22
+position = Vector2(710, 650)
+color = Color(0.21317647, 0.17929412, 0.34117648, 1)
+polygon = PackedVector2Array(-110, 0, -30, -203, 0, -233, 40, -193, 130, 0)
+
+[node name="Polygon2D_4" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=638044523]
+z_index = -22
+position = Vector2(1270, 650)
+color = Color(0.24596079, 0.2134902, 0.36862746, 1)
+polygon = PackedVector2Array(-110, 0, -30, -256, 0, -286, 40, -246, 130, 0)
+
+[node name="Polygon2D_5" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1449501058]
+z_index = -22
+position = Vector2(1830, 650)
+color = Color(0.18039216, 0.14509805, 0.3137255, 1)
+polygon = PackedVector2Array(-110, 0, -30, -199, 0, -229, 40, -189, 130, 0)
+
+[node name="Polygon2D_6" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1990167293]
+z_index = -22
+position = Vector2(2390, 650)
+color = Color(0.21317647, 0.17929412, 0.34117648, 1)
+polygon = PackedVector2Array(-110, 0, -30, -252, 0, -282, 40, -242, 130, 0)
+
+[node name="Polygon2D_7" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1418844041]
+z_index = -22
+position = Vector2(2950, 650)
+color = Color(0.24596079, 0.2134902, 0.36862746, 1)
+polygon = PackedVector2Array(-110, 0, -30, -195, 0, -225, 40, -185, 130, 0)
+
+[node name="Polygon2D_8" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=977629428]
+z_index = -22
+position = Vector2(3510, 650)
+color = Color(0.18039216, 0.14509805, 0.3137255, 1)
+polygon = PackedVector2Array(-110, 0, -30, -248, 0, -278, 40, -238, 130, 0)
+
+[node name="Polygon2D_9" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1776334063]
+z_index = -22
+position = Vector2(4070, 650)
+color = Color(0.21317647, 0.17929412, 0.34117648, 1)
+polygon = PackedVector2Array(-110, 0, -30, -191, 0, -221, 40, -181, 130, 0)
+
+[node name="Polygon2D_10" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1854568732]
+z_index = -22
+position = Vector2(4630, 650)
+color = Color(0.24596079, 0.2134902, 0.36862746, 1)
+polygon = PackedVector2Array(-110, 0, -30, -244, 0, -274, 40, -234, 130, 0)
+
+[node name="Polygon2D_11" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1485968742]
+z_index = -22
+position = Vector2(5190, 650)
+color = Color(0.18039216, 0.14509805, 0.3137255, 1)
+polygon = PackedVector2Array(-110, 0, -30, -187, 0, -217, 40, -177, 130, 0)
+
+[node name="Polygon2D_12" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1028476934]
+z_index = -22
+position = Vector2(5750, 650)
+color = Color(0.21317647, 0.17929412, 0.34117648, 1)
+polygon = PackedVector2Array(-110, 0, -30, -240, 0, -270, 40, -230, 130, 0)
+
+[node name="Polygon2D_13" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=902379955]
+z_index = -22
+position = Vector2(6310, 650)
+color = Color(0.24596079, 0.2134902, 0.36862746, 1)
+polygon = PackedVector2Array(-110, 0, -30, -183, 0, -213, 40, -173, 130, 0)
+
+[node name="Polygon2D_14" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=762995494]
+z_index = -22
+position = Vector2(6870, 650)
+color = Color(0.18039216, 0.14509805, 0.3137255, 1)
+polygon = PackedVector2Array(-110, 0, -30, -236, 0, -266, 40, -226, 130, 0)
+
+[node name="Polygon2D_15" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=547637917]
+z_index = -22
+position = Vector2(7430, 650)
+color = Color(0.21317647, 0.17929412, 0.34117648, 1)
+polygon = PackedVector2Array(-110, 0, -30, -179, 0, -209, 40, -169, 130, 0)
+
+[node name="Polygon2D_16" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1073519232]
+z_index = -22
+position = Vector2(7990, 650)
+color = Color(0.24596079, 0.2134902, 0.36862746, 1)
+polygon = PackedVector2Array(-110, 0, -30, -232, 0, -262, 40, -222, 130, 0)
+
+[node name="Polygon2D_17" type="Polygon2D" parent="LevelNineteenGenerated/FarParallax" unique_id=1271830630]
+z_index = -22
+position = Vector2(8550, 650)
+color = Color(0.18039216, 0.14509805, 0.3137255, 1)
+polygon = PackedVector2Array(-110, 0, -30, -175, 0, -205, 40, -165, 130, 0)
+
+[node name="CaveCeiling" type="Polygon2D" parent="LevelNineteenGenerated" unique_id=1401266612]
+z_index = -9
+color = Color(0.10980392, 0.08627451, 0.2, 1)
+polygon = PackedVector2Array(-200, -40, -200, 50, -145, 14, -90, 87, -35, 14, 20, 84, 75, 14, 130, 81, 185, 14, 240, 78, 295, 14, 350, 75, 405, 14, 460, 72, 515, 14, 570, 69, 625, 14, 680, 66, 735, 14, 790, 63, 845, 14, 900, 60, 955, 14, 1010, 57, 1065, 14, 1120, 54, 1175, 14, 1230, 51, 1285, 14, 1340, 88, 1395, 14, 1450, 85, 1505, 14, 1560, 82, 1615, 14, 1670, 79, 1725, 14, 1780, 76, 1835, 14, 1890, 73, 1945, 14, 2000, 70, 2055, 14, 2110, 67, 2165, 14, 2220, 64, 2275, 14, 2330, 61, 2385, 14, 2440, 58, 2495, 14, 2550, 55, 2605, 14, 2660, 52, 2715, 14, 2770, 89, 2825, 14, 2880, 86, 2935, 14, 2990, 83, 3045, 14, 3100, 80, 3155, 14, 3210, 77, 3265, 14, 3320, 74, 3375, 14, 3430, 71, 3485, 14, 3540, 68, 3595, 14, 3650, 65, 3705, 14, 3760, 62, 3815, 14, 3870, 59, 3925, 14, 3980, 56, 4035, 14, 4090, 53, 4145, 14, 4200, 50, 4255, 14, 4310, 87, 4365, 14, 4420, 84, 4475, 14, 4530, 81, 4585, 14, 4640, 78, 4695, 14, 4750, 75, 4805, 14, 4860, 72, 4915, 14, 4970, 69, 5025, 14, 5080, 66, 5135, 14, 5190, 63, 5245, 14, 5300, 60, 5355, 14, 5410, 57, 5465, 14, 5520, 54, 5575, 14, 5630, 51, 5685, 14, 5740, 88, 5795, 14, 5850, 85, 5905, 14, 5960, 82, 6015, 14, 6070, 79, 6125, 14, 6180, 76, 6235, 14, 6290, 73, 6345, 14, 6400, 70, 6455, 14, 6510, 67, 6565, 14, 6620, 64, 6675, 14, 6730, 61, 6785, 14, 6840, 58, 6895, 14, 6950, 55, 7005, 14, 7060, 52, 7115, 14, 7170, 89, 7225, 14, 7280, 86, 7335, 14, 7390, 83, 7445, 14, 7500, 80, 7555, 14, 7610, 77, 7665, 14, 7720, 74, 7775, 14, 7830, 71, 7885, 14, 7940, 68, 7995, 14, 8050, 65, 8105, 14, 8160, 62, 8215, 14, 8270, 59, 8325, 14, 8380, 56, 8435, 14, 8490, 53, 8545, 14, 8600, 50, 8655, 14, 8710, 87, 8765, 14, 8820, 84, 8875, 14, 8930, 81, 8985, 14, 9040, 78, 9095, 14, 9150, 75, 9205, 14, 9260, 72, 9315, 14, 9370, 69, 9425, 14, 9480, 66, 9535, 14, 9590, 63, 9645, 14, 9700, 60, 9755, 14, 9810, 57, 9865, 14, 9920, 54, 9975, 14, 10030, 51, 10085, 14, 10140, 88, 10195, 14, 10250, 85, 10305, 14, 10360, 82, 10415, 14, 10470, 79, 10525, 14, 10580, 76, 10635, 14, 10690, 73, 10745, 14, 10800, 70, 10855, 14, 10910, 67, 10965, 14, 11020, 64, 11075, 14, 11130, 61, 11185, 14, 11240, 58, 11295, 14, 11350, 55, 11405, 14, 11460, 52, 11515, 14, 11570, 89, 11625, 14, 11680, 86, 11735, 14, 11790, 83, 11845, 14, 11900, 80, 11955, 14, 12010, 77, 12065, 14, 12120, 74, 12175, 14, 12230, 71, 12285, 14, 12340, 68, 12395, 14, 12450, 65, 12505, 14, 12560, 62, 12615, 14, 12670, 59, 12725, 14, 12780, 56, 12835, 14, 12890, 53, 12945, 14, 13000, 50, 13055, 14, 13110, 87, 13165, 14, 13220, 84, 13275, 14, 13330, 81, 13385, 14, 13440, 78, 13495, 14, 13550, 75, 13605, 14, 13660, 72, 13715, 14, 13770, 69, 13825, 14, 13880, 66, 13935, 14, 13990, 63, 14045, 14, 14100, 60, 14155, 14, 14210, 57, 14265, 14, 14320, 54, 14375, 14, 14430, 51, 14485, 14, 14540, 88, 14595, 14, 14650, 85, 14705, 14, 14760, 82, 14815, 14, 14870, 79, 14925, 14, 14980, 76, 15035, 14, 15090, 73, 15145, 14, 15200, 70, 15255, 14, 15310, 67, 15365, 14, 15420, 64, 15475, 14, 15530, 61, 15585, 14, 15640, 58, 15695, 14, 15750, 55, 15805, 14, 15860, 52, 15915, 14, 15970, 89, 16025, 14, 16080, 86, 16135, 14, 16190, 83, 16245, 14, 16300, 80, 16355, 14, 16400, -40)
+
+[node name="Crystal0" type="Node2D" parent="LevelNineteenGenerated" unique_id=530217508]
+z_index = -12
+position = Vector2(600, 640)
+
+[node name="Polygon2D_18" type="Polygon2D" parent="LevelNineteenGenerated/Crystal0" unique_id=580441849]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -40, 0, -52, 6, -34, 10, 0)
+
+[node name="Polygon2D_19" type="Polygon2D" parent="LevelNineteenGenerated/Crystal0" unique_id=1715392992]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -69, 14, -81, 20, -63, 24, 0)
+
+[node name="Polygon2D_20" type="Polygon2D" parent="LevelNineteenGenerated/Crystal0" unique_id=1320547950]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -48, 28, -60, 34, -42, 38, 0)
+
+[node name="Crystal1" type="Node2D" parent="LevelNineteenGenerated" unique_id=832690264]
+z_index = -12
+position = Vector2(1120, 640)
+
+[node name="Polygon2D_21" type="Polygon2D" parent="LevelNineteenGenerated/Crystal1" unique_id=1608223642]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -69, 0, -81, 6, -63, 10, 0)
+
+[node name="Polygon2D_22" type="Polygon2D" parent="LevelNineteenGenerated/Crystal1" unique_id=1550924099]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -48, 14, -60, 20, -42, 24, 0)
+
+[node name="Polygon2D_23" type="Polygon2D" parent="LevelNineteenGenerated/Crystal1" unique_id=349495973]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -77, 28, -89, 34, -71, 38, 0)
+
+[node name="Crystal2" type="Node2D" parent="LevelNineteenGenerated" unique_id=456987793]
+z_index = -12
+position = Vector2(1813, 640)
+
+[node name="Polygon2D_24" type="Polygon2D" parent="LevelNineteenGenerated/Crystal2" unique_id=689430938]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -48, 0, -60, 6, -42, 10, 0)
+
+[node name="Polygon2D_25" type="Polygon2D" parent="LevelNineteenGenerated/Crystal2" unique_id=459535362]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -77, 14, -89, 20, -71, 24, 0)
+
+[node name="Polygon2D_26" type="Polygon2D" parent="LevelNineteenGenerated/Crystal2" unique_id=1210903465]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -56, 28, -68, 34, -50, 38, 0)
+
+[node name="Crystal3" type="Node2D" parent="LevelNineteenGenerated" unique_id=841954358]
+z_index = -12
+position = Vector2(2679, 640)
+
+[node name="Polygon2D_27" type="Polygon2D" parent="LevelNineteenGenerated/Crystal3" unique_id=1209348367]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -77, 0, -89, 6, -71, 10, 0)
+
+[node name="Polygon2D_28" type="Polygon2D" parent="LevelNineteenGenerated/Crystal3" unique_id=197107505]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -56, 14, -68, 20, -50, 24, 0)
+
+[node name="Polygon2D_29" type="Polygon2D" parent="LevelNineteenGenerated/Crystal3" unique_id=1989438131]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -85, 28, -97, 34, -79, 38, 0)
+
+[node name="Crystal4" type="Node2D" parent="LevelNineteenGenerated" unique_id=1696557354]
+z_index = -12
+position = Vector2(3298, 640)
+
+[node name="Polygon2D_30" type="Polygon2D" parent="LevelNineteenGenerated/Crystal4" unique_id=1656767440]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -56, 0, -68, 6, -50, 10, 0)
+
+[node name="Polygon2D_31" type="Polygon2D" parent="LevelNineteenGenerated/Crystal4" unique_id=188247322]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -85, 14, -97, 20, -79, 24, 0)
+
+[node name="Polygon2D_32" type="Polygon2D" parent="LevelNineteenGenerated/Crystal4" unique_id=377329326]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -64, 28, -76, 34, -58, 38, 0)
+
+[node name="Crystal5" type="Node2D" parent="LevelNineteenGenerated" unique_id=1920280009]
+z_index = -12
+position = Vector2(4090, 640)
+
+[node name="Polygon2D_33" type="Polygon2D" parent="LevelNineteenGenerated/Crystal5" unique_id=1629992182]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -85, 0, -97, 6, -79, 10, 0)
+
+[node name="Polygon2D_34" type="Polygon2D" parent="LevelNineteenGenerated/Crystal5" unique_id=784560865]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -64, 14, -76, 20, -58, 24, 0)
+
+[node name="Polygon2D_35" type="Polygon2D" parent="LevelNineteenGenerated/Crystal5" unique_id=1409291493]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -43, 28, -55, 34, -37, 38, 0)
+
+[node name="Crystal6" type="Node2D" parent="LevelNineteenGenerated" unique_id=1216883293]
+z_index = -12
+position = Vector2(4635, 640)
+
+[node name="Polygon2D_36" type="Polygon2D" parent="LevelNineteenGenerated/Crystal6" unique_id=484375558]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -64, 0, -76, 6, -58, 10, 0)
+
+[node name="Polygon2D_37" type="Polygon2D" parent="LevelNineteenGenerated/Crystal6" unique_id=1379380415]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -43, 14, -55, 20, -37, 24, 0)
+
+[node name="Polygon2D_38" type="Polygon2D" parent="LevelNineteenGenerated/Crystal6" unique_id=1843042199]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -72, 28, -84, 34, -66, 38, 0)
+
+[node name="Crystal7" type="Node2D" parent="LevelNineteenGenerated" unique_id=2046236114]
+z_index = -12
+position = Vector2(5353, 640)
+
+[node name="Polygon2D_39" type="Polygon2D" parent="LevelNineteenGenerated/Crystal7" unique_id=705862940]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -43, 0, -55, 6, -37, 10, 0)
+
+[node name="Polygon2D_40" type="Polygon2D" parent="LevelNineteenGenerated/Crystal7" unique_id=2003426369]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -72, 14, -84, 20, -66, 24, 0)
+
+[node name="Polygon2D_41" type="Polygon2D" parent="LevelNineteenGenerated/Crystal7" unique_id=598528959]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -51, 28, -63, 34, -45, 38, 0)
+
+[node name="Crystal8" type="Node2D" parent="LevelNineteenGenerated" unique_id=1333843998]
+z_index = -12
+position = Vector2(6244, 640)
+
+[node name="Polygon2D_42" type="Polygon2D" parent="LevelNineteenGenerated/Crystal8" unique_id=1619193414]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -72, 0, -84, 6, -66, 10, 0)
+
+[node name="Polygon2D_43" type="Polygon2D" parent="LevelNineteenGenerated/Crystal8" unique_id=124371114]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -51, 14, -63, 20, -45, 24, 0)
+
+[node name="Polygon2D_44" type="Polygon2D" parent="LevelNineteenGenerated/Crystal8" unique_id=2104565653]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -80, 28, -92, 34, -74, 38, 0)
+
+[node name="Crystal9" type="Node2D" parent="LevelNineteenGenerated" unique_id=1520196083]
+z_index = -12
+position = Vector2(6888, 640)
+
+[node name="Polygon2D_45" type="Polygon2D" parent="LevelNineteenGenerated/Crystal9" unique_id=1264757178]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -51, 0, -63, 6, -45, 10, 0)
+
+[node name="Polygon2D_46" type="Polygon2D" parent="LevelNineteenGenerated/Crystal9" unique_id=1109664608]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -80, 14, -92, 20, -74, 24, 0)
+
+[node name="Polygon2D_47" type="Polygon2D" parent="LevelNineteenGenerated/Crystal9" unique_id=2045713128]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -59, 28, -71, 34, -53, 38, 0)
+
+[node name="Crystal10" type="Node2D" parent="LevelNineteenGenerated" unique_id=1713424172]
+z_index = -12
+position = Vector2(7705, 640)
+
+[node name="Polygon2D_48" type="Polygon2D" parent="LevelNineteenGenerated/Crystal10" unique_id=1757145822]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -80, 0, -92, 6, -74, 10, 0)
+
+[node name="Polygon2D_49" type="Polygon2D" parent="LevelNineteenGenerated/Crystal10" unique_id=2066156600]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -59, 14, -71, 20, -53, 24, 0)
+
+[node name="Polygon2D_50" type="Polygon2D" parent="LevelNineteenGenerated/Crystal10" unique_id=1368378421]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -88, 28, -100, 34, -82, 38, 0)
+
+[node name="Crystal11" type="Node2D" parent="LevelNineteenGenerated" unique_id=1340500736]
+z_index = -12
+position = Vector2(8275, 640)
+
+[node name="Polygon2D_51" type="Polygon2D" parent="LevelNineteenGenerated/Crystal11" unique_id=1719828708]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -59, 0, -71, 6, -53, 10, 0)
+
+[node name="Polygon2D_52" type="Polygon2D" parent="LevelNineteenGenerated/Crystal11" unique_id=1929319503]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -88, 14, -100, 20, -82, 24, 0)
+
+[node name="Polygon2D_53" type="Polygon2D" parent="LevelNineteenGenerated/Crystal11" unique_id=140846047]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -67, 28, -79, 34, -61, 38, 0)
+
+[node name="Crystal12" type="Node2D" parent="LevelNineteenGenerated" unique_id=214553756]
+z_index = -12
+position = Vector2(9018, 640)
+
+[node name="Polygon2D_54" type="Polygon2D" parent="LevelNineteenGenerated/Crystal12" unique_id=1348445409]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -88, 0, -100, 6, -82, 10, 0)
+
+[node name="Polygon2D_55" type="Polygon2D" parent="LevelNineteenGenerated/Crystal12" unique_id=837408670]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -67, 14, -79, 20, -61, 24, 0)
+
+[node name="Polygon2D_56" type="Polygon2D" parent="LevelNineteenGenerated/Crystal12" unique_id=1633008669]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -46, 28, -58, 34, -40, 38, 0)
+
+[node name="Crystal13" type="Node2D" parent="LevelNineteenGenerated" unique_id=573343591]
+z_index = -12
+position = Vector2(9934, 640)
+
+[node name="Polygon2D_57" type="Polygon2D" parent="LevelNineteenGenerated/Crystal13" unique_id=582503551]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -67, 0, -79, 6, -61, 10, 0)
+
+[node name="Polygon2D_58" type="Polygon2D" parent="LevelNineteenGenerated/Crystal13" unique_id=1645947493]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -46, 14, -58, 20, -40, 24, 0)
+
+[node name="Polygon2D_59" type="Polygon2D" parent="LevelNineteenGenerated/Crystal13" unique_id=215995663]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -75, 28, -87, 34, -69, 38, 0)
+
+[node name="Crystal14" type="Node2D" parent="LevelNineteenGenerated" unique_id=725066272]
+z_index = -12
+position = Vector2(10603, 640)
+
+[node name="Polygon2D_60" type="Polygon2D" parent="LevelNineteenGenerated/Crystal14" unique_id=329665755]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -46, 0, -58, 6, -40, 10, 0)
+
+[node name="Polygon2D_61" type="Polygon2D" parent="LevelNineteenGenerated/Crystal14" unique_id=1531439729]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -75, 14, -87, 20, -69, 24, 0)
+
+[node name="Polygon2D_62" type="Polygon2D" parent="LevelNineteenGenerated/Crystal14" unique_id=1313793920]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -54, 28, -66, 34, -48, 38, 0)
+
+[node name="Crystal15" type="Node2D" parent="LevelNineteenGenerated" unique_id=1460053082]
+z_index = -12
+position = Vector2(11445, 640)
+
+[node name="Polygon2D_63" type="Polygon2D" parent="LevelNineteenGenerated/Crystal15" unique_id=140908535]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -75, 0, -87, 6, -69, 10, 0)
+
+[node name="Polygon2D_64" type="Polygon2D" parent="LevelNineteenGenerated/Crystal15" unique_id=1075301537]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -54, 14, -66, 20, -48, 24, 0)
+
+[node name="Polygon2D_65" type="Polygon2D" parent="LevelNineteenGenerated/Crystal15" unique_id=1559850997]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -83, 28, -95, 34, -77, 38, 0)
+
+[node name="Crystal16" type="Node2D" parent="LevelNineteenGenerated" unique_id=1280575994]
+z_index = -12
+position = Vector2(12040, 640)
+
+[node name="Polygon2D_66" type="Polygon2D" parent="LevelNineteenGenerated/Crystal16" unique_id=1011176612]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -54, 0, -66, 6, -48, 10, 0)
+
+[node name="Polygon2D_67" type="Polygon2D" parent="LevelNineteenGenerated/Crystal16" unique_id=714344084]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -83, 14, -95, 20, -77, 24, 0)
+
+[node name="Polygon2D_68" type="Polygon2D" parent="LevelNineteenGenerated/Crystal16" unique_id=1687946116]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -62, 28, -74, 34, -56, 38, 0)
+
+[node name="Crystal17" type="Node2D" parent="LevelNineteenGenerated" unique_id=1659108945]
+z_index = -12
+position = Vector2(12808, 640)
+
+[node name="Polygon2D_69" type="Polygon2D" parent="LevelNineteenGenerated/Crystal17" unique_id=1405556287]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -83, 0, -95, 6, -77, 10, 0)
+
+[node name="Polygon2D_70" type="Polygon2D" parent="LevelNineteenGenerated/Crystal17" unique_id=1250211589]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -62, 14, -74, 20, -56, 24, 0)
+
+[node name="Polygon2D_71" type="Polygon2D" parent="LevelNineteenGenerated/Crystal17" unique_id=236490708]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -41, 28, -53, 34, -35, 38, 0)
+
+[node name="Crystal18" type="Node2D" parent="LevelNineteenGenerated" unique_id=1689548302]
+z_index = -12
+position = Vector2(13329, 640)
+
+[node name="Polygon2D_72" type="Polygon2D" parent="LevelNineteenGenerated/Crystal18" unique_id=838082222]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -62, 0, -74, 6, -56, 10, 0)
+
+[node name="Polygon2D_73" type="Polygon2D" parent="LevelNineteenGenerated/Crystal18" unique_id=1648726673]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -41, 14, -53, 20, -35, 24, 0)
+
+[node name="Polygon2D_74" type="Polygon2D" parent="LevelNineteenGenerated/Crystal18" unique_id=2138150325]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -70, 28, -82, 34, -64, 38, 0)
+
+[node name="Crystal19" type="Node2D" parent="LevelNineteenGenerated" unique_id=993656307]
+z_index = -12
+position = Vector2(14023, 640)
+
+[node name="Polygon2D_75" type="Polygon2D" parent="LevelNineteenGenerated/Crystal19" unique_id=609664315]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -41, 0, -53, 6, -35, 10, 0)
+
+[node name="Polygon2D_76" type="Polygon2D" parent="LevelNineteenGenerated/Crystal19" unique_id=379899697]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -70, 14, -82, 20, -64, 24, 0)
+
+[node name="Polygon2D_77" type="Polygon2D" parent="LevelNineteenGenerated/Crystal19" unique_id=1852394098]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -49, 28, -61, 34, -43, 38, 0)
+
+[node name="Crystal20" type="Node2D" parent="LevelNineteenGenerated" unique_id=1691268926]
+z_index = -12
+position = Vector2(14890, 640)
+
+[node name="Polygon2D_78" type="Polygon2D" parent="LevelNineteenGenerated/Crystal20" unique_id=1860787833]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -70, 0, -82, 6, -64, 10, 0)
+
+[node name="Polygon2D_79" type="Polygon2D" parent="LevelNineteenGenerated/Crystal20" unique_id=789314571]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -49, 14, -61, 20, -43, 24, 0)
+
+[node name="Polygon2D_80" type="Polygon2D" parent="LevelNineteenGenerated/Crystal20" unique_id=32268745]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -78, 28, -90, 34, -72, 38, 0)
+
+[node name="Crystal21" type="Node2D" parent="LevelNineteenGenerated" unique_id=356306458]
+z_index = -12
+position = Vector2(15510, 640)
+
+[node name="Polygon2D_81" type="Polygon2D" parent="LevelNineteenGenerated/Crystal21" unique_id=238585283]
+color = Color(0.84313726, 0.60784316, 1, 1)
+polygon = PackedVector2Array(-10, 0, -6, -49, 0, -61, 6, -43, 10, 0)
+
+[node name="Polygon2D_82" type="Polygon2D" parent="LevelNineteenGenerated/Crystal21" unique_id=1134053598]
+color = Color(0.7166667, 0.5166667, 0.85, 1)
+polygon = PackedVector2Array(4, 0, 8, -78, 14, -90, 20, -72, 24, 0)
+
+[node name="Polygon2D_83" type="Polygon2D" parent="LevelNineteenGenerated/Crystal21" unique_id=490190627]
+color = Color(0.5901961, 0.4254902, 0.7, 1)
+polygon = PackedVector2Array(18, 0, 22, -57, 28, -69, 34, -51, 38, 0)
+
+[node name="Platform" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=445651626 instance=ExtResource("13_eym22")]
+position = Vector2(650, 680)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(1300, 80)
+platform_color = Color(0.30980393, 0.2901961, 0.3882353, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/Platform" unique_id=1247016733 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-622, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/Platform" unique_id=1805298554 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(622, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="AnimatableBody2D_84" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1146687560 instance=ExtResource("13_eym22")]
+position = Vector2(15250, 700)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(1500, 120)
+platform_color = Color(0.30980393, 0.2901961, 0.3882353, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/AnimatableBody2D_84" unique_id=1818801401 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-722, -68)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/AnimatableBody2D_84" unique_id=8632119 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(722, -68)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="FallZoneGallery" type="Area2D" parent="LevelNineteenGenerated" unique_id=1920624930 instance=ExtResource("17_srr02")]
+position = Vector2(8000, 780)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("18_uaw56")
+zone_size = Vector2(16800, 120)
+
+[node name="GalleryStep0" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=803969545 instance=ExtResource("13_eym22")]
+position = Vector2(1500, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep0" unique_id=1965501915 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep0" unique_id=665069189 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryStep1" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=524610912 instance=ExtResource("13_eym22")]
+position = Vector2(1980, 450)
+collision_mask = 0
+script = ExtResource("14_cm7yg")
+kind = 1
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+travel = Vector2(60, 0)
+speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep1" unique_id=1334464049 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep1" unique_id=2118115586 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryCrumbling2" type="Node2D" parent="LevelNineteenGenerated" unique_id=1918199818]
+position = Vector2(2460, 352)
+script = ExtResource("19_56224")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="GalleryStep3" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=555864232 instance=ExtResource("13_eym22")]
+position = Vector2(2940, 450)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+kind = 3
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep3" unique_id=457864654 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep3" unique_id=1038640304 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryStep4" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=76166213 instance=ExtResource("13_eym22")]
+position = Vector2(3420, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep4" unique_id=747914780 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep4" unique_id=1332564426 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SawTrap" type="Area2D" parent="LevelNineteenGenerated" unique_id=1738323411 groups=["saws", "traps"] instance=ExtResource("20_irxny")]
+position = Vector2(3660, 398)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("21_swti5")
+move_range = 190.0
+move_speed = 1.4
+
+[node name="GalleryStep5" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1629344201 instance=ExtResource("13_eym22")]
+position = Vector2(3900, 450)
+collision_mask = 0
+script = ExtResource("14_cm7yg")
+kind = 2
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+circle_radius = 45.0
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep5" unique_id=442145493 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep5" unique_id=99129520 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryLedge6" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1466995580 instance=ExtResource("13_eym22")]
+position = Vector2(4380, 352)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(420, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryLedge6" unique_id=837800748 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-182, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryLedge6" unique_id=218614356 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(182, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryArcher6" type="CharacterBody2D" parent="LevelNineteenGenerated" unique_id=1877690071 groups=["enemies"] instance=ExtResource("22_stmhu")]
+position = Vector2(4490, 288)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("23_yxymx")
+shoot_range = 620.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 1600.0
+contact_damage = 25
+
+[node name="HealingHerb" type="Area2D" parent="LevelNineteenGenerated" unique_id=485819074 groups=["healing_pickups"] instance=ExtResource("24_5kdo6")]
+position = Vector2(4380, 306)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("25_7ngi0")
+
+[node name="GalleryStep7" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=51318143 instance=ExtResource("13_eym22")]
+position = Vector2(4860, 450)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep7" unique_id=349216271 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep7" unique_id=1660868959 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryStep8" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=708384428 instance=ExtResource("13_eym22")]
+position = Vector2(5340, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep8" unique_id=1948549875 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep8" unique_id=1541076743 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryStep9" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=940837321 instance=ExtResource("13_eym22")]
+position = Vector2(5820, 450)
+collision_mask = 0
+script = ExtResource("14_cm7yg")
+kind = 1
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+travel = Vector2(60, 0)
+speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep9" unique_id=333270560 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep9" unique_id=126889532 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryCrumbling10" type="Node2D" parent="LevelNineteenGenerated" unique_id=1584658955]
+position = Vector2(6300, 352)
+script = ExtResource("19_56224")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="GalleryStep11" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=981770718 instance=ExtResource("13_eym22")]
+position = Vector2(6780, 450)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+kind = 3
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep11" unique_id=621035232 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep11" unique_id=582865950 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="Area2D_85" type="Area2D" parent="LevelNineteenGenerated" unique_id=928379622 groups=["saws", "traps"] instance=ExtResource("20_irxny")]
+position = Vector2(7020, 300)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("21_swti5")
+move_range = 190.0
+move_speed = 1.4
+
+[node name="GalleryStep12" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1930298546 instance=ExtResource("13_eym22")]
+position = Vector2(7260, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep12" unique_id=1366912242 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep12" unique_id=987472536 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryLedge13" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=296594762 instance=ExtResource("13_eym22")]
+position = Vector2(7740, 450)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(420, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryLedge13" unique_id=1373838471 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-182, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryLedge13" unique_id=2022570307 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(182, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="Checkpoint" type="Area2D" parent="LevelNineteenGenerated" unique_id=564798541 instance=ExtResource("26_5blga")]
+position = Vector2(7600, 390)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("27_1j68q")
+
+[node name="GalleryVent13" type="Node2D" parent="LevelNineteenGenerated" unique_id=1835544772]
+position = Vector2(7870, 438)
+script = ExtResource("28_7luml")
+initial_delay = 0.5
+
+[node name="GalleryCrumbling14" type="Node2D" parent="LevelNineteenGenerated" unique_id=1550970132]
+position = Vector2(8220, 352)
+script = ExtResource("19_56224")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="GalleryStep15" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1731633792 instance=ExtResource("13_eym22")]
+position = Vector2(8700, 450)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep15" unique_id=1779194167 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep15" unique_id=306009190 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryStep16" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=687157191 instance=ExtResource("13_eym22")]
+position = Vector2(9180, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep16" unique_id=1682814088 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep16" unique_id=1383886667 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryStep17" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1874142668 instance=ExtResource("13_eym22")]
+position = Vector2(9660, 450)
+collision_mask = 0
+script = ExtResource("14_cm7yg")
+kind = 1
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+travel = Vector2(60, 0)
+speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep17" unique_id=1884920874 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep17" unique_id=646739586 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryCrumbling18" type="Node2D" parent="LevelNineteenGenerated" unique_id=1999529270]
+position = Vector2(10140, 352)
+script = ExtResource("19_56224")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Area2D_86" type="Area2D" parent="LevelNineteenGenerated" unique_id=660183240 groups=["saws", "traps"] instance=ExtResource("20_irxny")]
+position = Vector2(10380, 202)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("21_swti5")
+move_range = 190.0
+move_speed = 1.4
+
+[node name="GalleryStep19" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1688212318 instance=ExtResource("13_eym22")]
+position = Vector2(10620, 450)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+kind = 3
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep19" unique_id=1078467270 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep19" unique_id=400617511 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryLedge20" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1260799389 instance=ExtResource("13_eym22")]
+position = Vector2(11100, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(420, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryLedge20" unique_id=1176318965 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-182, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryLedge20" unique_id=1005506804 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(182, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryMage20" type="CharacterBody2D" parent="LevelNineteenGenerated" unique_id=1293315831 groups=["enemies"] instance=ExtResource("29_35vaj")]
+position = Vector2(11210, 482)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("30_ym2tu")
+shoot_range = 520.0
+
+[node name="GalleryVent20" type="Node2D" parent="LevelNineteenGenerated" unique_id=18824089]
+position = Vector2(10980, 536)
+script = ExtResource("28_7luml")
+
+[node name="Area2D_87" type="Area2D" parent="LevelNineteenGenerated" unique_id=315140449 groups=["healing_pickups"] instance=ExtResource("24_5kdo6")]
+position = Vector2(11100, 502)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("25_7ngi0")
+
+[node name="GalleryStep21" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=931300982 instance=ExtResource("13_eym22")]
+position = Vector2(11580, 450)
+collision_mask = 0
+script = ExtResource("14_cm7yg")
+kind = 2
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+circle_radius = 45.0
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep21" unique_id=1063598784 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep21" unique_id=519785590 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryCrumbling22" type="Node2D" parent="LevelNineteenGenerated" unique_id=2002482881]
+position = Vector2(12060, 352)
+script = ExtResource("19_56224")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="GalleryStep23" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=624713947 instance=ExtResource("13_eym22")]
+position = Vector2(12540, 450)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep23" unique_id=1218981452 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep23" unique_id=1647891689 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryStep24" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1487580198 instance=ExtResource("13_eym22")]
+position = Vector2(13020, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep24" unique_id=493203455 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep24" unique_id=535190300 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryStep25" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=352850927 instance=ExtResource("13_eym22")]
+position = Vector2(13500, 450)
+collision_mask = 0
+script = ExtResource("14_cm7yg")
+kind = 1
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+travel = Vector2(60, 0)
+speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep25" unique_id=278597336 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep25" unique_id=559900341 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="Area2D_88" type="Area2D" parent="LevelNineteenGenerated" unique_id=1622592103 groups=["saws", "traps"] instance=ExtResource("20_irxny")]
+position = Vector2(13740, 300)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("21_swti5")
+move_range = 190.0
+move_speed = 1.4
+
+[node name="GalleryLedge26" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=509545844 instance=ExtResource("13_eym22")]
+position = Vector2(13980, 352)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+platform_size = Vector2(420, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryLedge26" unique_id=1343192263 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(-182, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryLedge26" unique_id=780475586 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+visible = false
+position = Vector2(182, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="GalleryArcher26" type="CharacterBody2D" parent="LevelNineteenGenerated" unique_id=195007299 groups=["enemies"] instance=ExtResource("22_stmhu")]
+position = Vector2(14100, 288)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("23_yxymx")
+shoot_range = 620.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 1600.0
+contact_damage = 25
+
+[node name="GalleryMage26" type="CharacterBody2D" parent="LevelNineteenGenerated" unique_id=834652396 groups=["enemies"] instance=ExtResource("29_35vaj")]
+position = Vector2(13860, 286)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("30_ym2tu")
+shoot_range = 520.0
+
+[node name="Area2D_89" type="Area2D" parent="LevelNineteenGenerated" unique_id=1605915925 groups=["healing_pickups"] instance=ExtResource("24_5kdo6")]
+position = Vector2(13980, 306)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("25_7ngi0")
+
+[node name="GalleryStep27" type="AnimatableBody2D" parent="LevelNineteenGenerated" unique_id=1305108904 instance=ExtResource("13_eym22")]
+position = Vector2(14460, 450)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_cm7yg")
+kind = 3
+platform_size = Vector2(190, 24)
+platform_color = Color(0.41568628, 0.39215687, 0.5254902, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelNineteenGenerated/GalleryStep27" unique_id=1716123910 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+position = Vector2(-68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="SpikeRight" type="Area2D" parent="LevelNineteenGenerated/GalleryStep27" unique_id=1839741948 groups=["spikes", "traps"] instance=ExtResource("15_s66i3")]
+position = Vector2(68.4, -20)
+scale = Vector2(0.38, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_u0sf2")
+
+[node name="DarkZoneGallery" type="Area2D" parent="LevelNineteenGenerated" unique_id=1241978654]
+position = Vector2(7500, 360)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("31_cfxn5")
+light_radius = 280.0
+zone_size = Vector2(3800, 1000)
+
+[node name="FlyingSpawner" type="Node2D" parent="LevelNineteenGenerated" unique_id=1602677411]
+script = ExtResource("32_wo0ih")
+spawn_interval = 5.5
+initial_delay = 6.0
+min_height = 130.0
+max_height = 520.0
+side_margin = 40.0
+
+[node name="SkySentry" type="Node2D" parent="LevelNineteenGenerated" unique_id=527213491 groups=["enemies", "sky_sentries"] instance=ExtResource("33_x8he3")]
+z_index = 6
+position = Vector2(1738.0646, -82.58064)
+script = ExtResource("34_65nhj")
+
+[node name="GalleryGuardA" type="CharacterBody2D" parent="LevelNineteenGenerated" unique_id=1851703949 groups=["enemies"] instance=ExtResource("35_y88xe")]
+position = Vector2(15000, 610)
+collision_layer = 4
+script = ExtResource("36_yu4oh")
+
+[node name="GalleryGuardB" type="CharacterBody2D" parent="LevelNineteenGenerated" unique_id=1111274712 groups=["enemies"] instance=ExtResource("35_y88xe")]
+position = Vector2(15300, 610)
+collision_layer = 4
+script = ExtResource("36_yu4oh")
+narrow = true
+patrol_speed = 40.0
+patrol_distance = 30.0

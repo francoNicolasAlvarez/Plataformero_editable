@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemies/spearman_enemy.gd" id="1_spearman"]
+[ext_resource type="Script" path="res://scripts/combat/health.gd" id="2_health"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+resource_local_to_scene = true
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_damage"]
+resource_local_to_scene = true
+size = Vector2(38, 42)
+
+[node name="SpearmanEnemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_spearman")
+contact_damage = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Visual" type="Node2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(1.25, 1.25)
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_health")
+max_health = 40
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_damage")

@@ -1,0 +1,1182 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/levels/test_level.gd" id="1_7wktv"]
+[ext_resource type="Script" path="res://scripts/levels/level_one_extension.gd" id="2_3d6tg"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_6rbtq"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="4_u2ma8"]
+[ext_resource type="Resource" path="res://resources/player/player_stats.tres" id="5_3731y"]
+[ext_resource type="PackedScene" path="res://scenes/world/exit_portal.tscn" id="6_2tfmd"]
+[ext_resource type="Script" path="res://scripts/world/exit_portal.gd" id="7_r7e3s"]
+[ext_resource type="PackedScene" path="res://scenes/camera/horizontal_camera.tscn" id="8_4faw2"]
+[ext_resource type="Script" path="res://scripts/camera/horizontal_camera.gd" id="9_dvxhv"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_hud.tscn" id="10_fg8r1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_overlay.tscn" id="11_frf4k"]
+[ext_resource type="Script" path="res://scripts/ui/pause_overlay.gd" id="12_mc8u7"]
+[ext_resource type="PackedScene" path="res://scenes/world/platform.tscn" id="13_23m0x"]
+[ext_resource type="Script" path="res://scripts/world/platform.gd" id="14_pap0v"]
+[ext_resource type="PackedScene" path="res://scenes/world/spike_trap.tscn" id="15_bkcvm"]
+[ext_resource type="Script" path="res://scripts/world/spike_trap.gd" id="16_v35q7"]
+[ext_resource type="PackedScene" path="res://scenes/world/fall_zone.tscn" id="17_hsk8d"]
+[ext_resource type="Script" path="res://scripts/world/fall_zone.gd" id="18_qxywr"]
+[ext_resource type="Script" path="res://scripts/world/crumbling_platform.gd" id="19_fburi"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spread_enemy.tscn" id="20_l8u7l"]
+[ext_resource type="Script" path="res://scripts/enemies/spread_enemy.gd" id="21_hqxdu"]
+[ext_resource type="Script" path="res://scripts/world/steam_vent.gd" id="22_qi8c4"]
+[ext_resource type="PackedScene" path="res://scenes/world/checkpoint.tscn" id="23_wgqqv"]
+[ext_resource type="Script" path="res://scripts/world/checkpoint.gd" id="24_veld0"]
+[ext_resource type="PackedScene" path="res://scenes/pickups/healing_herb.tscn" id="25_4mi0y"]
+[ext_resource type="Script" path="res://scripts/pickups/healing_herb.gd" id="26_4m7x6"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/ranged_enemy.tscn" id="27_hfgsw"]
+[ext_resource type="Script" path="res://scripts/enemies/ranged_enemy.gd" id="28_ojtrl"]
+[ext_resource type="Script" path="res://scripts/world/rock_pile.gd" id="29_ytnmh"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/brute_enemy.tscn" id="30_qqj6m"]
+[ext_resource type="Script" path="res://scripts/enemies/brute_enemy.gd" id="31_b07tc"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/blast_jumper_enemy.tscn" id="32_742je"]
+[ext_resource type="Script" path="res://scripts/enemies/blast_jumper_enemy.gd" id="33_xncu5"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/slug_enemy.tscn" id="34_2y3jd"]
+[ext_resource type="Script" path="res://scripts/enemies/slug_enemy.gd" id="35_bbjae"]
+[ext_resource type="Script" path="res://scripts/world/dark_zone.gd" id="36_dtdkv"]
+[ext_resource type="Script" path="res://scripts/world/rockfall_spawner.gd" id="37_8v4on"]
+[ext_resource type="Script" path="res://scripts/enemies/flying_spawner.gd" id="38_dk0q7"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/sky_sentry.tscn" id="39_h20yw"]
+[ext_resource type="Script" path="res://scripts/enemies/sky_sentry.gd" id="40_j0xpq"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spearman_enemy.tscn" id="41_e2wf4"]
+[ext_resource type="Script" path="res://scripts/enemies/spearman_enemy.gd" id="42_5anph"]
+
+[sub_resource type="Gradient" id="Gradient_4knax"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(0.10980392, 0.05882353, 0.08627451, 1, 0.22745098, 0.11372549, 0.15294118, 1, 0.3529412, 0.16470589, 0.2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0a50s"]
+gradient = SubResource("Gradient_4knax")
+width = 16
+height = 256
+fill_to = Vector2(0, 1)
+
+[node name="LevelTwenty" type="Node2D" unique_id=848546338]
+script = ExtResource("1_7wktv")
+level_variant = 20
+next_level_path = "res://scenes/levels/level_twentyone.tscn"
+level_name = "NIVEL 4-5"
+baked = true
+route_points = PackedVector2Array()
+gold_medal_time = 39.0
+silver_medal_time = 49.0
+
+[node name="Brightness" type="CanvasModulate" parent="." unique_id=843058716]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1412930789]
+visible = false
+z_index = -20
+offset_right = 22400.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.0705882, 0.105882, 0.156863, 1)
+
+[node name="BackgroundDecor" type="Parallax2D" parent="." unique_id=1999904021]
+visible = false
+z_index = -16
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Hill1" type="Polygon2D" parent="BackgroundDecor" unique_id=1015203160]
+position = Vector2(250, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill2" type="Polygon2D" parent="BackgroundDecor" unique_id=221994200]
+position = Vector2(760, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill3" type="Polygon2D" parent="BackgroundDecor" unique_id=674748023]
+position = Vector2(1500, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill4" type="Polygon2D" parent="BackgroundDecor" unique_id=1611970090]
+position = Vector2(2230, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill5" type="Polygon2D" parent="BackgroundDecor" unique_id=285617644]
+position = Vector2(3150, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill6" type="Polygon2D" parent="BackgroundDecor" unique_id=1677020445]
+position = Vector2(3660, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill7" type="Polygon2D" parent="BackgroundDecor" unique_id=70889959]
+position = Vector2(4400, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill8" type="Polygon2D" parent="BackgroundDecor" unique_id=838677304]
+position = Vector2(5030, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill9" type="Polygon2D" parent="BackgroundDecor" unique_id=1525178675]
+position = Vector2(6050, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill10" type="Polygon2D" parent="BackgroundDecor" unique_id=214181726]
+position = Vector2(6560, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill11" type="Polygon2D" parent="BackgroundDecor" unique_id=1948393047]
+position = Vector2(7300, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill12" type="Polygon2D" parent="BackgroundDecor" unique_id=1229801690]
+position = Vector2(7930, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="LevelOneExtension" type="Node2D" parent="." unique_id=141029918]
+script = ExtResource("2_3d6tg")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=712316224]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1640100355 groups=["player"] instance=ExtResource("3_6rbtq")]
+position = Vector2(70, 600)
+collision_layer = 2
+collision_mask = 5
+floor_snap_length = 6.0
+script = ExtResource("4_u2ma8")
+stats = ExtResource("5_3731y")
+
+[node name="ExitPortal" type="Area2D" parent="." unique_id=1410502450 instance=ExtResource("6_2tfmd")]
+position = Vector2(15400, 580)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_r7e3s")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1853604836 groups=["camera"] instance=ExtResource("8_4faw2")]
+position = Vector2(70, 360)
+zoom = Vector2(0.62, 0.62)
+limit_left = 0
+limit_top = 0
+limit_right = 16000
+limit_bottom = 720
+limit_smoothed = true
+script = ExtResource("9_dvxhv")
+target_path = NodePath("../Player")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1913398666 instance=ExtResource("10_fg8r1")]
+layer = 10
+
+[node name="PauseOverlay" type="CanvasLayer" parent="." unique_id=37432420 instance=ExtResource("11_frf4k")]
+process_mode = 3
+layer = 20
+visible = false
+script = ExtResource("12_mc8u7")
+
+[node name="LevelTwentyGenerated" type="Node2D" parent="." unique_id=61086007]
+
+[node name="CaveSky" type="TextureRect" parent="LevelTwentyGenerated" unique_id=342884740]
+z_index = -30
+offset_right = 16000.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_0a50s")
+
+[node name="FarParallax" type="Parallax2D" parent="LevelTwentyGenerated" unique_id=346746271]
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Polygon2D_1" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1190568955]
+z_index = -23
+color = Color(0.23921569, 0.1254902, 0.16078432, 1)
+polygon = PackedVector2Array(-400, 650, 16400, 650, 16400, 720, -400, 720)
+
+[node name="Polygon2D_2" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1612383850]
+z_index = -22
+position = Vector2(150, 650)
+color = Color(0.23921569, 0.1254902, 0.16078432, 1)
+polygon = PackedVector2Array(-110, 0, -30, -150, 0, -180, 40, -140, 130, 0)
+
+[node name="Polygon2D_3" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1565423584]
+z_index = -22
+position = Vector2(710, 650)
+color = Color(0.26964706, 0.16047059, 0.19435295, 1)
+polygon = PackedVector2Array(-110, 0, -30, -203, 0, -233, 40, -193, 130, 0)
+
+[node name="Polygon2D_4" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=139376167]
+z_index = -22
+position = Vector2(1270, 650)
+color = Color(0.30007842, 0.19545099, 0.22792158, 1)
+polygon = PackedVector2Array(-110, 0, -30, -256, 0, -286, 40, -246, 130, 0)
+
+[node name="Polygon2D_5" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1011323158]
+z_index = -22
+position = Vector2(1830, 650)
+color = Color(0.23921569, 0.1254902, 0.16078432, 1)
+polygon = PackedVector2Array(-110, 0, -30, -199, 0, -229, 40, -189, 130, 0)
+
+[node name="Polygon2D_6" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1549280146]
+z_index = -22
+position = Vector2(2390, 650)
+color = Color(0.26964706, 0.16047059, 0.19435295, 1)
+polygon = PackedVector2Array(-110, 0, -30, -252, 0, -282, 40, -242, 130, 0)
+
+[node name="Polygon2D_7" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=919482842]
+z_index = -22
+position = Vector2(2950, 650)
+color = Color(0.30007842, 0.19545099, 0.22792158, 1)
+polygon = PackedVector2Array(-110, 0, -30, -195, 0, -225, 40, -185, 130, 0)
+
+[node name="Polygon2D_8" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=545425129]
+z_index = -22
+position = Vector2(3510, 650)
+color = Color(0.23921569, 0.1254902, 0.16078432, 1)
+polygon = PackedVector2Array(-110, 0, -30, -248, 0, -278, 40, -238, 130, 0)
+
+[node name="Polygon2D_9" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=907819844]
+z_index = -22
+position = Vector2(4070, 650)
+color = Color(0.26964706, 0.16047059, 0.19435295, 1)
+polygon = PackedVector2Array(-110, 0, -30, -191, 0, -221, 40, -181, 130, 0)
+
+[node name="Polygon2D_10" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1646832243]
+z_index = -22
+position = Vector2(4630, 650)
+color = Color(0.30007842, 0.19545099, 0.22792158, 1)
+polygon = PackedVector2Array(-110, 0, -30, -244, 0, -274, 40, -234, 130, 0)
+
+[node name="Polygon2D_11" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1418495680]
+z_index = -22
+position = Vector2(5190, 650)
+color = Color(0.23921569, 0.1254902, 0.16078432, 1)
+polygon = PackedVector2Array(-110, 0, -30, -187, 0, -217, 40, -177, 130, 0)
+
+[node name="Polygon2D_12" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=60477916]
+z_index = -22
+position = Vector2(5750, 650)
+color = Color(0.26964706, 0.16047059, 0.19435295, 1)
+polygon = PackedVector2Array(-110, 0, -30, -240, 0, -270, 40, -230, 130, 0)
+
+[node name="Polygon2D_13" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1099404049]
+z_index = -22
+position = Vector2(6310, 650)
+color = Color(0.30007842, 0.19545099, 0.22792158, 1)
+polygon = PackedVector2Array(-110, 0, -30, -183, 0, -213, 40, -173, 130, 0)
+
+[node name="Polygon2D_14" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1831126052]
+z_index = -22
+position = Vector2(6870, 650)
+color = Color(0.23921569, 0.1254902, 0.16078432, 1)
+polygon = PackedVector2Array(-110, 0, -30, -236, 0, -266, 40, -226, 130, 0)
+
+[node name="Polygon2D_15" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=792387758]
+z_index = -22
+position = Vector2(7430, 650)
+color = Color(0.26964706, 0.16047059, 0.19435295, 1)
+polygon = PackedVector2Array(-110, 0, -30, -179, 0, -209, 40, -169, 130, 0)
+
+[node name="Polygon2D_16" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=945978920]
+z_index = -22
+position = Vector2(7990, 650)
+color = Color(0.30007842, 0.19545099, 0.22792158, 1)
+polygon = PackedVector2Array(-110, 0, -30, -232, 0, -262, 40, -222, 130, 0)
+
+[node name="Polygon2D_17" type="Polygon2D" parent="LevelTwentyGenerated/FarParallax" unique_id=1845940478]
+z_index = -22
+position = Vector2(8550, 650)
+color = Color(0.23921569, 0.1254902, 0.16078432, 1)
+polygon = PackedVector2Array(-110, 0, -30, -175, 0, -205, 40, -165, 130, 0)
+
+[node name="CaveCeiling" type="Polygon2D" parent="LevelTwentyGenerated" unique_id=1470965286]
+z_index = -9
+color = Color(0.14117648, 0.05882353, 0.09019608, 1)
+polygon = PackedVector2Array(-200, -40, -200, 50, -145, 14, -90, 87, -35, 14, 20, 84, 75, 14, 130, 81, 185, 14, 240, 78, 295, 14, 350, 75, 405, 14, 460, 72, 515, 14, 570, 69, 625, 14, 680, 66, 735, 14, 790, 63, 845, 14, 900, 60, 955, 14, 1010, 57, 1065, 14, 1120, 54, 1175, 14, 1230, 51, 1285, 14, 1340, 88, 1395, 14, 1450, 85, 1505, 14, 1560, 82, 1615, 14, 1670, 79, 1725, 14, 1780, 76, 1835, 14, 1890, 73, 1945, 14, 2000, 70, 2055, 14, 2110, 67, 2165, 14, 2220, 64, 2275, 14, 2330, 61, 2385, 14, 2440, 58, 2495, 14, 2550, 55, 2605, 14, 2660, 52, 2715, 14, 2770, 89, 2825, 14, 2880, 86, 2935, 14, 2990, 83, 3045, 14, 3100, 80, 3155, 14, 3210, 77, 3265, 14, 3320, 74, 3375, 14, 3430, 71, 3485, 14, 3540, 68, 3595, 14, 3650, 65, 3705, 14, 3760, 62, 3815, 14, 3870, 59, 3925, 14, 3980, 56, 4035, 14, 4090, 53, 4145, 14, 4200, 50, 4255, 14, 4310, 87, 4365, 14, 4420, 84, 4475, 14, 4530, 81, 4585, 14, 4640, 78, 4695, 14, 4750, 75, 4805, 14, 4860, 72, 4915, 14, 4970, 69, 5025, 14, 5080, 66, 5135, 14, 5190, 63, 5245, 14, 5300, 60, 5355, 14, 5410, 57, 5465, 14, 5520, 54, 5575, 14, 5630, 51, 5685, 14, 5740, 88, 5795, 14, 5850, 85, 5905, 14, 5960, 82, 6015, 14, 6070, 79, 6125, 14, 6180, 76, 6235, 14, 6290, 73, 6345, 14, 6400, 70, 6455, 14, 6510, 67, 6565, 14, 6620, 64, 6675, 14, 6730, 61, 6785, 14, 6840, 58, 6895, 14, 6950, 55, 7005, 14, 7060, 52, 7115, 14, 7170, 89, 7225, 14, 7280, 86, 7335, 14, 7390, 83, 7445, 14, 7500, 80, 7555, 14, 7610, 77, 7665, 14, 7720, 74, 7775, 14, 7830, 71, 7885, 14, 7940, 68, 7995, 14, 8050, 65, 8105, 14, 8160, 62, 8215, 14, 8270, 59, 8325, 14, 8380, 56, 8435, 14, 8490, 53, 8545, 14, 8600, 50, 8655, 14, 8710, 87, 8765, 14, 8820, 84, 8875, 14, 8930, 81, 8985, 14, 9040, 78, 9095, 14, 9150, 75, 9205, 14, 9260, 72, 9315, 14, 9370, 69, 9425, 14, 9480, 66, 9535, 14, 9590, 63, 9645, 14, 9700, 60, 9755, 14, 9810, 57, 9865, 14, 9920, 54, 9975, 14, 10030, 51, 10085, 14, 10140, 88, 10195, 14, 10250, 85, 10305, 14, 10360, 82, 10415, 14, 10470, 79, 10525, 14, 10580, 76, 10635, 14, 10690, 73, 10745, 14, 10800, 70, 10855, 14, 10910, 67, 10965, 14, 11020, 64, 11075, 14, 11130, 61, 11185, 14, 11240, 58, 11295, 14, 11350, 55, 11405, 14, 11460, 52, 11515, 14, 11570, 89, 11625, 14, 11680, 86, 11735, 14, 11790, 83, 11845, 14, 11900, 80, 11955, 14, 12010, 77, 12065, 14, 12120, 74, 12175, 14, 12230, 71, 12285, 14, 12340, 68, 12395, 14, 12450, 65, 12505, 14, 12560, 62, 12615, 14, 12670, 59, 12725, 14, 12780, 56, 12835, 14, 12890, 53, 12945, 14, 13000, 50, 13055, 14, 13110, 87, 13165, 14, 13220, 84, 13275, 14, 13330, 81, 13385, 14, 13440, 78, 13495, 14, 13550, 75, 13605, 14, 13660, 72, 13715, 14, 13770, 69, 13825, 14, 13880, 66, 13935, 14, 13990, 63, 14045, 14, 14100, 60, 14155, 14, 14210, 57, 14265, 14, 14320, 54, 14375, 14, 14430, 51, 14485, 14, 14540, 88, 14595, 14, 14650, 85, 14705, 14, 14760, 82, 14815, 14, 14870, 79, 14925, 14, 14980, 76, 15035, 14, 15090, 73, 15145, 14, 15200, 70, 15255, 14, 15310, 67, 15365, 14, 15420, 64, 15475, 14, 15530, 61, 15585, 14, 15640, 58, 15695, 14, 15750, 55, 15805, 14, 15860, 52, 15915, 14, 15970, 89, 16025, 14, 16080, 86, 16135, 14, 16190, 83, 16245, 14, 16300, 80, 16355, 14, 16400, -40)
+
+[node name="Crystal0" type="Node2D" parent="LevelTwentyGenerated" unique_id=811589538]
+z_index = -12
+position = Vector2(600, 640)
+
+[node name="Polygon2D_18" type="Polygon2D" parent="LevelTwentyGenerated/Crystal0" unique_id=1893877092]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -40, 0, -52, 6, -34, 10, 0)
+
+[node name="Polygon2D_19" type="Polygon2D" parent="LevelTwentyGenerated/Crystal0" unique_id=1895889282]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -69, 14, -81, 20, -63, 24, 0)
+
+[node name="Polygon2D_20" type="Polygon2D" parent="LevelTwentyGenerated/Crystal0" unique_id=174364759]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -48, 28, -60, 34, -42, 38, 0)
+
+[node name="Crystal1" type="Node2D" parent="LevelTwentyGenerated" unique_id=572873697]
+z_index = -12
+position = Vector2(1120, 640)
+
+[node name="Polygon2D_21" type="Polygon2D" parent="LevelTwentyGenerated/Crystal1" unique_id=118506618]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -69, 0, -81, 6, -63, 10, 0)
+
+[node name="Polygon2D_22" type="Polygon2D" parent="LevelTwentyGenerated/Crystal1" unique_id=356689369]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -48, 14, -60, 20, -42, 24, 0)
+
+[node name="Polygon2D_23" type="Polygon2D" parent="LevelTwentyGenerated/Crystal1" unique_id=850881044]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -77, 28, -89, 34, -71, 38, 0)
+
+[node name="Crystal2" type="Node2D" parent="LevelTwentyGenerated" unique_id=994415113]
+z_index = -12
+position = Vector2(1813, 640)
+
+[node name="Polygon2D_24" type="Polygon2D" parent="LevelTwentyGenerated/Crystal2" unique_id=946828290]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -48, 0, -60, 6, -42, 10, 0)
+
+[node name="Polygon2D_25" type="Polygon2D" parent="LevelTwentyGenerated/Crystal2" unique_id=2123629064]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -77, 14, -89, 20, -71, 24, 0)
+
+[node name="Polygon2D_26" type="Polygon2D" parent="LevelTwentyGenerated/Crystal2" unique_id=111498212]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -56, 28, -68, 34, -50, 38, 0)
+
+[node name="Crystal3" type="Node2D" parent="LevelTwentyGenerated" unique_id=378123212]
+z_index = -12
+position = Vector2(2679, 640)
+
+[node name="Polygon2D_27" type="Polygon2D" parent="LevelTwentyGenerated/Crystal3" unique_id=864500878]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -77, 0, -89, 6, -71, 10, 0)
+
+[node name="Polygon2D_28" type="Polygon2D" parent="LevelTwentyGenerated/Crystal3" unique_id=926739723]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -56, 14, -68, 20, -50, 24, 0)
+
+[node name="Polygon2D_29" type="Polygon2D" parent="LevelTwentyGenerated/Crystal3" unique_id=440423371]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -85, 28, -97, 34, -79, 38, 0)
+
+[node name="Crystal4" type="Node2D" parent="LevelTwentyGenerated" unique_id=1874031618]
+z_index = -12
+position = Vector2(3298, 640)
+
+[node name="Polygon2D_30" type="Polygon2D" parent="LevelTwentyGenerated/Crystal4" unique_id=1452049748]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -56, 0, -68, 6, -50, 10, 0)
+
+[node name="Polygon2D_31" type="Polygon2D" parent="LevelTwentyGenerated/Crystal4" unique_id=1681104553]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -85, 14, -97, 20, -79, 24, 0)
+
+[node name="Polygon2D_32" type="Polygon2D" parent="LevelTwentyGenerated/Crystal4" unique_id=59792550]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -64, 28, -76, 34, -58, 38, 0)
+
+[node name="Crystal5" type="Node2D" parent="LevelTwentyGenerated" unique_id=1702385548]
+z_index = -12
+position = Vector2(4090, 640)
+
+[node name="Polygon2D_33" type="Polygon2D" parent="LevelTwentyGenerated/Crystal5" unique_id=38269324]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -85, 0, -97, 6, -79, 10, 0)
+
+[node name="Polygon2D_34" type="Polygon2D" parent="LevelTwentyGenerated/Crystal5" unique_id=924891079]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -64, 14, -76, 20, -58, 24, 0)
+
+[node name="Polygon2D_35" type="Polygon2D" parent="LevelTwentyGenerated/Crystal5" unique_id=628422921]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -43, 28, -55, 34, -37, 38, 0)
+
+[node name="Crystal6" type="Node2D" parent="LevelTwentyGenerated" unique_id=300220662]
+z_index = -12
+position = Vector2(4635, 640)
+
+[node name="Polygon2D_36" type="Polygon2D" parent="LevelTwentyGenerated/Crystal6" unique_id=448807808]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -64, 0, -76, 6, -58, 10, 0)
+
+[node name="Polygon2D_37" type="Polygon2D" parent="LevelTwentyGenerated/Crystal6" unique_id=684118418]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -43, 14, -55, 20, -37, 24, 0)
+
+[node name="Polygon2D_38" type="Polygon2D" parent="LevelTwentyGenerated/Crystal6" unique_id=1598804359]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -72, 28, -84, 34, -66, 38, 0)
+
+[node name="Crystal7" type="Node2D" parent="LevelTwentyGenerated" unique_id=1021344037]
+z_index = -12
+position = Vector2(5353, 640)
+
+[node name="Polygon2D_39" type="Polygon2D" parent="LevelTwentyGenerated/Crystal7" unique_id=138849637]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -43, 0, -55, 6, -37, 10, 0)
+
+[node name="Polygon2D_40" type="Polygon2D" parent="LevelTwentyGenerated/Crystal7" unique_id=1350206768]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -72, 14, -84, 20, -66, 24, 0)
+
+[node name="Polygon2D_41" type="Polygon2D" parent="LevelTwentyGenerated/Crystal7" unique_id=377781217]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -51, 28, -63, 34, -45, 38, 0)
+
+[node name="Crystal8" type="Node2D" parent="LevelTwentyGenerated" unique_id=401622664]
+z_index = -12
+position = Vector2(6244, 640)
+
+[node name="Polygon2D_42" type="Polygon2D" parent="LevelTwentyGenerated/Crystal8" unique_id=1789321171]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -72, 0, -84, 6, -66, 10, 0)
+
+[node name="Polygon2D_43" type="Polygon2D" parent="LevelTwentyGenerated/Crystal8" unique_id=1793519548]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -51, 14, -63, 20, -45, 24, 0)
+
+[node name="Polygon2D_44" type="Polygon2D" parent="LevelTwentyGenerated/Crystal8" unique_id=375616846]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -80, 28, -92, 34, -74, 38, 0)
+
+[node name="Crystal9" type="Node2D" parent="LevelTwentyGenerated" unique_id=1926689334]
+z_index = -12
+position = Vector2(6888, 640)
+
+[node name="Polygon2D_45" type="Polygon2D" parent="LevelTwentyGenerated/Crystal9" unique_id=1271838951]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -51, 0, -63, 6, -45, 10, 0)
+
+[node name="Polygon2D_46" type="Polygon2D" parent="LevelTwentyGenerated/Crystal9" unique_id=870331803]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -80, 14, -92, 20, -74, 24, 0)
+
+[node name="Polygon2D_47" type="Polygon2D" parent="LevelTwentyGenerated/Crystal9" unique_id=705529530]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -59, 28, -71, 34, -53, 38, 0)
+
+[node name="Crystal10" type="Node2D" parent="LevelTwentyGenerated" unique_id=1990365949]
+z_index = -12
+position = Vector2(7705, 640)
+
+[node name="Polygon2D_48" type="Polygon2D" parent="LevelTwentyGenerated/Crystal10" unique_id=1425984877]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -80, 0, -92, 6, -74, 10, 0)
+
+[node name="Polygon2D_49" type="Polygon2D" parent="LevelTwentyGenerated/Crystal10" unique_id=1671971134]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -59, 14, -71, 20, -53, 24, 0)
+
+[node name="Polygon2D_50" type="Polygon2D" parent="LevelTwentyGenerated/Crystal10" unique_id=1248351195]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -88, 28, -100, 34, -82, 38, 0)
+
+[node name="Crystal11" type="Node2D" parent="LevelTwentyGenerated" unique_id=466042664]
+z_index = -12
+position = Vector2(8275, 640)
+
+[node name="Polygon2D_51" type="Polygon2D" parent="LevelTwentyGenerated/Crystal11" unique_id=1905275301]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -59, 0, -71, 6, -53, 10, 0)
+
+[node name="Polygon2D_52" type="Polygon2D" parent="LevelTwentyGenerated/Crystal11" unique_id=1537926639]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -88, 14, -100, 20, -82, 24, 0)
+
+[node name="Polygon2D_53" type="Polygon2D" parent="LevelTwentyGenerated/Crystal11" unique_id=2069114301]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -67, 28, -79, 34, -61, 38, 0)
+
+[node name="Crystal12" type="Node2D" parent="LevelTwentyGenerated" unique_id=723662266]
+z_index = -12
+position = Vector2(9018, 640)
+
+[node name="Polygon2D_54" type="Polygon2D" parent="LevelTwentyGenerated/Crystal12" unique_id=1557004189]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -88, 0, -100, 6, -82, 10, 0)
+
+[node name="Polygon2D_55" type="Polygon2D" parent="LevelTwentyGenerated/Crystal12" unique_id=425323873]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -67, 14, -79, 20, -61, 24, 0)
+
+[node name="Polygon2D_56" type="Polygon2D" parent="LevelTwentyGenerated/Crystal12" unique_id=2092594145]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -46, 28, -58, 34, -40, 38, 0)
+
+[node name="Crystal13" type="Node2D" parent="LevelTwentyGenerated" unique_id=307605884]
+z_index = -12
+position = Vector2(9934, 640)
+
+[node name="Polygon2D_57" type="Polygon2D" parent="LevelTwentyGenerated/Crystal13" unique_id=764189161]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -67, 0, -79, 6, -61, 10, 0)
+
+[node name="Polygon2D_58" type="Polygon2D" parent="LevelTwentyGenerated/Crystal13" unique_id=1243966671]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -46, 14, -58, 20, -40, 24, 0)
+
+[node name="Polygon2D_59" type="Polygon2D" parent="LevelTwentyGenerated/Crystal13" unique_id=1412092721]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -75, 28, -87, 34, -69, 38, 0)
+
+[node name="Crystal14" type="Node2D" parent="LevelTwentyGenerated" unique_id=1942426860]
+z_index = -12
+position = Vector2(10603, 640)
+
+[node name="Polygon2D_60" type="Polygon2D" parent="LevelTwentyGenerated/Crystal14" unique_id=1218200999]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -46, 0, -58, 6, -40, 10, 0)
+
+[node name="Polygon2D_61" type="Polygon2D" parent="LevelTwentyGenerated/Crystal14" unique_id=1027533557]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -75, 14, -87, 20, -69, 24, 0)
+
+[node name="Polygon2D_62" type="Polygon2D" parent="LevelTwentyGenerated/Crystal14" unique_id=113417187]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -54, 28, -66, 34, -48, 38, 0)
+
+[node name="Crystal15" type="Node2D" parent="LevelTwentyGenerated" unique_id=322630133]
+z_index = -12
+position = Vector2(11445, 640)
+
+[node name="Polygon2D_63" type="Polygon2D" parent="LevelTwentyGenerated/Crystal15" unique_id=1413337597]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -75, 0, -87, 6, -69, 10, 0)
+
+[node name="Polygon2D_64" type="Polygon2D" parent="LevelTwentyGenerated/Crystal15" unique_id=1910154751]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -54, 14, -66, 20, -48, 24, 0)
+
+[node name="Polygon2D_65" type="Polygon2D" parent="LevelTwentyGenerated/Crystal15" unique_id=1094226118]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -83, 28, -95, 34, -77, 38, 0)
+
+[node name="Crystal16" type="Node2D" parent="LevelTwentyGenerated" unique_id=972422897]
+z_index = -12
+position = Vector2(12040, 640)
+
+[node name="Polygon2D_66" type="Polygon2D" parent="LevelTwentyGenerated/Crystal16" unique_id=1898287790]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -54, 0, -66, 6, -48, 10, 0)
+
+[node name="Polygon2D_67" type="Polygon2D" parent="LevelTwentyGenerated/Crystal16" unique_id=233287337]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -83, 14, -95, 20, -77, 24, 0)
+
+[node name="Polygon2D_68" type="Polygon2D" parent="LevelTwentyGenerated/Crystal16" unique_id=2004416763]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -62, 28, -74, 34, -56, 38, 0)
+
+[node name="Crystal17" type="Node2D" parent="LevelTwentyGenerated" unique_id=2108605204]
+z_index = -12
+position = Vector2(12808, 640)
+
+[node name="Polygon2D_69" type="Polygon2D" parent="LevelTwentyGenerated/Crystal17" unique_id=722779277]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -83, 0, -95, 6, -77, 10, 0)
+
+[node name="Polygon2D_70" type="Polygon2D" parent="LevelTwentyGenerated/Crystal17" unique_id=858265001]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -62, 14, -74, 20, -56, 24, 0)
+
+[node name="Polygon2D_71" type="Polygon2D" parent="LevelTwentyGenerated/Crystal17" unique_id=454219421]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -41, 28, -53, 34, -35, 38, 0)
+
+[node name="Crystal18" type="Node2D" parent="LevelTwentyGenerated" unique_id=124637329]
+z_index = -12
+position = Vector2(13329, 640)
+
+[node name="Polygon2D_72" type="Polygon2D" parent="LevelTwentyGenerated/Crystal18" unique_id=630850933]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -62, 0, -74, 6, -56, 10, 0)
+
+[node name="Polygon2D_73" type="Polygon2D" parent="LevelTwentyGenerated/Crystal18" unique_id=423364950]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -41, 14, -53, 20, -35, 24, 0)
+
+[node name="Polygon2D_74" type="Polygon2D" parent="LevelTwentyGenerated/Crystal18" unique_id=1111367657]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -70, 28, -82, 34, -64, 38, 0)
+
+[node name="Crystal19" type="Node2D" parent="LevelTwentyGenerated" unique_id=82936483]
+z_index = -12
+position = Vector2(14023, 640)
+
+[node name="Polygon2D_75" type="Polygon2D" parent="LevelTwentyGenerated/Crystal19" unique_id=1689069201]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -41, 0, -53, 6, -35, 10, 0)
+
+[node name="Polygon2D_76" type="Polygon2D" parent="LevelTwentyGenerated/Crystal19" unique_id=570755280]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -70, 14, -82, 20, -64, 24, 0)
+
+[node name="Polygon2D_77" type="Polygon2D" parent="LevelTwentyGenerated/Crystal19" unique_id=1693213090]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -49, 28, -61, 34, -43, 38, 0)
+
+[node name="Crystal20" type="Node2D" parent="LevelTwentyGenerated" unique_id=486770121]
+z_index = -12
+position = Vector2(14890, 640)
+
+[node name="Polygon2D_78" type="Polygon2D" parent="LevelTwentyGenerated/Crystal20" unique_id=275823160]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -70, 0, -82, 6, -64, 10, 0)
+
+[node name="Polygon2D_79" type="Polygon2D" parent="LevelTwentyGenerated/Crystal20" unique_id=538106722]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -49, 14, -61, 20, -43, 24, 0)
+
+[node name="Polygon2D_80" type="Polygon2D" parent="LevelTwentyGenerated/Crystal20" unique_id=1208777974]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -78, 28, -90, 34, -72, 38, 0)
+
+[node name="Crystal21" type="Node2D" parent="LevelTwentyGenerated" unique_id=1222038101]
+z_index = -12
+position = Vector2(15510, 640)
+
+[node name="Polygon2D_81" type="Polygon2D" parent="LevelTwentyGenerated/Crystal21" unique_id=1234204732]
+color = Color(1, 0.5411765, 0.41568628, 1)
+polygon = PackedVector2Array(-10, 0, -6, -49, 0, -61, 6, -43, 10, 0)
+
+[node name="Polygon2D_82" type="Polygon2D" parent="LevelTwentyGenerated/Crystal21" unique_id=1169782667]
+color = Color(0.85, 0.46000004, 0.35333335, 1)
+polygon = PackedVector2Array(4, 0, 8, -78, 14, -90, 20, -72, 24, 0)
+
+[node name="Polygon2D_83" type="Polygon2D" parent="LevelTwentyGenerated/Crystal21" unique_id=2095527477]
+color = Color(0.7, 0.37882355, 0.2909804, 1)
+polygon = PackedVector2Array(18, 0, 22, -57, 28, -69, 34, -51, 38, 0)
+
+[node name="Platform" type="AnimatableBody2D" parent="LevelTwentyGenerated" unique_id=551659671 instance=ExtResource("13_23m0x")]
+position = Vector2(650, 680)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_pap0v")
+platform_size = Vector2(1300, 80)
+platform_color = Color(0.31764707, 0.28235295, 0.37254903, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelTwentyGenerated/Platform" unique_id=2117118437 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(-622, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="SpikeRight" type="Area2D" parent="LevelTwentyGenerated/Platform" unique_id=854848352 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(622, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="AnimatableBody2D_84" type="AnimatableBody2D" parent="LevelTwentyGenerated" unique_id=1643231161 instance=ExtResource("13_23m0x")]
+position = Vector2(14650, 700)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_pap0v")
+platform_size = Vector2(2700, 120)
+platform_color = Color(0.31764707, 0.28235295, 0.37254903, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelTwentyGenerated/AnimatableBody2D_84" unique_id=1775894971 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(-1322, -68)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="SpikeRight" type="Area2D" parent="LevelTwentyGenerated/AnimatableBody2D_84" unique_id=526915333 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(1322, -68)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="FallZoneCollapse" type="Area2D" parent="LevelTwentyGenerated" unique_id=1114513047 instance=ExtResource("17_hsk8d")]
+position = Vector2(8000, 780)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("18_qxywr")
+zone_size = Vector2(16800, 120)
+
+[node name="Collapse0_0" type="Node2D" parent="LevelTwentyGenerated" unique_id=1665243792]
+position = Vector2(1600, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse0_1" type="Node2D" parent="LevelTwentyGenerated" unique_id=521619198]
+position = Vector2(1880, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse0_2" type="Node2D" parent="LevelTwentyGenerated" unique_id=851962152]
+position = Vector2(2160, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse0_3" type="Node2D" parent="LevelTwentyGenerated" unique_id=1666647621]
+position = Vector2(2440, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse0_4" type="Node2D" parent="LevelTwentyGenerated" unique_id=1374751482]
+position = Vector2(2720, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse0_5" type="Node2D" parent="LevelTwentyGenerated" unique_id=1398438839]
+position = Vector2(3000, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse1_0" type="Node2D" parent="LevelTwentyGenerated" unique_id=269948209]
+position = Vector2(4100, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse1_1" type="Node2D" parent="LevelTwentyGenerated" unique_id=511555508]
+position = Vector2(4380, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse1_2" type="Node2D" parent="LevelTwentyGenerated" unique_id=1287940138]
+position = Vector2(4660, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse1_3" type="Node2D" parent="LevelTwentyGenerated" unique_id=584954467]
+position = Vector2(4940, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse1_4" type="Node2D" parent="LevelTwentyGenerated" unique_id=139477648]
+position = Vector2(5220, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse1_5" type="Node2D" parent="LevelTwentyGenerated" unique_id=828768650]
+position = Vector2(5500, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse2_0" type="Node2D" parent="LevelTwentyGenerated" unique_id=1422984045]
+position = Vector2(6600, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse2_1" type="Node2D" parent="LevelTwentyGenerated" unique_id=331737746]
+position = Vector2(6880, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse2_2" type="Node2D" parent="LevelTwentyGenerated" unique_id=491463441]
+position = Vector2(7160, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse2_3" type="Node2D" parent="LevelTwentyGenerated" unique_id=1138522365]
+position = Vector2(7440, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse2_4" type="Node2D" parent="LevelTwentyGenerated" unique_id=799258977]
+position = Vector2(7720, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse2_5" type="Node2D" parent="LevelTwentyGenerated" unique_id=564081796]
+position = Vector2(8000, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse3_0" type="Node2D" parent="LevelTwentyGenerated" unique_id=38826538]
+position = Vector2(9100, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse3_1" type="Node2D" parent="LevelTwentyGenerated" unique_id=1132873490]
+position = Vector2(9380, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse3_2" type="Node2D" parent="LevelTwentyGenerated" unique_id=1090345425]
+position = Vector2(9660, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse3_3" type="Node2D" parent="LevelTwentyGenerated" unique_id=1406019084]
+position = Vector2(9940, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse3_4" type="Node2D" parent="LevelTwentyGenerated" unique_id=1198380064]
+position = Vector2(10220, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse3_5" type="Node2D" parent="LevelTwentyGenerated" unique_id=1886540350]
+position = Vector2(10500, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse4_0" type="Node2D" parent="LevelTwentyGenerated" unique_id=244480724]
+position = Vector2(11600, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse4_1" type="Node2D" parent="LevelTwentyGenerated" unique_id=1061312599]
+position = Vector2(11880, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse4_2" type="Node2D" parent="LevelTwentyGenerated" unique_id=1233264473]
+position = Vector2(12160, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse4_3" type="Node2D" parent="LevelTwentyGenerated" unique_id=780778135]
+position = Vector2(12440, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse4_4" type="Node2D" parent="LevelTwentyGenerated" unique_id=379959740]
+position = Vector2(12720, 548)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="Collapse4_5" type="Node2D" parent="LevelTwentyGenerated" unique_id=821012936]
+position = Vector2(13000, 500)
+script = ExtResource("19_fburi")
+platform_color = Color(0.3647059, 0.34509805, 0.47058824, 1)
+warning_time = 0.6
+active_time = 2.5
+cooldown_time = 0.4
+auto_cycle = false
+
+[node name="CollapseIsland0" type="AnimatableBody2D" parent="LevelTwentyGenerated" unique_id=2090870862 instance=ExtResource("13_23m0x")]
+position = Vector2(3550, 600)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_pap0v")
+platform_size = Vector2(520, 80)
+platform_color = Color(0.47843137, 0.43529412, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelTwentyGenerated/CollapseIsland0" unique_id=1356344401 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(-232, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="SpikeRight" type="Area2D" parent="LevelTwentyGenerated/CollapseIsland0" unique_id=95050428 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(232, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="CollapseArcher0" type="CharacterBody2D" parent="LevelTwentyGenerated" unique_id=1268116540 groups=["enemies"] instance=ExtResource("20_l8u7l")]
+position = Vector2(3700, 508)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("21_hqxdu")
+shoot_range = 620.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 1600.0
+contact_damage = 25
+
+[node name="CollapseVent0" type="Node2D" parent="LevelTwentyGenerated" unique_id=1730180983]
+position = Vector2(3430, 560)
+script = ExtResource("22_qi8c4")
+
+[node name="CollapseIsland1" type="AnimatableBody2D" parent="LevelTwentyGenerated" unique_id=1540633925 instance=ExtResource("13_23m0x")]
+position = Vector2(6050, 600)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_pap0v")
+platform_size = Vector2(520, 80)
+platform_color = Color(0.47843137, 0.43529412, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelTwentyGenerated/CollapseIsland1" unique_id=1808545889 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(-232, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="SpikeRight" type="Area2D" parent="LevelTwentyGenerated/CollapseIsland1" unique_id=2110804883 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(232, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="Checkpoint" type="Area2D" parent="LevelTwentyGenerated" unique_id=954059036 instance=ExtResource("23_wgqqv")]
+position = Vector2(5910, 512)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("24_veld0")
+
+[node name="HealingHerb" type="Area2D" parent="LevelTwentyGenerated" unique_id=1008378142 groups=["healing_pickups"] instance=ExtResource("25_4mi0y")]
+position = Vector2(6170, 526)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("26_4m7x6")
+
+[node name="CollapseIsland2" type="AnimatableBody2D" parent="LevelTwentyGenerated" unique_id=1016404061 instance=ExtResource("13_23m0x")]
+position = Vector2(8550, 600)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_pap0v")
+platform_size = Vector2(520, 80)
+platform_color = Color(0.47843137, 0.43529412, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelTwentyGenerated/CollapseIsland2" unique_id=1554018001 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(-232, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="SpikeRight" type="Area2D" parent="LevelTwentyGenerated/CollapseIsland2" unique_id=2097069247 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(232, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="CollapseMage2" type="CharacterBody2D" parent="LevelTwentyGenerated" unique_id=1802232906 groups=["enemies"] instance=ExtResource("27_hfgsw")]
+position = Vector2(8400, 506)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("28_ojtrl")
+shoot_range = 520.0
+
+[node name="CollapseBrute2Pile" type="StaticBody2D" parent="LevelTwentyGenerated" unique_id=367618459]
+position = Vector2(8590, 560)
+collision_mask = 0
+script = ExtResource("29_ytnmh")
+
+[node name="CollapseBrute2" type="CharacterBody2D" parent="LevelTwentyGenerated" unique_id=377924132 groups=["enemies"] instance=ExtResource("30_qqj6m")]
+position = Vector2(8700, 528)
+collision_layer = 4
+script = ExtResource("31_b07tc")
+
+[node name="CollapseIsland3" type="AnimatableBody2D" parent="LevelTwentyGenerated" unique_id=887698695 instance=ExtResource("13_23m0x")]
+position = Vector2(11050, 600)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_pap0v")
+platform_size = Vector2(520, 80)
+platform_color = Color(0.47843137, 0.43529412, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelTwentyGenerated/CollapseIsland3" unique_id=518814658 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(-232, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="SpikeRight" type="Area2D" parent="LevelTwentyGenerated/CollapseIsland3" unique_id=506891689 groups=["spikes", "traps"] instance=ExtResource("15_bkcvm")]
+visible = false
+position = Vector2(232, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_v35q7")
+
+[node name="CollapseJumper3" type="CharacterBody2D" parent="LevelTwentyGenerated" unique_id=2040378760 groups=["enemies"] instance=ExtResource("32_742je")]
+position = Vector2(11190, 540)
+collision_layer = 4
+script = ExtResource("33_xncu5")
+
+[node name="CollapseSlug3" type="CharacterBody2D" parent="LevelTwentyGenerated" unique_id=1908256448 groups=["enemies"] instance=ExtResource("34_2y3jd")]
+position = Vector2(10910, 542)
+collision_layer = 4
+script = ExtResource("35_bbjae")
+
+[node name="DarkZoneCollapse" type="Area2D" parent="LevelTwentyGenerated" unique_id=1572770644]
+position = Vector2(11200, 360)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("36_dtdkv")
+light_radius = 270.0
+zone_size = Vector2(4400, 1000)
+
+[node name="RockfallSpawner" type="Node2D" parent="LevelTwentyGenerated" unique_id=113678577]
+script = ExtResource("37_8v4on")
+interval = 0.7333333333333334
+min_x = 1700.0
+max_x = 13300.0
+
+[node name="FlyingSpawner" type="Node2D" parent="LevelTwentyGenerated" unique_id=1725507866]
+script = ExtResource("38_dk0q7")
+spawn_interval = 5.0
+initial_delay = 5.0
+min_height = 130.0
+max_height = 520.0
+side_margin = 40.0
+
+[node name="SkySentry" type="Node2D" parent="LevelTwentyGenerated" unique_id=694480275 groups=["enemies", "sky_sentries"] instance=ExtResource("39_h20yw")]
+z_index = 6
+position = Vector2(1738.0646, -82.58064)
+script = ExtResource("40_j0xpq")
+
+[node name="CollapseFinalBrutePile" type="StaticBody2D" parent="LevelTwentyGenerated" unique_id=85533149]
+position = Vector2(13820, 640)
+collision_mask = 0
+script = ExtResource("29_ytnmh")
+
+[node name="CollapseFinalBrute" type="CharacterBody2D" parent="LevelTwentyGenerated" unique_id=1903578387 groups=["enemies"] instance=ExtResource("30_qqj6m")]
+position = Vector2(13940, 608)
+collision_layer = 4
+script = ExtResource("31_b07tc")
+
+[node name="CollapseFinalSlug" type="CharacterBody2D" parent="LevelTwentyGenerated" unique_id=1287052396 groups=["enemies"] instance=ExtResource("34_2y3jd")]
+position = Vector2(14240, 622)
+collision_layer = 4
+script = ExtResource("35_bbjae")
+double_jump = true
+
+[node name="CollapseGuardA" type="CharacterBody2D" parent="LevelTwentyGenerated" unique_id=950234799 groups=["enemies"] instance=ExtResource("41_e2wf4")]
+position = Vector2(14550, 610)
+collision_layer = 4
+script = ExtResource("42_5anph")
+
+[node name="CollapseGuardB" type="CharacterBody2D" parent="LevelTwentyGenerated" unique_id=841218977 groups=["enemies"] instance=ExtResource("41_e2wf4")]
+position = Vector2(14800, 610)
+collision_layer = 4
+script = ExtResource("42_5anph")
+narrow = true
+patrol_speed = 40.0
+patrol_distance = 30.0

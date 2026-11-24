@@ -1,0 +1,922 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/levels/test_level.gd" id="1_ps5q1"]
+[ext_resource type="Script" path="res://scripts/levels/level_one_extension.gd" id="2_7denl"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_2s77n"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="4_4fy0l"]
+[ext_resource type="Resource" path="res://resources/player/player_stats.tres" id="5_jq30r"]
+[ext_resource type="PackedScene" path="res://scenes/world/exit_portal.tscn" id="6_trhox"]
+[ext_resource type="Script" path="res://scripts/world/exit_portal.gd" id="7_dlp1d"]
+[ext_resource type="PackedScene" path="res://scenes/camera/horizontal_camera.tscn" id="8_cv4yj"]
+[ext_resource type="Script" path="res://scripts/camera/horizontal_camera.gd" id="9_tvpad"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_hud.tscn" id="10_7smox"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_overlay.tscn" id="11_dw6eh"]
+[ext_resource type="Script" path="res://scripts/ui/pause_overlay.gd" id="12_rb7c4"]
+[ext_resource type="PackedScene" path="res://scenes/world/platform.tscn" id="13_pxngn"]
+[ext_resource type="Script" path="res://scripts/world/platform.gd" id="14_60p24"]
+[ext_resource type="PackedScene" path="res://scenes/world/spike_trap.tscn" id="15_lv04c"]
+[ext_resource type="Script" path="res://scripts/world/spike_trap.gd" id="16_ufbhy"]
+[ext_resource type="PackedScene" path="res://scenes/world/fall_zone.tscn" id="17_oq7p8"]
+[ext_resource type="Script" path="res://scripts/world/fall_zone.gd" id="18_khdyq"]
+[ext_resource type="PackedScene" path="res://scenes/world/moving_platform.tscn" id="19_51e65"]
+[ext_resource type="Script" path="res://scripts/world/moving_platform.gd" id="20_1x556"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spread_enemy.tscn" id="21_1clys"]
+[ext_resource type="Script" path="res://scripts/enemies/spread_enemy.gd" id="22_xj222"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/walker_enemy.tscn" id="23_k5hxn"]
+[ext_resource type="Script" path="res://scripts/enemies/walker_enemy.gd" id="24_hhwc8"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/ranged_enemy.tscn" id="25_e7hfx"]
+[ext_resource type="Script" path="res://scripts/enemies/ranged_enemy.gd" id="26_mq7p5"]
+[ext_resource type="PackedScene" path="res://scenes/pickups/healing_herb.tscn" id="27_ihh2g"]
+[ext_resource type="Script" path="res://scripts/pickups/healing_herb.gd" id="28_2lsrv"]
+[ext_resource type="PackedScene" path="res://scenes/world/checkpoint.tscn" id="29_4212i"]
+[ext_resource type="Script" path="res://scripts/world/checkpoint.gd" id="30_xdtcu"]
+
+[sub_resource type="Gradient" id="Gradient_tca70"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(0.07058824, 0.039215688, 0.14117648, 1, 0.14509805, 0.07450981, 0.2509804, 1, 0.043137256, 0.105882354, 0.17254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2ui5u"]
+gradient = SubResource("Gradient_tca70")
+width = 16
+height = 256
+fill_to = Vector2(0, 1)
+
+[node name="LevelFour" type="Node2D" unique_id=412281717]
+script = ExtResource("1_ps5q1")
+level_variant = 4
+next_level_path = "res://scenes/levels/level_five.tscn"
+level_name = "NIVEL 1-4"
+baked = true
+route_points = PackedVector2Array()
+gold_medal_time = 30.5
+silver_medal_time = 38.5
+
+[node name="Brightness" type="CanvasModulate" parent="." unique_id=907660096]
+
+[node name="Background" type="ColorRect" parent="." unique_id=2050812564]
+visible = false
+z_index = -20
+offset_right = 22400.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.0705882, 0.105882, 0.156863, 1)
+
+[node name="BackgroundDecor" type="Parallax2D" parent="." unique_id=615994860]
+visible = false
+z_index = -16
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Hill1" type="Polygon2D" parent="BackgroundDecor" unique_id=1252352534]
+position = Vector2(250, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill2" type="Polygon2D" parent="BackgroundDecor" unique_id=621859252]
+position = Vector2(760, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill3" type="Polygon2D" parent="BackgroundDecor" unique_id=1851671925]
+position = Vector2(1500, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill4" type="Polygon2D" parent="BackgroundDecor" unique_id=1387487967]
+position = Vector2(2230, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill5" type="Polygon2D" parent="BackgroundDecor" unique_id=1405096211]
+position = Vector2(3150, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill6" type="Polygon2D" parent="BackgroundDecor" unique_id=1407186574]
+position = Vector2(3660, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill7" type="Polygon2D" parent="BackgroundDecor" unique_id=1451921623]
+position = Vector2(4400, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill8" type="Polygon2D" parent="BackgroundDecor" unique_id=978275176]
+position = Vector2(5030, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill9" type="Polygon2D" parent="BackgroundDecor" unique_id=1743673184]
+position = Vector2(6050, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill10" type="Polygon2D" parent="BackgroundDecor" unique_id=811514072]
+position = Vector2(6560, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill11" type="Polygon2D" parent="BackgroundDecor" unique_id=1362757912]
+position = Vector2(7300, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill12" type="Polygon2D" parent="BackgroundDecor" unique_id=1606663100]
+position = Vector2(7930, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="LevelOneExtension" type="Node2D" parent="." unique_id=964150370]
+script = ExtResource("2_7denl")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=1830142389]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1091895649 groups=["player"] instance=ExtResource("3_2s77n")]
+position = Vector2(70, 600)
+collision_layer = 2
+collision_mask = 5
+floor_snap_length = 6.0
+script = ExtResource("4_4fy0l")
+stats = ExtResource("5_jq30r")
+
+[node name="ExitPortal" type="Area2D" parent="." unique_id=1774965795 instance=ExtResource("6_trhox")]
+position = Vector2(12050, 580)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_dlp1d")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1162700655 groups=["camera"] instance=ExtResource("8_cv4yj")]
+position = Vector2(70, 360)
+zoom = Vector2(0.62, 0.62)
+limit_left = 0
+limit_top = 0
+limit_right = 12400
+limit_bottom = 720
+limit_smoothed = true
+script = ExtResource("9_tvpad")
+target_path = NodePath("../Player")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1913398666 instance=ExtResource("10_7smox")]
+layer = 10
+
+[node name="PauseOverlay" type="CanvasLayer" parent="." unique_id=1699638479 instance=ExtResource("11_dw6eh")]
+process_mode = 3
+layer = 20
+visible = false
+script = ExtResource("12_rb7c4")
+
+[node name="LevelFourGenerated" type="Node2D" parent="." unique_id=1632899169]
+
+[node name="TextureRect_1" type="TextureRect" parent="LevelFourGenerated" unique_id=1275879549]
+z_index = -30
+offset_right = 12400.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_2ui5u")
+
+[node name="HillParallax" type="Parallax2D" parent="LevelFourGenerated" unique_id=296115773]
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Polygon2D_2" type="Polygon2D" parent="LevelFourGenerated/HillParallax" unique_id=937639470]
+z_index = -22
+position = Vector2(300, 650)
+color = Color(0.105882354, 0.078431375, 0.1882353, 1)
+polygon = PackedVector2Array(-640, 0, -140, -260, 300, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelFourGenerated/HillParallax/Polygon2D_2" unique_id=1261389525]
+
+[node name="Cap" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=2118627570]
+color = Color(0.42745098, 0.49803922, 0.72156864, 1)
+polygon = PackedVector2Array(-140, -260, -300, -176.8, -239.84, -168.8, -179.68, -180.8, -119.520004, -168.8, -59.36, -180.8, 0.80000305, -176.8)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=2002687395]
+color = Color(0.26682353, 0.24431375, 0.33435297, 1)
+polygon = PackedVector2Array(-140, -260, -565, -39, -560.84784, -31.015049, -137.25957, -254.72993)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=1955411826]
+color = Color(0.074117646, 0.05490196, 0.13176471, 1)
+polygon = PackedVector2Array(-140, -260, 256, -26, 248.87779, -13.947029, -144.98555, -251.56293)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=219739551]
+color = Color(0.055588234, 0.04117647, 0.09882353, 1)
+polygon = PackedVector2Array(-363, 0, -358, -14, -353, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=894230372]
+color = Color(0.055588234, 0.04117647, 0.09882353, 1)
+polygon = PackedVector2Array(-175, 0, -170, -19, -165, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=283858616]
+color = Color(0.055588234, 0.04117647, 0.09882353, 1)
+polygon = PackedVector2Array(13, 0, 18, -14, 23, 0)
+
+[node name="Polygon2D_3" type="Polygon2D" parent="LevelFourGenerated/HillParallax" unique_id=54052825]
+z_index = -22
+position = Vector2(1080, 650)
+color = Color(0.14117648, 0.101960786, 0.23921569, 1)
+polygon = PackedVector2Array(-640, 0, -140, -260, 300, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelFourGenerated/HillParallax/Polygon2D_3" unique_id=2056713885]
+
+[node name="Cap" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=347937944]
+color = Color(0.42745098, 0.49803922, 0.72156864, 1)
+polygon = PackedVector2Array(-140, -260, -300, -176.8, -239.84, -168.8, -179.68, -180.8, -119.520004, -168.8, -59.36, -180.8, 0.80000305, -176.8)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=1535774762]
+color = Color(0.2957647, 0.26360786, 0.37615687, 1)
+polygon = PackedVector2Array(-140, -260, -565, -39, -560.84784, -31.015049, -137.25957, -254.72993)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=1105583687]
+color = Color(0.09882353, 0.071372546, 0.16745098, 1)
+polygon = PackedVector2Array(-140, -260, 256, -26, 248.87779, -13.947029, -144.98555, -251.56293)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=993698679]
+color = Color(0.074117646, 0.05352941, 0.12558824, 1)
+polygon = PackedVector2Array(-363, 0, -358, -14, -353, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=1531773988]
+color = Color(0.074117646, 0.05352941, 0.12558824, 1)
+polygon = PackedVector2Array(-175, 0, -170, -19, -165, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=73618415]
+color = Color(0.074117646, 0.05352941, 0.12558824, 1)
+polygon = PackedVector2Array(13, 0, 18, -14, 23, 0)
+
+[node name="Polygon2D_4" type="Polygon2D" parent="LevelFourGenerated/HillParallax" unique_id=531839306]
+z_index = -22
+position = Vector2(1860, 650)
+color = Color(0.17254902, 0.12941177, 0.28235295, 1)
+polygon = PackedVector2Array(-640, 0, -140, -260, 300, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelFourGenerated/HillParallax/Polygon2D_4" unique_id=713953473]
+
+[node name="Cap" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=1631565899]
+color = Color(0.42745098, 0.49803922, 0.72156864, 1)
+polygon = PackedVector2Array(-140, -260, -300, -176.8, -239.84, -168.8, -179.68, -180.8, -119.520004, -168.8, -59.36, -180.8, 0.80000305, -176.8)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=2042281171]
+color = Color(0.32149023, 0.28611767, 0.41152942, 1)
+polygon = PackedVector2Array(-140, -260, -565, -39, -560.84784, -31.015049, -137.25957, -254.72993)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=1539750550]
+color = Color(0.12078431, 0.09058824, 0.19764706, 1)
+polygon = PackedVector2Array(-140, -260, 256, -26, 248.87779, -13.947029, -144.98555, -251.56293)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=1219125074]
+color = Color(0.090588234, 0.06794118, 0.14823529, 1)
+polygon = PackedVector2Array(-363, 0, -358, -14, -353, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=32125855]
+color = Color(0.090588234, 0.06794118, 0.14823529, 1)
+polygon = PackedVector2Array(-175, 0, -170, -19, -165, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=1088729431]
+color = Color(0.090588234, 0.06794118, 0.14823529, 1)
+polygon = PackedVector2Array(13, 0, 18, -14, 23, 0)
+
+[node name="Polygon2D_5" type="Polygon2D" parent="LevelFourGenerated/HillParallax" unique_id=1324713247]
+z_index = -22
+position = Vector2(2640, 650)
+color = Color(0.105882354, 0.078431375, 0.1882353, 1)
+polygon = PackedVector2Array(-640, 0, -140, -260, 300, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelFourGenerated/HillParallax/Polygon2D_5" unique_id=1310142241]
+
+[node name="Cap" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=1145662477]
+color = Color(0.42745098, 0.49803922, 0.72156864, 1)
+polygon = PackedVector2Array(-140, -260, -300, -176.8, -239.84, -168.8, -179.68, -180.8, -119.520004, -168.8, -59.36, -180.8, 0.80000305, -176.8)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=1993220217]
+color = Color(0.26682353, 0.24431375, 0.33435297, 1)
+polygon = PackedVector2Array(-140, -260, -565, -39, -560.84784, -31.015049, -137.25957, -254.72993)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=1168895718]
+color = Color(0.074117646, 0.05490196, 0.13176471, 1)
+polygon = PackedVector2Array(-140, -260, 256, -26, 248.87779, -13.947029, -144.98555, -251.56293)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=104187947]
+color = Color(0.055588234, 0.04117647, 0.09882353, 1)
+polygon = PackedVector2Array(-363, 0, -358, -14, -353, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=1449693953]
+color = Color(0.055588234, 0.04117647, 0.09882353, 1)
+polygon = PackedVector2Array(-175, 0, -170, -19, -165, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=907241580]
+color = Color(0.055588234, 0.04117647, 0.09882353, 1)
+polygon = PackedVector2Array(13, 0, 18, -14, 23, 0)
+
+[node name="Polygon2D_6" type="Polygon2D" parent="LevelFourGenerated/HillParallax" unique_id=608589572]
+z_index = -22
+position = Vector2(3420, 650)
+color = Color(0.14117648, 0.101960786, 0.23921569, 1)
+polygon = PackedVector2Array(-640, 0, -140, -260, 300, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelFourGenerated/HillParallax/Polygon2D_6" unique_id=1684416242]
+
+[node name="Cap" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=180029064]
+color = Color(0.42745098, 0.49803922, 0.72156864, 1)
+polygon = PackedVector2Array(-140, -260, -300, -176.8, -239.84, -168.8, -179.68, -180.8, -119.520004, -168.8, -59.36, -180.8, 0.80000305, -176.8)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=316861282]
+color = Color(0.2957647, 0.26360786, 0.37615687, 1)
+polygon = PackedVector2Array(-140, -260, -565, -39, -560.84784, -31.015049, -137.25957, -254.72993)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=589887059]
+color = Color(0.09882353, 0.071372546, 0.16745098, 1)
+polygon = PackedVector2Array(-140, -260, 256, -26, 248.87779, -13.947029, -144.98555, -251.56293)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=945865926]
+color = Color(0.074117646, 0.05352941, 0.12558824, 1)
+polygon = PackedVector2Array(-363, 0, -358, -14, -353, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=1474151964]
+color = Color(0.074117646, 0.05352941, 0.12558824, 1)
+polygon = PackedVector2Array(-175, 0, -170, -19, -165, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=1461743856]
+color = Color(0.074117646, 0.05352941, 0.12558824, 1)
+polygon = PackedVector2Array(13, 0, 18, -14, 23, 0)
+
+[node name="Polygon2D_7" type="Polygon2D" parent="LevelFourGenerated/HillParallax" unique_id=1694727993]
+z_index = -22
+position = Vector2(4200, 650)
+color = Color(0.17254902, 0.12941177, 0.28235295, 1)
+polygon = PackedVector2Array(-640, 0, -140, -260, 300, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelFourGenerated/HillParallax/Polygon2D_7" unique_id=576383585]
+
+[node name="Cap" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=1850342697]
+color = Color(0.42745098, 0.49803922, 0.72156864, 1)
+polygon = PackedVector2Array(-140, -260, -300, -176.8, -239.84, -168.8, -179.68, -180.8, -119.520004, -168.8, -59.36, -180.8, 0.80000305, -176.8)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=1032160454]
+color = Color(0.32149023, 0.28611767, 0.41152942, 1)
+polygon = PackedVector2Array(-140, -260, -565, -39, -560.84784, -31.015049, -137.25957, -254.72993)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=1785316342]
+color = Color(0.12078431, 0.09058824, 0.19764706, 1)
+polygon = PackedVector2Array(-140, -260, 256, -26, 248.87779, -13.947029, -144.98555, -251.56293)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=580241607]
+color = Color(0.090588234, 0.06794118, 0.14823529, 1)
+polygon = PackedVector2Array(-363, 0, -358, -14, -353, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=325946383]
+color = Color(0.090588234, 0.06794118, 0.14823529, 1)
+polygon = PackedVector2Array(-175, 0, -170, -19, -165, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=457770198]
+color = Color(0.090588234, 0.06794118, 0.14823529, 1)
+polygon = PackedVector2Array(13, 0, 18, -14, 23, 0)
+
+[node name="Polygon2D_8" type="Polygon2D" parent="LevelFourGenerated/HillParallax" unique_id=1690364284]
+z_index = -22
+position = Vector2(4980, 650)
+color = Color(0.105882354, 0.078431375, 0.1882353, 1)
+polygon = PackedVector2Array(-640, 0, -140, -260, 300, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelFourGenerated/HillParallax/Polygon2D_8" unique_id=2036311403]
+
+[node name="Cap" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_8/MountainDetail" unique_id=155103167]
+color = Color(0.42745098, 0.49803922, 0.72156864, 1)
+polygon = PackedVector2Array(-140, -260, -300, -176.8, -239.84, -168.8, -179.68, -180.8, -119.520004, -168.8, -59.36, -180.8, 0.80000305, -176.8)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_8/MountainDetail" unique_id=407845696]
+color = Color(0.26682353, 0.24431375, 0.33435297, 1)
+polygon = PackedVector2Array(-140, -260, -565, -39, -560.84784, -31.015049, -137.25957, -254.72993)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_8/MountainDetail" unique_id=1729769891]
+color = Color(0.074117646, 0.05490196, 0.13176471, 1)
+polygon = PackedVector2Array(-140, -260, 256, -26, 248.87779, -13.947029, -144.98555, -251.56293)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_8/MountainDetail" unique_id=756566760]
+color = Color(0.055588234, 0.04117647, 0.09882353, 1)
+polygon = PackedVector2Array(-363, 0, -358, -14, -353, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_8/MountainDetail" unique_id=934402962]
+color = Color(0.055588234, 0.04117647, 0.09882353, 1)
+polygon = PackedVector2Array(-175, 0, -170, -19, -165, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_8/MountainDetail" unique_id=1416540863]
+color = Color(0.055588234, 0.04117647, 0.09882353, 1)
+polygon = PackedVector2Array(13, 0, 18, -14, 23, 0)
+
+[node name="Polygon2D_9" type="Polygon2D" parent="LevelFourGenerated/HillParallax" unique_id=1470816456]
+z_index = -22
+position = Vector2(5760, 650)
+color = Color(0.14117648, 0.101960786, 0.23921569, 1)
+polygon = PackedVector2Array(-640, 0, -140, -260, 300, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelFourGenerated/HillParallax/Polygon2D_9" unique_id=833780424]
+
+[node name="Cap" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_9/MountainDetail" unique_id=1762452132]
+color = Color(0.42745098, 0.49803922, 0.72156864, 1)
+polygon = PackedVector2Array(-140, -260, -300, -176.8, -239.84, -168.8, -179.68, -180.8, -119.520004, -168.8, -59.36, -180.8, 0.80000305, -176.8)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_9/MountainDetail" unique_id=218372910]
+color = Color(0.2957647, 0.26360786, 0.37615687, 1)
+polygon = PackedVector2Array(-140, -260, -565, -39, -560.84784, -31.015049, -137.25957, -254.72993)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_9/MountainDetail" unique_id=495809713]
+color = Color(0.09882353, 0.071372546, 0.16745098, 1)
+polygon = PackedVector2Array(-140, -260, 256, -26, 248.87779, -13.947029, -144.98555, -251.56293)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_9/MountainDetail" unique_id=1462528479]
+color = Color(0.074117646, 0.05352941, 0.12558824, 1)
+polygon = PackedVector2Array(-363, 0, -358, -14, -353, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_9/MountainDetail" unique_id=191267408]
+color = Color(0.074117646, 0.05352941, 0.12558824, 1)
+polygon = PackedVector2Array(-175, 0, -170, -19, -165, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelFourGenerated/HillParallax/Polygon2D_9/MountainDetail" unique_id=95417594]
+color = Color(0.074117646, 0.05352941, 0.12558824, 1)
+polygon = PackedVector2Array(13, 0, 18, -14, 23, 0)
+
+[node name="Polygon2D_10" type="Polygon2D" parent="LevelFourGenerated" unique_id=1538203327]
+z_index = -12
+position = Vector2(2600, 260)
+color = Color(0.16470589, 0.12941177, 0.2509804, 0.85)
+polygon = PackedVector2Array(-46, 10, -30, -20, 4, -30, 38, -12, 44, 14, 10, 26, -24, 22)
+
+[node name="Polygon2D_11" type="Polygon2D" parent="LevelFourGenerated" unique_id=612996336]
+z_index = -12
+position = Vector2(4200, 320)
+color = Color(0.16470589, 0.12941177, 0.2509804, 0.85)
+polygon = PackedVector2Array(-46, 10, -30, -20, 4, -30, 38, -12, 44, 14, 10, 26, -24, 22)
+
+[node name="Polygon2D_12" type="Polygon2D" parent="LevelFourGenerated" unique_id=745708473]
+z_index = -12
+position = Vector2(6900, 230)
+color = Color(0.16470589, 0.12941177, 0.2509804, 0.85)
+polygon = PackedVector2Array(-46, 10, -30, -20, 4, -30, 38, -12, 44, 14, 10, 26, -24, 22)
+
+[node name="Polygon2D_13" type="Polygon2D" parent="LevelFourGenerated" unique_id=1652047892]
+z_index = -12
+position = Vector2(8600, 300)
+color = Color(0.16470589, 0.12941177, 0.2509804, 0.85)
+polygon = PackedVector2Array(-46, 10, -30, -20, 4, -30, 38, -12, 44, 14, 10, 26, -24, 22)
+
+[node name="Polygon2D_14" type="Polygon2D" parent="LevelFourGenerated" unique_id=1888978794]
+z_index = -12
+position = Vector2(7600, 500)
+color = Color(0.16470589, 0.12941177, 0.2509804, 0.85)
+polygon = PackedVector2Array(-46, 10, -30, -20, 4, -30, 38, -12, 44, 14, 10, 26, -24, 22)
+
+[node name="Platform" type="AnimatableBody2D" parent="LevelFourGenerated" unique_id=86505978 instance=ExtResource("13_pxngn")]
+position = Vector2(950, 680)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_60p24")
+platform_size = Vector2(1900, 80)
+platform_color = Color(0.18431373, 0.21176471, 0.28235295, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFourGenerated/Platform" unique_id=1877912747 groups=["spikes", "traps"] instance=ExtResource("15_lv04c")]
+visible = false
+position = Vector2(-922, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_ufbhy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFourGenerated/Platform" unique_id=1057207141 groups=["spikes", "traps"] instance=ExtResource("15_lv04c")]
+visible = false
+position = Vector2(922, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_ufbhy")
+
+[node name="AnimatableBody2D_15" type="AnimatableBody2D" parent="LevelFourGenerated" unique_id=745042013 instance=ExtResource("13_pxngn")]
+position = Vector2(6000, 720)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_60p24")
+platform_size = Vector2(300, 80)
+platform_color = Color(0.18431373, 0.21176471, 0.28235295, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFourGenerated/AnimatableBody2D_15" unique_id=558031690 groups=["spikes", "traps"] instance=ExtResource("15_lv04c")]
+visible = false
+position = Vector2(-122, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_ufbhy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFourGenerated/AnimatableBody2D_15" unique_id=406226430 groups=["spikes", "traps"] instance=ExtResource("15_lv04c")]
+visible = false
+position = Vector2(122, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_ufbhy")
+
+[node name="AnimatableBody2D_16" type="AnimatableBody2D" parent="LevelFourGenerated" unique_id=1627849518 instance=ExtResource("13_pxngn")]
+position = Vector2(11250, 680)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("14_60p24")
+platform_size = Vector2(2300, 80)
+platform_color = Color(0.18431373, 0.21176471, 0.28235295, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFourGenerated/AnimatableBody2D_16" unique_id=369101642 groups=["spikes", "traps"] instance=ExtResource("15_lv04c")]
+visible = false
+position = Vector2(-1122, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_ufbhy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFourGenerated/AnimatableBody2D_16" unique_id=2119909151 groups=["spikes", "traps"] instance=ExtResource("15_lv04c")]
+visible = false
+position = Vector2(1122, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_ufbhy")
+
+[node name="FallZonePit" type="Area2D" parent="LevelFourGenerated" unique_id=381205149 instance=ExtResource("17_oq7p8")]
+position = Vector2(6000, 780)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("18_khdyq")
+
+[node name="RouteStream" type="Node2D" parent="LevelFourGenerated" unique_id=1613355695]
+
+[node name="RoutePlatform0" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=2017370431 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(2140, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 80)
+speed = 1.105
+circle_speed = 0.0
+metadata/slot_index = 0
+
+[node name="PlatformGuard0" type="CharacterBody2D" parent="LevelFourGenerated/RouteStream/RoutePlatform0" unique_id=1699220576 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(0, -35)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 420.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 0.0
+patrol_speed = 0.0
+patrol_distance = 10.0
+anchored = true
+contact_damage = 25
+
+[node name="RoutePlatform1" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=566852015 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(2620, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(65, 55)
+speed = 1.3390000000000002
+circle_speed = 0.0
+metadata/slot_index = 1
+
+[node name="RoutePlatform2" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=1840520777 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(3100, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 0)
+speed = 1.0
+circle_radius = 50.0
+circle_speed = 1.2480000000000002
+metadata/slot_index = 2
+
+[node name="PlatformGuard2" type="CharacterBody2D" parent="LevelFourGenerated/RouteStream/RoutePlatform2" unique_id=8309921 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(0, -35)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 420.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 0.0
+patrol_speed = 0.0
+patrol_distance = 10.0
+anchored = true
+contact_damage = 25
+
+[node name="RoutePlatform3" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=287042423 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(3580, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 0)
+speed = 1.0
+circle_speed = 0.0
+rotation_speed = 0.9099999999999999
+metadata/slot_index = 3
+
+[node name="RoutePlatform4" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=432092858 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(4060, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 80)
+speed = 1.2089999999999999
+circle_speed = 0.0
+metadata/slot_index = 4
+
+[node name="PlatformGuard4" type="CharacterBody2D" parent="LevelFourGenerated/RouteStream/RoutePlatform4" unique_id=415631920 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(0, -35)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 420.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 0.0
+patrol_speed = 0.0
+patrol_distance = 10.0
+anchored = true
+contact_damage = 25
+
+[node name="RoutePlatform5" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=1194071373 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(4540, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(-65, 55)
+speed = 1.4429999999999998
+circle_speed = 0.0
+metadata/slot_index = 5
+
+[node name="RoutePlatform6" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=1231751228 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(5020, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 0)
+speed = 1.0
+circle_radius = 50.0
+circle_speed = 1.04
+metadata/slot_index = 6
+
+[node name="PlatformGuard6" type="CharacterBody2D" parent="LevelFourGenerated/RouteStream/RoutePlatform6" unique_id=340682494 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(0, -35)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 420.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 0.0
+patrol_speed = 0.0
+patrol_distance = 10.0
+anchored = true
+contact_damage = 25
+
+[node name="RoutePlatform7" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=92193031 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(5500, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 0)
+speed = 1.0
+circle_speed = 0.0
+rotation_speed = 0.962
+metadata/slot_index = 7
+
+[node name="RoutePlatform8" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=595724352 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(5980, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 80)
+speed = 1.3130000000000002
+circle_speed = 0.0
+metadata/slot_index = 8
+
+[node name="PlatformGuard8" type="CharacterBody2D" parent="LevelFourGenerated/RouteStream/RoutePlatform8" unique_id=758143345 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(0, -35)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 420.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 0.0
+patrol_speed = 0.0
+patrol_distance = 10.0
+anchored = true
+contact_damage = 25
+
+[node name="RoutePlatform9" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=1024630090 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(6460, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(65, 55)
+speed = 1.2349999999999999
+circle_speed = 0.0
+metadata/slot_index = 9
+
+[node name="RoutePlatform10" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=649878576 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(6940, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 0)
+speed = 1.0
+circle_radius = 50.0
+circle_speed = 1.1440000000000001
+metadata/slot_index = 10
+
+[node name="PlatformGuard10" type="CharacterBody2D" parent="LevelFourGenerated/RouteStream/RoutePlatform10" unique_id=366161220 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(0, -35)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 420.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 0.0
+patrol_speed = 0.0
+patrol_distance = 10.0
+anchored = true
+contact_damage = 25
+
+[node name="RoutePlatform11" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=1575220996 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(7420, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 0)
+speed = 1.0
+circle_speed = 0.0
+rotation_speed = 1.014
+metadata/slot_index = 11
+
+[node name="RoutePlatform12" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=661747043 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(7900, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 80)
+speed = 1.105
+circle_speed = 0.0
+metadata/slot_index = 12
+
+[node name="PlatformGuard12" type="CharacterBody2D" parent="LevelFourGenerated/RouteStream/RoutePlatform12" unique_id=335364492 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(0, -35)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 420.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 0.0
+patrol_speed = 0.0
+patrol_distance = 10.0
+anchored = true
+contact_damage = 25
+
+[node name="RoutePlatform13" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=1544455024 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(8380, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(-65, 55)
+speed = 1.3390000000000002
+circle_speed = 0.0
+metadata/slot_index = 13
+
+[node name="RoutePlatform14" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=1416854817 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(8860, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 0)
+speed = 1.0
+circle_radius = 50.0
+circle_speed = 1.2480000000000002
+metadata/slot_index = 14
+
+[node name="PlatformGuard14" type="CharacterBody2D" parent="LevelFourGenerated/RouteStream/RoutePlatform14" unique_id=2002455564 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(0, -35)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 420.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 0.0
+patrol_speed = 0.0
+patrol_distance = 10.0
+anchored = true
+contact_damage = 25
+
+[node name="RoutePlatform15" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=1703394692 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(9340, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 0)
+speed = 1.0
+circle_speed = 0.0
+rotation_speed = 0.9099999999999999
+metadata/slot_index = 15
+
+[node name="RoutePlatform16" type="AnimatableBody2D" parent="LevelFourGenerated/RouteStream" unique_id=1631961239 groups=["moving_platforms"] instance=ExtResource("19_51e65")]
+position = Vector2(9820, 560)
+collision_mask = 0
+script = ExtResource("20_1x556")
+travel = Vector2(0, 80)
+speed = 1.2089999999999999
+circle_speed = 0.0
+metadata/slot_index = 16
+
+[node name="PlatformGuard16" type="CharacterBody2D" parent="LevelFourGenerated/RouteStream/RoutePlatform16" unique_id=1110760870 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(0, -35)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 420.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 0.0
+patrol_speed = 0.0
+patrol_distance = 10.0
+anchored = true
+contact_damage = 25
+
+[node name="WalkerEnemy" type="CharacterBody2D" parent="LevelFourGenerated" unique_id=1866413076 groups=["enemies"] instance=ExtResource("23_k5hxn")]
+position = Vector2(1350, 614)
+collision_layer = 4
+collision_mask = 3
+floor_snap_length = 6.0
+script = ExtResource("24_hhwc8")
+patrol_speed = 150.0
+patrol_distance = 140.0
+
+[node name="CharacterBody2D_17" type="CharacterBody2D" parent="LevelFourGenerated" unique_id=621123002 groups=["enemies"] instance=ExtResource("23_k5hxn")]
+position = Vector2(1700, 614)
+collision_layer = 4
+collision_mask = 3
+floor_snap_length = 6.0
+script = ExtResource("24_hhwc8")
+patrol_speed = 150.0
+patrol_distance = 140.0
+
+[node name="CharacterBody2D_18" type="CharacterBody2D" parent="LevelFourGenerated" unique_id=56237439 groups=["enemies"] instance=ExtResource("23_k5hxn")]
+position = Vector2(10450, 614)
+collision_layer = 4
+collision_mask = 3
+floor_snap_length = 6.0
+script = ExtResource("24_hhwc8")
+patrol_speed = 150.0
+patrol_distance = 140.0
+
+[node name="CharacterBody2D_19" type="CharacterBody2D" parent="LevelFourGenerated" unique_id=325647583 groups=["enemies"] instance=ExtResource("23_k5hxn")]
+position = Vector2(10700, 614)
+collision_layer = 4
+collision_mask = 3
+floor_snap_length = 6.0
+script = ExtResource("24_hhwc8")
+patrol_speed = 150.0
+patrol_distance = 140.0
+
+[node name="CharacterBody2D_20" type="CharacterBody2D" parent="LevelFourGenerated" unique_id=7048589 groups=["enemies"] instance=ExtResource("23_k5hxn")]
+position = Vector2(11000, 614)
+collision_layer = 4
+collision_mask = 3
+floor_snap_length = 6.0
+script = ExtResource("24_hhwc8")
+patrol_speed = 150.0
+patrol_distance = 140.0
+
+[node name="SpreadEnemy" type="CharacterBody2D" parent="LevelFourGenerated" unique_id=1436189725 groups=["enemies"] instance=ExtResource("21_1clys")]
+position = Vector2(11600, 600)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("22_xj222")
+shoot_range = 620.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 1600.0
+contact_damage = 25
+
+[node name="RangedEnemy" type="CharacterBody2D" parent="LevelFourGenerated" unique_id=1353146516 groups=["enemies"] instance=ExtResource("25_e7hfx")]
+position = Vector2(1200, 612)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("26_mq7p5")
+shoot_range = 480.0
+
+[node name="CharacterBody2D_21" type="CharacterBody2D" parent="LevelFourGenerated" unique_id=1881910243 groups=["enemies"] instance=ExtResource("25_e7hfx")]
+position = Vector2(12200, 612)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("26_mq7p5")
+shoot_range = 480.0
+
+[node name="HealingHerb" type="Area2D" parent="LevelFourGenerated" unique_id=1846776785 groups=["healing_pickups"] instance=ExtResource("27_ihh2g")]
+position = Vector2(1600, 618)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("28_2lsrv")
+
+[node name="Area2D_22" type="Area2D" parent="LevelFourGenerated" unique_id=1397824102 groups=["healing_pickups"] instance=ExtResource("27_ihh2g")]
+position = Vector2(12000, 618)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("28_2lsrv")
+
+[node name="Checkpoint" type="Area2D" parent="LevelFourGenerated" unique_id=1758282007 instance=ExtResource("29_4212i")]
+position = Vector2(6000, 632)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("30_xdtcu")

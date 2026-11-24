@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/exit_portal.gd" id="1_portal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_portal"]
+resource_local_to_scene = true
+size = Vector2(48, 92)
+
+[node name="ExitPortal" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_portal")
+
+[node name="Shadow" type="Polygon2D" parent="."]
+position = Vector2(0, 50)
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-40, 0, -24, -8, 0, -11, 24, -8, 40, 0, 24, 8, 0, 11, -24, 8)
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Outer" type="Polygon2D" parent="Visual"]
+color = Color(0.160784, 0.878431, 1, 0.95)
+polygon = PackedVector2Array(-38, 55, -48, 18, -36, -44, 0, -62, 36, -44, 48, 18, 38, 55, 0, 64)
+
+[node name="Outline" type="Line2D" parent="Visual/Outer"]
+width = 3.5
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+closed = true
+antialiased = true
+points = PackedVector2Array(-38, 55, -48, 18, -36, -44, 0, -62, 36, -44, 48, 18, 38, 55, 0, 64)
+
+[node name="Middle" type="Polygon2D" parent="Visual"]
+color = Color(0.0745098, 0.172549, 0.286275, 1)
+polygon = PackedVector2Array(-28, 48, -36, 17, -27, -36, 0, -50, 27, -36, 36, 17, 28, 48, 0, 55)
+
+[node name="Outline" type="Line2D" parent="Visual/Middle"]
+width = 2.5
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+closed = true
+antialiased = true
+points = PackedVector2Array(-28, 48, -36, 17, -27, -36, 0, -50, 27, -36, 36, 17, 28, 48, 0, 55)
+
+[node name="Core" type="Polygon2D" parent="Visual"]
+color = Color(0.560784, 0.945098, 1, 0.9)
+polygon = PackedVector2Array(-12, 42, -16, 17, -12, -30, 0, -40, 12, -30, 16, 17, 12, 42, 0, 47)
+
+[node name="Outline" type="Line2D" parent="Visual/Core"]
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+closed = true
+antialiased = true
+points = PackedVector2Array(-12, 42, -16, 17, -12, -30, 0, -40, 12, -30, 16, 17, 12, 42, 0, 47)
+
+[node name="LineLeft" type="Polygon2D" parent="Visual"]
+color = Color(0.960784, 1, 1, 0.75)
+polygon = PackedVector2Array(-33, 32, -31, -26, -27, -30, -29, 34)
+
+[node name="LineRight" type="Polygon2D" parent="Visual"]
+color = Color(0.960784, 1, 1, 0.75)
+polygon = PackedVector2Array(31, 34, 29, -30, 33, -26, 35, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_portal")

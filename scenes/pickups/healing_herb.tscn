@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/pickups/healing_herb.gd" id="1_herb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_herb"]
+resource_local_to_scene = true
+radius = 14.0
+
+[node name="HealingHerb" type="Area2D" groups=["healing_pickups"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_herb")
+
+[node name="Shadow" type="Polygon2D" parent="."]
+position = Vector2(0, 15)
+color = Color(0, 0, 0, 0.25)
+polygon = PackedVector2Array(-11, 0, -6, -3, 0, -4, 6, -3, 11, 0, 6, 3, 0, 4, -6, 3)
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Outline" type="Polygon2D" parent="Visual"]
+color = Color(0.0588235, 0.243137, 0.121569, 1)
+polygon = PackedVector2Array(-16, 0, -7, -7, 0, -16, 7, -7, 16, 0, 7, 7, 0, 16, -7, 7)
+
+[node name="LeafTop" type="Polygon2D" parent="Visual"]
+color = Color(0.309804, 0.827451, 0.364706, 1)
+polygon = PackedVector2Array(0, -13, -5, -6, 0, 0, 5, -6)
+
+[node name="LeafRight" type="Polygon2D" parent="Visual"]
+color = Color(0.247059, 0.729412, 0.313726, 1)
+polygon = PackedVector2Array(13, 0, 6, -5, 0, 0, 6, 5)
+
+[node name="LeafBottom" type="Polygon2D" parent="Visual"]
+color = Color(0.309804, 0.827451, 0.364706, 1)
+polygon = PackedVector2Array(0, 13, 5, 6, 0, 0, -5, 6)
+
+[node name="LeafLeft" type="Polygon2D" parent="Visual"]
+color = Color(0.247059, 0.729412, 0.313726, 1)
+polygon = PackedVector2Array(-13, 0, -6, 5, 0, 0, -6, -5)
+
+[node name="Center" type="Polygon2D" parent="Visual"]
+color = Color(0.980392, 0.909804, 0.392157, 1)
+polygon = PackedVector2Array(-4, 0, -2, -3, 2, -3, 4, 0, 2, 3, -2, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_herb")

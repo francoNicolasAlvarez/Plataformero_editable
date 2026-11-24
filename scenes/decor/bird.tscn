@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/decor/bird.svg" id="1_bird"]
+[ext_resource type="Script" path="res://scripts/decor/ambient_bird.gd" id="2_script"]
+
+[node name="Bird" type="Node2D" groups=["birds"]]
+z_index = -11
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bird")

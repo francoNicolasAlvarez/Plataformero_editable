@@ -1,0 +1,1468 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/levels/test_level.gd" id="1_aiwbc"]
+[ext_resource type="Script" path="res://scripts/levels/level_one_extension.gd" id="2_ouacj"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_xhm5u"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="4_n8svi"]
+[ext_resource type="Resource" path="res://resources/player/player_stats.tres" id="5_usifc"]
+[ext_resource type="PackedScene" path="res://scenes/world/exit_portal.tscn" id="6_mdba7"]
+[ext_resource type="Script" path="res://scripts/world/exit_portal.gd" id="7_7syve"]
+[ext_resource type="PackedScene" path="res://scenes/camera/horizontal_camera.tscn" id="8_ci8nf"]
+[ext_resource type="Script" path="res://scripts/camera/horizontal_camera.gd" id="9_7ysdu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_hud.tscn" id="10_5visk"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_overlay.tscn" id="11_uo264"]
+[ext_resource type="Script" path="res://scripts/ui/pause_overlay.gd" id="12_ttk53"]
+[ext_resource type="PackedScene" path="res://scenes/decor/sun.tscn" id="13_cv43y"]
+[ext_resource type="Script" path="res://scripts/decor/screen_sun.gd" id="14_rpqxm"]
+[ext_resource type="PackedScene" path="res://scenes/decor/cloud.tscn" id="15_p3d6e"]
+[ext_resource type="Script" path="res://scripts/decor/ambient_cloud.gd" id="16_0vpxg"]
+[ext_resource type="PackedScene" path="res://scenes/world/platform.tscn" id="17_3ry8l"]
+[ext_resource type="Script" path="res://scripts/world/platform.gd" id="18_as15o"]
+[ext_resource type="PackedScene" path="res://scenes/world/spike_trap.tscn" id="19_t11ri"]
+[ext_resource type="Script" path="res://scripts/world/spike_trap.gd" id="20_3h0fy"]
+[ext_resource type="PackedScene" path="res://scenes/world/fall_zone.tscn" id="21_oo731"]
+[ext_resource type="Script" path="res://scripts/world/fall_zone.gd" id="22_yp8tc"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spearman_enemy.tscn" id="23_i0ett"]
+[ext_resource type="Script" path="res://scripts/enemies/spearman_enemy.gd" id="24_lqgtr"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/slug_enemy.tscn" id="25_t2van"]
+[ext_resource type="Script" path="res://scripts/enemies/slug_enemy.gd" id="26_01265"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/blast_jumper_enemy.tscn" id="27_mxd78"]
+[ext_resource type="Script" path="res://scripts/enemies/blast_jumper_enemy.gd" id="28_01y42"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spread_enemy.tscn" id="29_hwa7v"]
+[ext_resource type="Script" path="res://scripts/enemies/spread_enemy.gd" id="30_mhwdi"]
+[ext_resource type="Script" path="res://scripts/world/rock_pile.gd" id="31_vdesd"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/brute_enemy.tscn" id="32_45wuu"]
+[ext_resource type="Script" path="res://scripts/enemies/brute_enemy.gd" id="33_l4g75"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/orb_enemy.tscn" id="34_mthao"]
+[ext_resource type="Script" path="res://scripts/enemies/orb_enemy.gd" id="35_4qndc"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/ranged_enemy.tscn" id="36_kxby7"]
+[ext_resource type="Script" path="res://scripts/enemies/ranged_enemy.gd" id="37_osioj"]
+[ext_resource type="PackedScene" path="res://scenes/pickups/healing_herb.tscn" id="38_t0s3u"]
+[ext_resource type="Script" path="res://scripts/pickups/healing_herb.gd" id="39_sftlc"]
+[ext_resource type="PackedScene" path="res://scenes/world/checkpoint.tscn" id="40_k8vcc"]
+[ext_resource type="Script" path="res://scripts/world/checkpoint.gd" id="41_6ac6m"]
+[ext_resource type="PackedScene" path="res://scenes/world/saw_trap.tscn" id="42_f2n40"]
+[ext_resource type="Script" path="res://scripts/world/saw_trap.gd" id="43_cqoxy"]
+[ext_resource type="Script" path="res://scripts/world/rockfall_spawner.gd" id="44_27lsi"]
+[ext_resource type="Script" path="res://scripts/enemies/flying_spawner.gd" id="45_p7yjg"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/sky_sentry.tscn" id="46_sk061"]
+[ext_resource type="Script" path="res://scripts/enemies/sky_sentry.gd" id="47_hxpro"]
+[ext_resource type="Script" path="res://scripts/world/wind_field.gd" id="48_51y1i"]
+
+[sub_resource type="Gradient" id="Gradient_1rs1y"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(0.14901961, 0.16470589, 0.23921569, 1, 0.2901961, 0.30980393, 0.41960785, 1, 0.6039216, 0.5411765, 0.54901963, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xrqrp"]
+gradient = SubResource("Gradient_1rs1y")
+width = 16
+height = 256
+fill_to = Vector2(0, 1)
+
+[node name="LevelFifteen" type="Node2D" unique_id=1137536189]
+script = ExtResource("1_aiwbc")
+level_variant = 15
+next_level_path = "res://scenes/levels/level_sixteen.tscn"
+level_name = "NIVEL 3-5"
+baked = true
+route_points = PackedVector2Array()
+gold_medal_time = 41.5
+silver_medal_time = 52.5
+
+[node name="Brightness" type="CanvasModulate" parent="." unique_id=1543444269]
+
+[node name="Background" type="ColorRect" parent="." unique_id=284805620]
+visible = false
+z_index = -20
+offset_right = 22400.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.0705882, 0.105882, 0.156863, 1)
+
+[node name="BackgroundDecor" type="Parallax2D" parent="." unique_id=492030722]
+visible = false
+z_index = -16
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Hill1" type="Polygon2D" parent="BackgroundDecor" unique_id=380123143]
+position = Vector2(250, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill2" type="Polygon2D" parent="BackgroundDecor" unique_id=1214787359]
+position = Vector2(760, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill3" type="Polygon2D" parent="BackgroundDecor" unique_id=674447533]
+position = Vector2(1500, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill4" type="Polygon2D" parent="BackgroundDecor" unique_id=1105423983]
+position = Vector2(2230, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill5" type="Polygon2D" parent="BackgroundDecor" unique_id=905105943]
+position = Vector2(3150, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill6" type="Polygon2D" parent="BackgroundDecor" unique_id=858637015]
+position = Vector2(3660, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill7" type="Polygon2D" parent="BackgroundDecor" unique_id=1862784414]
+position = Vector2(4400, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill8" type="Polygon2D" parent="BackgroundDecor" unique_id=36838105]
+position = Vector2(5030, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill9" type="Polygon2D" parent="BackgroundDecor" unique_id=1649720753]
+position = Vector2(6050, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill10" type="Polygon2D" parent="BackgroundDecor" unique_id=1025684373]
+position = Vector2(6560, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill11" type="Polygon2D" parent="BackgroundDecor" unique_id=14321900]
+position = Vector2(7300, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill12" type="Polygon2D" parent="BackgroundDecor" unique_id=1408641944]
+position = Vector2(7930, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="LevelOneExtension" type="Node2D" parent="." unique_id=498993887]
+script = ExtResource("2_ouacj")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=809886069]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=972783971 groups=["player"] instance=ExtResource("3_xhm5u")]
+position = Vector2(70, 600)
+collision_layer = 2
+collision_mask = 5
+floor_snap_length = 6.0
+script = ExtResource("4_n8svi")
+stats = ExtResource("5_usifc")
+
+[node name="ExitPortal" type="Area2D" parent="." unique_id=555570900 instance=ExtResource("6_mdba7")]
+position = Vector2(16500, 580)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_7syve")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=634543726 groups=["camera"] instance=ExtResource("8_ci8nf")]
+position = Vector2(70, 360)
+zoom = Vector2(0.62, 0.62)
+limit_left = 0
+limit_top = 0
+limit_right = 17000
+limit_bottom = 720
+limit_smoothed = true
+script = ExtResource("9_7ysdu")
+target_path = NodePath("../Player")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1913398666 instance=ExtResource("10_5visk")]
+layer = 10
+
+[node name="PauseOverlay" type="CanvasLayer" parent="." unique_id=1873125400 instance=ExtResource("11_uo264")]
+process_mode = 3
+layer = 20
+visible = false
+script = ExtResource("12_ttk53")
+
+[node name="LevelFifteenGenerated" type="Node2D" parent="." unique_id=2106978511]
+
+[node name="TextureRect_1" type="TextureRect" parent="LevelFifteenGenerated" unique_id=428559696]
+z_index = -30
+offset_right = 17000.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_xrqrp")
+
+[node name="Sun" type="Node2D" parent="LevelFifteenGenerated" unique_id=1618597651 groups=["decor_sun"] instance=ExtResource("13_cv43y")]
+modulate = Color(1, 0.6, 0.4, 0.8)
+top_level = true
+z_index = -19
+script = ExtResource("14_rpqxm")
+screen_offset = Vector2(-340, -190)
+
+[node name="CloudParallax" type="Parallax2D" parent="LevelFifteenGenerated" unique_id=1267377038]
+z_index = -8
+scroll_scale = Vector2(0.55, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Cloud" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=2098925814 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(150, 70)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_2" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=163717863 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(950, 131)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_3" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=1490120646 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(1750, 192)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_4" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=1679150308 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(2550, 253)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_5" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=1484270116 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(3350, 114)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_6" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=997717771 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(4150, 175)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_7" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=84616889 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(4950, 236)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_8" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=903646254 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(5750, 97)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_9" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=667394328 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(6550, 158)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_10" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=2037692726 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(7350, 219)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_11" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=137674986 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(8150, 80)
+script = ExtResource("16_0vpxg")
+
+[node name="Node2D_12" type="Node2D" parent="LevelFifteenGenerated/CloudParallax" unique_id=401927515 instance=ExtResource("15_p3d6e")]
+modulate = Color(0.55, 0.55, 0.65, 0.85)
+z_index = -18
+position = Vector2(8950, 141)
+script = ExtResource("16_0vpxg")
+
+[node name="FarParallax" type="Parallax2D" parent="LevelFifteenGenerated" unique_id=101709458]
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Polygon2D_13" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=626414696]
+z_index = -23
+color = Color(0.18431373, 0.19607843, 0.27450982, 1)
+polygon = PackedVector2Array(-400, 650, 17400, 650, 17400, 720, -400, 720)
+
+[node name="Polygon2D_14" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=1517882346]
+z_index = -22
+position = Vector2(200, 650)
+color = Color(0.23137255, 0.24705882, 0.34117648, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_15" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=1531364541]
+z_index = -22
+position = Vector2(840, 650)
+color = Color(0.26666668, 0.28627452, 0.39215687, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_16" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=1698685979]
+z_index = -22
+position = Vector2(1480, 650)
+color = Color(0.20392157, 0.21568628, 0.3019608, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_17" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=1502851366]
+z_index = -22
+position = Vector2(2120, 650)
+color = Color(0.23137255, 0.24705882, 0.34117648, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_18" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=21684205]
+z_index = -22
+position = Vector2(2760, 650)
+color = Color(0.26666668, 0.28627452, 0.39215687, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_19" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=1293845843]
+z_index = -22
+position = Vector2(3400, 650)
+color = Color(0.20392157, 0.21568628, 0.3019608, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_20" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=1540639216]
+z_index = -22
+position = Vector2(4040, 650)
+color = Color(0.23137255, 0.24705882, 0.34117648, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_21" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=160112648]
+z_index = -22
+position = Vector2(4680, 650)
+color = Color(0.26666668, 0.28627452, 0.39215687, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_22" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=212450480]
+z_index = -22
+position = Vector2(5320, 650)
+color = Color(0.20392157, 0.21568628, 0.3019608, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_23" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=2143795174]
+z_index = -22
+position = Vector2(5960, 650)
+color = Color(0.23137255, 0.24705882, 0.34117648, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_24" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=175270320]
+z_index = -22
+position = Vector2(6600, 650)
+color = Color(0.26666668, 0.28627452, 0.39215687, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_25" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=1706712457]
+z_index = -22
+position = Vector2(7240, 650)
+color = Color(0.20392157, 0.21568628, 0.3019608, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_26" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=301149728]
+z_index = -22
+position = Vector2(7880, 650)
+color = Color(0.23137255, 0.24705882, 0.34117648, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Polygon2D_27" type="Polygon2D" parent="LevelFifteenGenerated/FarParallax" unique_id=868929170]
+z_index = -22
+position = Vector2(8520, 650)
+color = Color(0.26666668, 0.28627452, 0.39215687, 1)
+polygon = PackedVector2Array(-300, 0, -300, -60, -220, -60, -220, -120, -140, -120, -140, -180, -40, -180, -40, -220, 40, -220, 40, -180, 140, -180, 140, -120, 220, -120, 220, -60, 300, -60, 300, 0)
+
+[node name="Platform" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=416509985 instance=ExtResource("17_3ry8l")]
+position = Vector2(700, 680)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_size = Vector2(1400, 80)
+platform_color = Color(0.43137255, 0.48235294, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/Platform" unique_id=708423444 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-672, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/Platform" unique_id=1978394339 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(672, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="AnimatableBody2D_28" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1207455964 instance=ExtResource("17_3ry8l")]
+position = Vector2(2200, 680)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_size = Vector2(1000, 80)
+platform_color = Color(0.43137255, 0.48235294, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_28" unique_id=1649336629 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-472, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_28" unique_id=2028630848 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(472, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="AnimatableBody2D_29" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=801603680 instance=ExtResource("17_3ry8l")]
+position = Vector2(3500, 680)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_size = Vector2(1000, 80)
+platform_color = Color(0.43137255, 0.48235294, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_29" unique_id=2097319018 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-472, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_29" unique_id=1487288205 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(472, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="AnimatableBody2D_30" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1014105633 instance=ExtResource("17_3ry8l")]
+position = Vector2(4800, 680)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_size = Vector2(1000, 80)
+platform_color = Color(0.43137255, 0.48235294, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_30" unique_id=534709194 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-472, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_30" unique_id=1932165992 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(472, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="AnimatableBody2D_31" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=2002628158 instance=ExtResource("17_3ry8l")]
+position = Vector2(6100, 680)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_size = Vector2(1000, 80)
+platform_color = Color(0.43137255, 0.48235294, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_31" unique_id=1506732832 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-472, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_31" unique_id=1633737330 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(472, -48)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="AnimatableBody2D_32" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=591431101 instance=ExtResource("17_3ry8l")]
+position = Vector2(15575, 700)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_size = Vector2(2850, 120)
+platform_color = Color(0.43137255, 0.48235294, 0.56078434, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_32" unique_id=396834085 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-1397, -68)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/AnimatableBody2D_32" unique_id=1007609801 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(1397, -68)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="FallZoneStorm" type="Area2D" parent="LevelFifteenGenerated" unique_id=917919382 instance=ExtResource("21_oo731")]
+position = Vector2(8500, 780)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("22_yp8tc")
+zone_size = Vector2(17800, 120)
+
+[node name="StormStepLow0" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1584660157 instance=ExtResource("17_3ry8l")]
+position = Vector2(2030, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormStepLow0" unique_id=1615918632 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormStepLow0" unique_id=972744366 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormStepHigh0" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1363493485 instance=ExtResource("17_3ry8l")]
+position = Vector2(2340, 440)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormStepHigh0" unique_id=1496342168 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormStepHigh0" unique_id=904826464 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormBridge0" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=153375927 instance=ExtResource("17_3ry8l")]
+position = Vector2(2850, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_size = Vector2(110, 24)
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormBridge0" unique_id=1509901465 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-39.6, -20)
+scale = Vector2(0.22, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormBridge0" unique_id=1658162745 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(39.6, -20)
+scale = Vector2(0.22, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormSpearman0" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1075514151 groups=["enemies"] instance=ExtResource("23_i0ett")]
+position = Vector2(1950, 610)
+collision_layer = 4
+script = ExtResource("24_lqgtr")
+
+[node name="StormSlug0" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=420582605 groups=["enemies"] instance=ExtResource("25_t2van")]
+position = Vector2(2500, 622)
+collision_layer = 4
+script = ExtResource("26_01265")
+
+[node name="StormStepLow1" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1576215328 instance=ExtResource("17_3ry8l")]
+position = Vector2(3330, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormStepLow1" unique_id=11644457 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormStepLow1" unique_id=1119729382 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormStepHigh1" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1440404384 instance=ExtResource("17_3ry8l")]
+position = Vector2(3640, 440)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormStepHigh1" unique_id=858180998 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormStepHigh1" unique_id=1152291561 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormBridge1" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1336500986 instance=ExtResource("17_3ry8l")]
+position = Vector2(4150, 548)
+collision_mask = 0
+script = ExtResource("18_as15o")
+kind = 1
+platform_size = Vector2(110, 24)
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+travel = Vector2(60, 0)
+speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormBridge1" unique_id=1838130971 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-39.6, -20)
+scale = Vector2(0.22, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormBridge1" unique_id=1447573407 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(39.6, -20)
+scale = Vector2(0.22, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormJumper1" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1966456295 groups=["enemies"] instance=ExtResource("27_mxd78")]
+position = Vector2(3820, 620)
+collision_layer = 4
+script = ExtResource("28_01y42")
+
+[node name="StormArcher1" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1686904043 groups=["enemies"] instance=ExtResource("29_hwa7v")]
+position = Vector2(3640, 376)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("30_mhwdi")
+shoot_range = 620.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 1600.0
+contact_damage = 25
+
+[node name="StormStepLow2" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1808368054 instance=ExtResource("17_3ry8l")]
+position = Vector2(4630, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormStepLow2" unique_id=722310887 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormStepLow2" unique_id=351157848 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormStepHigh2" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=2088485497 instance=ExtResource("17_3ry8l")]
+position = Vector2(4940, 440)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormStepHigh2" unique_id=1894236788 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormStepHigh2" unique_id=430047485 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormBridge2" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=207189422 instance=ExtResource("17_3ry8l")]
+position = Vector2(5450, 548)
+collision_mask = 0
+script = ExtResource("18_as15o")
+kind = 2
+platform_size = Vector2(110, 24)
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+circle_radius = 45.0
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormBridge2" unique_id=1328074793 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-39.6, -20)
+scale = Vector2(0.22, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormBridge2" unique_id=1489130325 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(39.6, -20)
+scale = Vector2(0.22, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormBrute2Pile" type="StaticBody2D" parent="LevelFifteenGenerated" unique_id=286821791]
+position = Vector2(4885, 640)
+collision_mask = 0
+script = ExtResource("31_vdesd")
+
+[node name="StormBrute2" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1443845354 groups=["enemies"] instance=ExtResource("32_45wuu")]
+position = Vector2(5000, 608)
+collision_layer = 4
+script = ExtResource("33_l4g75")
+
+[node name="StormOrb2" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1330013335 groups=["enemies"] instance=ExtResource("34_mthao")]
+position = Vector2(5450, 380)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("35_4qndc")
+
+[node name="StormNarrowSpearman2" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=101328215 groups=["enemies"] instance=ExtResource("23_i0ett")]
+position = Vector2(4630, 506)
+collision_layer = 4
+script = ExtResource("24_lqgtr")
+narrow = true
+patrol_speed = 40.0
+patrol_distance = 30.0
+
+[node name="StormStepLow3" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1092791813 instance=ExtResource("17_3ry8l")]
+position = Vector2(5930, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormStepLow3" unique_id=1350923837 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormStepLow3" unique_id=1828979843 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormStepHigh3" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1914148811 instance=ExtResource("17_3ry8l")]
+position = Vector2(6240, 440)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormStepHigh3" unique_id=858234762 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormStepHigh3" unique_id=44379622 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormBridge3" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1406350688 instance=ExtResource("17_3ry8l")]
+position = Vector2(6750, 548)
+collision_mask = 0
+script = ExtResource("18_as15o")
+kind = 1
+platform_size = Vector2(110, 24)
+platform_color = Color(0.5411765, 0.5921569, 0.67058825, 1)
+travel = Vector2(60, 0)
+speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormBridge3" unique_id=1255786663 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-39.6, -20)
+scale = Vector2(0.22, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormBridge3" unique_id=527354799 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(39.6, -20)
+scale = Vector2(0.22, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormLongJumper3" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1322120998 groups=["enemies"] instance=ExtResource("27_mxd78")]
+position = Vector2(6450, 620)
+collision_layer = 4
+script = ExtResource("28_01y42")
+long_jump = true
+jump_speed = 820.0
+windup_time = 1.1
+rest_time = 6.0
+wave_radius = 340.0
+
+[node name="StormMage3" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1860556584 groups=["enemies"] instance=ExtResource("36_kxby7")]
+position = Vector2(6240, 374)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("37_osioj")
+shoot_range = 520.0
+
+[node name="SpikeTrap" type="Area2D" parent="LevelFifteenGenerated" unique_id=810143919 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+position = Vector2(6000, 632)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform0" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=921742113 instance=ExtResource("17_3ry8l")]
+position = Vector2(7050, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.47843137, 0.5294118, 0.6117647, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform0" unique_id=1396536296 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform0" unique_id=1868996100 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform1" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1215326863 instance=ExtResource("17_3ry8l")]
+position = Vector2(7450, 440)
+collision_mask = 0
+script = ExtResource("18_as15o")
+kind = 1
+platform_color = Color(0.56078434, 0.60784316, 0.6901961, 1)
+travel = Vector2(60, 0)
+speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform1" unique_id=1551007574 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform1" unique_id=935659771 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform2" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1413647999 instance=ExtResource("17_3ry8l")]
+position = Vector2(7850, 332)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.4, 0.4509804, 0.5372549, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform2" unique_id=548537306 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform2" unique_id=1450916825 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormRouteMage2" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1555328975 groups=["enemies"] instance=ExtResource("36_kxby7")]
+position = Vector2(7850, 266)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("37_osioj")
+shoot_range = 520.0
+
+[node name="StormPlatform3" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1732228995 instance=ExtResource("17_3ry8l")]
+position = Vector2(8250, 440)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.47843137, 0.5294118, 0.6117647, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform3" unique_id=1424172831 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform3" unique_id=1046545600 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="HealingHerb" type="Area2D" parent="LevelFifteenGenerated" unique_id=473540214 groups=["healing_pickups"] instance=ExtResource("38_t0s3u")]
+position = Vector2(8250, 394)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("39_sftlc")
+
+[node name="StormPlatform4" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1118143402 instance=ExtResource("17_3ry8l")]
+position = Vector2(8650, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.56078434, 0.60784316, 0.6901961, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform4" unique_id=1362818592 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform4" unique_id=2075486387 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform5" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1603632697 instance=ExtResource("17_3ry8l")]
+position = Vector2(9050, 440)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_size = Vector2(340, 24)
+platform_color = Color(0.4, 0.4509804, 0.5372549, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform5" unique_id=1882293529 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-142, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform5" unique_id=2016534183 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(142, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormRouteArcher5" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=583249716 groups=["enemies"] instance=ExtResource("29_hwa7v")]
+position = Vector2(9110, 376)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("30_mhwdi")
+shoot_range = 620.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 1600.0
+contact_damage = 25
+
+[node name="StormPlatform6" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=464371932 instance=ExtResource("17_3ry8l")]
+position = Vector2(9450, 332)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.47843137, 0.5294118, 0.6117647, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform6" unique_id=842150253 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform6" unique_id=1131040773 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform7" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1422882517 instance=ExtResource("17_3ry8l")]
+position = Vector2(9850, 440)
+collision_mask = 0
+script = ExtResource("18_as15o")
+kind = 1
+platform_color = Color(0.56078434, 0.60784316, 0.6901961, 1)
+travel = Vector2(60, 0)
+speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform7" unique_id=1740509266 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform7" unique_id=1792234607 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform8" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=955958764 instance=ExtResource("17_3ry8l")]
+position = Vector2(10250, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.4, 0.4509804, 0.5372549, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform8" unique_id=964981109 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform8" unique_id=1350363576 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="Area2D_33" type="Area2D" parent="LevelFifteenGenerated" unique_id=1085494354 groups=["healing_pickups"] instance=ExtResource("38_t0s3u")]
+position = Vector2(10250, 502)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("39_sftlc")
+
+[node name="StormPlatform9" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=140806091 instance=ExtResource("17_3ry8l")]
+position = Vector2(10650, 440)
+collision_mask = 0
+script = ExtResource("18_as15o")
+kind = 2
+platform_color = Color(0.47843137, 0.5294118, 0.6117647, 1)
+circle_radius = 45.0
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform9" unique_id=2136382800 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform9" unique_id=1790864821 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform10" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=479126159 instance=ExtResource("17_3ry8l")]
+position = Vector2(11050, 332)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.56078434, 0.60784316, 0.6901961, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform10" unique_id=140951647 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform10" unique_id=860802063 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform11" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=767184959 instance=ExtResource("17_3ry8l")]
+position = Vector2(11450, 440)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_size = Vector2(340, 24)
+platform_color = Color(0.4, 0.4509804, 0.5372549, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform11" unique_id=1282851990 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-142, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform11" unique_id=1607735013 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(142, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="Checkpoint" type="Area2D" parent="LevelFifteenGenerated" unique_id=1967011596 instance=ExtResource("40_k8vcc")]
+position = Vector2(11360, 380)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("41_6ac6m")
+
+[node name="StormRouteMage11" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=75679951 groups=["enemies"] instance=ExtResource("36_kxby7")]
+position = Vector2(11540, 374)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("37_osioj")
+shoot_range = 520.0
+
+[node name="StormPlatform12" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1082701948 instance=ExtResource("17_3ry8l")]
+position = Vector2(11850, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.47843137, 0.5294118, 0.6117647, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform12" unique_id=207984600 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform12" unique_id=527048460 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform13" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=356363258 instance=ExtResource("17_3ry8l")]
+position = Vector2(12250, 440)
+collision_mask = 0
+script = ExtResource("18_as15o")
+kind = 1
+platform_color = Color(0.56078434, 0.60784316, 0.6901961, 1)
+travel = Vector2(60, 0)
+speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform13" unique_id=2008635627 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform13" unique_id=1499606359 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform14" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=815370875 instance=ExtResource("17_3ry8l")]
+position = Vector2(12650, 332)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.4, 0.4509804, 0.5372549, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform14" unique_id=763170740 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform14" unique_id=111296497 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormRouteArcher14" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1535328431 groups=["enemies"] instance=ExtResource("29_hwa7v")]
+position = Vector2(12650, 268)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("30_mhwdi")
+shoot_range = 620.0
+shoot_interval = 2.1
+projectile_speed = 300.0
+gravity = 1600.0
+contact_damage = 25
+
+[node name="StormPlatform15" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=899451576 instance=ExtResource("17_3ry8l")]
+position = Vector2(13050, 440)
+collision_mask = 0
+script = ExtResource("18_as15o")
+kind = 2
+platform_color = Color(0.47843137, 0.5294118, 0.6117647, 1)
+circle_radius = 45.0
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform15" unique_id=1798774860 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform15" unique_id=993620761 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormPlatform16" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=524717426 instance=ExtResource("17_3ry8l")]
+position = Vector2(13450, 548)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("18_as15o")
+platform_color = Color(0.56078434, 0.60784316, 0.6901961, 1)
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform16" unique_id=901974270 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform16" unique_id=973023452 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormRouteMage16" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=854527917 groups=["enemies"] instance=ExtResource("36_kxby7")]
+position = Vector2(13450, 482)
+collision_layer = 4
+floor_snap_length = 6.0
+script = ExtResource("37_osioj")
+shoot_range = 520.0
+
+[node name="StormPlatform17" type="AnimatableBody2D" parent="LevelFifteenGenerated" unique_id=1092118700 instance=ExtResource("17_3ry8l")]
+position = Vector2(13850, 440)
+collision_mask = 0
+script = ExtResource("18_as15o")
+kind = 4
+platform_color = Color(0.4, 0.4509804, 0.5372549, 1)
+rotation_speed = 1.1
+
+[node name="SpikeLeft" type="Area2D" parent="LevelFifteenGenerated/StormPlatform17" unique_id=1807418908 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(-72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="SpikeRight" type="Area2D" parent="LevelFifteenGenerated/StormPlatform17" unique_id=251398692 groups=["spikes", "traps"] instance=ExtResource("19_t11ri")]
+visible = false
+position = Vector2(72, -20)
+scale = Vector2(0.4, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("20_3h0fy")
+
+[node name="StormRouteOrb6" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=823977016 groups=["enemies"] instance=ExtResource("34_mthao")]
+position = Vector2(9650, 316)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("35_4qndc")
+
+[node name="StormRouteOrb13" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=776125182 groups=["enemies"] instance=ExtResource("34_mthao")]
+position = Vector2(12450, 316)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("35_4qndc")
+axis = 1
+
+[node name="SawTrap" type="Area2D" parent="LevelFifteenGenerated" unique_id=837414279 groups=["saws", "traps"] instance=ExtResource("42_f2n40")]
+position = Vector2(10850, 247)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("43_cqoxy")
+move_range = 160.0
+move_speed = 1.2
+
+[node name="Area2D_34" type="Area2D" parent="LevelFifteenGenerated" unique_id=1665010714 groups=["saws", "traps"] instance=ExtResource("42_f2n40")]
+position = Vector2(13250, 355)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("43_cqoxy")
+move_range = 160.0
+move_speed = 1.2
+
+[node name="StormFinaleBrutePile" type="StaticBody2D" parent="LevelFifteenGenerated" unique_id=217419373]
+position = Vector2(14950, 640)
+collision_mask = 0
+script = ExtResource("31_vdesd")
+
+[node name="StormFinaleBrute" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=373293351 groups=["enemies"] instance=ExtResource("32_45wuu")]
+position = Vector2(15090, 608)
+collision_layer = 4
+script = ExtResource("33_l4g75")
+
+[node name="StormFinaleSlug" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=2086432962 groups=["enemies"] instance=ExtResource("25_t2van")]
+position = Vector2(14500, 622)
+collision_layer = 4
+script = ExtResource("26_01265")
+double_jump = true
+
+[node name="StormFinaleJumper" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1796699091 groups=["enemies"] instance=ExtResource("27_mxd78")]
+position = Vector2(15700, 620)
+collision_layer = 4
+script = ExtResource("28_01y42")
+long_jump = true
+jump_speed = 820.0
+windup_time = 1.1
+rest_time = 6.0
+wave_radius = 340.0
+
+[node name="StormFinaleSpearmanA" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=979459023 groups=["enemies"] instance=ExtResource("23_i0ett")]
+position = Vector2(14350, 610)
+collision_layer = 4
+script = ExtResource("24_lqgtr")
+
+[node name="StormFinaleSpearmanB" type="CharacterBody2D" parent="LevelFifteenGenerated" unique_id=1505399775 groups=["enemies"] instance=ExtResource("23_i0ett")]
+position = Vector2(15450, 610)
+collision_layer = 4
+script = ExtResource("24_lqgtr")
+
+[node name="RockfallSpawner" type="Node2D" parent="LevelFifteenGenerated" unique_id=155963187]
+script = ExtResource("44_27lsi")
+interval = 0.7333333333333334
+min_x = 6850.0
+max_x = 14050.0
+
+[node name="FlyingSpawner" type="Node2D" parent="LevelFifteenGenerated" unique_id=1275088560]
+script = ExtResource("45_p7yjg")
+spawn_interval = 5.0
+initial_delay = 4.0
+min_height = 130.0
+max_height = 520.0
+side_margin = 40.0
+
+[node name="SkySentry" type="Node2D" parent="LevelFifteenGenerated" unique_id=1367813773 groups=["enemies", "sky_sentries"] instance=ExtResource("46_sk061")]
+z_index = 6
+position = Vector2(1738.0646, -82.58064)
+script = ExtResource("47_hxpro")
+
+[node name="WindField" type="Node2D" parent="LevelFifteenGenerated" unique_id=684155581]
+script = ExtResource("48_51y1i")
+segments = Array[Dictionary]([{
+"from": 1500.0,
+"speed": 110.0,
+"to": 6600.0
+}, {
+"from": 6800.0,
+"speed": -135.0,
+"to": 10400.0
+}, {
+"from": 10400.0,
+"speed": 125.0,
+"to": 13900.0
+}])
+gust_period = 6.0

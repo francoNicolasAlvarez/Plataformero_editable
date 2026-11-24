@@ -1,0 +1,1012 @@
+[gd_scene format=3 uid="uid://bd7sb5pprbi0t"]
+
+[ext_resource type="Script" uid="uid://834oqbamqctc" path="res://scripts/levels/test_level.gd" id="1_rgg6k"]
+[ext_resource type="Script" uid="uid://bh6dsmvpmdr8q" path="res://scripts/levels/level_one_extension.gd" id="2_1jurr"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_adpgo"]
+[ext_resource type="PackedScene" path="res://scenes/world/exit_portal.tscn" id="6_8v4f5"]
+[ext_resource type="PackedScene" path="res://scenes/camera/horizontal_camera.tscn" id="8_skyrj"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_hud.tscn" id="10_y7lm7"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_overlay.tscn" id="11_cwfbi"]
+[ext_resource type="PackedScene" path="res://scenes/decor/sun.tscn" id="13_7krrh"]
+[ext_resource type="PackedScene" path="res://scenes/decor/cloud.tscn" id="15_kcvbs"]
+[ext_resource type="PackedScene" path="res://scenes/decor/tree.tscn" id="17_ivwju"]
+[ext_resource type="PackedScene" path="res://scenes/decor/bird.tscn" id="18_rjyo0"]
+[ext_resource type="PackedScene" path="res://scenes/decor/bush.tscn" id="20_v0ktm"]
+[ext_resource type="PackedScene" path="res://scenes/world/platform.tscn" id="21_5f71c"]
+[ext_resource type="PackedScene" path="res://scenes/world/spike_trap.tscn" id="23_5i6ab"]
+[ext_resource type="PackedScene" path="res://scenes/world/moving_platform.tscn" id="25_nlfss"]
+[ext_resource type="PackedScene" path="res://scenes/world/fall_zone.tscn" id="27_ppbb1"]
+[ext_resource type="PackedScene" path="res://scenes/world/saw_trap.tscn" id="29_najre"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/walker_enemy.tscn" id="31_awcac"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/ranged_enemy.tscn" id="33_88qpp"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spread_enemy.tscn" id="35_3b47m"]
+[ext_resource type="PackedScene" path="res://scenes/pickups/healing_herb.tscn" id="37_7t5dm"]
+[ext_resource type="PackedScene" path="res://scenes/world/checkpoint.tscn" id="39_eo7ea"]
+
+[sub_resource type="Gradient" id="Gradient_stvyh"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(1, 0.7019608, 0.2784314, 1, 0.9372549, 0.41568628, 0.34509805, 1, 0.33333334, 0.1254902, 0.30980393, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bd6mf"]
+gradient = SubResource("Gradient_stvyh")
+width = 16
+height = 256
+fill_to = Vector2(0, 1)
+
+[node name="LevelEight" type="Node2D" unique_id=1058161944]
+script = ExtResource("1_rgg6k")
+level_variant = 8
+next_level_path = "res://scenes/levels/level_nine.tscn"
+level_name = "NIVEL 2-3"
+baked = true
+route_points = PackedVector2Array()
+gold_medal_time = 31.5
+silver_medal_time = 39.5
+
+[node name="Brightness" type="CanvasModulate" parent="." unique_id=469946213]
+
+[node name="Background" type="ColorRect" parent="." unique_id=529028333]
+visible = false
+z_index = -20
+offset_right = 22400.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.0705882, 0.105882, 0.156863, 1)
+
+[node name="BackgroundDecor" type="Parallax2D" parent="." unique_id=2119028193]
+visible = false
+z_index = -16
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Hill1" type="Polygon2D" parent="BackgroundDecor" unique_id=93316384]
+position = Vector2(250, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill2" type="Polygon2D" parent="BackgroundDecor" unique_id=1962521011]
+position = Vector2(760, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill3" type="Polygon2D" parent="BackgroundDecor" unique_id=2112585326]
+position = Vector2(1500, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill4" type="Polygon2D" parent="BackgroundDecor" unique_id=2066502081]
+position = Vector2(2230, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill5" type="Polygon2D" parent="BackgroundDecor" unique_id=1701389366]
+position = Vector2(3150, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill6" type="Polygon2D" parent="BackgroundDecor" unique_id=412815415]
+position = Vector2(3660, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill7" type="Polygon2D" parent="BackgroundDecor" unique_id=700344290]
+position = Vector2(4400, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill8" type="Polygon2D" parent="BackgroundDecor" unique_id=1883679929]
+position = Vector2(5030, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill9" type="Polygon2D" parent="BackgroundDecor" unique_id=1702843561]
+position = Vector2(6050, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill10" type="Polygon2D" parent="BackgroundDecor" unique_id=1600996327]
+position = Vector2(6560, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill11" type="Polygon2D" parent="BackgroundDecor" unique_id=86595736]
+position = Vector2(7300, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill12" type="Polygon2D" parent="BackgroundDecor" unique_id=675791821]
+position = Vector2(7930, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="LevelOneExtension" type="Node2D" parent="." unique_id=1657818528]
+script = ExtResource("2_1jurr")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=1630378793]
+
+[node name="Player" parent="." unique_id=984973719 instance=ExtResource("3_adpgo")]
+position = Vector2(12780, 600)
+inverted_controls = true
+
+[node name="ExitPortal" parent="." unique_id=1615517457 instance=ExtResource("6_8v4f5")]
+position = Vector2(450, 580)
+
+[node name="Camera" parent="." unique_id=711433190 instance=ExtResource("8_skyrj")]
+position = Vector2(12780, 360)
+limit_left = 0
+limit_top = 0
+limit_right = 13400
+limit_bottom = 720
+target_path = NodePath("../Player")
+
+[node name="HUD" parent="." unique_id=1913398666 instance=ExtResource("10_y7lm7")]
+
+[node name="PauseOverlay" parent="." unique_id=887821036 instance=ExtResource("11_cwfbi")]
+visible = false
+
+[node name="LevelEightGenerated" type="Node2D" parent="." unique_id=1753857981]
+
+[node name="TextureRect_1" type="TextureRect" parent="LevelEightGenerated" unique_id=1133994542]
+z_index = -20
+offset_top = -81.0
+offset_right = 13400.0
+offset_bottom = 639.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_bd6mf")
+
+[node name="AnimatableBody2D_73" parent="LevelEightGenerated/TextureRect_1" unique_id=892082450 instance=ExtResource("21_5f71c")]
+position = Vector2(8228, 408)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.6431373, 0.4, 0.28235295, 1)
+
+[node name="CharacterBody2D_96" parent="LevelEightGenerated/TextureRect_1" unique_id=953581749 instance=ExtResource("31_awcac")]
+position = Vector2(9236, 175)
+patrol_speed = 134.0
+patrol_distance = 62.0
+
+[node name="CharacterBody2D_95" parent="LevelEightGenerated/TextureRect_1" unique_id=1910765035 instance=ExtResource("35_3b47m")]
+position = Vector2(8234, 365)
+
+[node name="Sun" parent="LevelEightGenerated" unique_id=914284023 instance=ExtResource("13_7krrh")]
+modulate = Color(1, 0.78, 0.5, 1)
+top_level = true
+z_index = -19
+scale = Vector2(1.15, 1.15)
+screen_offset = Vector2(13060, -120)
+
+[node name="HillParallax" type="Parallax2D" parent="LevelEightGenerated" unique_id=1243876683]
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Polygon2D_2" type="Polygon2D" parent="LevelEightGenerated/HillParallax" unique_id=433363220]
+z_index = -14
+position = Vector2(13000, 640)
+color = Color(0.41960785, 0.1764706, 0.36078432, 1)
+polygon = PackedVector2Array(-520, 0, -120, -230, 210, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelEightGenerated/HillParallax/Polygon2D_2" unique_id=1617692264]
+
+[node name="Cap" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=172943249]
+color = Color(0.9490196, 0.7882353, 0.627451, 1)
+polygon = PackedVector2Array(-120, -230, -248, -156.4, -201.28, -148.4, -154.56, -160.4, -107.84, -148.4, -61.119995, -160.4, -14.400002, -156.4)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=1857869514]
+color = Color(0.4892549, 0.27529413, 0.4374902, 1)
+polygon = PackedVector2Array(-120, -230, -460, -34.5, -455.51376, -26.697844, -117.03908, -224.85057)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=389760562]
+color = Color(0.31470588, 0.13235295, 0.27058825, 1)
+polygon = PackedVector2Array(-120, -230, 177, -23, 168.9949, -11.514426, -125.60357, -221.9601)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=977188686]
+color = Color(0.23602942, 0.09926471, 0.20294118, 1)
+polygon = PackedVector2Array(-306, 0, -301, -14, -296, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=331219495]
+color = Color(0.23602942, 0.09926471, 0.20294118, 1)
+polygon = PackedVector2Array(-160, 0, -155, -19, -150, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_2/MountainDetail" unique_id=1042790552]
+color = Color(0.23602942, 0.09926471, 0.20294118, 1)
+polygon = PackedVector2Array(-14, 0, -9, -14, -4, 0)
+
+[node name="Polygon2D_3" type="Polygon2D" parent="LevelEightGenerated/HillParallax" unique_id=2119541274]
+z_index = -14
+position = Vector2(11950, 640)
+color = Color(0.5411765, 0.23137255, 0.2901961, 1)
+polygon = PackedVector2Array(-520, 0, -120, -230, 210, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelEightGenerated/HillParallax/Polygon2D_3" unique_id=33409441]
+
+[node name="Cap" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=92579100]
+color = Color(0.9490196, 0.7882353, 0.627451, 1)
+polygon = PackedVector2Array(-120, -230, -248, -156.4, -201.28, -148.4, -154.56, -160.4, -107.84, -148.4, -61.119995, -160.4, -14.400002, -156.4)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=317142853]
+color = Color(0.59623533, 0.32360786, 0.37537256, 1)
+polygon = PackedVector2Array(-120, -230, -460, -34.5, -455.51376, -26.697844, -117.03908, -224.85057)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=1180964796]
+color = Color(0.40588236, 0.17352942, 0.21764708, 1)
+polygon = PackedVector2Array(-120, -230, 177, -23, 168.9949, -11.514426, -125.60357, -221.9601)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=861198763]
+color = Color(0.30441177, 0.13014707, 0.1632353, 1)
+polygon = PackedVector2Array(-306, 0, -301, -14, -296, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=2077914027]
+color = Color(0.30441177, 0.13014707, 0.1632353, 1)
+polygon = PackedVector2Array(-160, 0, -155, -19, -150, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_3/MountainDetail" unique_id=306761922]
+color = Color(0.30441177, 0.13014707, 0.1632353, 1)
+polygon = PackedVector2Array(-14, 0, -9, -14, -4, 0)
+
+[node name="Polygon2D_4" type="Polygon2D" parent="LevelEightGenerated/HillParallax" unique_id=468464282]
+z_index = -14
+position = Vector2(10900, 640)
+color = Color(0.69803923, 0.2901961, 0.23529412, 1)
+polygon = PackedVector2Array(-520, 0, -120, -230, 210, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelEightGenerated/HillParallax/Polygon2D_4" unique_id=1601653918]
+
+[node name="Cap" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=743187773]
+color = Color(0.9490196, 0.7882353, 0.627451, 1)
+polygon = PackedVector2Array(-120, -230, -248, -156.4, -201.28, -148.4, -154.56, -160.4, -107.84, -148.4, -61.119995, -160.4, -14.400002, -156.4)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=1331539664]
+color = Color(0.7342745, 0.37537256, 0.32705882, 1)
+polygon = PackedVector2Array(-120, -230, -460, -34.5, -455.51376, -26.697844, -117.03908, -224.85057)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=200897151]
+color = Color(0.5235294, 0.21764708, 0.1764706, 1)
+polygon = PackedVector2Array(-120, -230, 177, -23, 168.9949, -11.514426, -125.60357, -221.9601)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=1755055893]
+color = Color(0.39264706, 0.1632353, 0.13235295, 1)
+polygon = PackedVector2Array(-306, 0, -301, -14, -296, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=903233577]
+color = Color(0.39264706, 0.1632353, 0.13235295, 1)
+polygon = PackedVector2Array(-160, 0, -155, -19, -150, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_4/MountainDetail" unique_id=1358042045]
+color = Color(0.39264706, 0.1632353, 0.13235295, 1)
+polygon = PackedVector2Array(-14, 0, -9, -14, -4, 0)
+
+[node name="Polygon2D_5" type="Polygon2D" parent="LevelEightGenerated/HillParallax" unique_id=1386442872]
+z_index = -14
+position = Vector2(9850, 640)
+color = Color(0.41960785, 0.1764706, 0.36078432, 1)
+polygon = PackedVector2Array(-520, 0, -120, -230, 210, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelEightGenerated/HillParallax/Polygon2D_5" unique_id=558831195]
+
+[node name="Cap" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=2038652283]
+color = Color(0.9490196, 0.7882353, 0.627451, 1)
+polygon = PackedVector2Array(-120, -230, -248, -156.4, -201.28, -148.4, -154.56, -160.4, -107.84, -148.4, -61.119995, -160.4, -14.400002, -156.4)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=1484468658]
+color = Color(0.4892549, 0.27529413, 0.4374902, 1)
+polygon = PackedVector2Array(-120, -230, -460, -34.5, -455.51376, -26.697844, -117.03908, -224.85057)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=757863671]
+color = Color(0.31470588, 0.13235295, 0.27058825, 1)
+polygon = PackedVector2Array(-120, -230, 177, -23, 168.9949, -11.514426, -125.60357, -221.9601)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=859275511]
+color = Color(0.23602942, 0.09926471, 0.20294118, 1)
+polygon = PackedVector2Array(-306, 0, -301, -14, -296, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=2118853700]
+color = Color(0.23602942, 0.09926471, 0.20294118, 1)
+polygon = PackedVector2Array(-160, 0, -155, -19, -150, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_5/MountainDetail" unique_id=560953418]
+color = Color(0.23602942, 0.09926471, 0.20294118, 1)
+polygon = PackedVector2Array(-14, 0, -9, -14, -4, 0)
+
+[node name="Polygon2D_6" type="Polygon2D" parent="LevelEightGenerated/HillParallax" unique_id=774401957]
+z_index = -14
+position = Vector2(9080.877, 638)
+color = Color(0.5411765, 0.23137255, 0.2901961, 1)
+polygon = PackedVector2Array(-520, 0, -120, -230, 210, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelEightGenerated/HillParallax/Polygon2D_6" unique_id=1650026802]
+
+[node name="Cap" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=1904839601]
+color = Color(0.9490196, 0.7882353, 0.627451, 1)
+polygon = PackedVector2Array(-120, -230, -248, -156.4, -201.28, -148.4, -154.56, -160.4, -107.84, -148.4, -61.119995, -160.4, -14.400002, -156.4)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=429912622]
+color = Color(0.59623533, 0.32360786, 0.37537256, 1)
+polygon = PackedVector2Array(-120, -230, -460, -34.5, -455.51376, -26.697844, -117.03908, -224.85057)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=1758138584]
+color = Color(0.40588236, 0.17352942, 0.21764708, 1)
+polygon = PackedVector2Array(-120, -230, 177, -23, 168.9949, -11.514426, -125.60357, -221.9601)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=1912767072]
+color = Color(0.30441177, 0.13014707, 0.1632353, 1)
+polygon = PackedVector2Array(-306, 0, -301, -14, -296, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=1030551159]
+color = Color(0.30441177, 0.13014707, 0.1632353, 1)
+polygon = PackedVector2Array(-160, 0, -155, -19, -150, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_6/MountainDetail" unique_id=670640613]
+color = Color(0.30441177, 0.13014707, 0.1632353, 1)
+polygon = PackedVector2Array(-14, 0, -9, -14, -4, 0)
+
+[node name="Polygon2D_7" type="Polygon2D" parent="LevelEightGenerated/HillParallax" unique_id=868843641]
+z_index = -14
+position = Vector2(7750, 640)
+color = Color(0.69803923, 0.2901961, 0.23529412, 1)
+polygon = PackedVector2Array(-520, 0, -120, -230, 210, 0)
+
+[node name="MountainDetail" type="Node2D" parent="LevelEightGenerated/HillParallax/Polygon2D_7" unique_id=75759593]
+
+[node name="Cap" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=1986540025]
+color = Color(0.9490196, 0.7882353, 0.627451, 1)
+polygon = PackedVector2Array(-120, -230, -248, -156.4, -201.28, -148.4, -154.56, -160.4, -107.84, -148.4, -61.119995, -160.4, -14.400002, -156.4)
+
+[node name="RidgeLight" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=2025368670]
+color = Color(0.7342745, 0.37537256, 0.32705882, 1)
+polygon = PackedVector2Array(-120, -230, -460, -34.5, -455.51376, -26.697844, -117.03908, -224.85057)
+
+[node name="SlopeShade" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=1740154932]
+color = Color(0.5235294, 0.21764708, 0.1764706, 1)
+polygon = PackedVector2Array(-120, -230, 177, -23, 168.9949, -11.514426, -125.60357, -221.9601)
+
+[node name="FarTree1" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=604885470]
+color = Color(0.39264706, 0.1632353, 0.13235295, 1)
+polygon = PackedVector2Array(-306, 0, -301, -14, -296, 0)
+
+[node name="FarTree2" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=28931458]
+color = Color(0.39264706, 0.1632353, 0.13235295, 1)
+polygon = PackedVector2Array(-160, 0, -155, -19, -150, 0)
+
+[node name="FarTree3" type="Polygon2D" parent="LevelEightGenerated/HillParallax/Polygon2D_7/MountainDetail" unique_id=1993213694]
+color = Color(0.39264706, 0.1632353, 0.13235295, 1)
+polygon = PackedVector2Array(-14, 0, -9, -14, -4, 0)
+
+[node name="CloudParallax" type="Parallax2D" parent="LevelEightGenerated" unique_id=1543731915]
+z_index = -8
+scroll_scale = Vector2(0.55, 1)
+screen_offset = Vector2(353.0323, 36)
+
+[node name="Cloud" parent="LevelEightGenerated/CloudParallax" unique_id=400109200 instance=ExtResource("15_kcvbs")]
+modulate = Color(1, 0.68, 0.55, 0.42)
+position = Vector2(13150, 90)
+
+[node name="Node2D_8" parent="LevelEightGenerated/CloudParallax" unique_id=157376099 instance=ExtResource("15_kcvbs")]
+modulate = Color(1, 0.68, 0.55, 0.42)
+position = Vector2(12000, 135)
+
+[node name="Node2D_9" parent="LevelEightGenerated/CloudParallax" unique_id=1344098202 instance=ExtResource("15_kcvbs")]
+modulate = Color(1, 0.68, 0.55, 0.42)
+position = Vector2(10850, 180)
+
+[node name="Node2D_10" parent="LevelEightGenerated/CloudParallax" unique_id=1846129326 instance=ExtResource("15_kcvbs")]
+modulate = Color(1, 0.68, 0.55, 0.42)
+position = Vector2(9700, 90)
+
+[node name="Node2D_11" parent="LevelEightGenerated/CloudParallax" unique_id=2111529999 instance=ExtResource("15_kcvbs")]
+modulate = Color(1, 0.68, 0.55, 0.42)
+position = Vector2(8550, 135)
+
+[node name="Node2D_12" parent="LevelEightGenerated/CloudParallax" unique_id=923209677 instance=ExtResource("15_kcvbs")]
+modulate = Color(1, 0.68, 0.55, 0.42)
+position = Vector2(7400, 180)
+
+[node name="Node2D_13" parent="LevelEightGenerated/CloudParallax" unique_id=1965370583 instance=ExtResource("15_kcvbs")]
+modulate = Color(1, 0.68, 0.55, 0.42)
+position = Vector2(6250, 90)
+
+[node name="Node2D_14" parent="LevelEightGenerated/CloudParallax" unique_id=1600978577 instance=ExtResource("15_kcvbs")]
+modulate = Color(1, 0.68, 0.55, 0.42)
+position = Vector2(5100, 135)
+
+[node name="Tree" parent="LevelEightGenerated" unique_id=1731223729 instance=ExtResource("17_ivwju")]
+modulate = Color(0.48, 0.26, 0.3, 1)
+position = Vector2(12500, 640)
+scale = Vector2(0.8, 0.85)
+
+[node name="Bird" parent="LevelEightGenerated" unique_id=807052923 instance=ExtResource("18_rjyo0")]
+modulate = Color(0.62, 0.42, 0.46, 1)
+position = Vector2(12476, 494)
+scale = Vector2(0.9, 0.9)
+
+[node name="Node2D_15" parent="LevelEightGenerated" unique_id=812411772 instance=ExtResource("17_ivwju")]
+modulate = Color(0.48, 0.26, 0.3, 1)
+position = Vector2(9500, 640)
+scale = Vector2(0.8, 0.85)
+
+[node name="Node2D_16" parent="LevelEightGenerated" unique_id=1058969522 instance=ExtResource("18_rjyo0")]
+modulate = Color(0.62, 0.42, 0.46, 1)
+position = Vector2(8876, 605)
+scale = Vector2(0.9, 0.9)
+
+[node name="Node2D_17" parent="LevelEightGenerated" unique_id=101366773 instance=ExtResource("17_ivwju")]
+modulate = Color(0.48, 0.26, 0.3, 1)
+position = Vector2(7100, 640)
+scale = Vector2(0.8, 0.85)
+
+[node name="Node2D_18" parent="LevelEightGenerated" unique_id=1455719577 instance=ExtResource("18_rjyo0")]
+modulate = Color(0.62, 0.42, 0.46, 1)
+position = Vector2(7076, 494)
+scale = Vector2(0.9, 0.9)
+
+[node name="Node2D_19" parent="LevelEightGenerated" unique_id=1174867207 instance=ExtResource("17_ivwju")]
+modulate = Color(0.48, 0.26, 0.3, 1)
+position = Vector2(4800, 640)
+scale = Vector2(0.8, 0.85)
+
+[node name="Node2D_20" parent="LevelEightGenerated" unique_id=710077198 instance=ExtResource("18_rjyo0")]
+modulate = Color(0.62, 0.42, 0.46, 1)
+position = Vector2(4776, 494)
+scale = Vector2(0.9, 0.9)
+
+[node name="Node2D_21" parent="LevelEightGenerated" unique_id=66781203 instance=ExtResource("17_ivwju")]
+modulate = Color(0.48, 0.26, 0.3, 1)
+position = Vector2(2600, 640)
+scale = Vector2(0.8, 0.85)
+
+[node name="Node2D_22" parent="LevelEightGenerated" unique_id=902510838 instance=ExtResource("18_rjyo0")]
+modulate = Color(0.62, 0.42, 0.46, 1)
+position = Vector2(2576, 494)
+scale = Vector2(0.9, 0.9)
+
+[node name="Bush" parent="LevelEightGenerated" unique_id=294349310 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(13100, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_23" parent="LevelEightGenerated" unique_id=1076720006 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(12050, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_24" parent="LevelEightGenerated" unique_id=666701119 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(11000, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_25" parent="LevelEightGenerated" unique_id=503157659 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(9950, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_26" parent="LevelEightGenerated" unique_id=1295965836 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(8900, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_27" parent="LevelEightGenerated" unique_id=1819626910 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(7850, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_28" parent="LevelEightGenerated" unique_id=1245430140 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(6800, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_29" parent="LevelEightGenerated" unique_id=1389677175 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(5750, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_30" parent="LevelEightGenerated" unique_id=452409277 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(4700, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_31" parent="LevelEightGenerated" unique_id=1486980498 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(3650, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_32" parent="LevelEightGenerated" unique_id=1488075979 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(2600, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Node2D_33" parent="LevelEightGenerated" unique_id=658474642 instance=ExtResource("20_v0ktm")]
+modulate = Color(0.6, 0.34, 0.3, 1)
+position = Vector2(1550, 640)
+scale = Vector2(0.8, 0.7)
+
+[node name="Platform" parent="LevelEightGenerated" unique_id=1630747505 instance=ExtResource("21_5f71c")]
+position = Vector2(12300, 680)
+sync_to_physics = false
+platform_size = Vector2(2200, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="AnimatableBody2D_34" parent="LevelEightGenerated" unique_id=1865563111 instance=ExtResource("21_5f71c")]
+position = Vector2(10650, 680)
+sync_to_physics = false
+platform_size = Vector2(300, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="AnimatableBody2D_35" parent="LevelEightGenerated" unique_id=718676091 instance=ExtResource("21_5f71c")]
+position = Vector2(9540, 680)
+sync_to_physics = false
+platform_size = Vector2(1480, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="AnimatableBody2D_36" parent="LevelEightGenerated" unique_id=2138605289 instance=ExtResource("21_5f71c")]
+position = Vector2(8150, 680)
+sync_to_physics = false
+platform_size = Vector2(300, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="AnimatableBody2D_37" parent="LevelEightGenerated" unique_id=2005547571 instance=ExtResource("21_5f71c")]
+position = Vector2(7090, 680)
+sync_to_physics = false
+platform_size = Vector2(1380, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="AnimatableBody2D_38" parent="LevelEightGenerated" unique_id=917046113 instance=ExtResource("21_5f71c")]
+position = Vector2(5750, 680)
+sync_to_physics = false
+platform_size = Vector2(300, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="AnimatableBody2D_39" parent="LevelEightGenerated" unique_id=2092678396 instance=ExtResource("21_5f71c")]
+position = Vector2(4690, 680)
+sync_to_physics = false
+platform_size = Vector2(1380, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="AnimatableBody2D_40" parent="LevelEightGenerated" unique_id=64565218 instance=ExtResource("21_5f71c")]
+position = Vector2(3350, 680)
+sync_to_physics = false
+platform_size = Vector2(300, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="AnimatableBody2D_41" parent="LevelEightGenerated" unique_id=1226793020 instance=ExtResource("21_5f71c")]
+position = Vector2(2390, 680)
+sync_to_physics = false
+platform_size = Vector2(1180, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="AnimatableBody2D_42" parent="LevelEightGenerated" unique_id=91525188 instance=ExtResource("21_5f71c")]
+position = Vector2(1000, 680)
+sync_to_physics = false
+platform_size = Vector2(1600, 80)
+platform_color = Color(0.3529412, 0.22745098, 0.20784314, 1)
+
+[node name="MovingPlatform" parent="LevelEightGenerated" unique_id=1441843817 instance=ExtResource("25_nlfss")]
+position = Vector2(11110, 556)
+travel = Vector2(-220, 0)
+speed = 0.9
+
+[node name="AnimatableBody2D_43" parent="LevelEightGenerated" unique_id=95756138 instance=ExtResource("25_nlfss")]
+position = Vector2(8660, 556)
+travel = Vector2(-220, 0)
+speed = 0.9
+
+[node name="AnimatableBody2D_44" parent="LevelEightGenerated" unique_id=1833400039 instance=ExtResource("25_nlfss")]
+position = Vector2(6260, 556)
+travel = Vector2(-220, 0)
+speed = 0.9
+
+[node name="AnimatableBody2D_45" parent="LevelEightGenerated" unique_id=1853058933 instance=ExtResource("25_nlfss")]
+position = Vector2(3860, 556)
+travel = Vector2(-220, 0)
+speed = 0.9
+
+[node name="FallZone3010" parent="LevelEightGenerated" unique_id=378281247 instance=ExtResource("27_ppbb1")]
+position = Vector2(10390, 780)
+
+[node name="FallZone5510" parent="LevelEightGenerated" unique_id=871281872 instance=ExtResource("27_ppbb1")]
+position = Vector2(7890, 780)
+
+[node name="FallZone7910" parent="LevelEightGenerated" unique_id=1912066710 instance=ExtResource("27_ppbb1")]
+position = Vector2(5490, 780)
+
+[node name="FallZone10310" parent="LevelEightGenerated" unique_id=1778140908 instance=ExtResource("27_ppbb1")]
+position = Vector2(3090, 780)
+
+[node name="SawTrap" parent="LevelEightGenerated" unique_id=1233282767 instance=ExtResource("29_najre")]
+position = Vector2(11950, 608)
+move_speed = 1.65
+
+[node name="Area2D_46" parent="LevelEightGenerated" unique_id=124277261 instance=ExtResource("29_najre")]
+position = Vector2(10350, 608)
+move_speed = 1.8
+
+[node name="Area2D_47" parent="LevelEightGenerated" unique_id=973123070 instance=ExtResource("29_najre")]
+position = Vector2(9100, 608)
+move_speed = 1.65
+
+[node name="Area2D_48" parent="LevelEightGenerated" unique_id=187381411 instance=ExtResource("29_najre")]
+position = Vector2(7750, 608)
+move_speed = 1.65
+
+[node name="Area2D_49" parent="LevelEightGenerated" unique_id=660473269 instance=ExtResource("29_najre")]
+position = Vector2(6650, 608)
+move_speed = 1.5
+
+[node name="Area2D_50" parent="LevelEightGenerated" unique_id=789349263 instance=ExtResource("29_najre")]
+position = Vector2(5500, 608)
+move_speed = 1.65
+
+[node name="Area2D_51" parent="LevelEightGenerated" unique_id=1948456718 instance=ExtResource("29_najre")]
+position = Vector2(4450, 608)
+move_speed = 1.65
+
+[node name="Area2D_52" parent="LevelEightGenerated" unique_id=737706187 instance=ExtResource("29_najre")]
+position = Vector2(3150, 608)
+move_speed = 1.8
+
+[node name="Area2D_53" parent="LevelEightGenerated" unique_id=2100633443 instance=ExtResource("29_najre")]
+position = Vector2(2150, 608)
+move_speed = 1.5
+
+[node name="Area2D_54" parent="LevelEightGenerated" unique_id=2026754504 instance=ExtResource("29_najre")]
+position = Vector2(1250, 608)
+move_speed = 1.5
+
+[node name="SpikeTrap" parent="LevelEightGenerated" unique_id=934392909 instance=ExtResource("23_5i6ab")]
+position = Vector2(11650, 632)
+
+[node name="Area2D_55" parent="LevelEightGenerated" unique_id=1700726810 instance=ExtResource("23_5i6ab")]
+position = Vector2(10100, 632)
+
+[node name="Area2D_56" parent="LevelEightGenerated" unique_id=1654852714 instance=ExtResource("23_5i6ab")]
+position = Vector2(7600, 632)
+
+[node name="Area2D_57" parent="LevelEightGenerated" unique_id=1611764592 instance=ExtResource("23_5i6ab")]
+position = Vector2(5350, 632)
+
+[node name="Area2D_58" parent="LevelEightGenerated" unique_id=1209427138 instance=ExtResource("23_5i6ab")]
+position = Vector2(2900, 632)
+
+[node name="AnimatableBody2D_59" parent="LevelEightGenerated" unique_id=1352148004 instance=ExtResource("21_5f71c")]
+position = Vector2(11077, 350)
+sync_to_physics = false
+platform_size = Vector2(230, 24)
+platform_color = Color(0.47843137, 0.2901961, 0.23529412, 1)
+
+[node name="AnimatableBody2D_60" parent="LevelEightGenerated" unique_id=353637102 instance=ExtResource("21_5f71c")]
+position = Vector2(12062, 517)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.5529412, 0.3529412, 0.25882354, 1)
+
+[node name="AnimatableBody2D_61" parent="LevelEightGenerated" unique_id=461131095 instance=ExtResource("21_5f71c")]
+position = Vector2(12030, 300)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.6431373, 0.4, 0.28235295, 1)
+
+[node name="AnimatableBody2D_62" parent="LevelEightGenerated" unique_id=1146613308 instance=ExtResource("21_5f71c")]
+position = Vector2(11707, 452)
+sync_to_physics = false
+platform_color = Color(0.5411765, 0.3372549, 0.24705882, 1)
+
+[node name="AnimatableBody2D_63" parent="LevelEightGenerated" unique_id=2134162413 instance=ExtResource("21_5f71c")]
+position = Vector2(11735, 126)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6117647, 0.39215687, 0.2784314, 1)
+
+[node name="AnimatableBody2D_64" parent="LevelEightGenerated" unique_id=2145947148 instance=ExtResource("21_5f71c")]
+position = Vector2(11465, 222)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6784314, 0.45490196, 0.3137255, 1)
+
+[node name="AnimatableBody2D_65" parent="LevelEightGenerated" unique_id=100751029 instance=ExtResource("21_5f71c")]
+position = Vector2(10498, 537)
+sync_to_physics = false
+platform_size = Vector2(230, 24)
+platform_color = Color(0.47843137, 0.2901961, 0.23529412, 1)
+
+[node name="AnimatableBody2D_66" parent="LevelEightGenerated" unique_id=1042988426 instance=ExtResource("21_5f71c")]
+position = Vector2(9829, 443)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.5529412, 0.3529412, 0.25882354, 1)
+
+[node name="AnimatableBody2D_67" parent="LevelEightGenerated" unique_id=733741595 instance=ExtResource("21_5f71c")]
+position = Vector2(9169, 445)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.6431373, 0.4, 0.28235295, 1)
+
+[node name="AnimatableBody2D_68" parent="LevelEightGenerated" unique_id=861897676 instance=ExtResource("21_5f71c")]
+position = Vector2(9505, 222)
+sync_to_physics = false
+platform_color = Color(0.5411765, 0.3372549, 0.24705882, 1)
+
+[node name="AnimatableBody2D_69" parent="LevelEightGenerated" unique_id=2104575598 instance=ExtResource("21_5f71c")]
+position = Vector2(9235, 126)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6117647, 0.39215687, 0.2784314, 1)
+
+[node name="AnimatableBody2D_70" parent="LevelEightGenerated" unique_id=200109645 instance=ExtResource("21_5f71c")]
+position = Vector2(8965, 222)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6784314, 0.45490196, 0.3137255, 1)
+
+[node name="AnimatableBody2D_71" parent="LevelEightGenerated" unique_id=226898877 instance=ExtResource("21_5f71c")]
+position = Vector2(7825, 510)
+sync_to_physics = false
+platform_size = Vector2(230, 24)
+platform_color = Color(0.47843137, 0.2901961, 0.23529412, 1)
+
+[node name="AnimatableBody2D_72" parent="LevelEightGenerated" unique_id=49823123 instance=ExtResource("21_5f71c")]
+position = Vector2(7545, 414)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.5529412, 0.3529412, 0.25882354, 1)
+
+[node name="AnimatableBody2D_73" parent="LevelEightGenerated" unique_id=817342641 instance=ExtResource("21_5f71c")]
+position = Vector2(6734, 426)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.6431373, 0.4, 0.28235295, 1)
+
+[node name="AnimatableBody2D_74" parent="LevelEightGenerated" unique_id=1479934264 instance=ExtResource("21_5f71c")]
+position = Vector2(7005, 222)
+sync_to_physics = false
+platform_color = Color(0.5411765, 0.3372549, 0.24705882, 1)
+
+[node name="AnimatableBody2D_75" parent="LevelEightGenerated" unique_id=256738659 instance=ExtResource("21_5f71c")]
+position = Vector2(6735, 126)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6117647, 0.39215687, 0.2784314, 1)
+
+[node name="AnimatableBody2D_76" parent="LevelEightGenerated" unique_id=1620240389 instance=ExtResource("21_5f71c")]
+position = Vector2(6462, 279)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6784314, 0.45490196, 0.3137255, 1)
+
+[node name="AnimatableBody2D_77" parent="LevelEightGenerated" unique_id=1465527612 instance=ExtResource("21_5f71c")]
+position = Vector2(5425, 510)
+sync_to_physics = false
+platform_size = Vector2(230, 24)
+platform_color = Color(0.47843137, 0.2901961, 0.23529412, 1)
+
+[node name="AnimatableBody2D_78" parent="LevelEightGenerated" unique_id=642309418 instance=ExtResource("21_5f71c")]
+position = Vector2(5145, 414)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.5529412, 0.3529412, 0.25882354, 1)
+
+[node name="AnimatableBody2D_79" parent="LevelEightGenerated" unique_id=391168772 instance=ExtResource("21_5f71c")]
+position = Vector2(4875, 318)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.6431373, 0.4, 0.28235295, 1)
+
+[node name="AnimatableBody2D_80" parent="LevelEightGenerated" unique_id=1758513660 instance=ExtResource("21_5f71c")]
+position = Vector2(4605, 222)
+sync_to_physics = false
+platform_color = Color(0.5411765, 0.3372549, 0.24705882, 1)
+
+[node name="AnimatableBody2D_81" parent="LevelEightGenerated" unique_id=1107314180 instance=ExtResource("21_5f71c")]
+position = Vector2(4335, 126)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6117647, 0.39215687, 0.2784314, 1)
+
+[node name="AnimatableBody2D_82" parent="LevelEightGenerated" unique_id=562329664 instance=ExtResource("21_5f71c")]
+position = Vector2(4065, 222)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6784314, 0.45490196, 0.3137255, 1)
+
+[node name="AnimatableBody2D_83" parent="LevelEightGenerated" unique_id=1500118189 instance=ExtResource("21_5f71c")]
+position = Vector2(3025, 510)
+sync_to_physics = false
+platform_size = Vector2(230, 24)
+platform_color = Color(0.47843137, 0.2901961, 0.23529412, 1)
+
+[node name="AnimatableBody2D_84" parent="LevelEightGenerated" unique_id=1432817162 instance=ExtResource("21_5f71c")]
+position = Vector2(2745, 414)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.5529412, 0.3529412, 0.25882354, 1)
+
+[node name="AnimatableBody2D_85" parent="LevelEightGenerated" unique_id=1117120875 instance=ExtResource("21_5f71c")]
+position = Vector2(2475, 318)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.6431373, 0.4, 0.28235295, 1)
+
+[node name="AnimatableBody2D_86" parent="LevelEightGenerated" unique_id=960159263 instance=ExtResource("21_5f71c")]
+position = Vector2(2205, 222)
+sync_to_physics = false
+platform_color = Color(0.5411765, 0.3372549, 0.24705882, 1)
+
+[node name="AnimatableBody2D_87" parent="LevelEightGenerated" unique_id=2137420522 instance=ExtResource("21_5f71c")]
+position = Vector2(1935, 126)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6117647, 0.39215687, 0.2784314, 1)
+
+[node name="AnimatableBody2D_88" parent="LevelEightGenerated" unique_id=1858780233 instance=ExtResource("21_5f71c")]
+position = Vector2(1665, 222)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.6784314, 0.45490196, 0.3137255, 1)
+
+[node name="FallZone" parent="LevelEightGenerated" unique_id=1806499718 instance=ExtResource("27_ppbb1")]
+position = Vector2(6800, 780)
+
+[node name="WalkerEnemy" parent="LevelEightGenerated" unique_id=1171345945 instance=ExtResource("31_awcac")]
+position = Vector2(11780, 614)
+patrol_speed = 132.0
+patrol_distance = 240.0
+
+[node name="RangedEnemy" parent="LevelEightGenerated" unique_id=493664302 instance=ExtResource("33_88qpp")]
+position = Vector2(11472, 183)
+shoot_range = 520.0
+
+[node name="SpreadEnemy" parent="LevelEightGenerated" unique_id=1363202680 instance=ExtResource("35_3b47m")]
+position = Vector2(11450, 600)
+
+[node name="CharacterBody2D_89" parent="LevelEightGenerated" unique_id=43572790 instance=ExtResource("31_awcac")]
+position = Vector2(11077, 312)
+patrol_speed = 116.0
+patrol_distance = 72.0
+
+[node name="CharacterBody2D_90" parent="LevelEightGenerated" unique_id=156976213 instance=ExtResource("31_awcac")]
+position = Vector2(11713, 411)
+patrol_speed = 124.0
+patrol_distance = 62.0
+
+[node name="HealingHerb" parent="LevelEightGenerated" unique_id=218152434 instance=ExtResource("37_7t5dm")]
+position = Vector2(11950, 618)
+
+[node name="CharacterBody2D_91" parent="LevelEightGenerated" unique_id=1572295499 instance=ExtResource("31_awcac")]
+position = Vector2(10140, 614)
+patrol_speed = 132.0
+patrol_distance = 240.0
+
+[node name="CharacterBody2D_92" parent="LevelEightGenerated" unique_id=2041263266 instance=ExtResource("31_awcac")]
+position = Vector2(9280, 614)
+patrol_speed = 132.0
+patrol_distance = 240.0
+
+[node name="CharacterBody2D_93" parent="LevelEightGenerated" unique_id=38461271 instance=ExtResource("33_88qpp")]
+position = Vector2(9180, 403)
+shoot_range = 520.0
+
+[node name="CharacterBody2D_94" parent="LevelEightGenerated" unique_id=188044044 instance=ExtResource("35_3b47m")]
+position = Vector2(8960, 606)
+
+[node name="CharacterBody2D_95" parent="LevelEightGenerated" unique_id=280331506 instance=ExtResource("31_awcac")]
+position = Vector2(10500, 497)
+patrol_speed = 124.0
+patrol_distance = 72.0
+
+[node name="CharacterBody2D_96" parent="LevelEightGenerated" unique_id=1146595082 instance=ExtResource("31_awcac")]
+position = Vector2(9505, 184)
+patrol_speed = 134.0
+patrol_distance = 62.0
+
+[node name="Area2D_97" parent="LevelEightGenerated" unique_id=319207875 instance=ExtResource("37_7t5dm")]
+position = Vector2(9450, 618)
+
+[node name="CharacterBody2D_98" parent="LevelEightGenerated" unique_id=594861674 instance=ExtResource("31_awcac")]
+position = Vector2(7205, 614)
+patrol_speed = 132.0
+patrol_distance = 240.0
+
+[node name="CharacterBody2D_99" parent="LevelEightGenerated" unique_id=21217862 instance=ExtResource("31_awcac")]
+position = Vector2(6780, 614)
+patrol_speed = 132.0
+patrol_distance = 240.0
+
+[node name="CharacterBody2D_100" parent="LevelEightGenerated" unique_id=287991799 instance=ExtResource("33_88qpp")]
+position = Vector2(7545, 378)
+shoot_range = 520.0
+
+[node name="CharacterBody2D_101" parent="LevelEightGenerated" unique_id=1865638509 instance=ExtResource("35_3b47m")]
+position = Vector2(6450, 600)
+
+[node name="CharacterBody2D_102" parent="LevelEightGenerated" unique_id=1672147738 instance=ExtResource("31_awcac")]
+position = Vector2(7825, 472)
+patrol_speed = 132.0
+patrol_distance = 72.0
+
+[node name="CharacterBody2D_103" parent="LevelEightGenerated" unique_id=1906316620 instance=ExtResource("31_awcac")]
+position = Vector2(7005, 184)
+patrol_speed = 124.0
+patrol_distance = 62.0
+
+[node name="Area2D_104" parent="LevelEightGenerated" unique_id=567538018 instance=ExtResource("37_7t5dm")]
+position = Vector2(6950, 618)
+
+[node name="CharacterBody2D_105" parent="LevelEightGenerated" unique_id=358213763 instance=ExtResource("31_awcac")]
+position = Vector2(5240, 614)
+patrol_speed = 132.0
+patrol_distance = 240.0
+
+[node name="CharacterBody2D_106" parent="LevelEightGenerated" unique_id=902076473 instance=ExtResource("31_awcac")]
+position = Vector2(4380, 614)
+patrol_speed = 132.0
+patrol_distance = 240.0
+
+[node name="CharacterBody2D_107" parent="LevelEightGenerated" unique_id=1607470522 instance=ExtResource("33_88qpp")]
+position = Vector2(5145, 378)
+shoot_range = 520.0
+
+[node name="CharacterBody2D_108" parent="LevelEightGenerated" unique_id=701368095 instance=ExtResource("35_3b47m")]
+position = Vector2(4050, 600)
+
+[node name="CharacterBody2D_109" parent="LevelEightGenerated" unique_id=496603201 instance=ExtResource("31_awcac")]
+position = Vector2(5425, 472)
+patrol_speed = 116.0
+patrol_distance = 72.0
+
+[node name="CharacterBody2D_110" parent="LevelEightGenerated" unique_id=67492172 instance=ExtResource("31_awcac")]
+position = Vector2(4605, 184)
+patrol_speed = 134.0
+patrol_distance = 62.0
+
+[node name="Area2D_111" parent="LevelEightGenerated" unique_id=1158233094 instance=ExtResource("37_7t5dm")]
+position = Vector2(4550, 618)
+
+[node name="CharacterBody2D_112" parent="LevelEightGenerated" unique_id=2088745764 instance=ExtResource("31_awcac")]
+position = Vector2(2840, 614)
+patrol_speed = 132.0
+patrol_distance = 240.0
+
+[node name="CharacterBody2D_113" parent="LevelEightGenerated" unique_id=1108946869 instance=ExtResource("31_awcac")]
+position = Vector2(1980, 614)
+patrol_speed = 132.0
+patrol_distance = 240.0
+
+[node name="CharacterBody2D_114" parent="LevelEightGenerated" unique_id=1465587512 instance=ExtResource("33_88qpp")]
+position = Vector2(2745, 378)
+shoot_range = 520.0
+
+[node name="CharacterBody2D_115" parent="LevelEightGenerated" unique_id=432660888 instance=ExtResource("35_3b47m")]
+position = Vector2(1650, 600)
+
+[node name="CharacterBody2D_116" parent="LevelEightGenerated" unique_id=1256307982 instance=ExtResource("31_awcac")]
+position = Vector2(3025, 472)
+patrol_speed = 124.0
+patrol_distance = 72.0
+
+[node name="CharacterBody2D_117" parent="LevelEightGenerated" unique_id=29322655 instance=ExtResource("31_awcac")]
+position = Vector2(2205, 184)
+patrol_speed = 124.0
+patrol_distance = 62.0
+
+[node name="Area2D_118" parent="LevelEightGenerated" unique_id=1349745491 instance=ExtResource("37_7t5dm")]
+position = Vector2(2150, 618)
+
+[node name="Area2D_119" parent="LevelEightGenerated" unique_id=2073246448 instance=ExtResource("37_7t5dm")]
+position = Vector2(1200, 618)
+
+[node name="AnimatableBody2D_120" parent="LevelEightGenerated" unique_id=165200164 instance=ExtResource("21_5f71c")]
+position = Vector2(1350, 520)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.5529412, 0.3529412, 0.25882354, 1)
+
+[node name="AnimatableBody2D_121" parent="LevelEightGenerated" unique_id=311507830 instance=ExtResource("21_5f71c")]
+position = Vector2(500, 520)
+sync_to_physics = false
+platform_size = Vector2(220, 24)
+platform_color = Color(0.6431373, 0.4, 0.28235295, 1)
+
+[node name="CharacterBody2D_122" parent="LevelEightGenerated" unique_id=464929641 instance=ExtResource("31_awcac")]
+position = Vector2(800, 614)
+patrol_speed = 150.0
+patrol_distance = 380.0
+
+[node name="Checkpoint" parent="LevelEightGenerated" unique_id=233141151 instance=ExtResource("39_eo7ea")]
+position = Vector2(6700, 592)

@@ -1,0 +1,879 @@
+[gd_scene format=3 uid="uid://dh5j1dhck08lb"]
+
+[ext_resource type="Script" uid="uid://834oqbamqctc" path="res://scripts/levels/test_level.gd" id="1_cgv4g"]
+[ext_resource type="Script" uid="uid://bh6dsmvpmdr8q" path="res://scripts/levels/level_one_extension.gd" id="2_074to"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_mi4m5"]
+[ext_resource type="PackedScene" path="res://scenes/world/exit_portal.tscn" id="6_autq1"]
+[ext_resource type="PackedScene" path="res://scenes/camera/horizontal_camera.tscn" id="8_arbbf"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_hud.tscn" id="10_b2uea"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_overlay.tscn" id="11_xb558"]
+[ext_resource type="PackedScene" path="res://scenes/world/platform.tscn" id="13_si0ps"]
+[ext_resource type="PackedScene" path="res://scenes/world/spike_trap.tscn" id="15_3hsfu"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spearman_enemy.tscn" id="17_8nksb"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spread_enemy.tscn" id="19_7qrlq"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/slug_enemy.tscn" id="21_2l3of"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/ranged_enemy.tscn" id="23_dnfcx"]
+[ext_resource type="PackedScene" path="res://scenes/world/checkpoint.tscn" id="25_e1s54"]
+[ext_resource type="PackedScene" path="res://scenes/pickups/healing_herb.tscn" id="27_x8aga"]
+[ext_resource type="PackedScene" path="res://scenes/world/proximity_mine.tscn" id="40_mine"]
+[ext_resource type="PackedScene" path="res://scenes/world/teleport_trap.tscn" id="41_tele"]
+[ext_resource type="PackedScene" path="res://scenes/world/launch_pad.tscn" id="42_pad"]
+[ext_resource type="PackedScene" path="res://scenes/world/blade_wheel.tscn" id="43_wheel"]
+
+[node name="LevelTwentyone" type="Node2D" unique_id=1405991063]
+script = ExtResource("1_cgv4g")
+level_variant = 21
+next_level_path = "res://scenes/levels/level_twentytwo.tscn"
+level_name = "NIVEL 5-1"
+baked = true
+route_points = PackedVector2Array(150, 1676, 1566, 1676, 1686, 1592, 1446, 1508, 1686, 1424, 1296, 1340, 210, 1340, 90, 1256, 330, 1172, 90, 1088, 480, 1004, 1566, 1004, 1686, 920, 1446, 836, 1686, 752, 1296, 668, 210, 668, 90, 584, 330, 500, 90, 416, 480, 332, 3220, 332, 3220, 668, 2204, 668, 2204, 1004, 3220, 1004, 3220, 1340, 2204, 1340, 2204, 1676, 3350, 1676)
+gold_medal_time = 43.5
+silver_medal_time = 55.0
+
+[node name="Brightness" type="CanvasModulate" parent="." unique_id=659035739]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1583132945]
+visible = false
+z_index = -20
+offset_right = 22400.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.0705882, 0.105882, 0.156863, 1)
+
+[node name="BackgroundDecor" type="Parallax2D" parent="." unique_id=1250180894]
+visible = false
+z_index = -16
+scroll_scale = Vector2(0.3, 1)
+screen_offset = Vector2(353.0323, 198.58063)
+
+[node name="Hill1" type="Polygon2D" parent="BackgroundDecor" unique_id=2099595946]
+position = Vector2(250, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill2" type="Polygon2D" parent="BackgroundDecor" unique_id=914526374]
+position = Vector2(760, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill3" type="Polygon2D" parent="BackgroundDecor" unique_id=205962717]
+position = Vector2(1500, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill4" type="Polygon2D" parent="BackgroundDecor" unique_id=406240515]
+position = Vector2(2230, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill5" type="Polygon2D" parent="BackgroundDecor" unique_id=1941667325]
+position = Vector2(3150, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill6" type="Polygon2D" parent="BackgroundDecor" unique_id=1371700319]
+position = Vector2(3660, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill7" type="Polygon2D" parent="BackgroundDecor" unique_id=1923404088]
+position = Vector2(4400, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill8" type="Polygon2D" parent="BackgroundDecor" unique_id=1687456575]
+position = Vector2(5030, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill9" type="Polygon2D" parent="BackgroundDecor" unique_id=1186545266]
+position = Vector2(6050, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill10" type="Polygon2D" parent="BackgroundDecor" unique_id=1621459629]
+position = Vector2(6560, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill11" type="Polygon2D" parent="BackgroundDecor" unique_id=1859391292]
+position = Vector2(7300, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill12" type="Polygon2D" parent="BackgroundDecor" unique_id=1222877654]
+position = Vector2(7930, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="LevelOneExtension" type="Node2D" parent="." unique_id=1257481624]
+script = ExtResource("2_074to")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=219549930]
+
+[node name="Player" parent="." unique_id=146649426 instance=ExtResource("3_mi4m5")]
+position = Vector2(150, 1670)
+
+[node name="ExitPortal" parent="." unique_id=227432160 instance=ExtResource("6_autq1")]
+position = Vector2(3350, 1640)
+
+[node name="Camera" parent="." unique_id=1458121406 instance=ExtResource("8_arbbf")]
+position = Vector2(150, 1670)
+limit_left = 0
+limit_top = 0
+limit_right = 3600
+limit_bottom = 1760
+target_path = NodePath("../Player")
+follow_y = true
+
+[node name="HUD" parent="." unique_id=1913398666 instance=ExtResource("10_b2uea")]
+
+[node name="PauseOverlay" parent="." unique_id=1390928217 instance=ExtResource("11_xb558")]
+visible = false
+
+[node name="LevelTwentyoneGenerated" type="Node2D" parent="." unique_id=418512111]
+
+[node name="MazeBackdrop" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1137829471]
+z_index = -30
+color = Color(0.11372549, 0.101960786, 0.18039216, 1)
+polygon = PackedVector2Array(-200, -200, 3800, -200, 3800, 2000, -200, 2000)
+
+[node name="RowTint0" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=2118208302]
+z_index = -25
+color = Color(0.14901961, 0.13333334, 0.2509804, 1)
+polygon = PackedVector2Array(0, 1412, 3600, 1412, 3600, 1700, 0, 1700)
+
+[node name="Polygon2D_1" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=2062564915]
+z_index = -20
+position = Vector2(260, 1442)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_2" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1867400120]
+z_index = -20
+position = Vector2(780, 1442)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_3" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1962378027]
+z_index = -20
+position = Vector2(1300, 1442)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_4" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1451900410]
+z_index = -20
+position = Vector2(1820, 1442)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_5" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1317567106]
+z_index = -20
+position = Vector2(2340, 1442)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_6" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1187396222]
+z_index = -20
+position = Vector2(2860, 1442)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_7" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=920869749]
+z_index = -20
+position = Vector2(3380, 1442)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="RowTint1" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1629389150]
+z_index = -25
+color = Color(0.16862746, 0.14901961, 0.27450982, 1)
+polygon = PackedVector2Array(0, 1076, 3600, 1076, 3600, 1364, 0, 1364)
+
+[node name="Polygon2D_8" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=31028610]
+z_index = -20
+position = Vector2(260, 1106)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_9" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1035178921]
+z_index = -20
+position = Vector2(780, 1106)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_10" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1134125840]
+z_index = -20
+position = Vector2(1300, 1106)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_11" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1191170164]
+z_index = -20
+position = Vector2(1820, 1106)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_12" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=2139950655]
+z_index = -20
+position = Vector2(2340, 1106)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_13" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=2077287906]
+z_index = -20
+position = Vector2(2860, 1106)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_14" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1535766586]
+z_index = -20
+position = Vector2(3380, 1106)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="RowTint2" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1733191757]
+z_index = -25
+color = Color(0.14901961, 0.13333334, 0.2509804, 1)
+polygon = PackedVector2Array(0, 740, 3600, 740, 3600, 1028, 1110.4955, 1028, 0, 1028)
+
+[node name="Polygon2D_15" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1377099756]
+z_index = -20
+position = Vector2(260, 770)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_16" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1558630014]
+z_index = -20
+position = Vector2(780, 770)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_17" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1782860655]
+z_index = -20
+position = Vector2(1300, 770)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_18" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=327970350]
+z_index = -20
+position = Vector2(1820, 770)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_19" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=575040590]
+z_index = -20
+position = Vector2(2340, 770)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_20" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=872314042]
+z_index = -20
+position = Vector2(2860, 770)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_21" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=700778654]
+z_index = -20
+position = Vector2(3380, 770)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="RowTint3" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=997907975]
+z_index = -25
+color = Color(0.16862746, 0.14901961, 0.27450982, 1)
+polygon = PackedVector2Array(0, 404, 3600, 404, 3600, 692, 0, 692)
+
+[node name="Polygon2D_22" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=701952840]
+z_index = -20
+position = Vector2(260, 434)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_23" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1878511022]
+z_index = -20
+position = Vector2(780, 434)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_24" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=687897299]
+z_index = -20
+position = Vector2(1300, 434)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_25" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1120662971]
+z_index = -20
+position = Vector2(1820, 434)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_26" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=878457219]
+z_index = -20
+position = Vector2(2340, 434)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_27" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=744644670]
+z_index = -20
+position = Vector2(2860, 434)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_28" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=385057748]
+z_index = -20
+position = Vector2(3380, 434)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="RowTint4" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1499518900]
+z_index = -25
+color = Color(0.14901961, 0.13333334, 0.2509804, 1)
+polygon = PackedVector2Array(0, 68, 3600, 68, 3600, 356, 0, 356)
+
+[node name="Polygon2D_29" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=321198232]
+z_index = -20
+position = Vector2(260, 98)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_30" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1262133482]
+z_index = -20
+position = Vector2(780, 98)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_31" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1789411501]
+z_index = -20
+position = Vector2(1300, 98)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_32" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1583249292]
+z_index = -20
+position = Vector2(1820, 98)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_33" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=554731876]
+z_index = -20
+position = Vector2(2340, 98)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_34" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=1022566791]
+z_index = -20
+position = Vector2(2860, 98)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="Polygon2D_35" type="Polygon2D" parent="LevelTwentyoneGenerated" unique_id=242411174]
+z_index = -20
+position = Vector2(3380, 98)
+color = Color(1, 0.82, 0.45, 0.55)
+polygon = PackedVector2Array(-7, 0, 0, -9, 7, 0, 0, 12)
+
+[node name="MazeSlab0_0" parent="LevelTwentyoneGenerated" unique_id=1661842636 instance=ExtResource("13_si0ps")]
+position = Vector2(1800, 1724)
+sync_to_physics = false
+platform_size = Vector2(3600, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab1_0" parent="LevelTwentyoneGenerated" unique_id=1988661629 instance=ExtResource("13_si0ps")]
+position = Vector2(678, 1388)
+sync_to_physics = false
+platform_size = Vector2(1356, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab1_1" parent="LevelTwentyoneGenerated" unique_id=778799761 instance=ExtResource("13_si0ps")]
+position = Vector2(1800, 1388)
+sync_to_physics = false
+platform_size = Vector2(48, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab1_2" parent="LevelTwentyoneGenerated" unique_id=951156448 instance=ExtResource("13_si0ps")]
+position = Vector2(2922, 1388)
+sync_to_physics = false
+platform_size = Vector2(1356, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab2_0" parent="LevelTwentyoneGenerated" unique_id=1519325046 instance=ExtResource("13_si0ps")]
+position = Vector2(1800, 1052)
+sync_to_physics = false
+platform_size = Vector2(2760, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab3_0" parent="LevelTwentyoneGenerated" unique_id=1681095580 instance=ExtResource("13_si0ps")]
+position = Vector2(678, 716)
+sync_to_physics = false
+platform_size = Vector2(1356, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab3_1" parent="LevelTwentyoneGenerated" unique_id=408090981 instance=ExtResource("13_si0ps")]
+position = Vector2(1800, 716)
+sync_to_physics = false
+platform_size = Vector2(48, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab3_2" parent="LevelTwentyoneGenerated" unique_id=1478912549 instance=ExtResource("13_si0ps")]
+position = Vector2(2922, 716)
+sync_to_physics = false
+platform_size = Vector2(1356, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeSlab4_0" parent="LevelTwentyoneGenerated" unique_id=2072648903 instance=ExtResource("13_si0ps")]
+position = Vector2(1800, 380)
+sync_to_physics = false
+platform_size = Vector2(2760, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeCeiling_0" parent="LevelTwentyoneGenerated" unique_id=988734015 instance=ExtResource("13_si0ps")]
+position = Vector2(1800, 44)
+sync_to_physics = false
+platform_size = Vector2(3600, 48)
+platform_color = Color(0.35686275, 0.3372549, 0.4392157, 1)
+
+[node name="MazeWallLeft" parent="LevelTwentyoneGenerated" unique_id=933623975 instance=ExtResource("13_si0ps")]
+position = Vector2(-24, 884)
+sync_to_physics = false
+platform_size = Vector2(48, 1728)
+platform_color = Color(0.25490198, 0.23921569, 0.33333334, 1)
+
+[node name="MazeWallRight" parent="LevelTwentyoneGenerated" unique_id=1880532873 instance=ExtResource("13_si0ps")]
+position = Vector2(3624, 884)
+sync_to_physics = false
+platform_size = Vector2(48, 1728)
+platform_color = Color(0.25490198, 0.23921569, 0.33333334, 1)
+
+[node name="MazeDivider" parent="LevelTwentyoneGenerated" unique_id=1050207603 instance=ExtResource("13_si0ps")]
+position = Vector2(1800, 1052)
+sync_to_physics = false
+platform_size = Vector2(48, 1296)
+platform_color = Color(0.25490198, 0.23921569, 0.33333334, 1)
+
+[node name="MazeHanging0A1" parent="LevelTwentyoneGenerated" unique_id=1887988746 instance=ExtResource("13_si0ps")]
+position = Vector2(690.4, 1487)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle0A2" parent="LevelTwentyoneGenerated" unique_id=981219 instance=ExtResource("13_si0ps")]
+position = Vector2(885.6, 1652)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeSpearman0A" parent="LevelTwentyoneGenerated" unique_id=739117038 instance=ExtResource("17_8nksb")]
+position = Vector2(1100.32, 1670)
+
+[node name="MazeHanging0B0" parent="LevelTwentyoneGenerated" unique_id=2051170493 instance=ExtResource("13_si0ps")]
+position = Vector2(2479.2, 1487)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle0B1" parent="LevelTwentyoneGenerated" unique_id=853337443 instance=ExtResource("13_si0ps")]
+position = Vector2(2634.4, 1652)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHanging0B2" parent="LevelTwentyoneGenerated" unique_id=215552589 instance=ExtResource("13_si0ps")]
+position = Vector2(2789.6, 1487)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHanging1A0" parent="LevelTwentyoneGenerated" unique_id=950849895 instance=ExtResource("13_si0ps")]
+position = Vector2(655.2, 1151)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle1A1" parent="LevelTwentyoneGenerated" unique_id=694990770 instance=ExtResource("13_si0ps")]
+position = Vector2(810.4, 1316)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHanging1A2" parent="LevelTwentyoneGenerated" unique_id=1238891219 instance=ExtResource("13_si0ps")]
+position = Vector2(965.6, 1151)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeArcher1A" parent="LevelTwentyoneGenerated" unique_id=1421911555 instance=ExtResource("19_7qrlq")]
+position = Vector2(1136.32, 1312)
+
+[node name="MazeHurdle1B0" parent="LevelTwentyoneGenerated" unique_id=1613836915 instance=ExtResource("13_si0ps")]
+position = Vector2(2479.2, 1316)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHanging1B1" parent="LevelTwentyoneGenerated" unique_id=1901284689 instance=ExtResource("13_si0ps")]
+position = Vector2(2634.4, 1151)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle1B2" parent="LevelTwentyoneGenerated" unique_id=1207679694 instance=ExtResource("13_si0ps")]
+position = Vector2(2789.6, 1316)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeSlug1B" parent="LevelTwentyoneGenerated" unique_id=143353235 instance=ExtResource("21_2l3of")]
+position = Vector2(2960.32, 1346)
+
+[node name="MazeHurdle2A0" parent="LevelTwentyoneGenerated" unique_id=682457074 instance=ExtResource("13_si0ps")]
+position = Vector2(655.2, 980)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHanging2A1" parent="LevelTwentyoneGenerated" unique_id=635655175 instance=ExtResource("13_si0ps")]
+position = Vector2(810.4, 815)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle2A2" parent="LevelTwentyoneGenerated" unique_id=2126180680 instance=ExtResource("13_si0ps")]
+position = Vector2(965.6, 980)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeSlug2A" parent="LevelTwentyoneGenerated" unique_id=1699146973 instance=ExtResource("21_2l3of")]
+position = Vector2(1136.32, 1010)
+
+[node name="MazeHanging2B0" parent="LevelTwentyoneGenerated" unique_id=120999556 instance=ExtResource("13_si0ps")]
+position = Vector2(2479.2, 815)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle2B1" parent="LevelTwentyoneGenerated" unique_id=2068133839 instance=ExtResource("13_si0ps")]
+position = Vector2(2634.4, 980)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHanging2B2" parent="LevelTwentyoneGenerated" unique_id=2092229075 instance=ExtResource("13_si0ps")]
+position = Vector2(2789.6, 815)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeSpearman2B" parent="LevelTwentyoneGenerated" unique_id=443334268 instance=ExtResource("17_8nksb")]
+position = Vector2(2960.32, 998)
+
+[node name="MazeHanging3A0" parent="LevelTwentyoneGenerated" unique_id=1665952906 instance=ExtResource("13_si0ps")]
+position = Vector2(655.2, 479)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle3A1" parent="LevelTwentyoneGenerated" unique_id=1297497216 instance=ExtResource("13_si0ps")]
+position = Vector2(810.4, 644)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHanging3A2" parent="LevelTwentyoneGenerated" unique_id=1298626528 instance=ExtResource("13_si0ps")]
+position = Vector2(965.6, 479)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeMage3A" parent="LevelTwentyoneGenerated" unique_id=2075102902 instance=ExtResource("23_dnfcx")]
+position = Vector2(1117, 668)
+shoot_range = 520.0
+
+[node name="MazeHurdle3B0" parent="LevelTwentyoneGenerated" unique_id=584854009 instance=ExtResource("13_si0ps")]
+position = Vector2(2479.2, 644)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHanging3B1" parent="LevelTwentyoneGenerated" unique_id=203178679 instance=ExtResource("13_si0ps")]
+position = Vector2(2634.4, 479)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle3B2" parent="LevelTwentyoneGenerated" unique_id=921033231 instance=ExtResource("13_si0ps")]
+position = Vector2(2789.6, 644)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeArcher3B" parent="LevelTwentyoneGenerated" unique_id=2028418546 instance=ExtResource("19_7qrlq")]
+position = Vector2(2960.32, 640)
+
+[node name="MazeHurdle4A0" parent="LevelTwentyoneGenerated" unique_id=532481991 instance=ExtResource("13_si0ps")]
+position = Vector2(1020, 308)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHanging4A1" parent="LevelTwentyoneGenerated" unique_id=1127928502 instance=ExtResource("13_si0ps")]
+position = Vector2(1540, 143)
+sync_to_physics = false
+platform_size = Vector2(48, 150)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeHurdle4A2" parent="LevelTwentyoneGenerated" unique_id=784370998 instance=ExtResource("13_si0ps")]
+position = Vector2(2060, 308)
+sync_to_physics = false
+platform_size = Vector2(60, 96)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeSpearman4A" parent="LevelTwentyoneGenerated" unique_id=479178449 instance=ExtResource("17_8nksb")]
+position = Vector2(2302, 326)
+
+[node name="MazeSlug4A" parent="LevelTwentyoneGenerated" unique_id=1427907697 instance=ExtResource("21_2l3of")]
+position = Vector2(2632, 338)
+
+[node name="MazeStep0_1" parent="LevelTwentyoneGenerated" unique_id=580114116 instance=ExtResource("13_si0ps")]
+position = Vector2(1686, 1628)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep0_2" parent="LevelTwentyoneGenerated" unique_id=1198758791 instance=ExtResource("13_si0ps")]
+position = Vector2(1446, 1544)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep0_3" parent="LevelTwentyoneGenerated" unique_id=2102839530 instance=ExtResource("13_si0ps")]
+position = Vector2(1686, 1460)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep1_1" parent="LevelTwentyoneGenerated" unique_id=329328793 instance=ExtResource("13_si0ps")]
+position = Vector2(90, 1292)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep1_2" parent="LevelTwentyoneGenerated" unique_id=193515973 instance=ExtResource("13_si0ps")]
+position = Vector2(330, 1208)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep1_3" parent="LevelTwentyoneGenerated" unique_id=1335135008 instance=ExtResource("13_si0ps")]
+position = Vector2(90, 1124)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep2_1" parent="LevelTwentyoneGenerated" unique_id=140824618 instance=ExtResource("13_si0ps")]
+position = Vector2(1686, 956)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep2_2" parent="LevelTwentyoneGenerated" unique_id=1490370957 instance=ExtResource("13_si0ps")]
+position = Vector2(1446, 872)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep2_3" parent="LevelTwentyoneGenerated" unique_id=1033956386 instance=ExtResource("13_si0ps")]
+position = Vector2(1686, 788)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep3_1" parent="LevelTwentyoneGenerated" unique_id=2142217001 instance=ExtResource("13_si0ps")]
+position = Vector2(90, 620)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep3_2" parent="LevelTwentyoneGenerated" unique_id=1439300296 instance=ExtResource("13_si0ps")]
+position = Vector2(330, 536)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="MazeStep3_3" parent="LevelTwentyoneGenerated" unique_id=1685584118 instance=ExtResource("13_si0ps")]
+position = Vector2(90, 452)
+sync_to_physics = false
+platform_size = Vector2(180, 24)
+platform_color = Color(0.47843137, 0.45490196, 0.5803922, 1)
+
+[node name="Checkpoint" parent="LevelTwentyoneGenerated" unique_id=172054680 instance=ExtResource("25_e1s54")]
+position = Vector2(1800, 308)
+
+[node name="HealingHerb" parent="LevelTwentyoneGenerated" unique_id=2128540477 instance=ExtResource("27_x8aga")]
+position = Vector2(888, 994)
+
+[node name="Area2D_36" parent="LevelTwentyoneGenerated" unique_id=1199127252 instance=ExtResource("27_x8aga")]
+position = Vector2(2712, 658)
+
+[node name="MazeMage3A" parent="." unique_id=1319877907 instance=ExtResource("23_dnfcx")]
+position = Vector2(812, 571)
+shoot_range = 520.0
+
+[node name="MazeMine0" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(745, 1700)
+
+[node name="MazeMine1" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(1220, 1700)
+
+[node name="MazeMine2" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(2400, 1700)
+
+[node name="MazeMine3" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(2950, 1700)
+
+[node name="MazeMine4" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(730, 1364)
+
+[node name="MazeMine5" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(2700, 1364)
+
+[node name="MazeMine6" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(740, 1028)
+
+[node name="MazeMine7" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(2400, 1028)
+
+[node name="MazeMine8" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(2880, 1028)
+
+[node name="MazeMine9" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(730, 692)
+
+[node name="MazeMine10" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(2700, 692)
+
+[node name="MazeMine11" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(1280, 356)
+
+[node name="MazeMine12" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(1650, 356)
+
+[node name="MazeMine13" parent="LevelTwentyoneGenerated" instance=ExtResource("40_mine")]
+position = Vector2(3010, 356)
+
+[node name="MazeTeleport0" parent="LevelTwentyoneGenerated" instance=ExtResource("41_tele")]
+position = Vector2(985, 1680)
+zone_size = Vector2(60, 40)
+
+[node name="MazeTeleport1" parent="LevelTwentyoneGenerated" instance=ExtResource("41_tele")]
+position = Vector2(1050, 1008)
+zone_size = Vector2(60, 40)
+
+[node name="MazeTeleport2" parent="LevelTwentyoneGenerated" instance=ExtResource("41_tele")]
+position = Vector2(1450, 336)
+zone_size = Vector2(60, 40)
+
+[node name="MazeHurdlePad0" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(817.6, 1685)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad1" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(2566.4, 1685)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad2" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(878.4, 1349)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad3" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(2547.2, 1349)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad4" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(2857.6, 1349)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad5" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(587.2, 1013)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad6" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(897.6, 1013)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad7" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(2566.4, 1013)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad8" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(878.4, 677)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad9" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(2547.2, 677)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad10" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(2857.6, 677)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad11" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(952, 341)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeHurdlePad12" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(1992, 341)
+zone_size = Vector2(60, 30)
+launch_speed = 650.0
+
+[node name="MazeLedgePad0" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(1391, 1520)
+zone_size = Vector2(50, 24)
+launch_speed = 520.0
+
+[node name="MazeLedgePad1" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(385, 1184)
+zone_size = Vector2(50, 24)
+launch_speed = 520.0
+
+[node name="MazeLedgePad2" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(1391, 848)
+zone_size = Vector2(50, 24)
+launch_speed = 520.0
+
+[node name="MazeLedgePad3" parent="LevelTwentyoneGenerated" instance=ExtResource("42_pad")]
+position = Vector2(385, 512)
+zone_size = Vector2(50, 24)
+launch_speed = 520.0
+
+[node name="MazeBladeWheel0" parent="LevelTwentyoneGenerated" instance=ExtResource("43_wheel")]
+position = Vector2(700, 216)
+arm_length = 110.0
+spin_speed = 0.25
+clockwise = false
+start_angle_degrees = 45.0
+
+[node name="MazeBladeWheel1" parent="LevelTwentyoneGenerated" instance=ExtResource("43_wheel")]
+position = Vector2(2380, 216)
+arm_length = 110.0
+spin_speed = 0.25
+
+[node name="MazeBladeWheel2" parent="LevelTwentyoneGenerated" instance=ExtResource("43_wheel")]
+position = Vector2(2850, 216)
+arm_length = 110.0
+spin_speed = 0.25
+clockwise = false
+start_angle_degrees = 45.0

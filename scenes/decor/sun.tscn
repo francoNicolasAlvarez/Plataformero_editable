@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/decor/sun.svg" id="1_sun"]
+[ext_resource type="Script" path="res://scripts/decor/screen_sun.gd" id="2_script"]
+
+[node name="Sun" type="Node2D" groups=["decor_sun"]]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sun")

@@ -1,0 +1,329 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/platform.tscn" id="1_platform"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/camera/horizontal_camera.tscn" id="3_camera"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/training_dummy.tscn" id="4_dummy"]
+[ext_resource type="Script" path="res://scripts/levels/test_level.gd" id="5_level"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/walker_enemy.tscn" id="6_walker"]
+[ext_resource type="PackedScene" path="res://scenes/world/exit_portal.tscn" id="8_portal"]
+[ext_resource type="PackedScene" path="res://scenes/pickups/healing_herb.tscn" id="9_herb"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/ranged_enemy.tscn" id="10_ranged"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spread_enemy.tscn" id="11_spread"]
+[ext_resource type="Script" path="res://scripts/levels/level_one_extension.gd" id="12_extension"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_overlay.tscn" id="13_pause"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_player_hp_bg"]
+bg_color = Color(0.0509804, 0.0509804, 0.0784314, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_player_hp_fill"]
+bg_color = Color(0.247059, 0.760784, 0.360784, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
+bg_color = Color(0.752941, 0.772549, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
+bg_color = Color(0.427451, 0.447059, 0.482353, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("5_level")
+level_variant = 1
+next_level_path = "res://scenes/levels/level_two.tscn"
+level_name = "NIVEL 1-1"
+
+[node name="Brightness" type="CanvasModulate" parent="."]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 22400.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.0705882, 0.105882, 0.156863, 1)
+z_index = -20
+
+[node name="BackgroundDecor" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 1)
+z_index = -16
+
+[node name="Hill1" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(250, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill2" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(760, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill3" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(1500, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill4" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(2230, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill5" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(3150, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill6" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(3660, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill7" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(4400, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill8" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(5030, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="Hill9" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(6050, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
+
+[node name="Hill10" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(6560, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
+
+[node name="Hill11" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(7300, 640)
+color = Color(0.0862745, 0.145098, 0.2, 1)
+polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
+
+[node name="Hill12" type="Polygon2D" parent="BackgroundDecor"]
+position = Vector2(7930, 640)
+color = Color(0.101961, 0.168627, 0.227451, 1)
+polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
+
+[node name="LevelOneExtension" type="Node2D" parent="."]
+script = ExtResource("12_extension")
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Ground" parent="Platforms" instance=ExtResource("1_platform")]
+position = Vector2(1300, 680)
+platform_size = Vector2(2600, 80)
+platform_color = Color(0.176471, 0.337255, 0.262745, 1)
+
+[node name="Platform1" parent="Platforms" instance=ExtResource("1_platform")]
+position = Vector2(850, 548)
+platform_size = Vector2(220, 24)
+platform_color = Color(0.207843, 0.313726, 0.439216, 1)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("1_platform")]
+position = Vector2(1150, 440)
+platform_size = Vector2(180, 24)
+platform_color = Color(0.207843, 0.313726, 0.439216, 1)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("1_platform")]
+position = Vector2(1420, 548)
+platform_size = Vector2(200, 24)
+platform_color = Color(0.207843, 0.313726, 0.439216, 1)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("1_platform")]
+position = Vector2(1720, 440)
+platform_size = Vector2(220, 24)
+platform_color = Color(0.207843, 0.313726, 0.439216, 1)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("1_platform")]
+position = Vector2(2020, 548)
+platform_size = Vector2(180, 24)
+platform_color = Color(0.207843, 0.313726, 0.439216, 1)
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("1_platform")]
+position = Vector2(2300, 440)
+platform_size = Vector2(200, 24)
+platform_color = Color(0.207843, 0.313726, 0.439216, 1)
+
+[node name="Bridge" parent="Platforms" instance=ExtResource("1_platform")]
+position = Vector2(2700, 680)
+platform_size = Vector2(200, 80)
+platform_color = Color(0.176471, 0.337255, 0.262745, 1)
+
+[node name="EndWallFinal" parent="Platforms" instance=ExtResource("1_platform")]
+position = Vector2(21980, 484)
+platform_size = Vector2(40, 392)
+platform_color = Color(0.14902, 0.239216, 0.317647, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(620, 600)
+
+[node name="WalkerEnemy" parent="." instance=ExtResource("6_walker")]
+position = Vector2(1600, 614)
+
+[node name="RangedEnemy" parent="." instance=ExtResource("10_ranged")]
+position = Vector2(1330, 610)
+
+[node name="SpreadEnemy" parent="." instance=ExtResource("11_spread")]
+position = Vector2(2150, 600)
+
+[node name="HealingHerbLeft" parent="." instance=ExtResource("9_herb")]
+position = Vector2(500, 600)
+
+[node name="HealingHerbRight" parent="." instance=ExtResource("9_herb")]
+position = Vector2(1900, 600)
+
+[node name="ExitPortal" parent="." instance=ExtResource("8_portal")]
+position = Vector2(21850, 580)
+
+[node name="Camera" parent="." instance=ExtResource("3_camera")]
+target_path = NodePath("../Player")
+fixed_y = 360.0
+follow_smoothing = 8.0
+limit_left = 0
+limit_top = 0
+limit_right = 22400
+limit_bottom = 720
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 10
+
+
+[node name="DamageFlash" type="ColorRect" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.9, 0.12, 0.12, 0.32)
+
+[node name="HealthIcons" type="Label" parent="HUD"]
+offset_left = 24.0
+offset_top = 30.0
+offset_right = 224.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(1, 0.36, 0.42, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 26
+text = "♥♥"
+
+[node name="LivesLabel" type="Label" parent="HUD"]
+offset_left = 24.0
+offset_top = 66.0
+offset_right = 224.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 0.9)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.85)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "VIDAS: 3"
+
+[node name="PortalHint" type="Label" parent="HUD"]
+offset_top = 40.0
+offset_right = 1152.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(1, 0.807843, 0.352941, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "¡Alcanza el portal para completar el nivel!"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="HUD"]
+offset_top = 36.0
+offset_right = 1152.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
+text = "TIEMPO: 70"
+horizontal_alignment = 1
+
+[node name="MedalLabel" type="Label" parent="HUD"]
+offset_top = 92.0
+offset_right = 1152.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(1, 0.87, 0.42, 0.95)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "MEDALLA ACTUAL: ORO  ·  00:00.00"
+horizontal_alignment = 1
+
+[node name="LevelProgress" type="ProgressBar" parent="HUD"]
+offset_left = 326.0
+offset_top = 70.0
+offset_right = 826.0
+offset_bottom = 92.0
+mouse_filter = 2
+max_value = 100.0
+value = 0.0
+show_percentage = false
+theme_override_font_sizes/font_size = 11
+theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_progress_fill")
+
+[node name="ProgressLabel" type="Label" parent="HUD/LevelProgress"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "PROGRESO DE NIVEL  0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Completed" type="Label" parent="HUD"]
+visible = false
+offset_left = 0.0
+offset_top = 250.0
+offset_right = 1152.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.431373, 0.960784, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 38
+text = "NIVEL COMPLETADO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="Label" parent="HUD"]
+visible = false
+offset_left = 0.0
+offset_top = 250.0
+offset_right = 1152.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(1, 0.380392, 0.380392, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 46
+text = "HAS MUERTO - Reapareciendo..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseOverlay" parent="." instance=ExtResource("13_pause")]

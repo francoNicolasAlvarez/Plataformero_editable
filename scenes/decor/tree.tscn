@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/decor/tree.svg" id="1_tree"]
+
+[node name="Tree" type="Node2D"]
+z_index = -12
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -110)
+texture = ExtResource("1_tree")

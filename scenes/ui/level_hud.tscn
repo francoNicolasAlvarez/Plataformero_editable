@@ -1,0 +1,135 @@
+[gd_scene format=3]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
+bg_color = Color(0.752941, 0.772549, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
+bg_color = Color(0.427451, 0.447059, 0.482353, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="HUD" type="CanvasLayer" unique_id=1913398666]
+layer = 10
+
+[node name="DamageFlash" type="ColorRect" parent="." unique_id=693470837]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.9, 0.12, 0.12, 0.32)
+
+[node name="HealthIcons" type="Label" parent="." unique_id=122119076]
+offset_left = 24.0
+offset_top = 30.0
+offset_right = 224.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(1, 0.36, 0.42, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 26
+text = "♥♥"
+
+[node name="LivesLabel" type="Label" parent="." unique_id=10574051]
+offset_left = 24.0
+offset_top = 66.0
+offset_right = 224.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 0.9)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.85)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "VIDAS: 3"
+
+[node name="PortalHint" type="Label" parent="." unique_id=1525706271]
+offset_top = 40.0
+offset_right = 1152.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(1, 0.807843, 0.352941, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "¡Alcanza el portal para completar el nivel!"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="." unique_id=421036566]
+offset_top = 36.0
+offset_right = 1152.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
+text = "TIEMPO: 70"
+horizontal_alignment = 1
+
+[node name="MedalLabel" type="Label" parent="." unique_id=2027923573]
+offset_top = 92.0
+offset_right = 1152.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(1, 0.87, 0.42, 0.95)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "MEDALLA ACTUAL: ORO  ·  00:00.00"
+horizontal_alignment = 1
+
+[node name="LevelProgress" type="ProgressBar" parent="." unique_id=342221363]
+offset_left = 326.0
+offset_top = 70.0
+offset_right = 826.0
+offset_bottom = 92.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_progress_fill")
+show_percentage = false
+
+[node name="ProgressLabel" type="Label" parent="LevelProgress" unique_id=320340001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "PROGRESO DE NIVEL  0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Completed" type="Label" parent="." unique_id=898119192]
+visible = false
+offset_top = 250.0
+offset_right = 1152.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.431373, 0.960784, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 38
+text = "NIVEL COMPLETADO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="Label" parent="." unique_id=160016960]
+visible = false
+offset_top = 250.0
+offset_right = 1152.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(1, 0.380392, 0.380392, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 46
+text = "HAS MUERTO - Reapareciendo..."
+horizontal_alignment = 1
+vertical_alignment = 1

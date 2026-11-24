@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/levels/test_level.tscn" id="1_base"]
+
+[node name="LevelTen" instance=ExtResource("1_base")]
+level_variant = 10
+next_level_path = "res://scenes/levels/level_eleven.tscn"
+level_name = "NIVEL 2-5"
+time_limit = 70.0

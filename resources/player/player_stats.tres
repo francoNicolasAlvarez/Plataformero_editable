@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/player_stats.gd" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+max_speed = 266.0
+run_speed = 532.0
+acceleration = 1400.0
+deceleration = 1700.0
+turn_acceleration = 2400.0
+air_acceleration = 850.0
+air_deceleration = 450.0
+gravity = 1450.0
+fall_gravity_multiplier = 1.35
+jump_height = 125.0
+max_fall_speed = 900.0
+jump_cut_multiplier = 0.45
+max_jumps = 1
+jump_hold_time = 0.25
+jump_hold_acceleration = 385.0
+coyote_time = 0.1
+jump_buffer_time = 0.12
+invulnerability_time = 0.5
+knockback_force = 260.0
+knockback_up_force = 220.0

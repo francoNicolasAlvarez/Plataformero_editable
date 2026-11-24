@@ -1,0 +1,105 @@
+[gd_scene load_steps=19 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="2_player"]
+[ext_resource type="Resource" path="res://resources/player/player_stats.tres" id="3_stats"]
+[ext_resource type="Texture2D" path="res://assets/player/player_idle_1.svg" id="5_idle1"]
+[ext_resource type="Texture2D" path="res://assets/player/player_idle_2.svg" id="6_idle2"]
+[ext_resource type="Texture2D" path="res://assets/player/player_walk_1.svg" id="7_walk1"]
+[ext_resource type="Texture2D" path="res://assets/player/player_walk_2.svg" id="8_walk2"]
+[ext_resource type="Texture2D" path="res://assets/player/player_run_1.svg" id="9_run1"]
+[ext_resource type="Texture2D" path="res://assets/player/player_run_2.svg" id="10_run2"]
+[ext_resource type="Texture2D" path="res://assets/player/player_jump.svg" id="11_jump"]
+[ext_resource type="Texture2D" path="res://assets/player/player_fall.svg" id="12_fall"]
+[ext_resource type="Script" path="res://scripts/combat/health.gd" id="14_health"]
+[ext_resource type="Texture2D" path="res://assets/player/player_death.svg" id="15_death"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(30, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_player"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_idle1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_idle2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_walk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_walk2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_run1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_run2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_jump")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_fall")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_death")
+}],
+"loop": false,
+"name": &"death",
+"speed": 1.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+floor_snap_length = 6.0
+script = ExtResource("2_player")
+stats = ExtResource("3_stats")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Shadow" type="Polygon2D" parent="."]
+position = Vector2(0, 24)
+color = Color(0, 0, 0, 0.25)
+polygon = PackedVector2Array(-16, 0, -10, -4, 0, -5, 10, -4, 16, 0, 10, 4, 0, 5, -10, 4)
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual"]
+offset = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_player")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("14_health")
+max_health = 3
+

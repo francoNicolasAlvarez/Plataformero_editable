@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemies/sky_sentry.gd" id="1_sentry"]
+
+[node name="SkySentry" type="Node2D" groups=["enemies", "sky_sentries"]]
+z_index = 6
+script = ExtResource("1_sentry")
+
+[node name="Visual" type="Node2D" parent="."]
+scale = Vector2(1.75, 1.75)
+
+[node name="WingLeft" type="Polygon2D" parent="Visual"]
+position = Vector2(-16, -2)
+color = Color(0.18, 0.12, 0.24, 1)
+polygon = PackedVector2Array(0, -6, -28, -26, -54, -18, -42, -2, -14, 8)
+
+[node name="WingLeftShade" type="Polygon2D" parent="Visual"]
+position = Vector2(-16, -2)
+color = Color(0.11, 0.07, 0.16, 1)
+polygon = PackedVector2Array(0, -6, -28, -26, -38, -20, -20, -5)
+
+[node name="WingRight" type="Polygon2D" parent="Visual"]
+position = Vector2(16, -2)
+color = Color(0.18, 0.12, 0.24, 1)
+polygon = PackedVector2Array(0, -6, 28, -26, 54, -18, 42, -2, 14, 8)
+
+[node name="WingRightShade" type="Polygon2D" parent="Visual"]
+position = Vector2(16, -2)
+color = Color(0.11, 0.07, 0.16, 1)
+polygon = PackedVector2Array(0, -6, 28, -26, 38, -20, 20, -5)
+
+[node name="HornLeft" type="Polygon2D" parent="Visual"]
+color = Color(0.12, 0.08, 0.18, 1)
+polygon = PackedVector2Array(-18, -14, -28, -38, -7, -22)
+
+[node name="HornRight" type="Polygon2D" parent="Visual"]
+color = Color(0.12, 0.08, 0.18, 1)
+polygon = PackedVector2Array(18, -14, 28, -38, 7, -22)
+
+[node name="Body" type="Polygon2D" parent="Visual"]
+color = Color(0.27, 0.17, 0.35, 1)
+polygon = PackedVector2Array(-22, -18, 22, -18, 29, 0, 18, 20, -18, 20, -29, 0)
+
+[node name="BodyShade" type="Polygon2D" parent="Visual"]
+color = Color(0.19, 0.11, 0.26, 1)
+polygon = PackedVector2Array(5, -18, 22, -18, 29, 0, 18, 20, 5, 20)
+
+[node name="BodyOutline" type="Line2D" parent="Visual"]
+width = 2.5
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+closed = true
+antialiased = true
+points = PackedVector2Array(-22, -18, 22, -18, 29, 0, 18, 20, -18, 20, -29, 0)
+
+[node name="EyeGlow" type="Polygon2D" parent="Visual"]
+color = Color(1, 0.22, 0.12, 0.28)
+polygon = PackedVector2Array(0, -17, 12.7, -12.7, 17, 0, 12.7, 12.7, 0, 17, -12.7, 12.7, -17, 0, -12.7, -12.7)
+
+[node name="Eye" type="Polygon2D" parent="Visual"]
+color = Color(1, 0.63, 0.2, 1)
+polygon = PackedVector2Array(0, -10, 7.1, -7.1, 10, 0, 7.1, 7.1, 0, 10, -7.1, 7.1, -10, 0, -7.1, -7.1)
+
+[node name="Pupil" type="Polygon2D" parent="Visual"]
+color = Color(0.08, 0.04, 0.1, 1)
+polygon = PackedVector2Array(0, -7, 2.4, -2.4, 2.4, 2.4, 0, 7, -2.4, 2.4, -2.4, -2.4)
+
+[node name="EyeShine" type="Polygon2D" parent="Visual"]
+color = Color(1, 0.95, 0.8, 0.9)
+polygon = PackedVector2Array(-5, -6, -2, -6, -2, -3, -5, -3)
+
+[node name="MuzzleBody" type="Polygon2D" parent="Visual"]
+position = Vector2(0, 20)
+color = Color(0.14, 0.09, 0.2, 1)
+polygon = PackedVector2Array(-9, 0, 9, 0, 6, 11, -6, 11)
+
+[node name="MuzzleGlow" type="Polygon2D" parent="Visual"]
+position = Vector2(0, 31)
+color = Color(1, 0.4, 0.16, 0.6)
+polygon = PackedVector2Array(0, -3, 3, 0, 0, 3, -3, 0)
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(0, 54)
