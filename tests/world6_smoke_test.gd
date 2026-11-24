@@ -330,7 +330,7 @@ func _test_level_30() -> void:
 	var player := _player(level)
 	var portal := level.get_node("ExitPortal") as ExitPortal
 	var victory := level.find_child("Victory", true, false) as VictoryCondition
-	_check(is_zero_approx(player.stats.dash_speed) and player.stats.dash_cooldown > 100.0, "30: regla de la sala: sin impulso")
+	_check(player.stats.dash_speed > 100.0 and player.stats.dash_cooldown < 5.0, "30: el impulso está disponible")
 	var shared := load("res://resources/player/player_stats.tres") as PlayerStats
 	_check(shared.dash_speed > 100.0, "30: el recurso compartido de estadísticas no se contamina")
 	_check(portal.locked, "30: el portal empieza bloqueado")

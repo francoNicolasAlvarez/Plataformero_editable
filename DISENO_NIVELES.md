@@ -113,7 +113,7 @@ escudo (solo se le puede esquivar), ballestero de torre.
 | 27 | MURALLAS | Torre + cruce | Cañones de pared en las almenas. | Parcial |
 | 28 | MAZMORRA | Laberinto | Rastrillos con palanca; llaves en celdas. | Sí |
 | 29 | CATAPULTAS | Franja amplia | Catapultas que marcan la zona de impacto. | No |
-| 30 | SALA DEL TRONO | Arena | Regla: sin impulso. Oleadas y salida que se abre. | No |
+| 30 | SALA DEL TRONO | Arena | Oleadas y salida que se abre. | No |
 
 ### Mundo 7 — LABORATORIO Y TECNOLOGÍA (31-35)
 

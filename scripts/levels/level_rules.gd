@@ -4,8 +4,8 @@ extends RefCounted
 ## generador sobre el jugador de la escena; cada uno trabaja sobre una COPIA
 ## de `PlayerStats`, así el recurso compartido no se contamina entre niveles.
 
-## Sin impulso (nivel 30): el impulso (Ctrl) queda anulado. Con una roca en la
-## mano Ctrl sigue sirviendo para lanzarla (`GrabItem.wants_dash`).
+## Sin impulso: anula el impulso (Ctrl). Ningún nivel lo usa ahora (el 30 lo
+## tuvo hasta 2026-11-24 y se retiró).
 static func no_dash(player: Player) -> void:
 	if player == null:
 		return

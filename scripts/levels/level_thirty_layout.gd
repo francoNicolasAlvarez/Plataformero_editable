@@ -1,8 +1,7 @@
 class_name LevelThirtyLayout
 extends RefCounted
 ## Nivel 30 (2026-11-24): "SALA DEL TRONO" (6-5), arena final del mundo con
-## regla propia: SIN IMPULSO (el jugador no puede hacer el impulso; Ctrl
-## solo sirve para lanzar la roca que lleve en la mano).
+## con el impulso disponible (Ctrl; con una roca en la mano, Ctrl la lanza).
 ## Victoria alternativa: el portal se abre al DERROTAR a todos los enemigos:
 ##  - Soldados sueltos: se derriban lanzándoles rocas (Ctrl, con reposición).
 ##  - Dos lanceros de élite con escudo: caen al pisar los dos botones; uno está
@@ -25,7 +24,6 @@ static func route() -> PackedVector2Array:
 
 
 static func build(level: Node2D) -> void:
-	LevelRules.no_dash(level.get_node_or_null("Player") as Player)
 	var world := FortressKit.start(level, "LevelThirtyGenerated", WIDTH)
 	DesertKit.ground(world, 0.0, WIDTH, TowerKit.STONE_DARK)
 	TowerKit.block(world, Rect2(0.0, CEILING_Y, WIDTH, CEILING_THICKNESS), "ThroneCeiling", FortressKit.BRICK_DARK)
