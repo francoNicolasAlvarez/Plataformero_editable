@@ -164,6 +164,18 @@ func _test_level_23() -> void:
 	var last_end := LevelTwentythreeLayout.final_belt_center(LevelTwentythreeLayout.FINAL_BELTS - 1).x + LevelTwentythreeLayout.FINAL_BELT_LENGTH * 0.5
 	final_ok = final_ok and LevelTwentythreeLayout.FINAL_GROUND_START - last_end <= 250.0
 	_check(final_ok, "23: huecos del tramo final ≤ 250 px")
+	# Las plataformas temporizadas cruzan un largo pozo: sin cintas ni suelo debajo.
+	var over_pit := true
+	for node in timed:
+		over_pit = over_pit and (node as Node2D).position.x > LevelTwentythreeLayout.PIT_START and (node as Node2D).position.x < LevelTwentythreeLayout.PIT_END
+	var under_ok := true
+	for belt in belts:
+		under_ok = under_ok and ((belt as Node2D).position.x < LevelTwentythreeLayout.PIT_START or (belt as Node2D).position.x > LevelTwentythreeLayout.PIT_END)
+	for ground in level.find_children("Ground*", "Platform", true, false):
+		var gp := ground as Platform
+		under_ok = under_ok and (gp.position.x + gp.platform_size.x * 0.5 <= LevelTwentythreeLayout.PIT_START + 1.0 or gp.position.x - gp.platform_size.x * 0.5 >= LevelTwentythreeLayout.PIT_END - 1.0)
+	_check(over_pit and under_ok, "23: la escalera temporizada cruza un pozo de %d px sin suelo ni cintas debajo" % int(LevelTwentythreeLayout.PIT_LENGTH))
+	_check(level.find_child("FallZoneBridges", true, false) != null, "23: el pozo es mortal")
 	_check(get_nodes_in_group("checkpoints").size() == 1, "23: un control en la isla de unión")
 	var route := LevelTwentythreeLayout.route()
 	_check(level.route_progress(route[route.size() - 1]) > 0.99, "23: la ruta (escalera) llega al portal")
