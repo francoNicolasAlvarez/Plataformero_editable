@@ -61,6 +61,11 @@ func _on_body_entered(body: Node2D) -> void:
 		activate()
 
 
+## Sonido al activarse (los botones usan otro).
+func _sound_name() -> String:
+	return "ui"
+
+
 ## Las subclases (p. ej. `FloorButton`) pueden exigir otra condición.
 func _accepts(_player: Player) -> bool:
 	return true
@@ -79,7 +84,7 @@ func activate() -> void:
 		return
 	is_on = true
 	_apply_visual(true)
-	Sfx.play("ui", -4.0)
+	Sfx.play(_sound_name(), -4.0)
 	activated.emit(self)
 
 

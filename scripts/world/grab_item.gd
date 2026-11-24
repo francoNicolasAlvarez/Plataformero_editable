@@ -109,7 +109,7 @@ func grab(player: Player) -> void:
 	collision_layer = 0
 	_hint.text = _hint_text()
 	_hint.visible = true
-	Sfx.play("ui", -6.0)
+	Sfx.play("grab", -6.0)
 
 
 func _hint_text() -> String:
@@ -164,7 +164,7 @@ func wants_dash() -> bool:
 	velocity = Vector2(THROW_SPEED.x * float(player.facing()), THROW_SPEED.y * gsign)
 	global_position = player.global_position + Vector2(float(player.facing()) * 22.0, -26.0 * gsign)
 	_shape.set_deferred("disabled", false)
-	Sfx.play("jump", -10.0)
+	Sfx.play("throw", -8.0)
 	return true
 
 

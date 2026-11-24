@@ -42,7 +42,7 @@ func _fire() -> void:
 	projectile.lifetime = 4.0
 	if projectile.has_method("use_sentry_style"):
 		projectile.use_sentry_style()
-	Sfx.play("bomb", -10.0)
+	Sfx.play("cannon", -8.0)
 	Fx.make_burst(get_parent(), global_position + Vector2(direction * 36.0, 0.0), Color(1.0, 0.6, 0.2, 0.9))
 
 

@@ -1704,8 +1704,11 @@ actualizar esos tests.
     - Tests: `world6_smoke_test` nuevo (68). Actualizados `level_registry`,
       `level_results`, `menu_ui` y `world5_levels` (el 25 continúa al 26).
       Suite 63: solo fallan los dos tests del nivel 8 de siempre.
-    - Pendiente: ajustar a mano tras jugarlos (no se han jugado), añadir los
-      objetos y botones a las Instrucciones del menú y sonidos propios.
+    - Pulido (mismo día): sonidos propios `button`, `grab`, `throw`, `cannon`,
+      `unlock` y `gravity` en `sfx.gd`; sección "FORTALEZA: BOTONES, OBJETOS Y
+      SALIDAS" en las Instrucciones del menú. Rollback previo:
+      `git reset --hard rollback/2026-11-24-01-mundo6-base`.
+    - Pendiente: ajustar a mano tras jugarlos (no se han jugado).
 
 ## 5. En progreso / estado actual
 

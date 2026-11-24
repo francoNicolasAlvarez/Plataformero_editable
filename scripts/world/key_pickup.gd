@@ -32,7 +32,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player and not is_collected:
 		is_collected = true
 		Fx.make_burst(get_parent(), global_position, Color(1.0, 0.85, 0.3, 0.95))
-		Sfx.play("ui_confirm", -4.0)
+		Sfx.play("unlock", -4.0)
 		visible = false
 		set_deferred("monitoring", false)
 		collected.emit(self)

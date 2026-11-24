@@ -81,7 +81,7 @@ func _launch() -> void:
 	boulder.velocity = Vector2(direction * cos(LAUNCH_ANGLE), -sin(LAUNCH_ANGLE)) * launch_speed(origin, target)
 	get_parent().add_child(boulder)
 	boulder.global_position = origin
-	Sfx.play("bomb", -10.0)
+	Sfx.play("cannon", -10.0)
 
 
 func _draw() -> void:

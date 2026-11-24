@@ -26,6 +26,10 @@ func activate() -> void:
 	super.activate()
 
 
+func _sound_name() -> String:
+	return "button"
+
+
 func _accepts(player: Player) -> bool:
 	if not require_jump:
 		return true

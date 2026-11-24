@@ -14,6 +14,7 @@ func _initialize() -> void:
 
 
 func _run() -> void:
+	await _test_pendings()
 	await _test_registry()
 	await _test_level_26()
 	await _test_items_and_gravity()
@@ -54,6 +55,13 @@ func _place_player(level: Node, position: Vector2) -> void:
 	player.global_position = position
 	player.velocity = Vector2.ZERO
 	await _wait_physics(3)
+
+
+func _test_pendings() -> void:
+	for sound in ["button", "grab", "throw", "cannon", "unlock", "gravity"]:
+		_check(Sfx._get_sound(sound) != null and Sfx._get_sound(sound) != Sfx._get_sound("nope"), "sonido propio: %s" % sound)
+	var scene_text := FileAccess.get_file_as_string("res://scenes/ui/main_menu.tscn")
+	_check(scene_text.contains("FortressText") and scene_text.contains("botón de suelo") and scene_text.contains("Resorte") and scene_text.contains("llaves"), "instrucciones: explican botones, objetos y llaves")
 
 
 func _test_registry() -> void:

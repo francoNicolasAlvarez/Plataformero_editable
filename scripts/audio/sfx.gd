@@ -136,6 +136,18 @@ static func _get_sound(sound_name: String) -> AudioStreamWAV:
 			stream = _sweep(95.0, 35.0, 0.35, 0.8, true)
 		"portal":
 			stream = _sequence([523.0, 659.0, 784.0, 1046.0], 0.1, 0.5)
+		"button":
+			stream = _sequence([196.0, 147.0], 0.07, 0.8)
+		"grab":
+			stream = _sequence([392.0, 523.0], 0.05, 0.55)
+		"throw":
+			stream = _sweep(500.0, 160.0, 0.14, 0.5, true)
+		"cannon":
+			stream = _sweep(120.0, 38.0, 0.28, 0.9, true)
+		"unlock":
+			stream = _sequence([784.0, 988.0, 1318.0], 0.07, 0.5)
+		"gravity":
+			stream = _sweep(200.0, 700.0, 0.3, 0.45)
 		"ui":
 			stream = _sweep(660.0, 660.0, 0.04, 0.9)
 		"ui_confirm":

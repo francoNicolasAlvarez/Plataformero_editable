@@ -293,6 +293,25 @@ Impulso: pulsa Ctrl para lanzarte rápido hacia delante; no cuenta como salto y 
 Caer rápido: mantén Abajo o S en el aire para caer al instante."
 autowrap_mode = 3
 
+[node name="FortressTitle" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.827451, 0.247059, 1)
+theme_override_font_sizes/font_size = 14
+text = "FORTALEZA: BOTONES, OBJETOS Y SALIDAS"
+
+[node name="FortressText" type="Label" parent="InstructionsPanel/PanelMargin/VBox/Scroll/Content"]
+layout_mode = 2
+custom_minimum_size = Vector2(700, 0)
+theme_override_colors/font_color = Color(0.87, 0.93, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Botones y palancas: el botón de suelo se activa cayendo sobre él (hay que saltar). Abren puentes levadizos y rastrillos, y quitan el escudo cian a los enemigos de su canal.
+Objetos: al tocarlos los agarras y los llevas sobre la cabeza. Caja: Abajo en el suelo la deja como peldaño. Roca: Ctrl la lanza y derriba enemigos sin escudo. Resorte: tus 3 siguientes saltos son más altos.
+Gravedad: en las zonas violetas caes hacia arriba y caminas por el techo.
+Cañones y catapultas: el cañón avisa antes de disparar; la catapulta marca en el suelo dónde caerá la roca.
+Salida bloqueada: algunos niveles cierran el portal hasta reunir las llaves, activar los interruptores o derrotar a todos los enemigos; el progreso aparece sobre el portal.
+Si sales de la pantalla visible mueres."
+autowrap_mode = 3
+
 [node name="BackButton" type="Button" parent="InstructionsPanel/PanelMargin/VBox"]
 custom_minimum_size = Vector2(0, 42)
 layout_mode = 2

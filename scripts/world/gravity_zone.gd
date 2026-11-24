@@ -19,7 +19,7 @@ func _on_player_entered() -> void:
 	if player != null:
 		_original = player.inverted_gravity
 		_set_inverted(player, not _original)
-		Sfx.play("portal", -12.0)
+		Sfx.play("gravity", -10.0)
 
 
 func _on_player_exited() -> void:
