@@ -67,7 +67,8 @@ static func _build_hub(world: Node2D) -> void:
 	var half_gap := DRAFT_WIDTH * 0.5
 	TowerKit.block(world, Rect2(HUB_FROM, CHAMBER_Y, HUB_CENTER - half_gap - HUB_FROM, CHAMBER_THICKNESS), "CitadelChamberLeft", TowerKit.STONE)
 	TowerKit.block(world, Rect2(HUB_CENTER + half_gap, CHAMBER_Y, HUB_TO - (HUB_CENTER + half_gap), CHAMBER_THICKNESS), "CitadelChamberRight", TowerKit.STONE)
-	var draft_top := CHAMBER_Y - 160.0
+	# La corriente llega al borde superior del nivel (y=0); salir por arriba mata.
+	var draft_top := 0.0
 	TowerKit.updraft(world, Vector2(HUB_CENTER, (GROUND_Y + draft_top) * 0.5), Vector2(DRAFT_WIDTH - 20.0, GROUND_Y - draft_top), "CitadelDraft")
 	TowerKit.lever(world, Vector2(LEVER_C_X, CHAMBER_Y), CHANNEL, "CitadelLeverC")
 	TowerKit.gate(world, Vector2(GATE_X, CHAMBER_Y - GATE_SIZE.y * 0.5), GATE_SIZE, CHANNEL, "CitadelGate")

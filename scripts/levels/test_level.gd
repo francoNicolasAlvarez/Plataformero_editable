@@ -115,6 +115,16 @@ func _ready() -> void:
 		_prepare_level_twentyfour()
 	elif level_variant == 25:
 		_prepare_level_twentyfive()
+	elif level_variant == 26:
+		_prepare_level_twentysix()
+	elif level_variant == 27:
+		_prepare_level_twentyseven()
+	elif level_variant == 28:
+		_prepare_level_twentyeight()
+	elif level_variant == 29:
+		_prepare_level_twentynine()
+	elif level_variant == 30:
+		_prepare_level_thirty()
 
 	_apply_run_variation()
 	_decorate_base_hills()
@@ -185,7 +195,7 @@ func _connect_checkpoints() -> void:
 			checkpoint.activated.connect(_on_checkpoint_activated)
 
 
-const MOODS := {1: "DÍA", 2: "ATARDECER", 3: "NOCHE", 4: "ABISMO", 5: "CIELO", 6: "FORTALEZA", 7: "INVERSO", 8: "ESPEJO", 9: "RUINAS", 10: "TEMPLO", 11: "VIENTO", 12: "DUNAS", 13: "OASIS", 14: "CAÑÓN", 15: "TORMENTA", 16: "GRUTA", 17: "MINA", 18: "CRISTALES", 19: "GALERÍA", 20: "DERRUMBE", 21: "LABERINTO", 22: "CAMPANARIO", 23: "PUENTES", 24: "NUBES", 25: "CIUDADELA"}
+const MOODS := {1: "DÍA", 2: "ATARDECER", 3: "NOCHE", 4: "ABISMO", 5: "CIELO", 6: "FORTALEZA", 7: "INVERSO", 8: "ESPEJO", 9: "RUINAS", 10: "TEMPLO", 11: "VIENTO", 12: "DUNAS", 13: "OASIS", 14: "CAÑÓN", 15: "TORMENTA", 16: "GRUTA", 17: "MINA", 18: "CRISTALES", 19: "GALERÍA", 20: "DERRUMBE", 21: "LABERINTO", 22: "CAMPANARIO", 23: "PUENTES", 24: "NUBES", 25: "CIUDADELA", 26: "FOSO", 27: "MURALLAS", 28: "MAZMORRA", 29: "CATAPULTAS", 30: "SALA DEL TRONO"}
 
 
 ## Cartel del nivel al comenzar: aparece centrado y se desvanece solo.
@@ -233,6 +243,19 @@ func _process(delta: float) -> void:
 
 	if player.health.is_dead:
 		return
+	if _is_outside_view():
+		player.health.take_damage(9999)
+
+
+func _is_outside_view() -> bool:
+	## Muerte por salir del mapa visible (2026-11-24): p. ej. una corriente que
+	## lanza al jugador por encima del borde superior de la cámara.
+	if camera == null or DisplayServer.get_name() == "headless":
+		return false
+	var size := get_viewport_rect().size / camera.zoom
+	var center := camera.get_screen_center_position()
+	var margin := 40.0
+	return absf(player.global_position.y - center.y) > size.y * 0.5 + margin
 
 
 func _prepare_baked_level() -> void:
@@ -369,6 +392,31 @@ func _prepare_level_twentyfour() -> void:
 func _prepare_level_twentyfive() -> void:
 	_clear_base_content()
 	LevelTwentyfiveLayout.build(self)
+
+
+func _prepare_level_twentysix() -> void:
+	_clear_base_content()
+	LevelTwentysixLayout.build(self)
+
+
+func _prepare_level_twentyseven() -> void:
+	_clear_base_content()
+	LevelTwentysevenLayout.build(self)
+
+
+func _prepare_level_twentyeight() -> void:
+	_clear_base_content()
+	LevelTwentyeightLayout.build(self)
+
+
+func _prepare_level_twentynine() -> void:
+	_clear_base_content()
+	LevelTwentynineLayout.build(self)
+
+
+func _prepare_level_thirty() -> void:
+	_clear_base_content()
+	LevelThirtyLayout.build(self)
 
 
 func _clear_base_content() -> void:
@@ -562,6 +610,11 @@ func _reset_hazards() -> void:
 		(hazard as Hazard).reset()
 	for zone in get_tree().get_nodes_in_group("gimmick_zones"):
 		(zone as GimmickZone).reset()
+	# Mundo 6: objetos sujetables y puentes levadizos vuelven a su sitio.
+	for item in get_tree().get_nodes_in_group("grab_items"):
+		(item as GrabItem).reset_to_start()
+	for bridge in get_tree().get_nodes_in_group("drawbridges"):
+		(bridge as Drawbridge).reset()
 
 
 func first_level_of_group() -> int:

@@ -57,16 +57,28 @@ func _build_visual() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player and not is_on:
+	if body is Player and not is_on and _accepts(body as Player):
 		activate()
+
+
+## Las subclases (p. ej. `FloorButton`) pueden exigir otra condición.
+func _accepts(_player: Player) -> bool:
+	return true
+
+
+## Las subclases con otro dibujo redefinen este método.
+func _apply_visual(on: bool) -> void:
+	if _handle != null:
+		_handle.rotation_degrees = 35.0 if on else -35.0
+	if _lamp != null:
+		_lamp.color = Color("#57e389") if on else Color("#d94b4b")
 
 
 func activate() -> void:
 	if is_on:
 		return
 	is_on = true
-	_handle.rotation_degrees = 35.0
-	_lamp.color = Color("#57e389")
+	_apply_visual(true)
 	Sfx.play("ui", -4.0)
 	activated.emit(self)
 
@@ -74,6 +86,4 @@ func activate() -> void:
 ## Vuelve a su estado inicial (lo usan los tests; el nivel no lo llama al morir).
 func reset() -> void:
 	is_on = false
-	if _handle != null:
-		_handle.rotation_degrees = -35.0
-		_lamp.color = Color("#d94b4b")
+	_apply_visual(false)

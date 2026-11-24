@@ -51,7 +51,7 @@ fill_to = Vector2(0, 1)
 [node name="LevelTwentyfive" type="Node2D" unique_id=1482110036]
 script = ExtResource("1_150x6")
 level_variant = 25
-next_level_path = "res://scenes/ui/game_complete.tscn"
+next_level_path = "res://scenes/levels/level_twentysix.tscn"
 level_name = "NIVEL 5-5"
 baked = true
 route_points = PackedVector2Array(2900, 616, 3200, 616, 3200, 276, 2850, 276, 3200, 276, 3200, 616, 150, 616, 3200, 616, 6250, 616, 3200, 616, 3200, 276, 3620, 276)
@@ -639,11 +639,11 @@ platform_size = Vector2(400, 30)
 platform_color = Color(0.6039216, 0.6392157, 0.72156864, 1)
 
 [node name="CitadelDraft" type="Area2D" parent="LevelTwentyfiveGenerated" unique_id=962057665]
-position = Vector2(3200, 390)
+position = Vector2(3200, 320)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("19_2e511")
-zone_size = Vector2(180, 500)
+zone_size = Vector2(180, 640)
 
 [node name="CitadelLeverC" type="Area2D" parent="LevelTwentyfiveGenerated" unique_id=1033132425]
 position = Vector2(2850, 300)

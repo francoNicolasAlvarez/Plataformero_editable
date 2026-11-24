@@ -4,6 +4,18 @@ extends RefCounted
 ## generador sobre el jugador de la escena; cada uno trabaja sobre una COPIA
 ## de `PlayerStats`, así el recurso compartido no se contamina entre niveles.
 
+## Sin impulso (nivel 30): el impulso (Ctrl) queda anulado. Con una roca en la
+## mano Ctrl sigue sirviendo para lanzarla (`GrabItem.wants_dash`).
+static func no_dash(player: Player) -> void:
+	if player == null:
+		return
+	var stats := player.stats.duplicate() as PlayerStats
+	stats.dash_speed = 0.0
+	stats.dash_time = 0.05
+	stats.dash_cooldown = 9999.0
+	player.stats = stats
+
+
 ## Baja gravedad: `gravity_factor` multiplica la gravedad y `jump_factor` la
 ## altura del salto (con la mitad de gravedad y 1,6x de altura el salto sube
 ## ~200 px y se queda más tiempo en el aire).

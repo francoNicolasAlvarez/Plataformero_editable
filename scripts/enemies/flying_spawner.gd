@@ -17,6 +17,10 @@ const ENEMY_SCENE := preload("res://scenes/enemies/flying_enemy.tscn")
 @export var max_height: float = 540.0
 @export var side_margin: float = 70.0
 @export var active: bool = true
+## Si `zone_to > zone_from`, solo genera voladores mientras el jugador está en
+## ese tramo horizontal (2026-11-24, nivel 5-3).
+@export var zone_from: float = 0.0
+@export var zone_to: float = 0.0
 
 var _timer: float = 0.0
 var _next_side: int = 1
@@ -28,13 +32,20 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if not active:
+	if not active or not _player_in_zone():
 		return
 	_timer -= delta
 	if _timer > 0.0:
 		return
 	_timer = spawn_interval
 	_spawn()
+
+
+func _player_in_zone() -> bool:
+	if zone_to <= zone_from:
+		return true
+	var player := get_tree().get_first_node_in_group("player") as Node2D
+	return player != null and player.global_position.x >= zone_from and player.global_position.x <= zone_to
 
 
 func _spawn() -> void:

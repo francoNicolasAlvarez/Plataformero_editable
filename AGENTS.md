@@ -1654,6 +1654,59 @@ actualizar esos tests.
       nivel 21 fue un error de sintaxis mío).
     - Test: `world5_levels` comprueba que no hay suelo ni cintas bajo el pozo.
 
+84. **Nivel 5-3 más difícil y largo (2026-11-24)**: en el tramo de cintas se
+    añaden murciélagos (`FlyingSpawner`, cada 4 s) y el centinela del rincón
+    superior derecho (`SkySentry`); ambos ganan `zone_from`/`zone_to` (solo
+    activos mientras el jugador está en ese tramo; 0/0 = siempre, sin cambio en
+    otros niveles). La escalera del pozo separa más sus plataformas
+    (`UPPER_STEP` 390, huecos de 240 px) y suma dos plataformas fijas
+    (`STATIC_SLOTS` 5 y 11: `BridgeRest0` vacía y `BridgeRest1` con arquero), así
+    que el pozo pasa a 6450 px y el nivel a 16250 px. API nueva del layout:
+    `slot_center()`, `timed_slot()`. Escena re-horneada.
+
+85. **Corriente de aire como lluvia invertida (2026-11-24)**: `UpdraftZone` se
+    dibuja con `_draw()`: decenas de líneas blancas finas que suben a distinta
+    velocidad y largo, con borde blanco (ya no negro). La altura se ajusta con
+    `zone_size.y` (Inspector). En el nivel 25 la corriente llega hasta y=0 (el
+    borde superior). `TestLevel._is_outside_view()` mata al jugador si sale
+    40 px fuera del área visible de la cámara (no se evalúa en headless).
+
+86. **Mundo 6 "FORTALEZA MEDIEVAL", niveles 26-30 y mecánicas nuevas (2026-11-24)**:
+    ya hay 30 niveles jugables. Cadena 25 -> 26 -> ... -> 30 -> pantalla final.
+    - **Mecánicas** (`scripts/world/`): `FloorButton` (botón de suelo, hay que
+      CAER encima; extiende `LeverSwitch`, que ahora tiene `_accepts()` y
+      `_apply_visual()`), `ChannelLock` (escudo cian sobre un enemigo hermano
+      (`target`) que cae al activar todos los interruptores de su canal; mientras
+      tanto el enemigo lleva la meta `channel_locked`), `Drawbridge` (puente
+      levadizo: muro vertical hasta activar su canal, baja 0,8 s, sube tras
+      `raise_after` s y reinicia los interruptores), `GravityZone` (invierte la
+      gravedad del jugador mientras está dentro), `WallCannon` y `Catapult`
+      (`Hazard` con aviso: cañón horizontal; catapulta que marca el impacto en el
+      suelo y lanza un `ThrownBoulder` en parábola), `KeyPickup` y
+      `VictoryCondition` (bloquea el `ExitPortal` hasta cumplir: KEYS, CHANNEL o
+      ENEMIES del grupo persistente `arena_enemies`). `ExitPortal` gana `locked`/
+      `set_locked()` y grupo `exit_portals`; `SwitchGate` gana `counter_word`.
+    - **Objetos sujetables** (`GrabItem`, CharacterBody2D, grupo `grab_items`): se
+      agarran al tocarlos y se llevan sobre la cabeza. CRATE: ABAJO en el suelo la
+      deja como peldaño sólido; ROCK: Ctrl la lanza y derriba enemigos sin
+      candado; SPRING: salto x1,55 durante 3 saltos. `Player` gana `held_item`,
+      `jump_height_scale` y `facing()`, y Ctrl lanza la roca en vez de hacer el
+      impulso. `TestLevel._reset_hazards()` reinicia objetos y puentes.
+    - **Medidas** (probadas): salto + doble salto llegan a ~312 px; la caja suma 38
+      px; muros de 330 px exigen caja o resorte; repisas de 370-400 px, resorte.
+    - **Niveles**: 26 FOSO (puentes con botones, caja contra un muro, arqueros y
+      mago con escudo), 27 MURALLAS (cañones y pasillo de techo con gravedad
+      invertida), 28 MAZMORRA (hub, 3 llaves, rastrillos con palanca/botón,
+      resorte; victoria por llaves), 29 CATAPULTAS (3 catapultas, 3 muros, rocas
+      para derribar soldados), 30 SALA DEL TRONO (arena sin impulso, victoria al
+      derrotar a los 6 enemigos: rocas y dos botones, uno en el techo).
+      `LevelRules.no_dash()` para el 30; `FortressKit` para los layouts.
+    - Tests: `world6_smoke_test` nuevo (68). Actualizados `level_registry`,
+      `level_results`, `menu_ui` y `world5_levels` (el 25 continúa al 26).
+      Suite 63: solo fallan los dos tests del nivel 8 de siempre.
+    - Pendiente: ajustar a mano tras jugarlos (no se han jugado), añadir los
+      objetos y botones a las Instrucciones del menú y sonidos propios.
+
 ## 5. En progreso / estado actual
 
 - Suite de 52 smoke tests en verde (verificado en esta sesión) tras aplicar

@@ -147,13 +147,20 @@ func _test_level_23() -> void:
 	_check(directions_ok, "23: las cintas de la ruta baja alternan el sentido")
 	# La escalera alta se puede saltar: huecos y desniveles dentro del alcance.
 	var step_ok := true
-	var width := LevelTwentythreeLayout.UPPER_WIDTH
-	for i in range(1, LevelTwentythreeLayout.UPPER_COUNT):
-		var a := LevelTwentythreeLayout.upper_center(i - 1)
-		var b := LevelTwentythreeLayout.upper_center(i)
-		var gap := absf(b.x - a.x) - width
-		step_ok = step_ok and gap <= 250.0 and absf(b.y - a.y) <= player.stats.jump_height * 0.8
-	_check(step_ok, "23: huecos ≤ 250 px y desniveles saltables en la escalera alta")
+	for slot in range(1, LevelTwentythreeLayout.SLOT_COUNT):
+		var a := LevelTwentythreeLayout.slot_center(slot - 1)
+		var b := LevelTwentythreeLayout.slot_center(slot)
+		var gap := absf(b.x - a.x) - LevelTwentythreeLayout.STATIC_WIDTH * 0.5 - LevelTwentythreeLayout.UPPER_WIDTH * 0.5
+		step_ok = step_ok and gap <= 250.0 and gap >= 100.0 and absf(b.y - a.y) <= player.stats.jump_height * 0.8
+	_check(step_ok, "23: huecos de 100-250 px y desniveles saltables en la ruta del pozo")
+	var rests := level.find_children("BridgeRest*", "Platform", true, false)
+	_check(rests.size() == 2 and level.find_child("BridgeArcherRest", true, false) != null, "23: dos plataformas fijas en el pozo, una vacía y otra con arquero")
+	var zone_ok := false
+	for spawner in get_nodes_in_group("flying_spawners"):
+		zone_ok = zone_ok or (spawner.zone_from == LevelTwentythreeLayout.START_END and spawner.zone_to == LevelTwentythreeLayout.MERGE_START)
+	_check(zone_ok, "23: voladores solo sobre el tramo de las cintas")
+	var sentries := get_nodes_in_group("sky_sentries")
+	_check(sentries.size() == 1 and sentries[0].zone_to == LevelTwentythreeLayout.MERGE_START, "23: centinela del rincón superior derecho en el tramo de las cintas")
 	var first := LevelTwentythreeLayout.upper_center(0)
 	_check(LevelTwentythreeLayout.GROUND_Y - (first.y - 12.0) <= player.stats.jump_height - 10.0, "23: se sube a la primera plataforma desde el suelo")
 	# Tramos finales: huecos entre cintas saltables.
@@ -297,7 +304,7 @@ func _test_level_24() -> void:
 func _test_level_25() -> void:
 	var level := await _load(25)
 	var player: Player = level.get_node("Player")
-	_check(level.next_level_path == "res://scenes/ui/game_complete.tscn", "25: termina en la pantalla final")
+	_check(level.next_level_path == "res://scenes/levels/level_twentysix.tscn", "25: continúa con el nivel 26 (fortaleza)")
 	var gate := level.find_child("CitadelGate", true, false) as SwitchGate
 	_check(gate != null and not gate.is_open and gate.levers().size() == 3, "25: compuerta cerrada con tres palancas")
 	_check(gate != null and gate.gate_size.y >= 600.0, "25: la compuerta es un muro altísimo, imposible de saltar (%.0f px)" % gate.gate_size.y)

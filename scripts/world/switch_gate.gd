@@ -10,6 +10,8 @@ signal opened
 @export var channel: String = "A"
 @export var gate_size: Vector2 = Vector2(48.0, 288.0)
 @export var gate_color: Color = Color("#6f6a85")
+## Palabra del contador ("PALANCAS", "BOTONES"...).
+@export var counter_word: String = "PALANCAS"
 
 var is_open: bool = false
 
@@ -25,7 +27,7 @@ func _ready() -> void:
 	_build()
 	# Diferido: las palancas pueden crearse después que la compuerta.
 	_connect_levers.call_deferred()
-	_label.text = "PALANCAS 0/?"
+	_label.text = "%s 0/?" % counter_word
 
 
 func _connect_levers() -> void:
@@ -62,7 +64,7 @@ func _on_lever_activated(_lever: LeverSwitch) -> void:
 func _refresh() -> void:
 	var total := levers().size()
 	var active := active_count()
-	_label.text = "PALANCAS %d/%d" % [active, total]
+	_label.text = "%s %d/%d" % [counter_word, active, total]
 	if not is_open and total > 0 and active >= total:
 		open()
 

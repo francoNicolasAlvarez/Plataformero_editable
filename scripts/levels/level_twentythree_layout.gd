@@ -17,7 +17,7 @@ const MERGE_START := 5800.0
 const MERGE_END := 6800.0
 ## Pozo de las plataformas temporizadas (nuevo segmento, +4500 px de nivel).
 const PIT_START := 6800.0
-const PIT_LENGTH := 4500.0
+const PIT_LENGTH := 6450.0
 const PIT_END := PIT_START + PIT_LENGTH
 const LANDING_LENGTH := 800.0
 const FINAL_START := PIT_END + LANDING_LENGTH
@@ -31,7 +31,12 @@ const CRUSHER_MOUNT := 170.0
 const CRUSHER_DROP := 94.0
 const UPPER_COUNT := 14
 const UPPER_FIRST_X := PIT_START + 300.0
-const UPPER_STEP := 300.0
+const UPPER_STEP := 390.0
+## Huecos de la ruta del pozo que son plataformas fijas (no desaparecen):
+## la primera sin enemigo y la segunda con un arquero.
+const STATIC_SLOTS := [5, 11]
+const STATIC_WIDTH := 200.0
+const SLOT_COUNT := UPPER_COUNT + 2
 const UPPER_WIDTH := 150.0
 const UPPER_SOLID := 2.4
 const UPPER_GONE := 1.5
@@ -42,12 +47,27 @@ const FINAL_GROUND_START := FINAL_START + 1900.0
 const SKY := {"top": Color("#7fb4e8"), "mid": Color("#bfdcf4"), "bottom": Color("#eaf4fb")}
 
 
-## Centro de la plataforma temporizada `i` de la ruta alta (la altura sube
-## en los primeros pasos y baja en los últimos).
+## Alturas de los huecos de la ruta del pozo (temporizadas y fijas).
+const SLOT_HEIGHTS := [540.0, 490.0, 440.0, 410.0, 440.0, 400.0, 380.0, 410.0, 380.0, 420.0, 460.0, 500.0, 540.0, 560.0, 580.0, 590.0]
+
+
+## Centro del hueco `slot` (0..SLOT_COUNT-1) de la ruta del pozo.
+static func slot_center(slot: int) -> Vector2:
+	return Vector2(UPPER_FIRST_X + UPPER_STEP * float(slot), float(SLOT_HEIGHTS[slot]))
+
+
+## Hueco que ocupa la plataforma temporizada `i` (salta los huecos fijos).
+static func timed_slot(i: int) -> int:
+	var slot := i
+	for fixed in STATIC_SLOTS:
+		if slot >= int(fixed):
+			slot += 1
+	return slot
+
+
+## Centro de la plataforma temporizada `i` de la ruta del pozo.
 static func upper_center(i: int) -> Vector2:
-	var x := UPPER_FIRST_X + UPPER_STEP * float(i)
-	var levels := [540.0, 490.0, 440.0, 410.0, 440.0, 400.0, 380.0, 410.0, 380.0, 420.0, 460.0, 500.0, 540.0, 580.0]
-	return Vector2(x, float(levels[i % levels.size()]))
+	return slot_center(timed_slot(i))
 
 
 ## Fase (segundos) de la plataforma `i`: se desfasan para que la escalera
@@ -79,8 +99,8 @@ static func route() -> PackedVector2Array:
 	for i in belt_count():
 		points.append(Vector2(belt_center(i).x, GROUND_Y - 24.0))
 	points.append(Vector2((MERGE_START + MERGE_END) * 0.5, GROUND_Y - 24.0))
-	for i in UPPER_COUNT:
-		var center := upper_center(i)
+	for slot in SLOT_COUNT:
+		var center := slot_center(slot)
 		points.append(Vector2(center.x, center.y - 24.0))
 	points.append(Vector2(PIT_END + LANDING_LENGTH * 0.5, GROUND_Y - 24.0))
 	for i in FINAL_BELTS:
@@ -117,6 +137,13 @@ static func _build_ground(world: Node2D) -> void:
 static func _build_upper_route(world: Node2D) -> void:
 	for i in UPPER_COUNT:
 		TowerKit.timed(world, upper_center(i), UPPER_WIDTH, "BridgeTimed%d" % i, UPPER_SOLID, UPPER_GONE, upper_phase(i))
+	# Dos plataformas fijas en el trayecto: una vacía y otra con un arquero.
+	for k in STATIC_SLOTS.size():
+		var slot: int = STATIC_SLOTS[k]
+		var center := slot_center(slot)
+		DesertKit.platform(world, center, Vector2(STATIC_WIDTH, 24.0), TowerKit.STONE_LIGHT, Platform.Kind.STATIC, "BridgeRest%d" % k)
+		if k == 1:
+			DesertKit.archer(world, "BridgeArcherRest", center.x, center.y - 12.0)
 	# Isla de aterrizaje tras el pozo: un arquero vigila la última plataforma.
 	DesertKit.archer(world, "BridgeArcherLanding", PIT_END + 600.0, GROUND_Y)
 	# Un arquero vigila el pozo desde un saliente fijo a mitad.
@@ -129,6 +156,13 @@ static func _build_lower_route(world: Node2D) -> void:
 	for i in belt_count():
 		var belt := DesertKit.platform(world, belt_center(i), Vector2(BELT_LENGTH, BELT_THICKNESS), Color("#7e8aa8"), Platform.Kind.STATIC, "BridgeBelt%d" % i)
 		belt.conveyor_speed = belt_speed(i)
+	# Voladores y centinela del rincón superior derecho: solo en este tramo.
+	var bats := DesertKit.bats(world, 4.0, 2.0)
+	bats.zone_from = START_END
+	bats.zone_to = MERGE_START
+	var sentry := DesertKit.sentry(world)
+	sentry.zone_from = START_END
+	sentry.zone_to = MERGE_START
 	DesertKit.spearman(world, "BridgeSpearman", 3100.0, GROUND_Y)
 	DesertKit.slug(world, "BridgeSlug", 4500.0, GROUND_Y)
 	DesertKit.saw(world, Vector2(3900.0, GROUND_Y - 30.0), 160.0, 1.4)

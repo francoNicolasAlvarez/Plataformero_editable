@@ -30,7 +30,7 @@ func _run() -> void:
 	var eighth: LevelConfig = LevelRegistry.get_level(8)
 	var ninth: LevelConfig = LevelRegistry.get_level(9)
 	var tenth: LevelConfig = LevelRegistry.get_level(10)
-	var eleventh: LevelConfig = LevelRegistry.get_level(26)
+	var eleventh: LevelConfig = LevelRegistry.get_level(31)
 	_check(first != null and first.number == 1 and first.world_number == 1, "Nivel 1 en el mundo 1")
 	_check(first != null and first.index_in_world == 1, "Nivel 1 es el primero del mundo")
 	_check(first != null and first.display_name == "DÍA", "Nivel 1 conserva su nombre")
@@ -41,17 +41,17 @@ func _run() -> void:
 	_check(tenth != null and tenth.is_implemented() and tenth.display_name == "TEMPLO", "Nivel 10 TEMPLO está creado")
 	_check(tenth != null and tenth.world_number == 2 and tenth.index_in_world == 5, "Nivel 10 cierra el mundo 2")
 	_check(ninth != null and ResourceLoader.exists(ninth.scene_path), "Nivel 9 apunta a una escena real")
-	_check(eleventh != null and not eleventh.is_implemented(), "Nivel 26 todavía no está creado")
-	_check(eleventh != null and eleventh.scene_path.is_empty(), "Nivel 26 sin ruta cargable")
-	_check(eleventh != null and eleventh.display_name == "POR CONSTRUIR", "Nivel 26 marcado como pendiente")
+	_check(eleventh != null and not eleventh.is_implemented(), "Nivel 31 todavía no está creado")
+	_check(eleventh != null and eleventh.scene_path.is_empty(), "Nivel 31 sin ruta cargable")
+	_check(eleventh != null and eleventh.display_name == "POR CONSTRUIR", "Nivel 31 marcado como pendiente")
 
-	_check(LevelRegistry.implemented_levels().size() == 25, "Solo 25 niveles están implementados")
-	_check(LevelRegistry.is_implemented(1) and not LevelRegistry.is_implemented(26), "Estado de implementación")
+	_check(LevelRegistry.implemented_levels().size() == 30, "Solo 30 niveles están implementados")
+	_check(LevelRegistry.is_implemented(1) and not LevelRegistry.is_implemented(31), "Estado de implementación")
 	_check(
 		LevelRegistry.scene_path_for(2) == "res://scenes/levels/level_two.tscn",
 		"La ruta del nivel 2 es la correcta"
 	)
-	_check(LevelRegistry.scene_path_for(26).is_empty(), "La ruta de un nivel pendiente está vacía")
+	_check(LevelRegistry.scene_path_for(31).is_empty(), "La ruta de un nivel pendiente está vacía")
 
 	for level_number in range(1, 41):
 		var config: LevelConfig = LevelRegistry.get_level(level_number)
@@ -67,7 +67,7 @@ func _run() -> void:
 	_check(LevelRegistry.levels_in_world(2).size() == 5, "Mundo 2 tiene 5 niveles")
 	_check(LevelRegistry.levels_in_world(9).is_empty(), "Mundo inválido sin niveles")
 	_check(LevelRegistry.next_implemented_level(1) == 2, "Siguiente implementado desde el nivel 1")
-	_check(LevelRegistry.next_implemented_level(8) == 9 and LevelRegistry.next_implemented_level(10) == 11 and LevelRegistry.next_implemented_level(15) == 16 and LevelRegistry.next_implemented_level(19) == 20 and LevelRegistry.next_implemented_level(20) == 21 and LevelRegistry.next_implemented_level(24) == 25 and LevelRegistry.next_implemented_level(25) == -1, "El nivel 25 es el último implementado")
+	_check(LevelRegistry.next_implemented_level(8) == 9 and LevelRegistry.next_implemented_level(10) == 11 and LevelRegistry.next_implemented_level(15) == 16 and LevelRegistry.next_implemented_level(19) == 20 and LevelRegistry.next_implemented_level(20) == 21 and LevelRegistry.next_implemented_level(24) == 25 and LevelRegistry.next_implemented_level(25) == 26 and LevelRegistry.next_implemented_level(29) == 30 and LevelRegistry.next_implemented_level(30) == -1, "El nivel 30 es el último implementado")
 	_check(LevelRegistry.label_for(1) == "1-1 · DÍA", "Etiqueta legible del nivel 1")
 
 	print("")

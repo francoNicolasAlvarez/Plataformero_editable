@@ -29,6 +29,10 @@ var wind_speed: float = 0.0
 ## para que también levante al jugador que está de pie en el suelo.
 var updraft_speed: float = 0.0
 var updraft_accel: float = 0.0
+## Objeto sujetable que lleva el jugador (2026-11-24, ver GrabItem) y factor de
+## altura de salto que le da un resorte.
+var held_item: GrabItem = null
+var jump_height_scale: float = 1.0
 
 @onready var visual: AnimatedSprite2D = $Visual/AnimatedSprite2D
 @onready var visual_root: Node2D = $Visual
@@ -88,6 +92,10 @@ func configure_gravity() -> void:
 		shadow.position.y = -24.0 if inverted_gravity else 24.0
 	if _dust != null:
 		_dust.position = Vector2(0.0, -22.0 if inverted_gravity else 22.0)
+
+func facing() -> int:
+	return _facing
+
 
 func configure_controls() -> void:
 	## Nivel 8 (2026-11-16): invierte solo el eje horizontal, de modo que D y
@@ -216,6 +224,8 @@ func _handle_dash_input() -> void:
 	## cuenta como doble salto (2026-11-18) y mientras dura el jugador atraviesa
 	## enemigos y proyectiles sin recibir daño (ver `take_damage`).
 	if not Input.is_action_just_pressed("dash") or _dash_cooldown_left > 0.0:
+		return
+	if held_item != null and held_item.wants_dash():
 		return
 	if _dash_time_left > 0.0:
 		return
@@ -351,13 +361,15 @@ func _handle_jump() -> void:
 
 func _jump() -> void:
 	# v = sqrt(2 * g * h) permite configurar la altura en lugar de la velocidad.
-	velocity.y = -_gravity_sign * sqrt(2.0 * stats.gravity * stats.jump_height)
+	velocity.y = -_gravity_sign * sqrt(2.0 * stats.gravity * stats.jump_height * jump_height_scale)
 	_jump_buffer_left = 0.0
 	_jump_hold_left = stats.jump_hold_time
 	_squash(Vector2(0.84, 1.18), 0.14)
 	_dust.restart()
 	Sfx.play("jump", -12.0)
 	jumped.emit()
+	if held_item != null:
+		held_item.on_jump()
 
 
 func _squash(target_scale: Vector2, duration: float) -> void:

@@ -14,6 +14,10 @@ const PROJECTILE_LIFETIME := 30.0
 @export_range(0.0, 160.0, 1.0) var top_margin: float = 80.0
 @export_range(0.0, 260.0, 1.0) var right_margin: float = 120.0
 @export_range(0.0, 20.0, 0.5) var bob_amplitude: float = 4.0
+## Si `zone_to > zone_from`, solo está activo (visible y disparando) mientras
+## el jugador está en ese tramo horizontal (2026-11-24, nivel 5-3).
+@export var zone_from: float = 0.0
+@export var zone_to: float = 0.0
 
 @onready var eye: Polygon2D = $Visual/Eye
 @onready var muzzle: Marker2D = $Muzzle
@@ -42,6 +46,12 @@ func reset() -> void:
 func _process(delta: float) -> void:
 	_time += delta
 	_follow_screen_top()
+	var in_zone := _player_in_zone()
+	visible = in_zone
+	if not in_zone:
+		_cooldown = shoot_interval
+		_rings.stop()
+		return
 	_cooldown -= delta
 	# Tres círculos se cierran sobre el ojo (rápido, medio, lento); al cerrarse
 	# el último se dispara.
@@ -56,6 +66,13 @@ func _process(delta: float) -> void:
 	if eye != null:
 		var pulse := 1.0 + 0.08 * sin(_time * 4.0)
 		eye.scale = Vector2(pulse, pulse)
+
+
+func _player_in_zone() -> bool:
+	if zone_to <= zone_from:
+		return true
+	var player := get_tree().get_first_node_in_group("player") as Node2D
+	return player != null and player.global_position.x >= zone_from and player.global_position.x <= zone_to
 
 
 func _follow_screen_top() -> void:

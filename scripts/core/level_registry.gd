@@ -49,6 +49,11 @@ const IMPLEMENTED_LEVELS := {
 	23: {"name": "PUENTES", "mood": "PUENTES", "path": "res://scenes/levels/level_twentythree.tscn"},
 	24: {"name": "NUBES", "mood": "NUBES", "path": "res://scenes/levels/level_twentyfour.tscn"},
 	25: {"name": "CIUDADELA", "mood": "CIUDADELA", "path": "res://scenes/levels/level_twentyfive.tscn"},
+	26: {"name": "FOSO", "mood": "FOSO", "path": "res://scenes/levels/level_twentysix.tscn"},
+	27: {"name": "MURALLAS", "mood": "MURALLAS", "path": "res://scenes/levels/level_twentyseven.tscn"},
+	28: {"name": "MAZMORRA", "mood": "MAZMORRA", "path": "res://scenes/levels/level_twentyeight.tscn"},
+	29: {"name": "CATAPULTAS", "mood": "CATAPULTAS", "path": "res://scenes/levels/level_twentynine.tscn"},
+	30: {"name": "SALA DEL TRONO", "mood": "SALA DEL TRONO", "path": "res://scenes/levels/level_thirty.tscn"},
 }
 
 static var _worlds: Array[WorldConfig] = []

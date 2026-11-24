@@ -5,24 +5,28 @@ extends GimmickZone
 ## gravedad normal (≈ 1500 px/s²) basta una aceleración de 2600 para flotar y
 ## subir; salir por arriba conserva el impulso. Se puede bajar manteniendo
 ## "abajo" (caída rápida). El nodo está en el centro de la zona y se dibuja
-## con aspas negras cuadradas que suben y un contorno negro (2026-11-24).
+## como lluvia invertida con borde blanco (2026-11-24).
 
 @export_range(50.0, 800.0, 10.0) var lift_speed: float = 340.0
 @export_range(500.0, 6000.0, 50.0) var lift_acceleration: float = 2600.0
 @export var tint: Color = Color(0.7, 0.9, 1.0, 1.0)
 
-const STREAK_LENGTH := 22.0
-const STREAK_WIDTH := 16.0
-const STREAK_SPACING := 90.0
+## Efecto de lluvia invertida (2026-11-24): muchas líneas finas que suben a
+## distinta velocidad y largo dentro de un rectángulo con borde blanco. La altura
+## se ajusta con `zone_size.y` (Inspector); el dibujo y la colisión la siguen.
+const RAIN_SPACING := 14.0
+const RAIN_LENGTH_MIN := 18.0
+const RAIN_LENGTH_MAX := 46.0
+const RAIN_SPEED_MIN := 260.0
+const RAIN_SPEED_MAX := 520.0
+const BORDER_WIDTH := 3.0
 
 var _time: float = 0.0
-var _streaks: Array[Line2D] = []
 
 
 func _ready() -> void:
 	super._ready()
 	add_to_group("updrafts")
-	_build_visual()
 
 
 func _physics_process(_delta: float) -> void:
@@ -54,40 +58,30 @@ func _release(player: Player) -> void:
 
 func _process(delta: float) -> void:
 	_time += delta
-	var half := zone_size * 0.5
-	for index in _streaks.size():
-		var phase := fposmod(_time * 0.55 + float(index) / float(_streaks.size()), 1.0)
-		var x := -half.x + (float(index) + 0.5) * zone_size.x / float(_streaks.size())
-		var y := half.y - phase * zone_size.y
-		_streaks[index].points = PackedVector2Array([Vector2(x, y), Vector2(x, y - STREAK_LENGTH)])
-		_streaks[index].default_color = Color(0.0, 0.0, 0.0, 0.9 * sin(phase * PI))
+	queue_redraw()
 
 
-func _build_visual() -> void:
+func _draw() -> void:
 	var half := zone_size * 0.5
-	var body := Polygon2D.new()
-	body.name = "Haze"
-	body.color = Color(tint.r, tint.g, tint.b, 0.14)
-	body.polygon = PackedVector2Array([Vector2(-half.x, -half.y), Vector2(half.x, -half.y), Vector2(half.x, half.y), Vector2(-half.x, half.y)])
-	body.z_index = -3
-	add_child(body)
-	# Contorno negro cerrado de la zona.
-	var outline := Line2D.new()
-	outline.name = "Outline"
-	outline.points = body.polygon
-	outline.closed = true
-	outline.width = 3.0
-	outline.default_color = Color.BLACK
-	outline.joint_mode = Line2D.LINE_JOINT_ROUND
-	outline.z_index = -2
-	add_child(outline)
-	# Aspas negras cuadradas (anchas y cortas) con mucho espacio entre ellas.
-	var count := maxi(2, int(zone_size.x / STREAK_SPACING))
+	draw_rect(Rect2(-half, zone_size), Color(tint.r, tint.g, tint.b, 0.10), true)
+	var count := maxi(2, int(zone_size.x / RAIN_SPACING))
 	for index in count:
-		var streak := Line2D.new()
-		streak.width = STREAK_WIDTH
-		streak.begin_cap_mode = Line2D.LINE_CAP_NONE
-		streak.end_cap_mode = Line2D.LINE_CAP_NONE
-		streak.z_index = -2
-		add_child(streak)
-		_streaks.append(streak)
+		# Valores deterministas por línea (sin aleatoriedad en cada frame).
+		var seed_a := fposmod(sin(float(index) * 12.9898) * 43758.5453, 1.0)
+		var seed_b := fposmod(sin(float(index) * 78.233) * 12345.6789, 1.0)
+		var length := lerpf(RAIN_LENGTH_MIN, RAIN_LENGTH_MAX, seed_a)
+		var speed := lerpf(RAIN_SPEED_MIN, RAIN_SPEED_MAX, seed_b)
+		var travel := zone_size.y + length
+		var offset := fposmod(_time * speed + seed_a * travel, travel)
+		var x := -half.x + (float(index) + 0.5) * zone_size.x / float(count)
+		var bottom := half.y - offset + length
+		var top := bottom - length
+		bottom = minf(bottom, half.y)
+		top = maxf(top, -half.y)
+		if top >= bottom:
+			continue
+		draw_line(Vector2(x, bottom), Vector2(x, top), Color(1.0, 1.0, 1.0, 0.55), 2.0)
+	var corners := PackedVector2Array([
+		Vector2(-half.x, -half.y), Vector2(half.x, -half.y),
+		Vector2(half.x, half.y), Vector2(-half.x, half.y), Vector2(-half.x, -half.y)])
+	draw_polyline(corners, Color.WHITE, BORDER_WIDTH)
