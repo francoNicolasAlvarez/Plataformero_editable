@@ -10,6 +10,9 @@ extends GimmickZone
 @export_range(50.0, 800.0, 10.0) var lift_speed: float = 340.0
 @export_range(500.0, 6000.0, 50.0) var lift_acceleration: float = 2600.0
 @export var tint: Color = Color(0.7, 0.9, 1.0, 1.0)
+## Opacidad de la neblina y de las rayas (más alta = más contraste con el fondo).
+@export_range(0.0, 1.0, 0.01) var haze_alpha: float = 0.14
+@export_range(0.0, 1.0, 0.01) var streak_alpha: float = 0.55
 
 var _time: float = 0.0
 var _streaks: Array[Line2D] = []
@@ -56,14 +59,14 @@ func _process(delta: float) -> void:
 		var x := -half.x + (float(index) + 0.5) * zone_size.x / float(_streaks.size())
 		var y := half.y - phase * zone_size.y
 		_streaks[index].points = PackedVector2Array([Vector2(x, y), Vector2(x, y - 46.0)])
-		_streaks[index].default_color = Color(tint.r, tint.g, tint.b, 0.55 * sin(phase * PI))
+		_streaks[index].default_color = Color(tint.r, tint.g, tint.b, streak_alpha * sin(phase * PI))
 
 
 func _build_visual() -> void:
 	var half := zone_size * 0.5
 	var body := Polygon2D.new()
 	body.name = "Haze"
-	body.color = Color(tint.r, tint.g, tint.b, 0.14)
+	body.color = Color(tint.r, tint.g, tint.b, haze_alpha)
 	body.polygon = PackedVector2Array([Vector2(-half.x, -half.y), Vector2(half.x, -half.y), Vector2(half.x, half.y), Vector2(-half.x, half.y)])
 	body.z_index = -3
 	add_child(body)

@@ -104,8 +104,11 @@ static func fall_zone(world: Node2D, y: float, width: float, node_name: String) 
 	shape.size = Vector2(width + 800.0, 120.0)
 
 
-static func updraft(world: Node2D, center: Vector2, size: Vector2, node_name: String) -> UpdraftZone:
+static func updraft(world: Node2D, center: Vector2, size: Vector2, node_name: String, tint: Color = Color(0.7, 0.9, 1.0, 1.0), haze_alpha: float = 0.14, streak_alpha: float = 0.55) -> UpdraftZone:
 	var zone := UpdraftZone.new()
+	zone.tint = tint
+	zone.haze_alpha = haze_alpha
+	zone.streak_alpha = streak_alpha
 	zone.name = node_name
 	zone.zone_size = size
 	zone.position = center
