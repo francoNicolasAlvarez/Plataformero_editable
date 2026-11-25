@@ -158,10 +158,10 @@ static func _build_hazards(world: Node2D) -> void:
 static func _build_balconies(world: Node2D) -> void:
 	# Lejos de las aberturas (a media planta) para que no sirvan de trampolín.
 	var floor_a := floor_top(0)
-	TowerKit.block(world, Rect2(820.0, floor_a - 110.0, 150.0, 24.0), "BellBalconyA_Step", TowerKit.STONE_LIGHT)
-	TowerKit.block(world, Rect2(1010.0, floor_a - 230.0, 170.0, 24.0), "BellBalconyA_Ledge", TowerKit.STONE_LIGHT)
-	DesertKit.herb(world, 1095.0, floor_a - 230.0)
+	TowerKit.block(world, Rect2(820.0, floor_a - 143.0, 150.0, 24.0), "BellBalconyA_Step", TowerKit.STONE_LIGHT)
+	TowerKit.block(world, Rect2(1010.0, floor_a - 299.0, 170.0, 24.0), "BellBalconyA_Ledge", TowerKit.STONE_LIGHT)
+	DesertKit.herb(world, 1095.0, floor_a - 299.0)
 	var floor_b := floor_top(2)
-	TowerKit.block(world, Rect2(1000.0, floor_b - 110.0, 150.0, 24.0), "BellBalconyB_Step", TowerKit.STONE_LIGHT)
-	TowerKit.block(world, Rect2(1170.0, floor_b - 230.0, 170.0, 24.0), "BellBalconyB_Ledge", TowerKit.STONE_LIGHT)
-	DesertKit.herb(world, 1255.0, floor_b - 230.0)
+	TowerKit.block(world, Rect2(1000.0, floor_b - 143.0, 150.0, 24.0), "BellBalconyB_Step", TowerKit.STONE_LIGHT)
+	TowerKit.block(world, Rect2(1170.0, floor_b - 299.0, 170.0, 24.0), "BellBalconyB_Ledge", TowerKit.STONE_LIGHT)
+	DesertKit.herb(world, 1255.0, floor_b - 299.0)

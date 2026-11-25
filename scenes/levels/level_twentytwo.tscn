@@ -43,7 +43,7 @@ width = 16
 height = 256
 fill_to = Vector2(0, 1)
 
-[node name="LevelTwentytwo" type="Node2D" unique_id=1395051990]
+[node name="LevelTwentytwo" type="Node2D" unique_id=1816475889]
 script = ExtResource("1_la0on")
 level_variant = 22
 next_level_path = "res://scenes/levels/level_twentythree.tscn"
@@ -54,9 +54,9 @@ gold_medal_time = 26.5
 silver_medal_time = 33.5
 metadata/start_point = Vector2(150, 2270)
 
-[node name="Brightness" type="CanvasModulate" parent="." unique_id=532534818]
+[node name="Brightness" type="CanvasModulate" parent="." unique_id=1597159962]
 
-[node name="Background" type="ColorRect" parent="." unique_id=518043017]
+[node name="Background" type="ColorRect" parent="." unique_id=298293897]
 visible = false
 z_index = -20
 offset_right = 22400.0
@@ -64,78 +64,78 @@ offset_bottom = 720.0
 mouse_filter = 2
 color = Color(0.0705882, 0.105882, 0.156863, 1)
 
-[node name="BackgroundDecor" type="Parallax2D" parent="." unique_id=582597724]
+[node name="BackgroundDecor" type="Parallax2D" parent="." unique_id=745009278]
 visible = false
 z_index = -16
 scroll_scale = Vector2(0.3, 1)
 screen_offset = Vector2(353.0323, 198.58063)
 
-[node name="Hill1" type="Polygon2D" parent="BackgroundDecor" unique_id=1631687177]
+[node name="Hill1" type="Polygon2D" parent="BackgroundDecor" unique_id=446025803]
 position = Vector2(250, 640)
 color = Color(0.0862745, 0.145098, 0.2, 1)
 polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
 
-[node name="Hill2" type="Polygon2D" parent="BackgroundDecor" unique_id=1591349776]
+[node name="Hill2" type="Polygon2D" parent="BackgroundDecor" unique_id=1715604116]
 position = Vector2(760, 640)
 color = Color(0.101961, 0.168627, 0.227451, 1)
 polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
 
-[node name="Hill3" type="Polygon2D" parent="BackgroundDecor" unique_id=1395054712]
+[node name="Hill3" type="Polygon2D" parent="BackgroundDecor" unique_id=533271821]
 position = Vector2(1500, 640)
 color = Color(0.0862745, 0.145098, 0.2, 1)
 polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
 
-[node name="Hill4" type="Polygon2D" parent="BackgroundDecor" unique_id=1077495683]
+[node name="Hill4" type="Polygon2D" parent="BackgroundDecor" unique_id=1183100736]
 position = Vector2(2230, 640)
 color = Color(0.101961, 0.168627, 0.227451, 1)
 polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
 
-[node name="Hill5" type="Polygon2D" parent="BackgroundDecor" unique_id=1570655919]
+[node name="Hill5" type="Polygon2D" parent="BackgroundDecor" unique_id=151346127]
 position = Vector2(3150, 640)
 color = Color(0.0862745, 0.145098, 0.2, 1)
 polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
 
-[node name="Hill6" type="Polygon2D" parent="BackgroundDecor" unique_id=383193694]
+[node name="Hill6" type="Polygon2D" parent="BackgroundDecor" unique_id=876967689]
 position = Vector2(3660, 640)
 color = Color(0.101961, 0.168627, 0.227451, 1)
 polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
 
-[node name="Hill7" type="Polygon2D" parent="BackgroundDecor" unique_id=715442380]
+[node name="Hill7" type="Polygon2D" parent="BackgroundDecor" unique_id=2070328891]
 position = Vector2(4400, 640)
 color = Color(0.0862745, 0.145098, 0.2, 1)
 polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
 
-[node name="Hill8" type="Polygon2D" parent="BackgroundDecor" unique_id=1474004664]
+[node name="Hill8" type="Polygon2D" parent="BackgroundDecor" unique_id=1063855693]
 position = Vector2(5030, 640)
 color = Color(0.101961, 0.168627, 0.227451, 1)
 polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
 
-[node name="Hill9" type="Polygon2D" parent="BackgroundDecor" unique_id=835774404]
+[node name="Hill9" type="Polygon2D" parent="BackgroundDecor" unique_id=239586047]
 position = Vector2(6050, 640)
 color = Color(0.0862745, 0.145098, 0.2, 1)
 polygon = PackedVector2Array(-250, 0, 0, -170, 250, 0)
 
-[node name="Hill10" type="Polygon2D" parent="BackgroundDecor" unique_id=819246971]
+[node name="Hill10" type="Polygon2D" parent="BackgroundDecor" unique_id=1248446971]
 position = Vector2(6560, 640)
 color = Color(0.101961, 0.168627, 0.227451, 1)
 polygon = PackedVector2Array(-300, 0, -40, -135, 210, 0)
 
-[node name="Hill11" type="Polygon2D" parent="BackgroundDecor" unique_id=808352164]
+[node name="Hill11" type="Polygon2D" parent="BackgroundDecor" unique_id=1953660210]
 position = Vector2(7300, 640)
 color = Color(0.0862745, 0.145098, 0.2, 1)
 polygon = PackedVector2Array(-420, 0, -120, -205, 190, 0)
 
-[node name="Hill12" type="Polygon2D" parent="BackgroundDecor" unique_id=1031503390]
+[node name="Hill12" type="Polygon2D" parent="BackgroundDecor" unique_id=776540303]
 position = Vector2(7930, 640)
 color = Color(0.101961, 0.168627, 0.227451, 1)
 polygon = PackedVector2Array(-320, 0, 0, -160, 300, 0)
 
-[node name="LevelOneExtension" type="Node2D" parent="." unique_id=1495256688]
+[node name="LevelOneExtension" type="Node2D" parent="." unique_id=1777968262]
 script = ExtResource("2_x88vt")
 
-[node name="Platforms" type="Node2D" parent="." unique_id=471030042]
+[node name="Platforms" type="Node2D" parent="." unique_id=465844890]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=915359951 groups=["player"] instance=ExtResource("3_nm2pa")]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1556258896 groups=["player"] instance=ExtResource("3_nm2pa")]
 position = Vector2(150, 2270)
 collision_layer = 2
 collision_mask = 5
@@ -143,13 +143,13 @@ floor_snap_length = 6.0
 script = ExtResource("4_5ecc8")
 stats = ExtResource("5_sgdcw")
 
-[node name="ExitPortal" type="Area2D" parent="." unique_id=1386250849 instance=ExtResource("6_2g3av")]
+[node name="ExitPortal" type="Area2D" parent="." unique_id=7851264 instance=ExtResource("6_2g3av")]
 position = Vector2(2050, 560)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("7_hs87r")
 
-[node name="Camera" type="Camera2D" parent="." unique_id=60509635 groups=["camera"] instance=ExtResource("8_qxb5v")]
+[node name="Camera" type="Camera2D" parent="." unique_id=467244925 groups=["camera"] instance=ExtResource("8_qxb5v")]
 position = Vector2(150, 2270)
 zoom = Vector2(0.62, 0.62)
 limit_left = 0
@@ -164,15 +164,15 @@ follow_y = true
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1913398666 instance=ExtResource("10_54ypx")]
 layer = 10
 
-[node name="PauseOverlay" type="CanvasLayer" parent="." unique_id=2081899197 instance=ExtResource("11_6ajig")]
+[node name="PauseOverlay" type="CanvasLayer" parent="." unique_id=298451717 instance=ExtResource("11_6ajig")]
 process_mode = 3
 layer = 20
 visible = false
 script = ExtResource("12_no17k")
 
-[node name="LevelTwentytwoGenerated" type="Node2D" parent="." unique_id=507826694]
+[node name="LevelTwentytwoGenerated" type="Node2D" parent="." unique_id=930065706]
 
-[node name="SkyBackdrop" type="TextureRect" parent="LevelTwentytwoGenerated" unique_id=1292499554]
+[node name="SkyBackdrop" type="TextureRect" parent="LevelTwentytwoGenerated" unique_id=317784044]
 z_index = -30
 offset_left = -300.0
 offset_top = -200.0
@@ -181,397 +181,397 @@ offset_bottom = 2700.0
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_74gdx")
 
-[node name="DecorCloud" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1238664644]
+[node name="DecorCloud" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1159263813]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(-160, -110)
 scale = Vector2(0.8, 0.8)
 
-[node name="Polygon2D_1" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=366648120]
+[node name="Polygon2D_1" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=1394214238]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_2" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=1200935066]
+[node name="Polygon2D_2" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=649391910]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_3" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=1217452503]
+[node name="Polygon2D_3" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=896152393]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_4" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=1638359990]
+[node name="Polygon2D_4" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=1775923391]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_5" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=1856894385]
+[node name="Polygon2D_5" type="Polygon2D" parent="LevelTwentytwoGenerated/DecorCloud" unique_id=1130833375]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_6" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=26825223]
+[node name="Node2D_6" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=686545557]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(573, 431)
 scale = Vector2(1.05, 1.05)
 
-[node name="Polygon2D_7" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=1639470011]
+[node name="Polygon2D_7" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=1125824077]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_8" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=1094736544]
+[node name="Polygon2D_8" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=896432177]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_9" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=945333382]
+[node name="Polygon2D_9" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=49111509]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_10" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=750202134]
+[node name="Polygon2D_10" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=1121211242]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_11" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=2116911266]
+[node name="Polygon2D_11" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_6" unique_id=537219389]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_12" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1500822070]
+[node name="Node2D_12" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=518566937]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(1306, 972)
 scale = Vector2(1.3, 1.3)
 
-[node name="Polygon2D_13" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=1322889292]
+[node name="Polygon2D_13" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=1934528622]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_14" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=1073278773]
+[node name="Polygon2D_14" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=1458405360]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_15" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=2035481924]
+[node name="Polygon2D_15" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=1030038578]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_16" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=763872610]
+[node name="Polygon2D_16" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=1564884890]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_17" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=958550546]
+[node name="Polygon2D_17" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_12" unique_id=1218814056]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_18" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=618714232]
+[node name="Node2D_18" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1826885151]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(2039, 1513)
 scale = Vector2(1.55, 1.55)
 
-[node name="Polygon2D_19" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=484435014]
+[node name="Polygon2D_19" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=1515709170]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_20" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=1358887070]
+[node name="Polygon2D_20" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=1314891523]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_21" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=2070721063]
+[node name="Polygon2D_21" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=262903116]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_22" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=964410518]
+[node name="Polygon2D_22" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=321986237]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_23" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=1726735241]
+[node name="Polygon2D_23" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_18" unique_id=952283879]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_24" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1902727557]
+[node name="Node2D_24" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=419651872]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(-28, 2054)
 scale = Vector2(0.8, 0.8)
 
-[node name="Polygon2D_25" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=1225932929]
+[node name="Polygon2D_25" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=645571510]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_26" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=1340964997]
+[node name="Polygon2D_26" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=613083758]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_27" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=2046437924]
+[node name="Polygon2D_27" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=2061534430]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_28" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=1981657796]
+[node name="Polygon2D_28" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=297599539]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_29" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=72293441]
+[node name="Polygon2D_29" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_24" unique_id=1425931947]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_30" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=676196281]
+[node name="Node2D_30" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=990954257]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(705, 2595)
 scale = Vector2(1.05, 1.05)
 
-[node name="Polygon2D_31" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=1141571056]
+[node name="Polygon2D_31" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=172078382]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_32" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=1649033547]
+[node name="Polygon2D_32" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=1721246751]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_33" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=1749004470]
+[node name="Polygon2D_33" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=1815296887]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_34" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=1819401569]
+[node name="Polygon2D_34" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=1928757780]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_35" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=953495494]
+[node name="Polygon2D_35" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_30" unique_id=889693915]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_36" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=759021797]
+[node name="Node2D_36" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1803005047]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(1438, 236)
 scale = Vector2(1.3, 1.3)
 
-[node name="Polygon2D_37" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=601176177]
+[node name="Polygon2D_37" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=1924292986]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_38" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=1111028312]
+[node name="Polygon2D_38" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=830811446]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_39" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=475906141]
+[node name="Polygon2D_39" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=1367702782]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_40" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=543916313]
+[node name="Polygon2D_40" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=262139239]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_41" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=200533299]
+[node name="Polygon2D_41" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_36" unique_id=693190327]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_42" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1333581144]
+[node name="Node2D_42" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1240784866]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(2171, 777)
 scale = Vector2(1.55, 1.55)
 
-[node name="Polygon2D_43" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=2081999264]
+[node name="Polygon2D_43" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=292422886]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_44" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=329880606]
+[node name="Polygon2D_44" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=834831453]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_45" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=1937094112]
+[node name="Polygon2D_45" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=1231446838]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_46" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=1454243899]
+[node name="Polygon2D_46" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=815226621]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_47" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=1008151093]
+[node name="Polygon2D_47" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_42" unique_id=427957960]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_48" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1814858190]
+[node name="Node2D_48" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1286110301]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(104, 1318)
 scale = Vector2(0.8, 0.8)
 
-[node name="Polygon2D_49" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=86503842]
+[node name="Polygon2D_49" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=1479155639]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_50" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=1025247926]
+[node name="Polygon2D_50" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=12882798]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_51" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=2055344872]
+[node name="Polygon2D_51" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=124647175]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_52" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=334092935]
+[node name="Polygon2D_52" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=1314426665]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_53" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=1505447740]
+[node name="Polygon2D_53" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_48" unique_id=1630948567]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_54" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1268296847]
+[node name="Node2D_54" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=637291745]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(837, 1859)
 scale = Vector2(1.05, 1.05)
 
-[node name="Polygon2D_55" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=465025582]
+[node name="Polygon2D_55" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=928231347]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_56" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=1439605659]
+[node name="Polygon2D_56" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=1131930302]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_57" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=867887486]
+[node name="Polygon2D_57" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=2065793274]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_58" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=583159065]
+[node name="Polygon2D_58" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=1382262276]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_59" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=1688657734]
+[node name="Polygon2D_59" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_54" unique_id=1622354798]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_60" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=739890144]
+[node name="Node2D_60" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1544617620]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(1570, 2400)
 scale = Vector2(1.3, 1.3)
 
-[node name="Polygon2D_61" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=184217145]
+[node name="Polygon2D_61" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=1288615508]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_62" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=1854606528]
+[node name="Polygon2D_62" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=1900906837]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_63" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=942112888]
+[node name="Polygon2D_63" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=1803964150]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_64" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=1580073378]
+[node name="Polygon2D_64" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=1260627633]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_65" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=1999337993]
+[node name="Polygon2D_65" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_60" unique_id=160276254]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_66" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=184296573]
+[node name="Node2D_66" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1133579148]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(2303, 41)
 scale = Vector2(1.55, 1.55)
 
-[node name="Polygon2D_67" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=1376281636]
+[node name="Polygon2D_67" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=517642136]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_68" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=900233954]
+[node name="Polygon2D_68" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=1647059628]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_69" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=620850903]
+[node name="Polygon2D_69" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=1644607986]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_70" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=1347414631]
+[node name="Polygon2D_70" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=649614824]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_71" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=1122569322]
+[node name="Polygon2D_71" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_66" unique_id=1649317562]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_72" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=720436857]
+[node name="Node2D_72" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1798122744]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(236, 582)
 scale = Vector2(0.8, 0.8)
 
-[node name="Polygon2D_73" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=1668523661]
+[node name="Polygon2D_73" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=1559346096]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_74" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=119844764]
+[node name="Polygon2D_74" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=723537311]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_75" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=41266043]
+[node name="Polygon2D_75" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=1689914928]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_76" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=531272192]
+[node name="Polygon2D_76" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=1421993808]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_77" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=1359589740]
+[node name="Polygon2D_77" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_72" unique_id=337044783]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_78" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1774215596]
+[node name="Node2D_78" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1727889316]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(969, 1123)
 scale = Vector2(1.05, 1.05)
 
-[node name="Polygon2D_79" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=1030981011]
+[node name="Polygon2D_79" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=417351191]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_80" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=1747869114]
+[node name="Polygon2D_80" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=544367045]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_81" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=1680216651]
+[node name="Polygon2D_81" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=831511794]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_82" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=127214234]
+[node name="Polygon2D_82" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=798600192]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_83" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=1028239101]
+[node name="Polygon2D_83" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_78" unique_id=243959913]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="Node2D_84" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1491867113]
+[node name="Node2D_84" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=537254076]
 modulate = Color(1, 1, 1, 0.85)
 z_index = -20
 position = Vector2(1702, 1664)
 scale = Vector2(1.3, 1.3)
 
-[node name="Polygon2D_85" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=1254131522]
+[node name="Polygon2D_85" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=1537288176]
 position = Vector2(-60, 10)
 polygon = PackedVector2Array(28, 0, 25.227127, 12.148746, 17.457714, 21.891281, 6.2305875, 27.297981, -6.2305865, 27.297981, -17.457714, 21.891281, -25.227127, 12.1487465, -28, -2.4478377e-06, -25.227127, -12.148746, -17.45771, -21.891285, -6.230588, -27.297981, 6.230589, -27.297981, 17.45771, -21.891285, 25.227127, -12.148746)
 
-[node name="Polygon2D_86" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=1026769677]
+[node name="Polygon2D_86" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=702606139]
 position = Vector2(-20, -10)
 polygon = PackedVector2Array(38, 0, 34.236816, 16.487583, 23.692612, 29.709597, 8.455797, 37.04726, -8.455796, 37.04726, -23.692612, 29.709597, -34.236816, 16.487585, -38, -3.3220656e-06, -34.236816, -16.487583, -23.692606, -29.709602, -8.455798, -37.04726, 8.455799, -37.04726, 23.692608, -29.709602, 34.236816, -16.487583)
 
-[node name="Polygon2D_87" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=939163089]
+[node name="Polygon2D_87" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=818491638]
 position = Vector2(30, -4)
 polygon = PackedVector2Array(34, 0, 30.63294, 14.752048, 21.198652, 26.582272, 7.5657134, 33.14755, -7.565712, 33.14755, -21.198652, 26.582272, -30.63294, 14.752049, -34, -2.9723744e-06, -30.63294, -14.752048, -21.198647, -26.582275, -7.5657144, -33.14755, 7.5657153, -33.14755, 21.198648, -26.582275, 30.63294, -14.752048)
 
-[node name="Polygon2D_88" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=1724933927]
+[node name="Polygon2D_88" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=1142556796]
 position = Vector2(66, 12)
 polygon = PackedVector2Array(26, 0, 23.42519, 11.280977, 16.210735, 20.32762, 5.7855453, 25.348125, -5.7855444, 25.348125, -16.210735, 20.32762, -23.42519, 11.280979, -26, -2.272992e-06, -23.42519, -11.280977, -16.21073, -20.327621, -5.7855463, -25.348125, 5.785547, -25.348125, 16.210732, -20.327621, 23.42519, -11.280977)
 
-[node name="Polygon2D_89" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=1073195563]
+[node name="Polygon2D_89" type="Polygon2D" parent="LevelTwentytwoGenerated/Node2D_84" unique_id=1225711839]
 position = Vector2(0, 14)
 polygon = PackedVector2Array(40, 0, 36.038754, 17.35535, 24.939592, 31.27326, 8.900839, 38.997116, -8.900838, 38.997116, -24.939592, 31.27326, -36.038754, 17.355352, -40, -3.4969112e-06, -36.038754, -17.35535, -24.939585, -31.273266, -8.900841, -38.997116, 8.900842, -38.997116, 24.939587, -31.273266, 36.038754, -17.35535)
 
-[node name="BellFloor0_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1955759080 instance=ExtResource("13_l5slq")]
+[node name="BellFloor0_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1621016846 instance=ExtResource("13_l5slq")]
 position = Vector2(1100, 2350)
 collision_mask = 0
 sync_to_physics = false
@@ -579,7 +579,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(2200, 100)
 platform_color = Color(0.41960785, 0.4509804, 0.5647059, 1)
 
-[node name="BellFloor1_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1084329713 instance=ExtResource("13_l5slq")]
+[node name="BellFloor1_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=454718503 instance=ExtResource("13_l5slq")]
 position = Vector2(900, 1900)
 collision_mask = 0
 sync_to_physics = false
@@ -587,7 +587,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(1800, 40)
 platform_color = Color(0.6039216, 0.6392157, 0.72156864, 1)
 
-[node name="BellFloor1_1" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=583490084 instance=ExtResource("13_l5slq")]
+[node name="BellFloor1_1" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=381559576 instance=ExtResource("13_l5slq")]
 position = Vector2(2140, 1900)
 collision_mask = 0
 sync_to_physics = false
@@ -595,7 +595,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(120, 40)
 platform_color = Color(0.6039216, 0.6392157, 0.72156864, 1)
 
-[node name="BellFloor2_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=592425942 instance=ExtResource("13_l5slq")]
+[node name="BellFloor2_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1836095612 instance=ExtResource("13_l5slq")]
 position = Vector2(60, 1480)
 collision_mask = 0
 sync_to_physics = false
@@ -603,7 +603,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(120, 40)
 platform_color = Color(0.6039216, 0.6392157, 0.72156864, 1)
 
-[node name="BellFloor2_1" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1213454219 instance=ExtResource("13_l5slq")]
+[node name="BellFloor2_1" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=929443845 instance=ExtResource("13_l5slq")]
 position = Vector2(1300, 1480)
 collision_mask = 0
 sync_to_physics = false
@@ -611,7 +611,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(1800, 40)
 platform_color = Color(0.6039216, 0.6392157, 0.72156864, 1)
 
-[node name="BellFloor3_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=500350530 instance=ExtResource("13_l5slq")]
+[node name="BellFloor3_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=945405976 instance=ExtResource("13_l5slq")]
 position = Vector2(900, 1060)
 collision_mask = 0
 sync_to_physics = false
@@ -619,7 +619,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(1800, 40)
 platform_color = Color(0.6039216, 0.6392157, 0.72156864, 1)
 
-[node name="BellFloor3_1" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1487105062 instance=ExtResource("13_l5slq")]
+[node name="BellFloor3_1" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=337354726 instance=ExtResource("13_l5slq")]
 position = Vector2(2140, 1060)
 collision_mask = 0
 sync_to_physics = false
@@ -627,7 +627,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(120, 40)
 platform_color = Color(0.6039216, 0.6392157, 0.72156864, 1)
 
-[node name="BellFloor4_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1935040508 instance=ExtResource("13_l5slq")]
+[node name="BellFloor4_0" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1122926183 instance=ExtResource("13_l5slq")]
 position = Vector2(60, 640)
 collision_mask = 0
 sync_to_physics = false
@@ -635,7 +635,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(120, 40)
 platform_color = Color(0.6039216, 0.6392157, 0.72156864, 1)
 
-[node name="BellFloor4_1" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=152034771 instance=ExtResource("13_l5slq")]
+[node name="BellFloor4_1" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=53665316 instance=ExtResource("13_l5slq")]
 position = Vector2(1300, 640)
 collision_mask = 0
 sync_to_physics = false
@@ -643,7 +643,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(1800, 40)
 platform_color = Color(0.6039216, 0.6392157, 0.72156864, 1)
 
-[node name="BellWallLeft" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=260604011 instance=ExtResource("13_l5slq")]
+[node name="BellWallLeft" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=295412285 instance=ExtResource("13_l5slq")]
 position = Vector2(-20, 1210)
 collision_mask = 0
 sync_to_physics = false
@@ -651,7 +651,7 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(40, 2380)
 platform_color = Color(0.41960785, 0.4509804, 0.5647059, 1)
 
-[node name="BellWallRight" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1198110520 instance=ExtResource("13_l5slq")]
+[node name="BellWallRight" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1535509790 instance=ExtResource("13_l5slq")]
 position = Vector2(2220, 1210)
 collision_mask = 0
 sync_to_physics = false
@@ -659,35 +659,35 @@ script = ExtResource("14_lqee0")
 platform_size = Vector2(40, 2380)
 platform_color = Color(0.41960785, 0.4509804, 0.5647059, 1)
 
-[node name="BellDraft1" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=178274624]
+[node name="BellDraft1" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1001304621]
 position = Vector2(1940, 1900)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_dmskp")
 zone_size = Vector2(260, 800)
 
-[node name="BellDraft2" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1568419595]
+[node name="BellDraft2" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=2043537413]
 position = Vector2(260, 1480)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_dmskp")
 zone_size = Vector2(260, 800)
 
-[node name="BellDraft3" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=389819827]
+[node name="BellDraft3" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1431099453]
 position = Vector2(1940, 1060)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_dmskp")
 zone_size = Vector2(260, 800)
 
-[node name="BellDraft4" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1092403166]
+[node name="BellDraft4" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=489980351]
 position = Vector2(260, 630)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_dmskp")
 zone_size = Vector2(260, 820)
 
-[node name="BellCrusher0_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=196758950]
+[node name="BellCrusher0_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=452244945]
 position = Vector2(560, 1960)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -696,7 +696,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher0_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1253484511]
+[node name="BellCrusher0_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=229407689]
 position = Vector2(1250, 1960)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -705,7 +705,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher1_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=2071097274]
+[node name="BellCrusher1_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1096099484]
 position = Vector2(900, 1540)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -714,7 +714,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher1_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=270860906]
+[node name="BellCrusher1_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=740221065]
 position = Vector2(1500, 1540)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -723,7 +723,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher2_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=365578965]
+[node name="BellCrusher2_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=169776975]
 position = Vector2(420, 1120)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -732,7 +732,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher2_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=837703451]
+[node name="BellCrusher2_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=679058305]
 position = Vector2(880, 1120)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -741,7 +741,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher2_2" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1326274152]
+[node name="BellCrusher2_2" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=925486512]
 position = Vector2(1550, 1120)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -750,7 +750,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher3_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1615086171]
+[node name="BellCrusher3_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1681323798]
 position = Vector2(800, 700)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -759,7 +759,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher3_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1803303286]
+[node name="BellCrusher3_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1698411121]
 position = Vector2(1300, 700)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -768,7 +768,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher4_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=1049904433]
+[node name="BellCrusher4_0" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=2109766505]
 position = Vector2(700, 280)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -777,7 +777,7 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellCrusher4_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=366354569]
+[node name="BellCrusher4_1" type="Node2D" parent="LevelTwentytwoGenerated" unique_id=2118781354]
 position = Vector2(1500, 280)
 script = ExtResource("16_sehrj")
 drop_height = 276.0
@@ -786,24 +786,24 @@ active_time = 0.6
 cooldown_time = 1.6
 auto_cycle = false
 
-[node name="BellSlug0" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1929825085 groups=["enemies"] instance=ExtResource("17_kw5qg")]
+[node name="BellSlug0" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=2051634874 groups=["enemies"] instance=ExtResource("17_kw5qg")]
 position = Vector2(420, 2282)
 collision_layer = 4
 script = ExtResource("18_fhtw6")
 
-[node name="BellSpearman0" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1408502185 groups=["enemies"] instance=ExtResource("19_75enl")]
+[node name="BellSpearman0" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1254953943 groups=["enemies"] instance=ExtResource("19_75enl")]
 position = Vector2(880, 2270)
 collision_layer = 4
 script = ExtResource("20_kgdu3")
 
-[node name="BellMage0" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=123843478 groups=["enemies"] instance=ExtResource("21_xpyl4")]
+[node name="BellMage0" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=649395590 groups=["enemies"] instance=ExtResource("21_xpyl4")]
 position = Vector2(1650, 2246)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("22_c0t4d")
 shoot_range = 520.0
 
-[node name="BellArcher1" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1718609415 groups=["enemies"] instance=ExtResource("23_rwb6p")]
+[node name="BellArcher1" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=834766715 groups=["enemies"] instance=ExtResource("23_rwb6p")]
 position = Vector2(640, 1828)
 collision_layer = 4
 floor_snap_length = 6.0
@@ -814,43 +814,43 @@ projectile_speed = 300.0
 gravity = 1600.0
 contact_damage = 25
 
-[node name="BellMage1" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1164693689 groups=["enemies"] instance=ExtResource("21_xpyl4")]
+[node name="BellMage1" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1821946068 groups=["enemies"] instance=ExtResource("21_xpyl4")]
 position = Vector2(1150, 1826)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("22_c0t4d")
 shoot_range = 520.0
 
-[node name="BellSpearman1" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1787416104 groups=["enemies"] instance=ExtResource("19_75enl")]
+[node name="BellSpearman1" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=753074433 groups=["enemies"] instance=ExtResource("19_75enl")]
 position = Vector2(1500, 1850)
 collision_layer = 4
 script = ExtResource("20_kgdu3")
 
-[node name="BellSlug2" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=2116867303 groups=["enemies"] instance=ExtResource("17_kw5qg")]
+[node name="BellSlug2" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1877391671 groups=["enemies"] instance=ExtResource("17_kw5qg")]
 position = Vector2(700, 1442)
 collision_layer = 4
 script = ExtResource("18_fhtw6")
 
-[node name="BellMage2" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=248398606 groups=["enemies"] instance=ExtResource("21_xpyl4")]
+[node name="BellMage2" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1709972974 groups=["enemies"] instance=ExtResource("21_xpyl4")]
 position = Vector2(1250, 1406)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("22_c0t4d")
 shoot_range = 520.0
 
-[node name="BellMage3" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1370962024 groups=["enemies"] instance=ExtResource("21_xpyl4")]
+[node name="BellMage3" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=120651940 groups=["enemies"] instance=ExtResource("21_xpyl4")]
 position = Vector2(520, 986)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("22_c0t4d")
 shoot_range = 520.0
 
-[node name="BellSpearman3" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=431132262 groups=["enemies"] instance=ExtResource("19_75enl")]
+[node name="BellSpearman3" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=894303594 groups=["enemies"] instance=ExtResource("19_75enl")]
 position = Vector2(1300, 1010)
 collision_layer = 4
 script = ExtResource("20_kgdu3")
 
-[node name="BellArcher3" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=995541113 groups=["enemies"] instance=ExtResource("23_rwb6p")]
+[node name="BellArcher3" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1960555487 groups=["enemies"] instance=ExtResource("23_rwb6p")]
 position = Vector2(1700, 988)
 collision_layer = 4
 floor_snap_length = 6.0
@@ -861,12 +861,12 @@ projectile_speed = 300.0
 gravity = 1600.0
 contact_damage = 25
 
-[node name="BellSpearman4" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1451728636 groups=["enemies"] instance=ExtResource("19_75enl")]
+[node name="BellSpearman4" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=648956862 groups=["enemies"] instance=ExtResource("19_75enl")]
 position = Vector2(950, 590)
 collision_layer = 4
 script = ExtResource("20_kgdu3")
 
-[node name="BellArcher4" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=340807604 groups=["enemies"] instance=ExtResource("23_rwb6p")]
+[node name="BellArcher4" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=2004348895 groups=["enemies"] instance=ExtResource("23_rwb6p")]
 position = Vector2(1100, 568)
 collision_layer = 4
 floor_snap_length = 6.0
@@ -877,14 +877,14 @@ projectile_speed = 300.0
 gravity = 1600.0
 contact_damage = 25
 
-[node name="BellMage4" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=2001945725 groups=["enemies"] instance=ExtResource("21_xpyl4")]
+[node name="BellMage4" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=827018799 groups=["enemies"] instance=ExtResource("21_xpyl4")]
 position = Vector2(1650, 566)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("22_c0t4d")
 shoot_range = 520.0
 
-[node name="BellSaw0" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=2069342595 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
+[node name="BellSaw0" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=653934135 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
 position = Vector2(720, 2270)
 collision_layer = 0
 collision_mask = 2
@@ -892,7 +892,7 @@ script = ExtResource("26_m2bru")
 move_range = 60.0
 move_speed = 1.5
 
-[node name="BellSaw1" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=318962029 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
+[node name="BellSaw1" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=2059445181 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
 position = Vector2(1450, 2270)
 collision_layer = 0
 collision_mask = 2
@@ -900,7 +900,7 @@ script = ExtResource("26_m2bru")
 move_range = 60.0
 move_speed = 1.5
 
-[node name="BellSaw2" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=38557490 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
+[node name="BellSaw2" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=854762571 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
 position = Vector2(780, 1850)
 collision_layer = 0
 collision_mask = 2
@@ -908,7 +908,7 @@ script = ExtResource("26_m2bru")
 move_range = 70.0
 move_speed = 1.5
 
-[node name="BellSaw3" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=342649219 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
+[node name="BellSaw3" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=177851753 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
 position = Vector2(1250, 1850)
 collision_layer = 0
 collision_mask = 2
@@ -916,7 +916,7 @@ script = ExtResource("26_m2bru")
 move_range = 60.0
 move_speed = 1.5
 
-[node name="BellSaw4" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1007977804 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
+[node name="BellSaw4" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1299749790 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
 position = Vector2(540, 1430)
 collision_layer = 0
 collision_mask = 2
@@ -924,7 +924,7 @@ script = ExtResource("26_m2bru")
 move_range = 60.0
 move_speed = 1.5
 
-[node name="BellSaw5" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1948702683 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
+[node name="BellSaw5" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=122437068 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
 position = Vector2(760, 1430)
 collision_layer = 0
 collision_mask = 2
@@ -932,7 +932,7 @@ script = ExtResource("26_m2bru")
 move_range = 60.0
 move_speed = 1.5
 
-[node name="BellSaw6" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1494966082 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
+[node name="BellSaw6" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=697580757 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
 position = Vector2(1000, 1010)
 collision_layer = 0
 collision_mask = 2
@@ -940,7 +940,7 @@ script = ExtResource("26_m2bru")
 move_range = 60.0
 move_speed = 1.5
 
-[node name="BellSaw7" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=2128887129 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
+[node name="BellSaw7" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1208097484 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
 position = Vector2(500, 590)
 collision_layer = 0
 collision_mask = 2
@@ -948,7 +948,7 @@ script = ExtResource("26_m2bru")
 move_range = 80.0
 move_speed = 1.5
 
-[node name="BellSaw8" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1933012822 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
+[node name="BellSaw8" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=648311148 groups=["saws", "traps"] instance=ExtResource("25_odw0o")]
 position = Vector2(1250, 590)
 collision_layer = 0
 collision_mask = 2
@@ -956,7 +956,7 @@ script = ExtResource("26_m2bru")
 move_range = 60.0
 move_speed = 1.5
 
-[node name="BellCeiling0Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1850607992 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
+[node name="BellCeiling0Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=225842011 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
 position = Vector2(1700, 1525)
 rotation = 3.1415927
 scale = Vector2(1.1428572, 2.5)
@@ -964,7 +964,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("28_33m6q")
 
-[node name="BellCeiling1Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=67997685 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
+[node name="BellCeiling1Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=268857041 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
 position = Vector2(1260, 1525)
 rotation = 3.1415927
 scale = Vector2(0.85714287, 2.5)
@@ -972,7 +972,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("28_33m6q")
 
-[node name="BellCeiling2Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=94912448 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
+[node name="BellCeiling2Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=246004103 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
 position = Vector2(500, 1105)
 rotation = 3.1415927
 scale = Vector2(1.1428572, 2.5)
@@ -980,7 +980,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("28_33m6q")
 
-[node name="BellCeiling3Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1248824312 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
+[node name="BellCeiling3Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1406375060 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
 position = Vector2(940, 1105)
 rotation = 3.1415927
 scale = Vector2(0.85714287, 2.5)
@@ -988,7 +988,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("28_33m6q")
 
-[node name="BellCeiling4Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=513665831 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
+[node name="BellCeiling4Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1425906589 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
 position = Vector2(1700, 685)
 rotation = 3.1415927
 scale = Vector2(1.1428572, 2.5)
@@ -996,7 +996,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("28_33m6q")
 
-[node name="BellCeiling5Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1257680357 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
+[node name="BellCeiling5Spikes" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1268127684 groups=["spikes", "traps"] instance=ExtResource("27_8i6ui")]
 position = Vector2(1260, 685)
 rotation = 3.1415927
 scale = Vector2(0.85714287, 2.5)
@@ -1004,58 +1004,58 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("28_33m6q")
 
-[node name="BellBalconyA_Step" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=706128801 instance=ExtResource("13_l5slq")]
-position = Vector2(895, 2202)
+[node name="BellBalconyA_Step" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=160593334 instance=ExtResource("13_l5slq")]
+position = Vector2(895, 2169)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_lqee0")
 platform_size = Vector2(150, 24)
 platform_color = Color(0.76862746, 0.79607844, 0.85882354, 1)
 
-[node name="BellBalconyA_Ledge" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=390637786 instance=ExtResource("13_l5slq")]
-position = Vector2(1095, 2082)
+[node name="BellBalconyA_Ledge" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1430022287 instance=ExtResource("13_l5slq")]
+position = Vector2(1095, 2013)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_lqee0")
 platform_size = Vector2(170, 24)
 platform_color = Color(0.76862746, 0.79607844, 0.85882354, 1)
 
-[node name="HealingHerb" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=414785850 groups=["healing_pickups"] instance=ExtResource("29_qmaqj")]
-position = Vector2(1095, 2036)
+[node name="HealingHerb" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1065298946 groups=["healing_pickups"] instance=ExtResource("29_qmaqj")]
+position = Vector2(1095, 1967)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("30_qu37k")
 
-[node name="BellBalconyB_Step" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1560851921 instance=ExtResource("13_l5slq")]
-position = Vector2(1075, 1362)
+[node name="BellBalconyB_Step" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=437817039 instance=ExtResource("13_l5slq")]
+position = Vector2(1075, 1329)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_lqee0")
 platform_size = Vector2(150, 24)
 platform_color = Color(0.76862746, 0.79607844, 0.85882354, 1)
 
-[node name="BellBalconyB_Ledge" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=1572700470 instance=ExtResource("13_l5slq")]
-position = Vector2(1255, 1242)
+[node name="BellBalconyB_Ledge" type="AnimatableBody2D" parent="LevelTwentytwoGenerated" unique_id=546847227 instance=ExtResource("13_l5slq")]
+position = Vector2(1255, 1173)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_lqee0")
 platform_size = Vector2(170, 24)
 platform_color = Color(0.76862746, 0.79607844, 0.85882354, 1)
 
-[node name="Area2D_90" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=1109221798 groups=["healing_pickups"] instance=ExtResource("29_qmaqj")]
-position = Vector2(1255, 1196)
+[node name="Area2D_90" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=828663298 groups=["healing_pickups"] instance=ExtResource("29_qmaqj")]
+position = Vector2(1255, 1127)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("30_qu37k")
 
-[node name="Checkpoint" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=34947211 instance=ExtResource("31_mn226")]
+[node name="Checkpoint" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=705071472 instance=ExtResource("31_mn226")]
 position = Vector2(1100, 1412)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("32_kn864")
 
-[node name="Area2D_91" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=421414179 groups=["healing_pickups"] instance=ExtResource("29_qmaqj")]
+[node name="Area2D_91" type="Area2D" parent="LevelTwentytwoGenerated" unique_id=399903446 groups=["healing_pickups"] instance=ExtResource("29_qmaqj")]
 position = Vector2(1000, 1006)
 collision_layer = 0
 collision_mask = 2

@@ -10,6 +10,8 @@ const GROUND := 640.0
 const SKY := {"top": Color("#2f3354"), "mid": Color("#6a5f86"), "bottom": Color("#c49aa6")}
 const BRICK := Color("#7d7488")
 const BRICK_DARK := Color("#58506a")
+## Las plataformas altas de `high_row` se elevan un 30 % sobre el suelo (2026-11-25).
+const HIGH_HEIGHT_SCALE := 1.3
 
 
 static func start(level: Node2D, node_name: String, width: float) -> Node2D:
@@ -138,7 +140,7 @@ static func high_row(world: Node2D, prefix: String, specs: Array) -> void:
 	for i in specs.size():
 		var spec: Array = specs[i]
 		var x: float = spec[0]
-		var top: float = spec[1]
+		var top: float = GROUND - (GROUND - float(spec[1])) * HIGH_HEIGHT_SCALE
 		var width: float = spec[2]
 		var node_name := "%sHigh%d" % [prefix, i]
 		DesertKit.platform(world, Vector2(x, top + 12.0), Vector2(width, 24.0), BRICK, Platform.Kind.STATIC, node_name)
