@@ -159,6 +159,33 @@ func _test_items_and_gravity() -> void:
 	crate.reset_to_start()
 	await _wait_physics(3)
 	_check(not crate.placed and crate.global_position.is_equal_approx(before), "objetos: reaparecer devuelve la caja a su sitio")
+	# El botón es sólido, su parte pulsable va detrás del suelo y se hunde sin asomar.
+	var button_c := level.find_child("MoatButtonC", true, false) as FloorButton
+	var solid := button_c.get_node_or_null("Solid") as StaticBody2D
+	var cap := button_c.get_node_or_null("Cap") as Polygon2D
+	_check(solid != null and solid.collision_layer == 1, "botón: tiene colisión sólida")
+	_check(cap != null and cap.z_index < 0, "botón: la parte pulsable se dibuja detrás del suelo")
+	await _place_player(level, button_c.global_position + Vector2(0.0, -150.0))
+	await _wait_physics(50)
+	_check(player.is_on_floor() and player.global_position.y < button_c.global_position.y - 10.0, "botón: se puede estar de pie encima (y=%.0f)" % player.global_position.y)
+	_check(button_c.is_on and cap.position.y > FloorButton.PRESS_DEPTH - 1.0, "botón: al pulsarlo la tapa se hunde %.0f px" % cap.position.y)
+	# Los objetos no se agarran ni se sueltan a través de muros.
+	var wall_crate := level.find_child("MoatCrate", true, false) as GrabItem
+	wall_crate.global_position = Vector2(2960.0, 621.0)
+	await _place_player(level, Vector2(2860.0, 616.0))
+	_check(wall_crate._blocked_to(player), "objetos: un muro entre el jugador y el objeto impide agarrarlo")
+	wall_crate.reset_to_start()
+	wall_crate.global_position = Vector2(2300.0, 621.0)
+	await _place_player(level, Vector2(2300.0, 616.0))
+	_check(not wall_crate._blocked_to(player), "objetos: sin muro sí se puede agarrar")
+	await _wait_physics(25)
+	await _place_player(level, Vector2(2860.0, 616.0))
+	player.held_item = wall_crate
+	wall_crate.held_by = player
+	wall_crate.place()
+	_check(not wall_crate.placed and wall_crate.held_by == player, "objetos: no se deja la caja dentro de un muro")
+	wall_crate.held_by = null
+	player.held_item = null
 	await _unload(level)
 
 	# Resorte y roca sobre un nivel vacío de enemigos cercanos (nivel 28).

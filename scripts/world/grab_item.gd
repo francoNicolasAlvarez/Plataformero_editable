@@ -95,9 +95,30 @@ func _physics_process(delta: float) -> void:
 		return
 	if _cooldown <= 0.0:
 		for body in _pickup.get_overlapping_bodies():
-			if body is Player and (body as Player).held_item == null and not (body as Player).health.is_dead:
+			if body is Player and (body as Player).held_item == null and not (body as Player).health.is_dead and not _blocked_to(body as Node2D):
 				grab(body as Player)
 				break
+
+
+## Verdadero si hay suelo o una estructura entre el objeto y `other`
+## (no se agarra ni se suelta a través de ellos).
+func _blocked_to(other: Node2D) -> bool:
+	var query := PhysicsRayQueryParameters2D.create(global_position, other.global_position, 1)
+	return not get_world_2d().direct_space_state.intersect_ray(query).is_empty()
+
+
+## Verdadero si la forma del objeto cabe en `at` sin tocar el mundo.
+func _fits_at(at: Vector2) -> bool:
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = _shape.shape
+	query.transform = Transform2D(0.0, at)
+	query.collision_mask = 1
+	return get_world_2d().direct_space_state.intersect_shape(query, 1).is_empty()
+
+
+func _blocked_to_point(from: Vector2, to: Vector2) -> bool:
+	var query := PhysicsRayQueryParameters2D.create(from, to, 1)
+	return not get_world_2d().direct_space_state.intersect_ray(query).is_empty()
 
 
 func grab(player: Player) -> void:
@@ -127,6 +148,8 @@ func _update_held() -> void:
 		return
 	var gsign := -1.0 if held_by.inverted_gravity else 1.0
 	global_position = held_by.global_position + Vector2(0.0, -46.0 * gsign)
+	if _hint.text == "SIN ESPACIO" and not Input.is_action_pressed("move_down"):
+		_hint.text = _hint_text()
 	if kind == Kind.CRATE and Input.is_action_just_pressed("move_down") and held_by.is_on_floor():
 		place()
 
@@ -143,9 +166,19 @@ func _detach() -> void:
 func place() -> void:
 	## Caja: se deja delante del jugador y pasa a ser un peldaño sólido.
 	var player := held_by
+	var spot := Vector2.ZERO
+	var found := false
+	for distance in [46.0, 36.0]:
+		spot = player.global_position + Vector2(float(player.facing()) * distance, 24.0 - _size().y * 0.5)
+		if _fits_at(spot) and not _blocked_to_point(player.global_position, spot):
+			found = true
+			break
+	if not found:
+		_hint.text = "SIN ESPACIO"
+		return
 	_detach()
 	placed = true
-	global_position = player.global_position + Vector2(float(player.facing()) * 46.0, 24.0 - _size().y * 0.5)
+	global_position = spot
 	velocity = Vector2.ZERO
 	collision_layer = 1
 	_shape.set_deferred("disabled", false)
@@ -157,12 +190,16 @@ func wants_dash() -> bool:
 	if kind != Kind.ROCK or held_by == null:
 		return false
 	var player := held_by
+	var gsign_throw := -1.0 if player.inverted_gravity else 1.0
+	var origin := player.global_position + Vector2(float(player.facing()) * 22.0, -26.0 * gsign_throw)
+	if not _fits_at(origin) or _blocked_to_point(player.global_position, origin):
+		origin = player.global_position
 	_detach()
 	thrown = true
 	collision_mask = 1 | 4
 	var gsign := -1.0 if player.inverted_gravity else 1.0
 	velocity = Vector2(THROW_SPEED.x * float(player.facing()), THROW_SPEED.y * gsign)
-	global_position = player.global_position + Vector2(float(player.facing()) * 22.0, -26.0 * gsign)
+	global_position = origin
 	_shape.set_deferred("disabled", false)
 	Sfx.play("throw", -8.0)
 	return true

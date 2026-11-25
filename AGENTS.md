@@ -1708,6 +1708,11 @@ actualizar esos tests.
       `unlock` y `gravity` en `sfx.gd`; sección "FORTALEZA: BOTONES, OBJETOS Y
       SALIDAS" en las Instrucciones del menú. Rollback previo:
       `git reset --hard rollback/2026-11-24-01-mundo6-base`.
+    - Botones y objetos (2026-11-24): `FloorButton` es sólido (nodo `Solid`, se
+      puede pisar encima) y su tapa (`Cap`, z -1) va detrás del suelo y se hunde
+      16 px al pulsarse. `GrabItem` no se agarra con una pared entre el jugador y
+      el objeto (rayo contra la capa World) y no se deja ni se lanza dentro de
+      muros (consulta de forma; si no cabe muestra "SIN ESPACIO").
     - Nivel 30: la victoria pasa de ENEMIES a CHANNEL "T": los dos botones abren
       el portal (antes había que derrotar también a los 6 enemigos).
     - El nivel 30 ya NO desactiva el impulso (cambio pedido; `LevelRules.no_dash`
