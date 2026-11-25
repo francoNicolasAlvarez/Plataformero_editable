@@ -107,6 +107,7 @@ static func _build_left_spoke(world: Node2D) -> void:
 	FortressKit.high_row(world, "CitadelL", [[1900.0, 480.0, 220.0, "archer", ""], [2350.0, 380.0, 200.0, "", "spike"], [2800.0, 480.0, 220.0, "mage", ""],
 		[S + 300.0, 470.0, 220.0, "archer", ""], [S + 850.0, 470.0, 200.0, "", "mine"]])
 	FortressKit.aerial_saws(world, "CitadelL", [[2150.0, 540.0], [3100.0, 540.0]])
+	DesertKit.herb(world, LEVER_A_X + 90.0, GROUND_Y)
 	TowerKit.lever(world, Vector2(LEVER_A_X, GROUND_Y), CHANNEL, "CitadelLeverA")
 
 
@@ -142,4 +143,5 @@ static func _build_right_spoke(world: Node2D) -> void:
 	FortressKit.high_row(world, "CitadelR", [[S + 5600.0, 480.0, 220.0, "archer", ""], [S + 6050.0, 380.0, 200.0, "mage", ""],
 		[base - 650.0, 470.0, 200.0, "", "mine"], [base + 1000.0, 480.0, 220.0, "archer", ""], [base + 1450.0, 380.0, 200.0, "", "spike"], [base + 1900.0, 480.0, 220.0, "mage", ""]])
 	FortressKit.aerial_saws(world, "CitadelR", [[base + 1250.0, 540.0], [base + 1700.0, 540.0]])
+	DesertKit.herb(world, LEVER_B_X - 90.0, GROUND_Y)
 	TowerKit.lever(world, Vector2(LEVER_B_X, GROUND_Y), CHANNEL, "CitadelLeverB")

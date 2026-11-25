@@ -9,3 +9,8 @@ Reglas:
 - Mantén música procedural por nivel con transiciones/fundidos suaves y SFX coherentes; en headless no crear reproductores ni interferir con pruebas.
 - Conserva el estilo visual procedural y el rendimiento.
 - Actualiza tests relacionados si cambias contratos y ejecuta la suite completa. Documenta cambios en AGENTS.md.
+
+Diseño visual y game feel (ver GUIA_DISENO_VISUAL.md):
+- Juice sin cambiar reglas: squash en el nodo visual, hit flash y hit-stop cortos, sacudida proporcional al daño, partículas baratas con spark.svg.
+- Cada aviso de ataque suma un cue de sonido propio además del visual; evita parpadeos > 3 Hz y todo efecto debe apagarse en headless.
+- Acentos de color por rol: rojo = peligro, azul/cian = magia, verde/blanco = curación.

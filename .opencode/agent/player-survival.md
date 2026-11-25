@@ -10,3 +10,7 @@ Reglas:
 - Al reaparecer: +10 s de cuenta regresiva; si al morir quedaban <= 20 s, fijar el tiempo restante a 30 s (sin superar el máximo del nivel).
 - Respeta contratos de nodos/señales y no reintroduzcas combate/monedas eliminados.
 - Actualiza o añade smoke tests en tests/ y ejecuta la suite completa antes de terminar. Documenta cambios relevantes en AGENTS.md.
+
+Diseño visual (ver GUIA_DISENO_VISUAL.md):
+- El jugador debe destacar por valor y silueta sobre cualquier fondo; el feedback de daño (flash, hit-stop, sacudida) es proporcional y nunca altera la hitbox.
+- Squash & stretch solo sobre el nodo Visual.

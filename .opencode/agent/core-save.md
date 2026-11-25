@@ -9,3 +9,5 @@ Reglas:
 - SaveGame guarda nivel alcanzado, tiempo total, muertes y completado en user://save.cfg; en headless no debe leer/escribir disco.
 - Mantén coherencia entre menú, finalización de nivel, pantalla final y reintentos.
 - Actualiza tests afectados y ejecuta la suite completa. Documenta cambios en AGENTS.md.
+
+Nota: la guía GUIA_DISENO_VISUAL.md no afecta al guardado; no cambies formatos de save.cfg por motivos visuales.

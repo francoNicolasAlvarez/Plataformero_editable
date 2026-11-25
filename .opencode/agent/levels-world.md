@@ -10,3 +10,9 @@ Reglas:
 - Cada nivel debe tener exactamente 1 checkpoint a mitad del recorrido, en posición segura y alcanzable.
 - Respeta la regla de espaciado (PlatformSpacing), accesibilidad de saltos y peligros legibles (sierras con aviso, pinchos visibles).
 - Actualiza tests de niveles/layout/spacing y ejecuta la suite completa. Documenta cambios en AGENTS.md.
+
+Diseño visual (ver GUIA_DISENO_VISUAL.md):
+- Una apariencia = un comportamiento: plataformas que se derrumban llevan grietas, cintas llevan rodillos y sentido, trampas con ciclo avisan antes de activarse.
+- Separa por valor (claro/oscuro): plataformas transitables claras con remate superior sobre fondo apagado y de bajo contraste; contorno negro en lo interactivo.
+- Portal, control, hierba y llaves deben leerse también en zonas a oscuras; los objetos decorativos no llevan contorno ni acento.
+- Marca la zona de impacto antes de que caiga algo (rocas, catapultas, minas).
