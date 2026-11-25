@@ -1723,6 +1723,11 @@ actualizar esos tests.
       pantalla y más arriba que el jugador, así cruzan la pantalla a la vista.
     - `VacuumSentry` (nivel 24): aspira un objeto cada `object_interval` 0,5 s y
       nunca más de `max_objects` 2 a la vez.
+    - Nivel 5-5 ampliado (2026-11-24): cada radio mide el doble (12800 px; el
+      diseño original se desplazó `S` = 3200 px y se añadió un tramo nuevo a cada
+      lado con segundo abismo (3 temporizadas / 2 cintas), prensas, ruedas,
+      minas, plataformas altas y sierras). Ahora ~24 enemigos; las palancas A y B
+      están en los extremos (x 150 y WIDTH-150). Escena re-horneada.
     - Nivel 30: la victoria pasa de ENEMIES a CHANNEL "T": los dos botones abren
       el portal (antes había que derrotar también a los 6 enemigos).
     - El nivel 30 ya NO desactiva el impulso (cambio pedido; `LevelRules.no_dash`

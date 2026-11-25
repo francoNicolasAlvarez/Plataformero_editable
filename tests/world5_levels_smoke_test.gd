@@ -314,16 +314,18 @@ func _test_level_25() -> void:
 	for lever in levers:
 		xs.append((lever as Node2D).global_position.x)
 	xs.sort()
-	_check(xs[0] < 1000.0 and xs[1] > 2000.0 and xs[1] < 3500.0 and xs[2] > 5000.0, "25: palancas a la izquierda, en el centro (cámara) y a la derecha")
+	_check(xs[0] < 1000.0 and absf(xs[1] - LevelTwentyfiveLayout.HUB_CENTER) < 1000.0 and xs[2] > LevelTwentyfiveLayout.WIDTH - 1000.0, "25: palancas a la izquierda, en el centro (cámara) y a la derecha")
 	_check(get_nodes_in_group("checkpoints").size() == 1, "25: un control en la plaza")
 	var route := LevelTwentyfiveLayout.route()
 	_check(level.route_progress(route[route.size() - 1]) > 0.99, "25: la ruta termina en el portal")
 	_check(level._route_length > 9000.0, "25: la ruta recorre los dos radios (%.0f px)" % level._route_length)
 	# Radios: huecos saltables (cintas y temporizadas).
-	var left_gap := LevelTwentyfiveLayout.LEFT_GROUND_FROM - 1150.0
-	_check(left_gap > 600.0 and left_gap < 900.0 and level.find_children("CitadelTimedL*", "Node2D", true, false).size() == 3, "25: radio izquierdo con tres temporizadas sobre el abismo")
-	_check(level.find_children("CitadelBeltR*", "Platform", true, false).size() == 2, "25: radio derecho con dos cintas")
-	_check(level.find_children("CitadelCrusher*", "Node2D", true, false).size() == 2 and level.find_children("CitadelWheel*", "Area2D", true, false).size() == 2, "25: prensas y ruedas en los radios")
+	var left_gap := LevelTwentyfiveLayout.LEFT_GROUND_FROM - (LevelTwentyfiveLayout.S + 1150.0)
+	_check(left_gap > 600.0 and left_gap < 900.0 and level.find_children("CitadelTimedL*", "Node2D", true, false).size() == 6, "25: radio izquierdo con seis temporizadas sobre dos abismos")
+	_check(level.find_children("CitadelBeltR*", "Platform", true, false).size() == 4, "25: radio derecho con cuatro cintas")
+	_check(level.find_children("CitadelCrusher*", "Node2D", true, false).size() == 4 and level.find_children("CitadelWheel*", "Area2D", true, false).size() == 4, "25: prensas y ruedas en los radios (4 y 4)")
+	_check(LevelTwentyfiveLayout.WIDTH == 12800.0 and LevelTwentyfiveLayout.HUB_CENTER - LevelTwentyfiveLayout.LEFT_GROUND_FROM == 1300.0 and LevelTwentyfiveLayout.LEVER_A_X < 200.0 and LevelTwentyfiveLayout.LEVER_B_X > 12600.0, "25: cada radio mide el doble (12800 px) y las palancas están en los extremos")
+	_check(get_nodes_in_group("enemies").size() >= 22, "25: muchos más enemigos (%d)" % get_nodes_in_group("enemies").size())
 
 	# Simulación: la corriente de la plaza sube a la cámara elevada.
 	for enemy in get_nodes_in_group("enemies"):
