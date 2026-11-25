@@ -113,7 +113,7 @@ func _process(delta: float) -> void:
 	_time += delta
 	if state == State.WARNING and _light != null:
 		# Parpadeo cada vez más rápido hasta la explosión.
-		var rate := 8.0 + 22.0 * warning_progress()
+		var rate := 8.0 + 10.0 * warning_progress()  # <= 18 rad/s (~2,9 Hz): sin parpadeo rápido
 		var on := sin(_time * rate) > 0.0
 		_light.color = Color("#ff3b30") if on else Color("#7a2d2d")
 		_body.scale = Vector2.ONE * (1.0 + 0.12 * warning_progress())

@@ -97,7 +97,7 @@ func _process(delta: float) -> void:
 		State.WINDUP:
 			var progress := 1.0 - clampf(_timer / windup_time, 0.0, 1.0)
 			squash = Vector2(1.0 + 0.3 * progress, 1.0 - 0.4 * progress)
-			_flash += delta * (10.0 + 20.0 * progress)
+			_flash += delta * (10.0 + 8.0 * progress)
 			var blink := 0.5 + 0.5 * sin(_flash)
 			visual.modulate = Color(1.0, 1.0 - 0.6 * blink, 1.0 - 0.6 * blink, 1.0)
 		State.AIR:

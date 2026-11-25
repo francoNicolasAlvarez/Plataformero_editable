@@ -1840,3 +1840,4 @@ actualizar esos tests.
   tests). Todos deben leer este archivo y correr la suite completa.
 
 87. **Guía de diseño visual y agentes entrenados (2026-11-25)**: `GUIA_DISENO_VISUAL.md` resume la investigación (silueta, paleta y contraste, telegrafiado de ataques, coherencia aspecto/comportamiento, game feel, accesibilidad, lista de revisión). Los 7 agentes de `.opencode/agent/` ganaron una sección "Diseño visual" que la referencia. Nivel 5-5: hierba curativa junto a cada palanca de los extremos.
+    - Aplicación inicial (mismo día): avisos de mina y saltador explosivo y parpadeo de invulnerabilidad del jugador limitados a <= 3 Hz (antes hasta ~5-7 Hz); la hierba curativa gana `Halo` verde translúcido (acento de curación). Test nuevo `visual_guide_smoke_test` (2). Suite 64: solo fallan los 2 tests del nivel 8 de siempre.

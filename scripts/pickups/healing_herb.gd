@@ -17,6 +17,7 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	_time = global_position.x * 0.01
 	Fx.make_sparkle(visual, Vector2(0.0, -6.0), Color(0.7, 1.0, 0.75, 0.9))
+	_add_halo()
 
 
 func _process(delta: float) -> void:
@@ -52,3 +53,18 @@ func _burst_sparks(color: Color) -> void:
 	if burst_parent is Node2D:
 		burst_position = global_position - (burst_parent as Node2D).global_position
 	Fx.make_burst(burst_parent, burst_position, color)
+
+
+## Halo verde translúcido (2026-11-25, guía de diseño visual): el verde/blanco es el
+## acento reservado a la curación, así se distingue de lejos de los peligros.
+func _add_halo() -> void:
+	var halo := Polygon2D.new()
+	halo.name = "Halo"
+	halo.z_index = -1
+	var points := PackedVector2Array()
+	for i in 20:
+		var angle := TAU * float(i) / 20.0
+		points.append(Vector2(cos(angle) * 22.0, sin(angle) * 22.0 - 6.0))
+	halo.polygon = points
+	halo.color = Color(0.55, 1.0, 0.6, 0.22)
+	visual.add_child(halo)

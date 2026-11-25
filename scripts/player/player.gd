@@ -151,7 +151,7 @@ func _tick_timers(delta: float) -> void:
 
 	if _invulnerability_left > 0.0:
 		_invulnerability_left = maxf(0.0, _invulnerability_left - delta)
-		visual.modulate.a = 0.45 if fmod(_invulnerability_left * 14.0, 2.0) > 1.0 else 1.0
+		visual.modulate.a = 0.45 if fmod(_invulnerability_left * 6.0, 2.0) > 1.0 else 1.0
 		if _invulnerability_left <= 0.0:
 			visual.modulate = Color.WHITE
 
