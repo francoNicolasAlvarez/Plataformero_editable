@@ -56,6 +56,17 @@ func _build_visual() -> void:
 	_lamp.position = Vector2(0.0, -46.0)
 
 
+## Pulso suave de la lámpara mientras está apagada (2026-11-25, guía de diseño
+## visual): invita a tocarla sin parpadear rápido (~0,8 Hz).
+func _process(_delta: float) -> void:
+	if _lamp == null:
+		return
+	if is_on:
+		_lamp.scale = Vector2.ONE
+	else:
+		_lamp.scale = Vector2.ONE * (1.0 + 0.25 * sin(Time.get_ticks_msec() * 0.005))
+
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and not is_on and _accepts(body as Player):
 		activate()

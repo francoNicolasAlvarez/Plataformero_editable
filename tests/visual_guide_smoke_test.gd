@@ -21,4 +21,14 @@ func _initialize() -> void:
 	_check(halo != null, "la hierba tiene halo")
 	if halo != null:
 		_check(halo.color.g > halo.color.r and halo.color.a < 0.4, "el halo es verde y translúcido")
+	var lever := LeverSwitch.new()
+	root.add_child(lever)
+	await process_frame
+	await process_frame
+	_check(lever.scale == Vector2.ONE and lever.get("_lamp") != null, "la palanca construye su lámpara")
+	var lamp := lever.get("_lamp") as Polygon2D
+	_check(lamp.scale.x >= 0.74 and lamp.scale.x <= 1.26, "la lámpara apagada pulsa suavemente")
+	lever.activate()
+	await process_frame
+	_check(lamp.scale == Vector2.ONE, "la lámpara activada deja de pulsar")
 	quit(1 if _failures > 0 else 0)

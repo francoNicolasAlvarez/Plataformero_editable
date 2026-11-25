@@ -40,6 +40,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _draw() -> void:
 	var bob := sin(_time * 3.0) * 3.0
+	# Halo dorado suave (2026-11-25, guía de diseño visual): el objeto de misión se ve de lejos.
+	draw_circle(Vector2(0.0, bob), 26.0 + 2.0 * sin(_time * 3.0), Color(1.0, 0.85, 0.3, 0.16))
 	var gold := Color("#f2c744")
 	draw_circle(Vector2(-8.0, bob), 9.0, gold)
 	draw_circle(Vector2(-8.0, bob), 4.0, Color(0.15, 0.1, 0.0))
