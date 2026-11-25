@@ -206,7 +206,8 @@ func _test_vacuum_sentry(level: Node, player: Player) -> void:
 			saw_suction = true
 			peak_objects = maxi(peak_objects, sentry.object_count())
 	_check(saw_suction, "Centinela aspirador: entra periódicamente en fase de succión")
-	_check(peak_objects >= 3, "Centinela aspirador: absorbe objetos que vuelan hacia él (%d a la vez)" % peak_objects)
+	_check(peak_objects == 2, "Centinela aspirador: nunca más de 2 objetos a la vez (pico %d)" % peak_objects)
+	_check(is_equal_approx(sentry.object_interval, 0.5) and sentry.max_objects == 2, "Centinela aspirador: un objeto cada 0,5 s")
 	# Los objetos nacen por el borde derecho de la pantalla y dañan al jugador.
 	sentry._start_suction()
 	sentry._clear_objects()

@@ -22,6 +22,7 @@ func _run() -> void:
 	await _test_level_28()
 	await _test_level_29()
 	await _test_level_30()
+	await _test_density()
 	print("")
 	print("Comprobaciones: %d | Fallos: %d" % [_checks, _failures])
 	quit(1 if _failures > 0 else 0)
@@ -107,8 +108,13 @@ func _test_level_26() -> void:
 	await _wait_physics(40)
 	_check(not bridge_a.is_down and not button_a.is_on, "26: tras unos segundos el puente sube y el botón se reinicia")
 	# Alcance: con doble salto no se llega a la cima del muro, con la caja sí.
+	# Sin enemigos cerca: la medida es solo de la física del salto.
+	for enemy in get_nodes_in_group("enemies"):
+		if level.is_ancestor_of(enemy):
+			enemy.queue_free()
+	await _wait_physics(2)
 	var wall_top := LevelTwentysixLayout.WALL_TOP
-	var open_x := 2300.0
+	var open_x := 2700.0
 	var ground_center_y := LevelTwentysixLayout.G - 24.0
 	var reach_plain := await _max_rise(level, Vector2(open_x, ground_center_y))
 	_check(ground_center_y - reach_plain < ground_center_y - (wall_top - 24.0) - 5.0, "26: sin ayuda no se llega al muro (sube %.0f px, hacen falta %.0f)" % [reach_plain, ground_center_y - (wall_top - 24.0)])
@@ -207,7 +213,7 @@ func _test_items_and_gravity() -> void:
 	await _wait_physics(25)
 	await _place_player(level, spring.global_position)
 	await _wait_physics(5)
-	var rise := await _max_rise(level, Vector2(2650.0, 616.0))
+	var rise := await _max_rise(level, Vector2(2900.0, 616.0))
 	_check(rise >= 616.0 - (LevelTwentyeightLayout.HIGH_LEDGE_TOP - 24.0) + 5.0, "resorte: con él se llega a la repisa alta (%.0f px)" % rise)
 	# Roca: lanzada contra un enemigo libre lo derriba; contra uno con escudo, no.
 	player.held_item = null
@@ -380,6 +386,36 @@ func _test_level_30() -> void:
 	_check(left == 4, "30: los dos botones eliminan a los dos élites (quedan %d)" % left)
 	_check(victory.mode == VictoryCondition.Mode.CHANNEL and victory.is_fulfilled and not portal.locked, "30: al pisar los dos botones el portal se abre (aunque queden soldados)")
 	await _unload(level)
+
+
+## Niveles 26-29 (2026-11-24): muchos enemigos espaciados, plataformas altas,
+## trampas en altura y muchos tiradores.
+func _test_density() -> void:
+	for number in [26, 27, 28, 29]:
+		var level := await _load(number)
+		var enemies: Array = []
+		var shooters := 0
+		for enemy in get_nodes_in_group("enemies"):
+			if enemy is TrainingDummy and level.is_ancestor_of(enemy):
+				enemies.append(enemy)
+				if enemy is RangedEnemy:
+					shooters += 1
+		var closest := 99999.0
+		var pair := ""
+		for i in enemies.size():
+			for j in range(i + 1, enemies.size()):
+				var gap := (enemies[i] as Node2D).global_position.distance_to((enemies[j] as Node2D).global_position)
+				if gap < 200.0:
+					pair += "%s/%s(%.0f) " % [enemies[i].name, enemies[j].name, gap]
+				closest = minf(closest, gap)
+		var high := level.find_children("*High*", "AnimatableBody2D", true, false).size()
+		var traps := get_nodes_in_group("hazards").size() + get_nodes_in_group("saws").size() + get_nodes_in_group("spikes").size()
+		_check(enemies.size() >= 14, "%d: muchos enemigos (%d)" % [number, enemies.size()])
+		_check(shooters >= 8, "%d: muchos enemigos que lanzan proyectiles (%d)" % [number, shooters])
+		_check(closest >= 200.0, "%d: enemigos espaciados (el par más cercano está a %.0f px: %s)" % [number, closest, pair])
+		_check(high >= 4, "%d: plataformas altas (%d)" % [number, high])
+		_check(traps >= 5, "%d: trampas, también en altura (%d)" % [number, traps])
+		await _unload(level)
 
 
 func _wait_physics(frames: int) -> void:

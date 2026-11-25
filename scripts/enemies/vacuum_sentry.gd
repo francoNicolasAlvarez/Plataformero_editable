@@ -26,6 +26,10 @@ enum Phase { SHOOT, SUCK }
 @export_range(0.5, 12.0, 0.01) var shoot_interval: float = 5.0
 @export_range(2.0, 40.0, 0.5) var suction_interval: float = 12.0
 @export_range(1.0, 10.0, 0.1) var suction_duration: float = 3.4
+## Objetos aspirados (2026-11-24): uno cada `object_interval` s y como mucho
+## `max_objects` a la vez.
+@export_range(0.1, 5.0, 0.05) var object_interval: float = 0.5
+@export_range(1, 12, 1) var max_objects: int = 2
 @export_range(80.0, 600.0, 10.0) var projectile_speed: float = 250.0
 @export_range(0.0, 300.0, 1.0) var left_margin: float = 120.0
 @export_range(0.0, 300.0, 1.0) var bottom_margin: float = 110.0
@@ -124,9 +128,11 @@ func _process_suck(delta: float) -> void:
 	_mouth.scale = _mouth.scale.lerp(Vector2(1.0, 1.0), minf(1.0, delta * 6.0))
 	_eye.modulate = Color(0.6, 1.0, 1.0)
 	_spawn_timer -= delta
-	if _spawn_timer <= 0.0 and _suction_left > 0.4:
-		_spawn_timer = 0.2
+	if _spawn_timer <= 0.0 and _suction_left > 0.4 and _objects.size() < max_objects:
+		_spawn_timer = object_interval
 		_spawn_object()
+	elif _spawn_timer <= 0.0:
+		_spawn_timer = 0.05
 	if _suction_left <= 0.0:
 		phase = Phase.SHOOT
 		_suction_timer = suction_interval

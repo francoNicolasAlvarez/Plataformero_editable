@@ -33,7 +33,7 @@ static func build(level: Node2D) -> void:
 	# Orilla de salida y primer foso.
 	DesertKit.ground(world, 0.0, BRIDGE_A_X, TowerKit.STONE_DARK)
 	FortressKit.button(world, Vector2(1100.0, G), "A", "MoatButtonA")
-	DesertKit.spearman(world, "MoatSpearman0", 700.0, G)
+	DesertKit.spearman(world, "MoatSpearman0", 820.0, G)
 	FortressKit.bridge(world, Vector2(BRIDGE_A_X, G + 12.0), "A", "DrawbridgeA", BRIDGE_LENGTH)
 	DesertKit.ground(world, BRIDGE_A_X + BRIDGE_LENGTH, BRIDGE_C_X, TowerKit.STONE_DARK)
 	var guard := DesertKit.archer(world, "MoatGuardA", 2150.0, G)
@@ -55,4 +55,17 @@ static func build(level: Node2D) -> void:
 	DesertKit.spearman(world, "MoatSpearman2", 5700.0, G)
 	DesertKit.archer(world, "MoatArcher1", 6400.0, G)
 	DesertKit.spearman(world, "MoatSpearman3", 6800.0, G)
+	# Más enemigos (espaciados), plataformas altas con trampas y tiradores.
+	DesertKit.spearman(world, "MoatSpearman4", 350.0, G)
+	DesertKit.mage(world, "MoatMage0", 1350.0, G)
+	DesertKit.spearman(world, "MoatSpearman5", 2600.0, G)
+	DesertKit.archer(world, "MoatArcher2", 3500.0, G)
+	DesertKit.slug(world, "MoatSlug0", 4100.0, G)
+	DesertKit.mage(world, "MoatMage1", 6050.0, G)
+	DesertKit.slug(world, "MoatSlug1", 7050.0, G)
+	FortressKit.high_row(world, "Moat0", [[650.0, 480.0, 220.0, "archer", ""], [1000.0, 380.0, 200.0, "", "spike"], [1950.0, 470.0, 220.0, "mage", ""],
+		[2300.0, 370.0, 200.0, "", "mine"], [3800.0, 470.0, 220.0, "archer", ""], [4150.0, 370.0, 200.0, "", "mine"]])
+	FortressKit.high_row(world, "Moat1", [[5250.0, 480.0, 220.0, "mage", ""], [5700.0, 380.0, 200.0, "archer", ""], [6100.0, 480.0, 200.0, "", "spike"],
+		[6500.0, 380.0, 200.0, "mage", ""]])
+	FortressKit.aerial_saws(world, "Moat", [[1750.0, 520.0], [5200.0, 540.0], [6450.0, 540.0]])
 	FortressKit.finish(level, world, WIDTH, Vector2(150.0, G - 30.0), PORTAL_POSITION, route())

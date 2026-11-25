@@ -1713,6 +1713,13 @@ actualizar esos tests.
       16 px al pulsarse. `GrabItem` no se agarra con una pared entre el jugador y
       el objeto (rayo contra la capa World) y no se deja ni se lanza dentro de
       muros (consulta de forma; si no cabe muestra "SIN ESPACIO").
+    - Densidad en 6-1 a 6-4 (2026-11-24): `FortressKit.high_row()` (plataformas
+      altas fijas con arquero/mago/lancero y mina o pinchos) y `aerial_saws()`
+      (sierras a media altura). Ahora hay 14-23 enemigos por nivel (8-16 que
+      lanzan proyectiles), >= 4 plataformas altas y >= 5 trampas, con los
+      enemigos a >= 200 px entre sí (test `_test_density`).
+    - `VacuumSentry` (nivel 24): aspira un objeto cada `object_interval` 0,5 s y
+      nunca más de `max_objects` 2 a la vez.
     - Nivel 30: la victoria pasa de ENEMIES a CHANNEL "T": los dos botones abren
       el portal (antes había que derrotar también a los 6 enemigos).
     - El nivel 30 ya NO desactiva el impulso (cambio pedido; `LevelRules.no_dash`

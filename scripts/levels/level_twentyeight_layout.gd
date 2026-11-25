@@ -61,5 +61,17 @@ static func build(level: Node2D) -> void:
 	DesertKit.checkpoint(world, HUB, G)
 	DesertKit.herb(world, 2650.0, G)
 	DesertKit.herb(world, 3800.0, G)
+	# Más enemigos en el patio (espaciados), plataformas altas con trampas.
+	DesertKit.slug(world, "DungeonSlug0", 2700.0, G)
+	DesertKit.mage(world, "DungeonMage0", 3650.0, G)
+	DesertKit.spearman(world, "DungeonSpear0", 4450.0, G)
+	DesertKit.spearman(world, "DungeonSpear1", 3000.0, G)
+	DesertKit.slug(world, "DungeonSlug1", 3900.0, G)
+	DesertKit.spearman(world, "DungeonSpear2", 4700.0, G)
+	TowerKit.mine(world, Vector2(2350.0, G), "DungeonMine0")
+	TowerKit.mine(world, Vector2(3450.0, G), "DungeonMine1")
+	FortressKit.high_row(world, "Dungeon", [[2400.0, 470.0, 200.0, "archer", ""], [2700.0, 400.0, 200.0, "mage", ""], [3650.0, 440.0, 200.0, "archer", ""],
+		[4350.0, 450.0, 200.0, "mage", ""], [1700.0, 470.0, 200.0, "", "spike"]])
+	FortressKit.aerial_saws(world, "Dungeon", [[2600.0, 540.0], [4150.0, 540.0]], 70.0)
 	FortressKit.victory(world, VictoryCondition.Mode.KEYS)
 	FortressKit.finish(level, world, WIDTH, Vector2(HUB, G - 30.0), PORTAL_POSITION, route())

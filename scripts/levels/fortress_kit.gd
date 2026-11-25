@@ -129,3 +129,35 @@ static func victory(world: Node2D, mode: VictoryCondition.Mode, node_name: Strin
 ## Marca un enemigo como parte de la arena (cuenta para `VictoryCondition.ENEMIES`).
 static func arena(enemy: Node) -> void:
 	enemy.add_to_group("arena_enemies", true)
+
+
+## Fila de plataformas altas (2026-11-24). Cada entrada: [x, superficie, ancho,
+## enemigo ("archer" | "mage" | "spear" | ""), trampa ("mine" | "spike" | "")].
+## Las plataformas son fijas; la trampa va al lado del enemigo.
+static func high_row(world: Node2D, prefix: String, specs: Array) -> void:
+	for i in specs.size():
+		var spec: Array = specs[i]
+		var x: float = spec[0]
+		var top: float = spec[1]
+		var width: float = spec[2]
+		var node_name := "%sHigh%d" % [prefix, i]
+		DesertKit.platform(world, Vector2(x, top + 12.0), Vector2(width, 24.0), BRICK, Platform.Kind.STATIC, node_name)
+		match String(spec[3]):
+			"archer":
+				DesertKit.archer(world, "%sArcher" % node_name, x - width * 0.2, top)
+			"mage":
+				DesertKit.mage(world, "%sMage" % node_name, x - width * 0.2, top)
+			"spear":
+				DesertKit.spearman(world, "%sSpear" % node_name, x, top)
+		match String(spec[4]):
+			"mine":
+				TowerKit.mine(world, Vector2(x + width * 0.3, top), "%sMine" % node_name)
+			"spike":
+				DesertKit.spike(world, x + width * 0.3, top)
+
+
+## Sierras suspendidas a media altura entre plataformas: [x, y] con su recorrido.
+static func aerial_saws(world: Node2D, prefix: String, points: Array, move_range: float = 80.0) -> void:
+	for i in points.size():
+		var saw := DesertKit.saw(world, Vector2(float(points[i][0]), float(points[i][1])), move_range, 1.0)
+		saw.name = "%sAerialSaw%d" % [prefix, i]

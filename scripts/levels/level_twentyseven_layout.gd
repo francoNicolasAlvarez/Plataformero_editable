@@ -57,4 +57,15 @@ static func build(level: Node2D) -> void:
 		DesertKit.archer(world, "FinalArcher%d" % i, x + 300.0, G)
 	DesertKit.herb(world, 6200.0, G)
 	DesertKit.spearman(world, "FinalSpearman", 7900.0, G)
+	# Más enemigos (espaciados), plataformas altas con trampas y tiradores.
+	DesertKit.mage(world, "BattlementMage0", 1250.0, G)
+	DesertKit.archer(world, "BattlementArcher0", 2250.0, G)
+	DesertKit.mage(world, "FinalMage0", 5000.0, G)
+	DesertKit.spearman(world, "FinalSpearman1", 5900.0, G)
+	DesertKit.spearman(world, "FinalSpearman2", 6800.0, G)
+	DesertKit.mage(world, "FinalMage1", 7650.0, G)
+	FortressKit.high_row(world, "Battlement", [[850.0, 480.0, 200.0, "archer", ""], [1300.0, 420.0, 220.0, "mage", ""], [1750.0, 340.0, 200.0, "", "spike"], [2050.0, 470.0, 200.0, "archer", ""]])
+	FortressKit.high_row(world, "Final", [[5400.0, 480.0, 220.0, "mage", ""], [5750.0, 430.0, 220.0, "", "mine"], [6050.0, 340.0, 200.0, "archer", ""],
+		[6450.0, 450.0, 220.0, "", "spike"], [6850.0, 340.0, 200.0, "mage", ""], [7300.0, 450.0, 220.0, "", "mine"], [7750.0, 340.0, 200.0, "archer", ""]])
+	FortressKit.aerial_saws(world, "Battlement", [[5750.0, 540.0], [6650.0, 540.0], [7550.0, 540.0]])
 	FortressKit.finish(level, world, WIDTH, Vector2(150.0, G - 30.0), PORTAL_POSITION, route())

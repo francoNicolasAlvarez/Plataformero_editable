@@ -40,6 +40,20 @@ static func build(level: Node2D) -> void:
 		DesertKit.spearman(world, "CatapultSpearman%d" % i, x + 500.0, G)
 		DesertKit.archer(world, "CatapultArcher%d" % i, x + 900.0, G)
 		FortressKit.item(world, GrabItem.Kind.ROCK, Vector2(x + 250.0, G - 14.0), "CatapultRock%d" % i, 8.0)
+	# Más enemigos (espaciados), plataformas altas con trampas y tiradores.
+	DesertKit.spearman(world, "CatapultSpearman3", 700.0, G)
+	DesertKit.mage(world, "CatapultMage0", 1150.0, G)
+	DesertKit.slug(world, "CatapultSlug0", 1900.0, G)
+	DesertKit.mage(world, "CatapultMage1", 3750.0, G)
+	DesertKit.spearman(world, "CatapultSpearman4", 4250.0, G)
+	DesertKit.mage(world, "CatapultMage2", 6400.0, G)
+	DesertKit.spearman(world, "CatapultSpearman5", 6900.0, G)
+	DesertKit.mage(world, "CatapultMage3", 8200.0, G)
+	FortressKit.high_row(world, "Catapult0", [[900.0, 480.0, 200.0, "archer", ""], [1350.0, 400.0, 200.0, "mage", ""], [2050.0, 470.0, 200.0, "", "mine"],
+		[3200.0, 470.0, 220.0, "archer", ""], [3600.0, 360.0, 200.0, "", "spike"], [4150.0, 470.0, 200.0, "mage", ""]])
+	FortressKit.high_row(world, "Catapult1", [[5600.0, 470.0, 220.0, "archer", ""], [6000.0, 360.0, 200.0, "mage", ""], [6450.0, 470.0, 200.0, "", "mine"],
+		[7150.0, 470.0, 220.0, "archer", ""], [7600.0, 340.0, 200.0, "mage", ""]])
+	FortressKit.aerial_saws(world, "Catapult", [[2250.0, 540.0], [3700.0, 540.0], [6250.0, 540.0], [7800.0, 540.0]])
 	DesertKit.checkpoint(world, 4700.0, G)
 	DesertKit.herb(world, 3600.0, G)
 	DesertKit.herb(world, 6600.0, G)
