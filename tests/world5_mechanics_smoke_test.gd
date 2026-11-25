@@ -213,6 +213,9 @@ func _test_vacuum_sentry(level: Node, player: Player) -> void:
 	sentry._clear_objects()
 	sentry._spawn_object()
 	var spawned := sentry._objects[0]["node"] as Node2D
+	var player_local_y: float = (spawned.get_parent() as Node2D).to_local(player.global_position).y
+	_check(spawned.position.y <= player_local_y - 40.0 or spawned.position.y <= -(camera_view.y - sentry.bottom_margin) + 80.0, "Centinela aspirador: los objetos nacen más arriba que el jugador")
+	_check(spawned.global_position.y > screen.y - camera_view.y * 0.5 - 40.0 and spawned.global_position.y < screen.y + camera_view.y * 0.5, "Centinela aspirador: los objetos nacen dentro de la pantalla visible")
 	var right_screen := screen.x + camera_view.x * 0.5
 	_check(spawned.global_position.x > right_screen - 40.0, "Centinela aspirador: los objetos aparecen en el extremo derecho (x=%.0f, borde=%.0f)" % [spawned.global_position.x, right_screen])
 	player.health.reset()

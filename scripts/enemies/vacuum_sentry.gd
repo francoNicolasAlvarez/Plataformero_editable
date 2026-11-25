@@ -24,8 +24,8 @@ const RING_COLORS := [Color(0.55, 0.9, 1.0), Color(0.3, 0.7, 1.0), Color(0.15, 0
 enum Phase { SHOOT, SUCK }
 
 @export_range(0.5, 12.0, 0.01) var shoot_interval: float = 5.0
-@export_range(2.0, 40.0, 0.5) var suction_interval: float = 12.0
-@export_range(1.0, 10.0, 0.1) var suction_duration: float = 3.4
+@export_range(2.0, 40.0, 0.5) var suction_interval: float = 4.0
+@export_range(1.0, 10.0, 0.1) var suction_duration: float = 7.0
 ## Objetos aspirados (2026-11-24): uno cada `object_interval` s y como mucho
 ## `max_objects` a la vez.
 @export_range(0.1, 5.0, 0.05) var object_interval: float = 0.5
@@ -191,11 +191,16 @@ func _spawn_object() -> void:
 	var kind: String = OBJECT_KINDS[_rng.randi() % OBJECT_KINDS.size()]
 	var node := _build_object(kind)
 	var view := _view_size()
-	# Por el borde derecho de la pantalla, a cualquier altura visible.
+	# Por el borde derecho de la pantalla, siempre más arriba que el jugador
+	# (2026-11-24) y dentro de la zona visible, así cruzan la pantalla a la vista.
 	var right_edge := view.x - left_margin + 80.0
 	var top_edge := -(view.y - bottom_margin) + 40.0
 	var bottom_edge := bottom_margin - 40.0
-	node.position = Vector2(right_edge, _rng.randf_range(top_edge, bottom_edge))
+	var highest_allowed := bottom_edge
+	var player := get_tree().get_first_node_in_group("player") as Node2D
+	if player != null:
+		highest_allowed = clampf(_suction_layer.to_local(player.global_position).y - 70.0, top_edge + 30.0, bottom_edge)
+	node.position = Vector2(right_edge, _rng.randf_range(top_edge, highest_allowed))
 	node.scale = Vector2.ONE * _rng.randf_range(1.1, 1.6)
 	_suction_layer.add_child(node)
 	_objects.append({

@@ -1718,6 +1718,9 @@ actualizar esos tests.
       (sierras a media altura). Ahora hay 14-23 enemigos por nivel (8-16 que
       lanzan proyectiles), >= 4 plataformas altas y >= 5 trampas, con los
       enemigos a >= 200 px entre sí (test `_test_density`).
+    - `VacuumSentry` (ajuste): succión más frecuente (cada 4 s durante 7 s, antes
+      12 s / 3,4 s) y los objetos nacen en el borde derecho, dentro de la
+      pantalla y más arriba que el jugador, así cruzan la pantalla a la vista.
     - `VacuumSentry` (nivel 24): aspira un objeto cada `object_interval` 0,5 s y
       nunca más de `max_objects` 2 a la vez.
     - Nivel 30: la victoria pasa de ENEMIES a CHANNEL "T": los dos botones abren
