@@ -1728,6 +1728,11 @@ actualizar esos tests.
       lado con segundo abismo (3 temporizadas / 2 cintas), prensas, ruedas,
       minas, plataformas altas y sierras). Ahora ~24 enemigos; las palancas A y B
       están en los extremos (x 150 y WIDTH-150). Escena re-horneada.
+    - Reaparición con el tiempo del control (2026-11-24): al activar un control
+      `TestLevel` guarda el tiempo que sobraba (`_respawn_time_left`) y al
+      reaparecer `RunTimer.restore_countdown()` devuelve la cuenta a ese valor
+      (sin control activado, el límite completo). Sustituye a la regla del ítem
+      59 (volver siempre al límite completo); `reset_countdown()` queda sin uso.
     - Nivel 30: la victoria pasa de ENEMIES a CHANNEL "T": los dos botones abren
       el portal (antes había que derrotar también a los 6 enemigos).
     - El nivel 30 ya NO desactiva el impulso (cambio pedido; `LevelRules.no_dash`

@@ -55,6 +55,9 @@ var _timer_expired: bool = false
 var _lives: int = MAX_LIVES
 var _level_deaths: int = 0
 var _respawn_point: Vector2 = Vector2.ZERO
+## Tiempo que sobraba al activar el último control (2026-11-24); al reaparecer la
+## cuenta regresiva vuelve a ese valor. Sin control activado, el límite completo.
+var _respawn_time_left: float = 0.0
 var _fade_rect: ColorRect
 var _damage_tween: Tween
 
@@ -130,6 +133,7 @@ func _ready() -> void:
 	_decorate_base_hills()
 	_add_boundary_walls()
 	_timer.start(time_limit)
+	_respawn_time_left = _timer.remaining
 	_time_left = _timer.remaining
 	_level_deaths = 0
 	_progress_start_x = player.global_position.x
@@ -694,9 +698,9 @@ func _respawn_player() -> void:
 	game_over_label.visible = false
 	player.revive(_respawn_point)
 	camera.snap_to_target()
-	# Cada muerte reinicia la cuenta regresiva al límite completo; el tiempo
-	# real (medalla) no se reinicia y sigue contando.
-	_timer.reset_countdown()
+	# Se reaparece con el tiempo que sobraba al activar el control (o el límite
+	# completo si no hay ninguno); el tiempo real (medalla) sigue contando.
+	_timer.restore_countdown(_respawn_time_left)
 	_time_left = _timer.remaining
 	_update_timer_label()
 	_update_progress_bar()
@@ -705,6 +709,7 @@ func _respawn_player() -> void:
 
 func _on_checkpoint_activated(checkpoint: Checkpoint) -> void:
 	_respawn_point = checkpoint.global_position
+	_respawn_time_left = _timer.remaining
 	SaveGame.set_level(level_variant)
 	_show_checkpoint_banner()
 

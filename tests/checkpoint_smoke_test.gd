@@ -43,6 +43,8 @@ func _run() -> void:
 		"El control muestra un aviso de descanso")
 
 	await _wait_physics(70)
+	var banked: float = level._respawn_time_left
+	_check(banked < level._timer.limit and banked > level._timer.limit - 10.0, "El control guarda el tiempo sobrante (%.1f s)" % banked)
 	level._timer.set_remaining(12.0)
 	player.take_damage(9999)
 	await _wait_until_alive(player)
@@ -55,8 +57,8 @@ func _run() -> void:
 		"Reaparece en el último control activado"
 	)
 	_check(
-		level._timer.remaining >= level._timer.limit - 1.0,
-		"Reaparecer reinicia la cuenta regresiva al límite completo"
+		absf(level._timer.remaining - banked) < 1.0,
+		"Reaparecer restaura el tiempo que sobraba al activar el control"
 	)
 
 	await _wait_physics(70)
@@ -65,8 +67,8 @@ func _run() -> void:
 	player.take_damage(9999)
 	await _wait_until_alive(player)
 	_check(
-		level._timer.remaining >= level._timer.limit - 1.0,
-		"Cada muerte reinicia la cuenta regresiva"
+		absf(level._timer.remaining - banked) < 1.0,
+		"Cada muerte vuelve al tiempo sobrante del control"
 	)
 	_check(
 		level._timer.elapsed >= elapsed_before,

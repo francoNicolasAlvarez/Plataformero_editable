@@ -41,6 +41,14 @@ func reset_countdown() -> void:
 	running = true
 
 
+func restore_countdown(seconds: float) -> void:
+	## Reaparición en un control (2026-11-24): la cuenta regresiva vuelve al tiempo
+	## que sobraba al activarlo (nunca por encima del límite).
+	remaining = clampf(seconds, 0.001, limit)
+	expired = false
+	running = true
+
+
 func stop() -> void:
 	running = false
 
