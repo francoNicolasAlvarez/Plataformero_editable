@@ -1708,6 +1708,8 @@ actualizar esos tests.
       `unlock` y `gravity` en `sfx.gd`; sección "FORTALEZA: BOTONES, OBJETOS Y
       SALIDAS" en las Instrucciones del menú. Rollback previo:
       `git reset --hard rollback/2026-11-24-01-mundo6-base`.
+    - Nivel 30: la victoria pasa de ENEMIES a CHANNEL "T": los dos botones abren
+      el portal (antes había que derrotar también a los 6 enemigos).
     - El nivel 30 ya NO desactiva el impulso (cambio pedido; `LevelRules.no_dash`
       queda sin uso). Los textos de arriba que hablan de "arena sin impulso"
       describen el diseño original.

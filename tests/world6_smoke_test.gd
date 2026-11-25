@@ -333,7 +333,7 @@ func _test_level_30() -> void:
 	_check(player.stats.dash_speed > 100.0 and player.stats.dash_cooldown < 5.0, "30: el impulso está disponible")
 	var shared := load("res://resources/player/player_stats.tres") as PlayerStats
 	_check(shared.dash_speed > 100.0, "30: el recurso compartido de estadísticas no se contamina")
-	_check(portal.locked, "30: el portal empieza bloqueado")
+	_check(portal.locked and victory.progress() == Vector2i(0, 2), "30: el portal empieza bloqueado (0/2 botones)")
 	var enemies := get_nodes_in_group("arena_enemies")
 	_check(enemies.size() == 6, "30: seis enemigos en la arena (%d)" % enemies.size())
 	_check(level.find_children("ThroneLock*", "Node2D", true, false).size() == 2 and get_nodes_in_group("channel_locks").size() == 2, "30: dos élites con escudo")
@@ -351,12 +351,7 @@ func _test_level_30() -> void:
 		if is_instance_valid(enemy) and not (enemy as TrainingDummy).health.is_dead:
 			left += 1
 	_check(left == 4, "30: los dos botones eliminan a los dos élites (quedan %d)" % left)
-	_check(portal.locked and victory.progress().x < victory.progress().y, "30: el portal sigue cerrado con enemigos vivos")
-	for enemy in enemies:
-		if is_instance_valid(enemy):
-			(enemy as TrainingDummy).health.take_damage(9999)
-	await _wait_physics(60)
-	_check(victory.is_fulfilled and not portal.locked, "30: sin enemigos la salida se abre")
+	_check(victory.mode == VictoryCondition.Mode.CHANNEL and victory.is_fulfilled and not portal.locked, "30: al pisar los dos botones el portal se abre (aunque queden soldados)")
 	await _unload(level)
 
 

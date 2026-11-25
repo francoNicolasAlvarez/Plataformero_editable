@@ -2,10 +2,10 @@ class_name LevelThirtyLayout
 extends RefCounted
 ## Nivel 30 (2026-11-24): "SALA DEL TRONO" (6-5), arena final del mundo con
 ## con el impulso disponible (Ctrl; con una roca en la mano, Ctrl la lanza).
-## Victoria alternativa: el portal se abre al DERROTAR a todos los enemigos:
-##  - Soldados sueltos: se derriban lanzándoles rocas (Ctrl, con reposición).
-##  - Dos lanceros de élite con escudo: caen al pisar los dos botones; uno está
-##    en una repisa alta (resorte) y el otro en el TECHO (zona de gravedad).
+## Victoria alternativa: el portal se abre al pisar los DOS BOTONES (canal T);
+## uno está en una repisa alta (resorte) y el otro en el TECHO (zona de
+## gravedad). Al pisarlos también caen los dos lanceros de élite con escudo.
+## Los soldados sueltos (rocas con Ctrl, con reposición) son opcionales.
 
 const WIDTH := 1800.0
 const G := FortressKit.GROUND
@@ -53,5 +53,5 @@ static func build(level: Node2D) -> void:
 		FortressKit.arena(enemy)
 	DesertKit.checkpoint(world, 900.0, G)
 	DesertKit.herb(world, 1100.0, G)
-	FortressKit.victory(world, VictoryCondition.Mode.ENEMIES)
+	FortressKit.victory(world, VictoryCondition.Mode.CHANNEL, "Victory", "T")
 	FortressKit.finish(level, world, WIDTH, Vector2(150.0, G - 30.0), PORTAL_POSITION, route())
