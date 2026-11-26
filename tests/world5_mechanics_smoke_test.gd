@@ -172,6 +172,19 @@ func _test_crusher(level: Node, player: Player, at: Vector2) -> void:
 	_check(player.health.current_health < before, "Después del aviso cae y daña al jugador debajo")
 	crusher.reset()
 	_check(crusher.state == Hazard.State.IDLE, "reset() sube la prensa")
+	# Bloque de púas (2026-11-26): púas visibles y daño al tocarlo quieto arriba.
+	var spikes := crusher.get_node("Block").find_children("Spike*", "Polygon2D", false, false).size()
+	_check(spikes >= 8, "La prensa es un bloque de púas (%d púas)" % spikes)
+	crusher.auto_cycle = false
+	player.global_position = Vector2(-99999.0, -99999.0)
+	await _wait_physics(60)
+	crusher.reset()
+	player.health.reset()
+	var idle_before := player.health.current_health
+	player.global_position = at + Vector2(crusher.block_size.x * 0.5 + 6.0, 30.0)
+	player.velocity = Vector2.ZERO
+	await _wait_physics(4)
+	_check(player.health.current_health < idle_before, "Tocar la prensa quieta (arriba) también hace daño")
 	crusher.queue_free()
 	floor_body.queue_free()
 

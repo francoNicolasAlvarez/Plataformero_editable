@@ -1,7 +1,7 @@
 extends SceneTree
 ## Comprueba las rocas que caen (2026-11-17, ajustado el 2026-11-23): cuelgan
-## armadas con marcador, caen 0,2 s después de que el jugador se coloque
-## debajo, caída rápida, daño de un golpe al jugador, rotura contra el suelo y que no
+## con marcador, caen 1,5 s después de indicarse el punto de impacto
+## (2026-11-26), caída rápida, daño de un golpe al jugador, rotura contra el suelo y que no
 ## se creen rocas sobre un foso. Ejecutar con:
 ## godot --headless --path . --script res://tests/rockfall_smoke_test.gd
 
@@ -24,7 +24,7 @@ func _run() -> void:
 	var camera: Camera2D = level.get_node("Camera")
 	var spawner := level.get_node("LevelNineGenerated/RockfallSpawner") as RockfallSpawner
 	_check(spawner != null, "El nivel 9 tiene generador de rocas")
-	_check(is_equal_approx(FallingRock.TRIGGER_DELAY, 0.2), "La roca cae 0,2 s después de ponerse el jugador debajo")
+	_check(is_equal_approx(FallingRock.TRIGGER_DELAY, 1.5), "La roca cae 1,5 s después de indicarse dónde caerá")
 	_check(FallingRock.FALL_SPEED >= 1200.0, "La roca cae muy rápido")
 	spawner.active = false
 	# Sin murciélagos: podían golpear al jugador y volver intermitente el test.
@@ -58,7 +58,7 @@ func _run() -> void:
 	await _wait_physics(2)
 	var markers := get_nodes_in_group("rock_warnings")
 	_check(markers.size() == 1, "Aparece un marcador de aviso")
-	_check(rock.state == FallingRock.State.WARNING and not rock.is_triggered(), "La roca cuelga armada, sin activarse")
+	_check(rock.state == FallingRock.State.WARNING and rock.is_triggered(), "Al indicarse el punto de impacto empieza la cuenta")
 	_check(absf((markers[0] as Node2D).global_position.y - LevelNineLayout.GROUND_TOP) < 2.0, "El marcador está sobre la superficie de impacto")
 	_check(absf((markers[0] as Node2D).global_position.x - x) < 2.0, "El marcador está en la columna de impacto")
 	_check(rock.global_position.y < LevelNineLayout.GROUND_TOP - 200.0 and rock.get_node("Rock").visible, "La roca cuelga visible arriba")
@@ -70,12 +70,11 @@ func _run() -> void:
 			spikes += 1
 	_check(spikes == FallingRock.SPIKE_COUNT, "La bola lleva púas (%d)" % spikes)
 
-	await _wait_physics(60)
-	_check(rock.state == FallingRock.State.WARNING, "Con el jugador lejos la roca sigue colgada")
+	await _wait_physics(58)
+	_check(rock.state == FallingRock.State.WARNING, "A ~1 s del aviso la bola sigue colgada")
 	_check(player.health.current_health == hp_before, "Colgada no hace daño a distancia")
 
-	# Tocar la bola colgada (inmóvil) también hace daño y no la hace caer.
-	# Encima de la bola (no debajo) para no activar la caída.
+	# Tocar la bola colgada (inmóvil) también hace daño.
 	player.global_position = rock.global_position + Vector2(0.0, -34.0)
 	player.velocity = Vector2.ZERO
 	await _wait_physics(2)
@@ -83,21 +82,22 @@ func _run() -> void:
 	_check(rock.state == FallingRock.State.WARNING, "La bola sigue colgada tras el contacto")
 	player.global_position = Vector2(x - 500.0, 600.0)
 	player.velocity = Vector2.ZERO
+	await _wait_physics(40)
+	_check(not is_instance_valid(rock) or rock.state != FallingRock.State.WARNING, "Cae %.1f s después de indicarse el punto de impacto" % FallingRock.TRIGGER_DELAY)
 	player.health.heal(99)
-	await _wait_physics(50)
+	await _wait_physics(40)
 	hp_before = player.health.current_health
 
-	# El jugador se coloca debajo: cae 0,2 s después, no antes.
+	# Con el jugador debajo: no cae antes de 1,5 s y luego le quita un golpe.
 	player.global_position = Vector2(x, 600.0)
 	player.velocity = Vector2.ZERO
-	await _wait_physics(4)
-	_check(rock.is_triggered() and rock.state == FallingRock.State.WARNING, "Al ponerse debajo se activa la cuenta de 0,2 s")
-	await _wait_physics(5)
-	_check(rock.state == FallingRock.State.WARNING, "A los ~0,15 s todavía no ha caído")
-	await _wait_physics(8)
-	_check(rock.state != FallingRock.State.WARNING, "Pasados 0,2 s empieza a caer")
-	await _wait_physics(40)
-	_check(not is_instance_valid(rock) or rock.state == FallingRock.State.DONE, "La roca se rompe al llegar al suelo")
+	await _wait_physics(10)
+	var under := spawner.spawn_rock_at(x)
+	_check(under != null, "Se crea una roca sobre el jugador")
+	await _wait_physics(80)
+	_check(is_instance_valid(under) and under.state == FallingRock.State.WARNING, "A ~1,3 s todavía no ha caído")
+	await _wait_physics(60)
+	_check(not is_instance_valid(under) or under.state == FallingRock.State.DONE, "La roca se rompe al llegar al suelo")
 	_check(get_nodes_in_group("rock_warnings").is_empty(), "El marcador desaparece tras el impacto")
 	_check(player.health.current_health == hp_before - 1, "La roca quita un golpe al jugador que está debajo")
 
@@ -109,8 +109,7 @@ func _run() -> void:
 	_check(other != null, "Se crea otra roca lejos del jugador")
 	await _wait_physics(150)
 	_check(player.health.current_health == hp_mid, "Una roca que no cae sobre el jugador no daña")
-	await _wait_physics(80)
-	_check(other == null or not is_instance_valid(other) or other.state != FallingRock.State.WARNING, "Si nadie se pone debajo cae sola tras %.1f s" % FallingRock.MAX_WAIT)
+	_check(other == null or not is_instance_valid(other) or other.state != FallingRock.State.WARNING, "Sin nadie debajo cae igualmente a los %.1f s" % FallingRock.TRIGGER_DELAY)
 
 	# Las rocas del generador siempre caen por delante del jugador.
 	FallingRock.clear_rocks(self)

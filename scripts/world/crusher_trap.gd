@@ -7,17 +7,25 @@ extends Hazard
 ## `auto_cycle` actúa sin esperar al jugador. El bloque NO es sólido (así no
 ## aplasta ni atasca): solo daña mientras cae o está abajo. El nodo está en
 ## el techo, en el centro del bloque; el bloque cuelga hacia abajo.
+##
+## 2026-11-26: el bloque es un BLOQUE DE PÚAS (pinchos de punta roja abajo y a
+## los lados: forma angular = peligro) y daña al tocarlo en CUALQUIER momento,
+## también quieto arriba o mientras sube (contacto continuo; la invulnerabilidad
+## del jugador evita golpes repetidos). Sigue sin ser sólido.
 
 @export var block_size: Vector2 = Vector2(90.0, 64.0)
 @export_range(60.0, 500.0, 5.0) var drop_height: float = 200.0
 @export_range(1, 99, 1) var damage: int = 15
+
+const SPIKE_LENGTH := 14.0
+const SPIKE_COLOR := Color("#b9bccb")
+const TIP_COLOR := Color("#e0392b")
 
 var _block: Node2D
 var _hitbox: Area2D
 var _hit_shape: CollisionShape2D
 var _trigger: Area2D
 var _time: float = 0.0
-var _hit_done: bool = false
 var _slam_time: float = 0.12
 
 
@@ -50,18 +58,30 @@ func _build() -> void:
 	slab.color = Color("#6d6f85")
 	slab.polygon = PackedVector2Array([Vector2(-half.x, 0.0), Vector2(half.x, 0.0), Vector2(half.x, block_size.y), Vector2(-half.x, block_size.y)])
 	_block.add_child(slab)
-	var teeth := Polygon2D.new()
-	teeth.color = Color("#c9ccd9")
-	var points := PackedVector2Array()
+	slab.color = Color("#4f5263")
+	# Franjas de aviso amarillas y negras en la cara del bloque.
+	var stripes := Polygon2D.new()
+	stripes.name = "WarningStripe"
+	stripes.color = Color("#f2c744")
+	stripes.polygon = PackedVector2Array([Vector2(-half.x + 6.0, block_size.y * 0.35), Vector2(half.x - 6.0, block_size.y * 0.35), Vector2(half.x - 6.0, block_size.y * 0.6), Vector2(-half.x + 6.0, block_size.y * 0.6)])
+	_block.add_child(stripes)
 	var count := maxi(3, int(block_size.x / 18.0))
 	var step := block_size.x / float(count)
+	var spike_index := 0
+	# Púas de abajo.
 	for i in count:
 		var x := -half.x + step * float(i)
-		points.append(Vector2(x, block_size.y))
-		points.append(Vector2(x + step * 0.5, block_size.y + 12.0))
-		points.append(Vector2(x + step, block_size.y))
-	teeth.polygon = points
-	_block.add_child(teeth)
+		_add_spike(Vector2(x, block_size.y), Vector2(x + step, block_size.y), Vector2(x + step * 0.5, block_size.y + SPIKE_LENGTH), spike_index)
+		spike_index += 1
+	# Púas de los lados.
+	var side_count := maxi(2, int(block_size.y / 22.0))
+	var side_step := block_size.y / float(side_count)
+	for i in side_count:
+		var y := side_step * float(i)
+		_add_spike(Vector2(-half.x, y), Vector2(-half.x, y + side_step), Vector2(-half.x - SPIKE_LENGTH, y + side_step * 0.5), spike_index)
+		spike_index += 1
+		_add_spike(Vector2(half.x, y), Vector2(half.x, y + side_step), Vector2(half.x + SPIKE_LENGTH, y + side_step * 0.5), spike_index)
+		spike_index += 1
 	var outline := Line2D.new()
 	outline.points = slab.polygon
 	outline.closed = true
@@ -75,10 +95,9 @@ func _build() -> void:
 	_hitbox.collision_mask = 2
 	_hit_shape = CollisionShape2D.new()
 	var rectangle := RectangleShape2D.new()
-	rectangle.size = Vector2(block_size.x, block_size.y + 12.0)
+	rectangle.size = Vector2(block_size.x + SPIKE_LENGTH * 1.4, block_size.y + SPIKE_LENGTH * 0.8)
 	_hit_shape.shape = rectangle
-	_hit_shape.position = Vector2(0.0, (block_size.y + 12.0) * 0.5)
-	_hit_shape.disabled = true
+	_hit_shape.position = Vector2(0.0, (block_size.y + SPIKE_LENGTH * 0.8) * 0.5)
 	_hitbox.add_child(_hit_shape)
 	_block.add_child(_hitbox)
 
@@ -103,12 +122,11 @@ func _physics_process(delta: float) -> void:
 			if other is Player and not (other as Player).health.is_dead:
 				trigger()
 				break
-	if state == State.ACTIVE and not _hit_done:
-		_hit_shape.set_deferred("disabled", false)
+	# Daña al tocarlo en cualquier estado (bloque de púas).
+	if _hitbox != null:
 		for other in _hitbox.get_overlapping_bodies():
-			if other is Player:
+			if other is Player and not (other as Player).health.is_dead:
 				(other as Player).take_damage(damage, self)
-				_hit_done = true
 
 
 func _process(delta: float) -> void:
@@ -129,16 +147,29 @@ func _process(delta: float) -> void:
 
 
 func _on_state_entered(new_state: int) -> void:
-	_hit_done = false
 	if new_state == State.ACTIVE:
 		Sfx.play("bomb", -10.0)
-	elif _hit_shape != null:
-		_hit_shape.set_deferred("disabled", true)
 
 
 func _on_reset() -> void:
-	_hit_done = false
 	if _block != null:
 		_block.position = Vector2.ZERO
-	if _hit_shape != null:
-		_hit_shape.set_deferred("disabled", true)
+
+
+## Púa triangular con punta roja y contorno negro (base a-b, punta `tip`).
+func _add_spike(a: Vector2, b: Vector2, tip: Vector2, index: int) -> void:
+	var spike := Polygon2D.new()
+	spike.name = "Spike%d" % index
+	spike.color = SPIKE_COLOR
+	spike.polygon = PackedVector2Array([a, b, tip])
+	_block.add_child(spike)
+	var red := Polygon2D.new()
+	red.color = TIP_COLOR
+	red.polygon = PackedVector2Array([tip.lerp(a, 0.35), tip.lerp(b, 0.35), tip])
+	spike.add_child(red)
+	var line := Line2D.new()
+	line.points = spike.polygon
+	line.closed = true
+	line.width = 1.6
+	line.default_color = Color.BLACK
+	spike.add_child(line)

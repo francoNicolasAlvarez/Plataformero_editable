@@ -15,10 +15,12 @@ extends Area2D
 ## forma angular = peligro). Hace daño al tocarla también mientras cuelga
 ## inmóvil (contacto continuo, como los enemigos); al caer sigue rompiéndose
 ## contra el suelo o el jugador.
+##
+## 2026-11-26 (2): ya no espera a que el jugador se coloque debajo. CAE
+## `TRIGGER_DELAY` (1,5 s) después de aparecer el marcador que indica dónde va a
+## caer; el marcador parpadea cada vez más rápido (como mucho ~3 Hz).
 
-const TRIGGER_DELAY := 0.2
-const TRIGGER_HALF_WIDTH := 70.0
-const MAX_WAIT := 3.5
+const TRIGGER_DELAY := 1.5
 const FALL_SPEED := 1500.0
 const OVERSHOOT := 260.0
 const SPIKE_COUNT := 12
@@ -35,6 +37,7 @@ var state: State = State.WARNING
 
 var _time: float = 0.0
 var _trigger_left: float = -1.0
+var _blink_phase: float = 0.0
 var _marker: Node2D
 var _rock: Node2D
 var _flames: Array[Polygon2D] = []
@@ -62,6 +65,8 @@ func _ready() -> void:
 	add_child(_marker)
 	_marker.global_position = Vector2(global_position.x, target_y)
 	global_position.y = start_y
+	# La cuenta empieza en cuanto se indica el punto de impacto.
+	_trigger_left = TRIGGER_DELAY
 
 
 static func clear_rocks(tree: SceneTree) -> void:
@@ -69,7 +74,7 @@ static func clear_rocks(tree: SceneTree) -> void:
 		node.queue_free()
 
 
-## Cierto cuando el jugador ya se colocó debajo y la cuenta de 0,2 s corre.
+## Cierto mientras corre la cuenta hasta la caída (desde que aparece).
 func is_triggered() -> bool:
 	return _trigger_left >= 0.0
 
@@ -84,13 +89,8 @@ func _physics_process(delta: float) -> void:
 		State.WARNING:
 			_time += delta
 			_hurt_touching_player()
-			if not is_triggered() and _player_below():
-				_trigger_left = TRIGGER_DELAY
-			if is_triggered():
-				_trigger_left -= delta
-				if _trigger_left <= 0.0:
-					_start_falling()
-			elif _time >= MAX_WAIT:
+			_trigger_left -= delta
+			if _trigger_left <= 0.0:
 				_start_falling()
 			_update_marker()
 		State.FALLING:
@@ -101,14 +101,6 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	_animate_flames()
-
-
-func _player_below() -> bool:
-	var player := get_tree().get_first_node_in_group("player") as Player
-	if player == null or player.health.is_dead:
-		return false
-	var offset := player.global_position - global_position
-	return absf(offset.x) <= TRIGGER_HALF_WIDTH and offset.y > 0.0 and player.global_position.y <= target_y + 60.0
 
 
 ## Daño por contacto mientras cuelga (la invulnerabilidad del jugador evita
@@ -125,11 +117,12 @@ func _start_falling() -> void:
 
 
 func _update_marker() -> void:
-	# El marcador parpadea despacio mientras espera y muy rápido al activarse.
-	var rate := 26.0 if is_triggered() else 7.0
-	var blink := 0.5 + 0.5 * sin(_time * rate)
+	# El marcador parpadea cada vez más rápido (de ~1 a ~3 Hz) y crece hasta la caída.
+	var progress := 1.0 - clampf(_trigger_left / TRIGGER_DELAY, 0.0, 1.0)
+	_blink_phase += get_physics_process_delta_time() * (6.0 + 12.0 * progress)
+	var blink := 0.5 + 0.5 * sin(_blink_phase)
 	_marker.modulate.a = 0.4 + 0.6 * blink
-	_marker.scale = Vector2.ONE * (1.0 if is_triggered() else 0.85)
+	_marker.scale = Vector2.ONE * (0.85 + 0.15 * progress)
 
 
 func _animate_flames() -> void:
