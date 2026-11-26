@@ -27,6 +27,10 @@ func _run() -> void:
 	_check(is_equal_approx(FallingRock.TRIGGER_DELAY, 0.2), "La roca cae 0,2 s después de ponerse el jugador debajo")
 	_check(FallingRock.FALL_SPEED >= 1200.0, "La roca cae muy rápido")
 	spawner.active = false
+	# Sin murciélagos: podían golpear al jugador y volver intermitente el test.
+	for bats in level.find_children("*", "FlyingSpawner", true, false):
+		bats.active = false
+	FlyingSpawner.clear_flying_enemies(self)
 	for enemy in get_nodes_in_group("enemies"):
 		enemy.queue_free()
 	await _wait_physics(2)
@@ -58,16 +62,30 @@ func _run() -> void:
 	_check(absf((markers[0] as Node2D).global_position.y - LevelNineLayout.GROUND_TOP) < 2.0, "El marcador está sobre la superficie de impacto")
 	_check(absf((markers[0] as Node2D).global_position.x - x) < 2.0, "El marcador está en la columna de impacto")
 	_check(rock.global_position.y < LevelNineLayout.GROUND_TOP - 200.0 and rock.get_node("Rock").visible, "La roca cuelga visible arriba")
-	_check(rock.get_node("Rock").find_child("Flame0", true, false) != null, "La roca lleva llamas")
+	_check(rock.get_node("Rock").find_child("Ball", true, false) != null, "Es una bola de hierro")
+	_check(rock.get_node("Rock").find_child("Flame0", true, false) == null, "Ya no lleva llamas")
 	var spikes := 0
 	for child in rock.get_node("Rock").get_children():
-		if child is Polygon2D and (child as Polygon2D).color.is_equal_approx(Color("#3d3d4a")):
+		if child is Polygon2D and String(child.name).begins_with("Spike"):
 			spikes += 1
-	_check(spikes == FallingRock.SPIKE_COUNT, "La roca lleva clavos de hierro (%d)" % spikes)
+	_check(spikes == FallingRock.SPIKE_COUNT, "La bola lleva púas (%d)" % spikes)
 
 	await _wait_physics(60)
 	_check(rock.state == FallingRock.State.WARNING, "Con el jugador lejos la roca sigue colgada")
-	_check(player.health.current_health == hp_before, "Colgada no hace daño")
+	_check(player.health.current_health == hp_before, "Colgada no hace daño a distancia")
+
+	# Tocar la bola colgada (inmóvil) también hace daño y no la hace caer.
+	# Encima de la bola (no debajo) para no activar la caída.
+	player.global_position = rock.global_position + Vector2(0.0, -34.0)
+	player.velocity = Vector2.ZERO
+	await _wait_physics(2)
+	_check(player.health.current_health == hp_before - 1, "Tocar la bola colgada quita un golpe")
+	_check(rock.state == FallingRock.State.WARNING, "La bola sigue colgada tras el contacto")
+	player.global_position = Vector2(x - 500.0, 600.0)
+	player.velocity = Vector2.ZERO
+	player.health.heal(99)
+	await _wait_physics(50)
+	hp_before = player.health.current_health
 
 	# El jugador se coloca debajo: cae 0,2 s después, no antes.
 	player.global_position = Vector2(x, 600.0)

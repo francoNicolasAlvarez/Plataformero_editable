@@ -10,6 +10,11 @@ extends Area2D
 ## plataforma. Se construye entera por código, sin escena propia.
 ##
 ## Estados: WARNING = colgada y armada (esperando), FALLING = cayendo, DONE.
+##
+## 2026-11-26: rediseñada como BOLA DE PÚAS de hierro (púas largas con punta roja:
+## forma angular = peligro). Hace daño al tocarla también mientras cuelga
+## inmóvil (contacto continuo, como los enemigos); al caer sigue rompiéndose
+## contra el suelo o el jugador.
 
 const TRIGGER_DELAY := 0.2
 const TRIGGER_HALF_WIDTH := 70.0
@@ -17,6 +22,8 @@ const MAX_WAIT := 3.5
 const FALL_SPEED := 1500.0
 const OVERSHOOT := 260.0
 const SPIKE_COUNT := 12
+const BALL_RADIUS := 20.0
+const SPIKE_LENGTH := 16.0
 
 enum State { WARNING, FALLING, DONE }
 
@@ -38,12 +45,12 @@ func _ready() -> void:
 	add_to_group("falling_rocks")
 	collision_layer = 0
 	collision_mask = 3
-	set_deferred("monitoring", false)
+	monitoring = true
 	body_entered.connect(_on_body_entered)
 
 	var shape := CollisionShape2D.new()
 	var circle := CircleShape2D.new()
-	circle.radius = 24.0
+	circle.radius = BALL_RADIUS + SPIKE_LENGTH * 0.5
 	shape.shape = circle
 	add_child(shape)
 
@@ -76,6 +83,7 @@ func _physics_process(delta: float) -> void:
 	match state:
 		State.WARNING:
 			_time += delta
+			_hurt_touching_player()
 			if not is_triggered() and _player_below():
 				_trigger_left = TRIGGER_DELAY
 			if is_triggered():
@@ -103,9 +111,16 @@ func _player_below() -> bool:
 	return absf(offset.x) <= TRIGGER_HALF_WIDTH and offset.y > 0.0 and player.global_position.y <= target_y + 60.0
 
 
+## Daño por contacto mientras cuelga (la invulnerabilidad del jugador evita
+## golpes repetidos en cada frame).
+func _hurt_touching_player() -> void:
+	for body in get_overlapping_bodies():
+		if body is Player and not (body as Player).health.is_dead:
+			(body as Player).take_damage(damage, self)
+
+
 func _start_falling() -> void:
 	state = State.FALLING
-	monitoring = true
 	_marker.modulate.a = 1.0
 
 
@@ -130,6 +145,10 @@ func _animate_flames() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if state == State.WARNING:
+		if body is Player:
+			(body as Player).take_damage(damage, self)
+		return
 	if state != State.FALLING:
 		return
 	if body is Player:
@@ -180,61 +199,59 @@ func _build_rock() -> Node2D:
 	var rock := Node2D.new()
 	rock.name = "Rock"
 	rock.z_index = 5
-	# Resplandor naranja detrás.
-	_glow = Polygon2D.new()
-	_glow.name = "FireGlow"
-	_glow.color = Color(1.0, 0.45, 0.1, 0.35)
-	var glow_points := PackedVector2Array()
-	for index in 20:
-		glow_points.append(Vector2.from_angle(TAU * float(index) / 20.0) * 40.0)
-	_glow.polygon = glow_points
-	rock.add_child(_glow)
-	# Llamas que salen hacia arriba (la roca cae de cabeza).
-	for index in 3:
-		var flame := Polygon2D.new()
-		flame.name = "Flame%d" % index
-		var x := (float(index) - 1.0) * 14.0
-		var height := 52.0 if index == 1 else 38.0
-		flame.color = Color(1.0, 0.5 + 0.18 * float(index == 1), 0.1, 0.92)
-		flame.polygon = PackedVector2Array([Vector2(x - 10.0, -14.0), Vector2(x - 4.0, -height * 0.55), Vector2(x, -height), Vector2(x + 5.0, -height * 0.55), Vector2(x + 10.0, -14.0)])
-		rock.add_child(flame)
-		_flames.append(flame)
-		var core := Polygon2D.new()
-		core.color = Color(1.0, 0.9, 0.4, 0.95)
-		core.polygon = PackedVector2Array([Vector2(x - 4.0, -14.0), Vector2(x, -height * 0.62), Vector2(x + 4.0, -14.0)])
-		flame.add_child(core)
-	# Clavos de hierro alrededor.
+	# Púas de hierro con punta roja alrededor de la bola (forma angular = peligro).
 	for index in SPIKE_COUNT:
 		var angle := TAU * float(index) / float(SPIKE_COUNT)
 		var spike := Polygon2D.new()
-		spike.color = Color("#3d3d4a")
-		spike.polygon = PackedVector2Array([Vector2(-5.0, -17.0), Vector2(5.0, -17.0), Vector2(0.0, -34.0)])
+		spike.name = "Spike%d" % index
+		spike.color = Color("#4a4d5c")
+		var base := BALL_RADIUS - 3.0
+		var tip := BALL_RADIUS + SPIKE_LENGTH
+		spike.polygon = PackedVector2Array([Vector2(-6.0, -base), Vector2(6.0, -base), Vector2(0.0, -tip)])
 		spike.rotation = angle
 		rock.add_child(spike)
+		var point := Polygon2D.new()
+		point.color = Color("#e0392b")
+		point.polygon = PackedVector2Array([Vector2(-2.6, -tip + 7.0), Vector2(2.6, -tip + 7.0), Vector2(0.0, -tip)])
+		spike.add_child(point)
 		var spike_line := Line2D.new()
 		spike_line.points = spike.polygon
 		spike_line.closed = true
 		spike_line.width = 1.8
 		spike_line.default_color = Color.BLACK
 		spike.add_child(spike_line)
+	# Bola de hierro con brillo y remaches.
 	var points := PackedVector2Array()
-	var radii := [22.0, 18.0, 23.0, 19.0, 22.0, 17.0, 23.0, 20.0]
-	for index in radii.size():
-		var angle := TAU * float(index) / float(radii.size())
-		points.append(Vector2(cos(angle), sin(angle)) * float(radii[index]))
+	for index in 24:
+		points.append(Vector2.from_angle(TAU * float(index) / 24.0) * BALL_RADIUS)
 	var body := Polygon2D.new()
+	body.name = "Ball"
 	body.polygon = points
-	body.color = Color("#5a4538")
+	body.color = Color("#5b5f70")
 	rock.add_child(body)
 	var shade := Polygon2D.new()
-	shade.polygon = PackedVector2Array([Vector2(-6, -4), Vector2(14, -10), Vector2(20, 6), Vector2(2, 18), Vector2(-10, 10)])
-	shade.color = Color("#3b2c24")
+	var shade_points := PackedVector2Array()
+	for index in 13:
+		shade_points.append(Vector2.from_angle(PI * 0.1 + PI * float(index) / 12.0) * (BALL_RADIUS - 1.0))
+	shade.polygon = shade_points
+	shade.color = Color("#3c3f4c")
 	rock.add_child(shade)
-	var crack := Line2D.new()
-	crack.points = PackedVector2Array([Vector2(-12.0, -6.0), Vector2(-2.0, 2.0), Vector2(-8.0, 12.0)])
-	crack.width = 2.5
-	crack.default_color = Color(1.0, 0.55, 0.15)
-	rock.add_child(crack)
+	var shine := Polygon2D.new()
+	var shine_points := PackedVector2Array()
+	for index in 10:
+		shine_points.append(Vector2(-7.0, -7.0) + Vector2.from_angle(TAU * float(index) / 10.0) * Vector2(6.0, 4.0))
+	shine.polygon = shine_points
+	shine.color = Color(1.0, 1.0, 1.0, 0.45)
+	rock.add_child(shine)
+	for index in 4:
+		var rivet := Polygon2D.new()
+		var rivet_points := PackedVector2Array()
+		for step in 8:
+			rivet_points.append(Vector2.from_angle(TAU * float(step) / 8.0) * 2.2)
+		rivet.polygon = rivet_points
+		rivet.color = Color("#2a2c36")
+		rivet.position = Vector2.from_angle(PI * 0.25 + PI * 0.5 * float(index)) * 11.0
+		rock.add_child(rivet)
 	var outline := Line2D.new()
 	outline.points = points
 	outline.closed = true
