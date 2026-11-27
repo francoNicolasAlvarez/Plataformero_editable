@@ -110,7 +110,7 @@ func _process(delta: float) -> void:
 		State.LANDING:
 			squash = Vector2(1.3, 0.7)
 	var facing := 1.0 if visual.scale.x >= 0.0 else -1.0
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	if target != null and state != State.AIR:
 		facing = 1.0 if target.global_position.x >= global_position.x else -1.0
 	visual.scale = Vector2(facing * squash.x, squash.y * _gravity_sign)
@@ -135,7 +135,7 @@ func _pick_height_index() -> int:
 func _launch() -> void:
 	var horizontal := 0.0
 	last_jump_was_aimed = false
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	if target != null and _rng.randf() < toward_player_chance:
 		var dx := target.global_position.x - global_position.x
 		if absf(dx) <= aggro_range:

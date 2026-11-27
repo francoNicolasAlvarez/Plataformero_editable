@@ -33,14 +33,6 @@ func tick(delta: float) -> void:
 		running = false
 
 
-func reset_countdown() -> void:
-	## Reaparición (2026-11-17): la cuenta regresiva vuelve al límite completo;
-	## el tiempo real (`elapsed`, base de la medalla) sigue acumulándose.
-	remaining = limit
-	expired = false
-	running = true
-
-
 func restore_countdown(seconds: float) -> void:
 	## Reaparición en un control (2026-11-24): la cuenta regresiva vuelve al tiempo
 	## que sobraba al activarlo (nunca por encima del límite).

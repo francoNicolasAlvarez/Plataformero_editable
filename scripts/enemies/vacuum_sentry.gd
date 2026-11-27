@@ -157,7 +157,7 @@ func _follow_screen() -> void:
 
 
 func _shoot_at_player() -> void:
-	var player := get_tree().get_first_node_in_group("player") as Node2D
+	var player := EnemySenses.player(self)
 	if player == null:
 		return
 	var origin := global_position + Vector2(40.0, -20.0)
@@ -197,7 +197,7 @@ func _spawn_object() -> void:
 	var top_edge := -(view.y - bottom_margin) + 40.0
 	var bottom_edge := bottom_margin - 40.0
 	var highest_allowed := bottom_edge
-	var player := get_tree().get_first_node_in_group("player") as Node2D
+	var player := EnemySenses.player(self)
 	if player != null:
 		highest_allowed = clampf(_suction_layer.to_local(player.global_position).y - 70.0, top_edge + 30.0, bottom_edge)
 	node.position = Vector2(right_edge, _rng.randf_range(top_edge, highest_allowed))
@@ -218,7 +218,7 @@ func _view_size() -> Vector2:
 
 
 func _update_objects(delta: float) -> void:
-	var player := get_tree().get_first_node_in_group("player") as Node2D
+	var player := EnemySenses.player(self)
 	for index in range(_objects.size() - 1, -1, -1):
 		var entry := _objects[index]
 		var node := entry["node"] as Node2D

@@ -58,7 +58,10 @@ C:\Users\Usuario\Downloads\Godot_v4.7.2-stable_win64_console.exe
       & "C:\Users\Usuario\Downloads\Godot_v4.7.2-stable_win64_console.exe" `
           --headless --path . --script "res://tests/$($_.Name)" }
   ```
-  Alternativa en paralelo: `powershell -File tools/run_tests.ps1`.
+  Alternativa en paralelo (recomendada): `powershell -File tools/run_tests.ps1
+  [-Jobs 4] [-Filter "*enemy*"] [-NoRetry]`: mide tiempos, reintenta en serie
+  los fallos (INTERMITENTE si solo fallan en paralelo) y deja el informe en
+  `tests/last_run.txt`.
   Cada test es un script `SceneTree` autónomo que imprime `[OK]`/`[FALLO]`
   y devuelve exit code 0/1. Las pruebas headless no leen ni escriben el
   guardado (`SaveGame` lo desactiva detectando `headless`).
@@ -124,7 +127,7 @@ resources/levels/  # level_config.gd y world_config.gd (configuración declarati
 assets/fx/spark.svg # textura de punto blanco para todas las partículas
 assets/enemies/    # fireball.svg y crossbow_bolt.svg (proyectiles de mago/soldado)
 assets/decor/      # tree/bush/cloud/bird/sun.svg (rediseñados con detalle)
-tests/       # smoke tests headless, uno por sistema (59 en total)
+tests/       # smoke tests headless, uno por sistema (68 en total)
 ```
 
 Decisiones clave:
@@ -1742,46 +1745,21 @@ actualizar esos tests.
 
 ## 5. En progreso / estado actual
 
-- Suite de 52 smoke tests en verde (verificado en esta sesión) tras aplicar
-  los ítems 28-48: modo plataformas lineal con un único checkpoint a mitad de
-  cada nivel, tres vidas por nivel, cronómetro contrarreloj que sigue corriendo
-  al morir y no regala tiempo, medallas guardadas por nivel, selector de 40
-  niveles en 8 mundos con 32 plazas pendientes, resultados por nivel, inventario
-  real con poción/ración y espacios Q/E, selección directa
-  de nivel, soporte de mando, guardado de nivel/tiempo/muertes, pantalla de
-  juego completado, fundidos de imagen y música, aviso de descanso en
-  controles, trampas legibles, menú de pausa completo con guía y
-  configuración, contornos negros en formas geométricas básicas, agentes
-  opencode por área, murciélagos que desaparecen al salir del borde visible,
-  tres golpes de vida e invulnerabilidad de 1 s.
-  Las plataformas de todos los niveles llevan una textura procedural sutil
-  (vetas y motas) que se adapta a su tamaño y color.
-  El nivel 4 tiene las 17 plataformas de la ruta activas a la vez (sin
-  reciclado ni desapariciones), con enemigos a bordo, el control central
-  despejado y el inicio sin enemigos en la mitad izquierda. Sus trayectorias
-  no se solapan y ninguna plataforma se inclina más de 30°.
-  Los niveles 5 y 6 usan el asset modular de plataformas: el 5 es un cielo
-  de 28 plataformas con voladores cada 3 s (recorrido ondulante duplicado),
-  cuatro sierras suspendidas y sin aves decorativas; el 6 es una fortaleza
-  de 20 plataformas con pinchos, diez sierras (cinco de suelo y cinco
-  suspendidas), giros, la criatura gigante de fondo y un centinela en la
-  esquina superior derecha que dispara 5 proyectiles cada 2 s. Los pozos de
-  ambos niveles están cubiertos por una única FallZone a todo el ancho.
-  El mago lanza orbes de energía azules con estela y sonido propios; el
-  arquero y el centinela tienen efectos de sonido distintos. El ataque del
-  centinela del nivel 6 es rojo (orbe, estela y estallido). La cadena
-  termina en la pantalla final. Los ocho niveles tienen un límite de 70 s.
-  El nivel 7 es un reflejo vertical del nivel 1 con gravedad invertida;
-  todos sus enemigos usan los tipos conocidos con sombrero triangular
-  amarillo y ojos almendrados. El nivel 8 reutiliza el nivel 2 como espejo
-  horizontal con controles invertidos y recorrido de derecha a izquierda.
-  El ejecutable de `dist/` incluye los ítems 18-46, todavía no del 47 en adelante.
-- Suite de 59 smoke tests en verde tras los ítems 49-70: 20 niveles jugables
-  en 4 mundos (praderas, ruinas, desierto, cavernas), medallas calibradas por
-  longitud de recorrido y la base de obstáculos `Hazard`/`GimmickZone`
-  (plataformas que se derrumban, respiraderos, zonas oscuras).
-  `SaveGame.DEV_UNLOCK_ALL` sigue en `true` (modo de pruebas): ponerlo en
+(Reescrita el 2026-11-27; el detalle de cada cambio está en la sección 4.)
+- **30 niveles jugables** en 6 zonas (praderas, ruinas, desierto, cavernas,
+  torres y alturas, fortaleza medieval), todos de 70 s, con escenas horneadas
+  editables. Las zonas 7-8 (niveles 31-40) siguen sin construir.
+- **Suite: 68 smoke tests, todos en verde** (`tools/run_tests.ps1`, ~200 s con
+  4 jobs). Los dos fallos históricos del nivel 8 se resolvieron el 2026-11-27.
+  Redes de seguridad sobre todos los niveles: `project_integrity`, `all_levels`,
+  `critical_path` y `performance_budget`.
+- Rendimiento medido (2026-11-27): ningún nivel añade más de ~0,6 ms por
+  fotograma de física y proceso (el más pesado es el 1, con ~8900 nodos).
+- `SaveGame.DEV_UNLOCK_ALL` sigue en `true` (modo de pruebas): ponerlo en
   `false` antes de exportar la versión final.
+- El exe de `dist/` está desactualizado desde el ítem 46.
+- Los niveles 21-30 no se han jugado a mano de principio a fin; los robots de
+  los tests validan estructura y pasos clave.
 
 ## 6. Próximos pasos (roadmap contrarreloj acordado, en orden de prioridad)
 
@@ -1845,3 +1823,42 @@ actualizar esos tests.
     - Plataformas +30 % (zonas 21-29, 2026-11-25): `FortressKit.HIGH_HEIGHT_SCALE = 1.3` eleva un 30 % sobre el suelo las filas `high_row` (niveles 25-29, con sus enemigos y trampas) y los balcones del 22 (110/230 -> 143/299). No se tocaron las plataformas de la ruta obligatoria (21, 23, 24, muros y repisas de botones del 28) porque su altura está calculada para el salto. Escenas 22 y 25-29 re-horneadas. Rollback: `git reset --hard rollback/2026-11-25-05-antes-plataformas-altas`.
     - Bola de púas y 5-5 (2026-11-26): `FallingRock` pasa a ser una bola de hierro con 12 púas de punta roja (sin llamas) y hace daño al tocarla también mientras cuelga inmóvil (no por eso cae). Nivel 5-5: quitados `CitadelMageL2` y `CitadelMageR2` (22 enemigos). `rockfall_smoke_test` 30 (contacto colgada; desactiva murciélagos para no ser intermitente). Rollback: `git reset --hard rollback/2026-11-26-01-antes-bola-puas`.
     - Bola de púas con 1,5 s y prensas de púas (2026-11-26): `FallingRock` ya no espera al jugador: cae `TRIGGER_DELAY` = 1,5 s después de aparecer el marcador (parpadeo de ~1 a ~3 Hz); se eliminaron `MAX_WAIT`, `TRIGGER_HALF_WIDTH` y `_player_below()`. `CrusherTrap` (niveles 22 y 25) es un bloque de púas con franja de aviso amarilla, púas de punta roja abajo y a los lados, y daña al tocarlo en cualquier estado (quieto, cayendo o subiendo). Tests `rockfall` 30 y `world5_mechanics` 45. Rollback: `git reset --hard rollback/2026-11-26-03-antes-prensas-puas`.
+
+88. **Mejora general: tests, percepción, rendimiento y limpieza (2026-11-27)**.
+    Rollback previo: `git reset --hard rollback/2026-11-27-01-antes-mejora-general`.
+    - **Fallos históricos del nivel 8 resueltos**: la regla de espaciado
+      (`PlatformSpacing.is_pair_valid`) marcaba pares en diagonal separados
+      miles de px en un eje; ahora en diagonal basta con que uno de los dos
+      huecos deje pasar al jugador. `level_eight_smoke_test` exige "al menos"
+      los enemigos del diseño original (la escena horneada tiene 32).
+    - **Percepción de enemigos**: `EnemySenses` (`scripts/enemies/enemy_senses.gd`)
+      cachea al jugador (17 llamadas por frame a `get_first_node_in_group`
+      sustituidas) y `can_engage()` exige que el enemigo esté en pantalla para
+      empezar un ataque: mago/arquero, bruto, saltador explosivo y lancero ya no
+      atacan desde fuera de la vista. Test `enemy_senses_smoke_test` (9).
+    - **Camino crítico**: `critical_path_smoke_test` (~210 comprobaciones)
+      recorre todos los niveles: salida apoyada y sin enemigos a < 160 px,
+      portal y control con suelo, portal dentro de la cámara, escena siguiente
+      existente y portal que completa el nivel (o bloqueado). Encontró un
+      caminante sobre la pasarela de la salida del nivel 3: eliminado de la
+      escena y del generador (`LevelThreeLayout.START_SAFE_X`).
+    - **Rendimiento**: `performance_budget_smoke_test` mide el exceso de coste
+      por fotograma sobre el suelo headless (~6,8 ms de espera del servidor) y
+      exige < 8 ms; hoy el peor nivel (1) añade ~0,6 ms.
+    - **Automatización**: `tools/run_tests.ps1` solo ejecuta .gd (los .uid daban
+      falsos fallos con `-Filter`), mide tiempos, reintenta fallos en serie y
+      escribe `tests/last_run.txt` (ignorado por git).
+    - **Gráficos/accesibilidad**: el portal bloqueado muestra un candado dorado
+      (`ExitPortal.is_lock_visible()`) que salta y se desvanece con destello al
+      abrirse; el gris se aplica solo a `Visual`. `world6_smoke_test` 103.
+      En las zonas oscuras (`DarkZone`) el portal, los controles, las hierbas
+      y las llaves dibujan una baliza (halo aditivo de su color) sobre la
+      oscuridad; `hazard_smoke_test` 33.
+    - **Integridad**: `project_integrity_smoke_test` (5 s) carga los 127
+      scripts y todas las escenas que no son niveles; detecta errores de
+      sintaxis y referencias rotas en archivos que ningún otro test toca.
+    - **Código muerto**: borrados `RunTimer.reset_countdown()` y
+      `FallingRock.fall_in()`. Análisis de archivos huérfanos: ninguno.
+    - **Agentes**: los 7 agentes de `.opencode/agent/` ganan reglas de
+      automatización, percepción, camino crítico, rendimiento y trampas
+      conocidas al escribir tests. Sección 5 reescrita.

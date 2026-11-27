@@ -6,6 +6,8 @@ extends RefCounted
 
 const PLATFORM_SCENE := preload("res://scenes/world/platform.tscn")
 const WALKER_SCENE := preload("res://scenes/enemies/walker_enemy.tscn")
+## Ningún caminante de plataforma nace a la izquierda de esta x (salida).
+const START_SAFE_X := 800.0
 const RANGED_SCENE := preload("res://scenes/enemies/ranged_enemy.tscn")
 const SPREAD_SCENE := preload("res://scenes/enemies/spread_enemy.tscn")
 const HERB_SCENE := preload("res://scenes/pickups/healing_herb.tscn")
@@ -222,6 +224,10 @@ static func _build_enemies(world: Node2D) -> void:
 
 	for index in EXTRA_PLATFORM_SPOTS.size():
 		var data: Array = EXTRA_PLATFORM_SPOTS[index]
+		# 2026-11-27: sin caminante en la pasarela que hay justo encima de la
+		# salida (x=650): el primer salto chocaba con él (critical_path_smoke_test).
+		if float(data[0]) < START_SAFE_X:
+			continue
 		var walker := _spawn(WALKER_SCENE, world, Vector2(data[0], data[1] - 38.0))
 		walker.set("patrol_speed", 152.0 + float(index % 4) * 9.0)
 		walker.set("patrol_distance", 62.0)

@@ -82,6 +82,8 @@ func _check_rule_semantics() -> void:
 	_check(not _pair_is_valid(parent, Vector2(0, 0), Vector2(0, 84)), "Un hueco vertical menor que 72 px es invalido")
 	_check(_pair_is_valid(parent, Vector2(0, 0), Vector2(0, 20)), "Dos plataformas apiladas que se solapan son validas")
 	_check(not _pair_is_valid(parent, Vector2(0, 0), Vector2(230, 30)), "Un hueco diagonal estrecho es invalido")
+	_check(_pair_is_valid(parent, Vector2(0, 0), Vector2(3000, 27)), "Un hueco diagonal lejano en horizontal es valido")
+	_check(_pair_is_valid(parent, Vector2(0, 0), Vector2(210, 400)), "Un hueco diagonal lejano en vertical es valido")
 
 	parent.queue_free()
 

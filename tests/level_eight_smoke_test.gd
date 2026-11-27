@@ -79,10 +79,11 @@ func _run() -> void:
 		_check(is_equal_approx((checkpoints[0] as Node2D).global_position.x, 6700.0), "El control queda en el centro del espejo")
 
 	var enemies := level.get_tree().get_nodes_in_group("enemies")
-	_check(enemies.size() == 30, "El nivel 8 conserva los 30 enemigos del nivel 2")
+	# Escena editable: se pueden añadir enemigos en el editor; se exige al menos el diseño original.
+	_check(enemies.size() >= 30, "El nivel 8 conserva al menos los 30 enemigos del nivel 2 (%d)" % enemies.size())
 	var spread_originals := [1950.0, 4450.0, 6950.0, 9350.0, 11750.0]
 	var spreads := _collect_by_type(generated, "SpreadEnemy")
-	_check(spreads.size() == 5, "El nivel 8 conserva los 5 arqueros")
+	_check(spreads.size() >= 5, "El nivel 8 conserva al menos los 5 arqueros (%d)" % spreads.size())
 	for original_x in spread_originals:
 		_check(_has_node_at_x(spreads, LevelEightLayout.mirror_x(original_x), 616.0, 80.0, 8.0), "Arquero reflejado en x=%d" % int(LevelEightLayout.mirror_x(original_x)))
 

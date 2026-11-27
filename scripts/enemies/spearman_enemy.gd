@@ -150,11 +150,11 @@ func _floor_ahead() -> bool:
 func _try_detect() -> void:
 	if not is_on_floor() or _cooldown_left > 0.0:
 		return
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	if target == null:
 		return
 	var offset := target.global_position - global_position
-	if absf(offset.x) > detect_range or absf(offset.y) > detect_height:
+	if not EnemySenses.can_engage(self, offset, detect_range, detect_height):
 		return
 	facing = 1 if offset.x >= 0.0 else -1
 	state = State.WINDUP

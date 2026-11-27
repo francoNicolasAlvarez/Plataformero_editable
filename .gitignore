@@ -1,3 +1,6 @@
 .godot/
 *.tmp
 *.log
+
+# Informe de tools/run_tests.ps1
+tests/last_run.txt

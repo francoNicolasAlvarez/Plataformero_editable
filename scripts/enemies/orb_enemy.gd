@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		_vertical_patrol()
 		_check_contact_damage()
 		return
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	match state:
 		State.HOVER:
 			velocity = Vector2.ZERO
@@ -158,7 +158,7 @@ func _steer_toward(desired: Vector2, delta: float) -> void:
 func _start_chase() -> void:
 	state = State.CHASE
 	speed = start_speed
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	_heading = _direction_to(target) if target != null else Vector2.ZERO
 
 

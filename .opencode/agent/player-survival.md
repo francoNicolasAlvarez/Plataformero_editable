@@ -14,3 +14,5 @@ Reglas:
 Diseño visual (ver GUIA_DISENO_VISUAL.md):
 - El jugador debe destacar por valor y silueta sobre cualquier fondo; el feedback de daño (flash, hit-stop, sacudida) es proporcional y nunca altera la hitbox.
 - Squash & stretch solo sobre el nodo Visual.
+
+Cierre de cambios (2026-11-27): cualquier cambio en salto, impulso o colisiones del jugador puede romper el camino crítico de un nivel; corre critical_path_smoke_test y maze_level_smoke_test además de player_smoke_test.

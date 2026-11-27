@@ -13,3 +13,5 @@ Reglas:
 Diseño visual (ver GUIA_DISENO_VISUAL.md):
 - HUD sobre paneles oscuros con contraste suficiente; no transmitir información solo con color (añade icono, forma o texto).
 - Avisos temporales en el área central, sin parpadeos rápidos; jerarquía clara entre título, dato y acción.
+
+Legibilidad (2026-11-27): un estado no se comunica solo con color (accesibilidad). Ejemplo: el portal bloqueado muestra un candado (`ExitPortal.is_lock_visible()`) además de teñirse de gris.

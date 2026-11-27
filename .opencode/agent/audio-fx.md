@@ -14,3 +14,5 @@ Diseño visual y game feel (ver GUIA_DISENO_VISUAL.md):
 - Juice sin cambiar reglas: squash en el nodo visual, hit flash y hit-stop cortos, sacudida proporcional al daño, partículas baratas con spark.svg.
 - Cada aviso de ataque suma un cue de sonido propio además del visual; evita parpadeos > 3 Hz y todo efecto debe apagarse en headless.
 - Acentos de color por rol: rojo = peligro, azul/cian = magia, verde/blanco = curación.
+
+Rendimiento (2026-11-27): performance_budget_smoke_test mide el coste por fotograma de cada nivel. Efectos y partículas nuevos deben apagarse en headless o ser baratos (CPUParticles2D one-shot, sin _process cuando no animan).

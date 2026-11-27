@@ -79,11 +79,6 @@ func is_triggered() -> bool:
 	return _trigger_left >= 0.0
 
 
-## Segundos que faltan para que empiece a caer (solo si está activada).
-func fall_in() -> float:
-	return maxf(0.0, _trigger_left) if state == State.WARNING and is_triggered() else 0.0
-
-
 func _physics_process(delta: float) -> void:
 	match state:
 		State.WARNING:

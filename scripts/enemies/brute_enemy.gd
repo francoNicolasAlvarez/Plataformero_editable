@@ -57,13 +57,13 @@ func _process(delta: float) -> void:
 	if _is_dead:
 		return
 	_cooldown -= delta
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	if target == null:
 		return
 	var offset := target.global_position - global_position
 	var direction := 1.0 if offset.x >= 0.0 else -1.0
 	visual.scale.x = direction * absf(visual.scale.y)
-	if absf(offset.x) > throw_range or absf(offset.x) < min_range or absf(offset.y) > 260.0:
+	if absf(offset.x) < min_range or not EnemySenses.can_engage(self, offset, throw_range, 260.0):
 		_end_telegraph()
 		return
 	if _cooldown > 0.0:

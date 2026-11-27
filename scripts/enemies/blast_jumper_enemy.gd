@@ -89,7 +89,7 @@ func _process(delta: float) -> void:
 	if _is_dead:
 		return
 	var squash := Vector2.ONE
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	var facing := 1.0 if visual.scale.x >= 0.0 else -1.0
 	if target != null and state != State.AIR:
 		facing = 1.0 if target.global_position.x >= global_position.x else -1.0
@@ -115,11 +115,11 @@ func _process(delta: float) -> void:
 func _try_detect() -> void:
 	if not is_on_floor():
 		return
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	if target == null:
 		return
 	var offset := target.global_position - global_position
-	if absf(offset.x) > detect_range or absf(offset.y) > detect_height:
+	if not EnemySenses.can_engage(self, offset, detect_range, detect_height):
 		return
 	state = State.WINDUP
 	_timer = windup_time
@@ -132,7 +132,7 @@ func air_time() -> float:
 
 func _launch() -> void:
 	var horizontal := 0.0
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	last_target_x = global_position.x
 	if target != null:
 		# Apunta a donde estará el jugador al aterrizar (2026-11-18) para que la

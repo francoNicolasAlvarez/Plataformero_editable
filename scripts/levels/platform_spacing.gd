@@ -36,6 +36,12 @@ static func is_pair_valid(a: Rect2, b: Rect2) -> bool:
 	var gap := separation(a, b)
 	var x_ok := gap.x <= 0.0 or gap.x >= MIN_GAP_X
 	var y_ok := gap.y <= 0.0 or gap.y >= MIN_GAP_Y
+	# Corrección (2026-11-27): en diagonal (hueco en los dos ejes) basta con que
+	# UNO de los dos huecos deje pasar al jugador. Antes se exigían ambos y dos
+	# plataformas a 3500 px en horizontal con 3 px de desnivel se marcaban como
+	# "hueco atascado" (falso positivo del nivel 8).
+	if gap.x > 0.0 and gap.y > 0.0:
+		return gap.x >= MIN_GAP_X or gap.y >= MIN_GAP_Y
 	return x_ok and y_ok
 
 

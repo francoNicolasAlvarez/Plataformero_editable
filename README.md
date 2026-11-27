@@ -140,13 +140,20 @@ Regenerar caches tras crear o renombrar scripts/escenas:
 Godot_v4.7.2-stable_win64_console.exe --headless --path . --import
 ```
 
-Ejecutar la suite de pruebas headless:
+Ejecutar la suite de pruebas headless (en paralelo, con resumen, tiempos,
+reintento de fallos intermitentes e informe en `tests/last_run.txt`):
 
 ```
-Get-ChildItem tests -Filter *.gd | ForEach-Object {
-    & "Godot_v4.7.2-stable_win64_console.exe" `
-        --headless --path . --script "res://tests/$($_.Name)" }
+powershell -File tools/run_tests.ps1 -Jobs 4
+powershell -File tools/run_tests.ps1 -Filter "*enemy*"   # solo algunos
 ```
+
+Pruebas que recorren todos los niveles automáticamente:
+- `project_integrity_smoke_test`: todos los scripts compilan y las escenas cargan (5 s).
+- `all_levels_smoke_test`: estructura básica de cada nivel.
+- `critical_path_smoke_test`: salida segura, portal y control apoyados, cadena
+  de niveles y portal que completa el nivel.
+- `performance_budget_smoke_test`: coste por fotograma de cada nivel.
 
 Exportar el ejecutable de Windows:
 

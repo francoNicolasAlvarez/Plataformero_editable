@@ -314,6 +314,7 @@ func _test_level_28() -> void:
 	var portal := level.get_node("ExitPortal") as ExitPortal
 	var victory := level.find_child("Victory", true, false) as VictoryCondition
 	_check(portal.locked, "28: el portal empieza bloqueado")
+	_check(portal.is_lock_visible(), "28: el portal bloqueado muestra un candado (no solo color)")
 	_check(get_nodes_in_group("keys").size() == 3, "28: tres llaves (una por celda)")
 	var gate_l := level.find_child("DungeonGateL", true, false) as SwitchGate
 	var lever_l := level.find_child("DungeonLeverL", true, false) as LeverSwitch
@@ -336,6 +337,8 @@ func _test_level_28() -> void:
 	await _place_player(level, (keys[keys.size() - 1] as Node2D).global_position)
 	await _wait_physics(20)
 	_check(not portal.locked and victory.is_fulfilled, "28: con las 3 llaves la salida se abre")
+	await _wait_physics(30)
+	_check(not portal.is_lock_visible(), "28: el candado desaparece al abrirse")
 	await _place_player(level, Vector2(portal.global_position.x - 200.0, 616.0))
 	await _place_player(level, portal.global_position)
 	await _wait_physics(10)

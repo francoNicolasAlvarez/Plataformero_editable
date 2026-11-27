@@ -186,8 +186,7 @@ static func _auto_free(node: Node, delay: float) -> void:
 	var tree := node.get_tree()
 	if tree == null:
 		return
-	tree.create_timer(delay).timeout.connect(
-		func() -> void:
-			if is_instance_valid(node):
-				node.queue_free()
-	)
+	# Conexión directa al método del nodo (2026-11-27): si el nodo se libera
+	# antes (cambio de escena), Godot quita la conexión. La lambda anterior
+	# capturaba el nodo y daba "Lambda capture at index 0 was freed".
+	tree.create_timer(delay).timeout.connect(node.queue_free)

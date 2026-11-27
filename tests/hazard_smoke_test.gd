@@ -129,6 +129,12 @@ func _check_dark_zone(level: Node, player: Player) -> void:
 	_check(zone.player_inside, "La zona detecta al jugador")
 	_check(zone.current_amount() > 0.95 and zone.shade.visible, "Dentro de la zona la pantalla se oscurece")
 	_check(zone.overlay_layer.layer < 10, "La oscuridad queda por debajo del HUD")
+	var herb := (load("res://scenes/pickups/healing_herb.tscn") as PackedScene).instantiate() as Node2D
+	level.add_child(herb)
+	herb.global_position = player.global_position + Vector2(220.0, 0.0)
+	await _wait_physics(3)
+	_check(zone.visible_beacons() >= 1, "Los objetos importantes brillan sobre la oscuridad (%d balizas)" % zone.visible_beacons())
+	herb.queue_free()
 	player.global_position = Vector2(300.0, 600.0)
 	await _wait_physics(50)
 	_check(not zone.player_inside and zone.current_amount() < 0.01, "Al salir se aclara")

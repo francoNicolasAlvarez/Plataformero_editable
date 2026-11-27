@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
 func _player_in_zone() -> bool:
 	if zone_to <= zone_from:
 		return true
-	var player := get_tree().get_first_node_in_group("player") as Node2D
+	var player := EnemySenses.player(self)
 	return player != null and player.global_position.x >= zone_from and player.global_position.x <= zone_to
 
 
@@ -93,7 +93,7 @@ func is_charging() -> bool:
 
 
 func _shoot_at_player() -> void:
-	var player := get_tree().get_first_node_in_group("player") as Node2D
+	var player := EnemySenses.player(self)
 	if player == null:
 		return
 	var origin := global_position

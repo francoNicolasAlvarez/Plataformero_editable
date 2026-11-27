@@ -16,3 +16,8 @@ Diseño visual (ver GUIA_DISENO_VISUAL.md):
 - Separa por valor (claro/oscuro): plataformas transitables claras con remate superior sobre fondo apagado y de bajo contraste; contorno negro en lo interactivo.
 - Portal, control, hierba y llaves deben leerse también en zonas a oscuras; los objetos decorativos no llevan contorno ni acento.
 - Marca la zona de impacto antes de que caiga algo (rocas, catapultas, minas).
+
+Camino crítico (2026-11-27, critical_path_smoke_test):
+- Ningún enemigo a menos de 160 px del punto de salida; el jugador nace apoyado; portal y control con suelo a < 260 px debajo y dentro de los límites de cámara; la escena siguiente existe.
+- Regla de espaciado: en diagonal basta con que UNO de los dos huecos deje pasar al jugador (45 px en x o 72 px en y).
+- Si cambias un generador `*_layout.gd`, aplica también el cambio a la escena horneada (o re-hornea con tools/bake_levels.gd -- N y revisa el diff): el juego carga la escena horneada, no el generador.

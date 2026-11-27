@@ -70,12 +70,12 @@ func _process(delta: float) -> void:
 		return
 
 	_shoot_cooldown -= delta
-	var target := get_tree().get_first_node_in_group("player") as Node2D
+	var target := EnemySenses.player(self)
 	if target == null:
 		return
 
 	var offset := target.global_position - global_position
-	if absf(offset.x) > shoot_range or absf(offset.y) > 170.0:
+	if not EnemySenses.can_engage(self, offset, shoot_range, 170.0):
 		_telegraph_end()
 		return
 
