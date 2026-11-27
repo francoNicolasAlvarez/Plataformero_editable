@@ -65,6 +65,8 @@ func _process(delta: float) -> void:
 	visual.scale.x = direction * absf(visual.scale.y)
 	if absf(offset.x) < min_range or not EnemySenses.can_engage(self, offset, throw_range, 260.0):
 		_end_telegraph()
+		# Siempre hay aviso (2026-11-27): nunca lanza sin temblar antes.
+		_cooldown = maxf(_cooldown, telegraph_time)
 		return
 	if _cooldown > 0.0:
 		if _cooldown <= telegraph_time:

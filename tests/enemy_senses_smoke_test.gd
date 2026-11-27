@@ -48,9 +48,11 @@ func _run() -> void:
 	await _wait_physics(150)
 	_check(get_nodes_in_group("enemy_projectiles").is_empty(), "Un mago fuera de pantalla no dispara")
 
-	# Al entrar en pantalla, dispara con su aviso habitual.
+	# Al entrar en pantalla NO dispara al instante: primero el aviso.
 	camera.global_position = Vector2(-300.0, 0.0)
-	await _wait_physics(240)
+	await _wait_physics(20)
+	_check(get_nodes_in_group("enemy_projectiles").is_empty() and mage.is_telegraphing(), "Al entrar en pantalla avisa antes de disparar")
+	await _wait_physics(60)  # el aviso dura 0,6 s; el orbe vive 3 s
 	_check(not get_nodes_in_group("enemy_projectiles").is_empty(), "El mago visible sí dispara")
 	mage.queue_free()
 	for projectile in get_nodes_in_group("enemy_projectiles"):

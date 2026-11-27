@@ -1835,7 +1835,10 @@ actualizar esos tests.
       cachea al jugador (17 llamadas por frame a `get_first_node_in_group`
       sustituidas) y `can_engage()` exige que el enemigo esté en pantalla para
       empezar un ataque: mago/arquero, bruto, saltador explosivo y lancero ya no
-      atacan desde fuera de la vista. Test `enemy_senses_smoke_test` (9).
+      atacan desde fuera de la vista. Además el mago/arquero y el bruto
+      ya no disparan al instante si su enfriamiento se agotó mientras el
+      jugador no estaba a tiro: siempre muestran su aviso antes.
+      Test `enemy_senses_smoke_test` (10).
     - **Camino crítico**: `critical_path_smoke_test` (~210 comprobaciones)
       recorre todos los niveles: salida apoyada y sin enemigos a < 160 px,
       portal y control con suelo, portal dentro de la cámara, escena siguiente

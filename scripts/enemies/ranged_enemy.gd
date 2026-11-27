@@ -77,6 +77,9 @@ func _process(delta: float) -> void:
 	var offset := target.global_position - global_position
 	if not EnemySenses.can_engage(self, offset, shoot_range, 170.0):
 		_telegraph_end()
+		# Siempre hay aviso (2026-11-27): si el enfriamiento se agotó mientras
+		# el jugador no estaba a tiro, al entrar no dispara al instante.
+		_shoot_cooldown = maxf(_shoot_cooldown, telegraph_time)
 		return
 
 	var direction := 1.0 if offset.x >= 0.0 else -1.0
