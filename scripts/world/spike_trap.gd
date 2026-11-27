@@ -9,6 +9,7 @@ var _time: float = 0.0
 
 
 func _ready() -> void:
+	DrawLayers.behind_ground(self)  # base tapada por el suelo (2026-11-27)
 	body_entered.connect(_on_body_entered)
 
 

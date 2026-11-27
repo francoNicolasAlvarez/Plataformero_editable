@@ -12,6 +12,7 @@ var _time: float = 0.0
 
 
 func _ready() -> void:
+	DrawLayers.behind_ground(self)  # base tapada por el suelo (2026-11-27)
 	add_to_group("keys")
 	collision_layer = 0
 	collision_mask = 2

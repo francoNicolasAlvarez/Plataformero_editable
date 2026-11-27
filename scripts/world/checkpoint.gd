@@ -14,6 +14,7 @@ var is_active: bool = false
 
 
 func _ready() -> void:
+	DrawLayers.behind_ground(self)  # base tapada por el suelo (2026-11-27)
 	add_to_group("checkpoints")
 	body_entered.connect(_on_body_entered)
 	Fx.make_sparkle(self, Vector2(0.0, -52.0), Color(0.62, 0.9, 1.0, 0.5))

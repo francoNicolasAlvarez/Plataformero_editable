@@ -15,6 +15,7 @@ var _lock: Node2D
 
 
 func _ready() -> void:
+	DrawLayers.behind_ground(self)  # base tapada por el suelo (2026-11-27)
 	add_to_group("exit_portals")
 	body_entered.connect(_on_body_entered)
 	# Aura 2026-11-11: partículas cian ascendentes alrededor del portal.

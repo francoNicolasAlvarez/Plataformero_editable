@@ -14,6 +14,7 @@ var _time: float = 0.0
 
 
 func _ready() -> void:
+	DrawLayers.behind_ground(self)  # base tapada por el suelo (2026-11-27)
 	body_entered.connect(_on_body_entered)
 	_time = global_position.x * 0.01
 	Fx.make_sparkle(visual, Vector2(0.0, -6.0), Color(0.7, 1.0, 0.75, 0.9))

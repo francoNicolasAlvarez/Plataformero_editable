@@ -30,6 +30,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	DrawLayers.behind_ground(self)  # base tapada por el suelo (2026-11-27)
 	super._ready()
 	add_to_group("mines")
 	if rearm_time > 0.0:

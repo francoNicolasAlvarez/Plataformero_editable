@@ -1865,3 +1865,18 @@ actualizar esos tests.
     - **Agentes**: los 7 agentes de `.opencode/agent/` ganan reglas de
       automatización, percepción, camino crítico, rendimiento y trampas
       conocidas al escribir tests. Sección 5 reescrita.
+
+89. **Trampas y objetos detrás del suelo (2026-11-27)**: `DrawLayers`
+    (`scripts/core/draw_layers.gd`) fija el orden de dibujo: decoración <= -6,
+    sierras -2, trampas y objetos apoyados -1 (`BEHIND_GROUND`), suelo,
+    plataformas, jugador y enemigos 0. Pinchos (también los de borde de
+    plataforma), minas, lanzadores, teletransportes, palancas, botones,
+    respiraderos, pilas de rocas, controles, hierbas, llaves y portal llaman a
+    `DrawLayers.behind_ground(self)` en `_ready`: su base queda tapada por el
+    suelo o la plataforma y no asoma ni parece flotar. La sombra (`Shadow`) del
+    portal y la hierba sube a +2 para seguir viéndose sobre el suelo. Solo se
+    cambia la capa si vale 0 (respeta lo editado en el editor). Sin cambios:
+    enemigos, prensas y ruedas de cuchillas (cuelgan o giran en el aire),
+    cañones de pared, catapultas y objetos sujetables.
+    `visual_guide_smoke_test` comprueba las capas en el nivel 2.
+    Rollback previo: `git reset --hard rollback/2026-11-27-04-antes-capas-trampas`.

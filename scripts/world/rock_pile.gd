@@ -13,6 +13,7 @@ static func total_height() -> float:
 
 
 func _ready() -> void:
+	DrawLayers.behind_ground(self)  # base tapada por el suelo (2026-11-27)
 	add_to_group("rock_piles")
 	collision_layer = 1
 	collision_mask = 0
