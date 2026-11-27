@@ -1702,7 +1702,7 @@ patrol_speed = 132.0
 patrol_distance = 240.0
 
 [node name="RangedEnemy" type="CharacterBody2D" parent="LevelTwoGenerated" unique_id=903243398 groups=["enemies"] instance=ExtResource("33_v8wi8")]
-position = Vector2(855, 378)
+position = Vector2(1059, 282)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("34_x1bdu")
@@ -1720,7 +1720,7 @@ gravity = 1600.0
 contact_damage = 25
 
 [node name="CharacterBody2D_89" type="CharacterBody2D" parent="LevelTwoGenerated" unique_id=514423294 groups=["enemies"] instance=ExtResource("31_t3n7v")]
-position = Vector2(575, 472)
+position = Vector2(1239, 616)
 collision_layer = 4
 collision_mask = 3
 floor_snap_length = 6.0

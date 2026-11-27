@@ -21,3 +21,8 @@ Camino crítico (2026-11-27, critical_path_smoke_test):
 - Ningún enemigo a menos de 160 px del punto de salida; el jugador nace apoyado; portal y control con suelo a < 260 px debajo y dentro de los límites de cámara; la escena siguiente existe.
 - Regla de espaciado: en diagonal basta con que UNO de los dos huecos deje pasar al jugador (45 px en x o 72 px en y).
 - Si cambias un generador `*_layout.gd`, aplica también el cambio a la escena horneada (o re-hornea con tools/bake_levels.gd -- N y revisa el diff): el juego carga la escena horneada, no el generador.
+
+Reglas generales R1-R5 (2026-11-27, DISENO_NIVELES.md sección 0, LevelDesignRules):
+- R1: ningún enemigo en la primera mitad de la pantalla inicial (en hubs también detrás del jugador). Al recolocar uno, respeta también R2 (>= 160 px de la salida) y 200 px entre enemigos; si no cabe, quítalo y dilo.
+- R5: clavos sobre plataformas = `Platform.Kind.SPIKED` (bordes con clavos, centro libre); pinchos sueltos solo sobre suelo.
+- critical_path_smoke_test las comprueba en todos los niveles: un nivel nuevo debe pasarlo sin tocar el test.

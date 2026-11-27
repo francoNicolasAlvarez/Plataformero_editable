@@ -135,7 +135,10 @@ static func arena(enemy: Node) -> void:
 
 ## Fila de plataformas altas (2026-11-24). Cada entrada: [x, superficie, ancho,
 ## enemigo ("archer" | "mage" | "spear" | ""), trampa ("mine" | "spike" | "")].
-## Las plataformas son fijas; la trampa va al lado del enemigo.
+## Las plataformas son fijas; la mina va al lado del enemigo.
+## "spike" (2026-11-27): la plataforma pasa a ser del tipo con clavos en los
+## bordes y el centro libre (`Platform.Kind.SPIKED`) en vez de llevar un
+## pincho suelto encima.
 static func high_row(world: Node2D, prefix: String, specs: Array) -> void:
 	for i in specs.size():
 		var spec: Array = specs[i]
@@ -143,7 +146,8 @@ static func high_row(world: Node2D, prefix: String, specs: Array) -> void:
 		var top: float = GROUND - (GROUND - float(spec[1])) * HIGH_HEIGHT_SCALE
 		var width: float = spec[2]
 		var node_name := "%sHigh%d" % [prefix, i]
-		DesertKit.platform(world, Vector2(x, top + 12.0), Vector2(width, 24.0), BRICK, Platform.Kind.STATIC, node_name)
+		var kind := Platform.Kind.SPIKED if String(spec[4]) == "spike" else Platform.Kind.STATIC
+		DesertKit.platform(world, Vector2(x, top + 12.0), Vector2(width, 24.0), BRICK, kind, node_name)
 		match String(spec[3]):
 			"archer":
 				DesertKit.archer(world, "%sArcher" % node_name, x - width * 0.2, top)
@@ -154,8 +158,6 @@ static func high_row(world: Node2D, prefix: String, specs: Array) -> void:
 		match String(spec[4]):
 			"mine":
 				TowerKit.mine(world, Vector2(x + width * 0.3, top), "%sMine" % node_name)
-			"spike":
-				DesertKit.spike(world, x + width * 0.3, top)
 
 
 ## Sierras suspendidas a media altura entre plataformas: [x, y] con su recorrido.

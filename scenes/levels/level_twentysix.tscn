@@ -669,7 +669,7 @@ collision_mask = 2
 script = ExtResource("15_rxc4a")
 
 [node name="MoatSpearman0" type="CharacterBody2D" parent="LevelTwentysixGenerated" unique_id=116408453 groups=["enemies"] instance=ExtResource("16_ocek8")]
-position = Vector2(820, 610)
+position = Vector2(1019, 616)
 collision_layer = 4
 script = ExtResource("17_dl281")
 
@@ -809,7 +809,7 @@ collision_layer = 4
 script = ExtResource("17_dl281")
 
 [node name="MoatSpearman4" type="CharacterBody2D" parent="LevelTwentysixGenerated" unique_id=2039843257 groups=["enemies"] instance=ExtResource("16_ocek8")]
-position = Vector2(350, 610)
+position = Vector2(1859, 616)
 collision_layer = 4
 script = ExtResource("17_dl281")
 
@@ -862,7 +862,7 @@ platform_size = Vector2(220, 24)
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
 
 [node name="Moat0High0Archer" type="CharacterBody2D" parent="LevelTwentysixGenerated" unique_id=1213364585 groups=["enemies"] instance=ExtResource("19_8lh02")]
-position = Vector2(606, 380)
+position = Vector2(1019, 278)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("20_kfiij")
@@ -877,13 +877,8 @@ position = Vector2(1000, 314)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_blem3")
+kind = 3
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
-
-[node name="SpikeTrap" type="Area2D" parent="LevelTwentysixGenerated" unique_id=789569840 groups=["spikes", "traps"] instance=ExtResource("31_uwhsr")]
-position = Vector2(1060, 294)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("32_hh4pc")
 
 [node name="Moat0High2" type="AnimatableBody2D" parent="LevelTwentysixGenerated" unique_id=406687837 instance=ExtResource("13_jid8j")]
 position = Vector2(1950, 431)
@@ -985,13 +980,8 @@ position = Vector2(6100, 444)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_blem3")
+kind = 3
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
-
-[node name="Area2D_111" type="Area2D" parent="LevelTwentysixGenerated" unique_id=708359897 groups=["spikes", "traps"] instance=ExtResource("31_uwhsr")]
-position = Vector2(6160, 424)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("32_hh4pc")
 
 [node name="Moat1High3" type="AnimatableBody2D" parent="LevelTwentysixGenerated" unique_id=1764958655 instance=ExtResource("13_jid8j")]
 position = Vector2(6500, 314)

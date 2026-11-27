@@ -933,7 +933,7 @@ cooldown_time = 1.6
 auto_cycle = false
 
 [node name="CitadelSpearmanL" type="CharacterBody2D" parent="LevelTwentyfiveGenerated" unique_id=15798310 groups=["enemies"] instance=ExtResource("23_y7oxg")]
-position = Vector2(5300, 610)
+position = Vector2(5130, 616)
 collision_layer = 4
 script = ExtResource("24_bq8dv")
 
@@ -1127,13 +1127,8 @@ position = Vector2(2350, 314)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_7tte7")
+kind = 3
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
-
-[node name="SpikeTrap" type="Area2D" parent="LevelTwentyfiveGenerated" unique_id=131749657 groups=["spikes", "traps"] instance=ExtResource("36_qu73i")]
-position = Vector2(2410, 294)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("37_o1qdq")
 
 [node name="CitadelLHigh2" type="AnimatableBody2D" parent="LevelTwentyfiveGenerated" unique_id=577676024 instance=ExtResource("13_bdcto")]
 position = Vector2(2800, 444)
@@ -1444,13 +1439,8 @@ position = Vector2(11850, 314)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_7tte7")
+kind = 3
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
-
-[node name="Area2D_161" type="Area2D" parent="LevelTwentyfiveGenerated" unique_id=173948613 groups=["spikes", "traps"] instance=ExtResource("36_qu73i")]
-position = Vector2(11910, 294)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("37_o1qdq")
 
 [node name="CitadelRHigh5" type="AnimatableBody2D" parent="LevelTwentyfiveGenerated" unique_id=1258360901 instance=ExtResource("13_bdcto")]
 position = Vector2(12300, 444)

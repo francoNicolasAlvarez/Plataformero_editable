@@ -787,12 +787,12 @@ cooldown_time = 1.6
 auto_cycle = false
 
 [node name="BellSlug0" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=2051634874 groups=["enemies"] instance=ExtResource("17_kw5qg")]
-position = Vector2(420, 2282)
+position = Vector2(1019, 2284)
 collision_layer = 4
 script = ExtResource("18_fhtw6")
 
 [node name="BellSpearman0" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1254953943 groups=["enemies"] instance=ExtResource("19_75enl")]
-position = Vector2(880, 2270)
+position = Vector2(1219, 2276)
 collision_layer = 4
 script = ExtResource("20_kgdu3")
 
@@ -804,7 +804,7 @@ script = ExtResource("22_c0t4d")
 shoot_range = 520.0
 
 [node name="BellArcher1" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=834766715 groups=["enemies"] instance=ExtResource("23_rwb6p")]
-position = Vector2(640, 1828)
+position = Vector2(1679, 1856)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("24_w6hwh")
@@ -827,7 +827,7 @@ collision_layer = 4
 script = ExtResource("20_kgdu3")
 
 [node name="BellSlug2" type="CharacterBody2D" parent="LevelTwentytwoGenerated" unique_id=1877391671 groups=["enemies"] instance=ExtResource("17_kw5qg")]
-position = Vector2(700, 1442)
+position = Vector2(1019, 1444)
 collision_layer = 4
 script = ExtResource("18_fhtw6")
 

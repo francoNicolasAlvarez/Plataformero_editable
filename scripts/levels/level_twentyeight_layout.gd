@@ -62,10 +62,12 @@ static func build(level: Node2D) -> void:
 	DesertKit.herb(world, 2650.0, G)
 	DesertKit.herb(world, 3800.0, G)
 	# Más enemigos en el patio (espaciados), plataformas altas con trampas.
-	DesertKit.slug(world, "DungeonSlug0", 2700.0, G)
+	# R1 (2026-11-27): nada en la primera mitad de la pantalla inicial (x < ~3200):
+	# la babosa pasa a la celda derecha y el lancero 1 a la celda izquierda.
+	DesertKit.slug(world, "DungeonSlug0", 5250.0, G)
 	DesertKit.mage(world, "DungeonMage0", 3650.0, G)
 	DesertKit.spearman(world, "DungeonSpear0", 4450.0, G)
-	DesertKit.spearman(world, "DungeonSpear1", 3000.0, G)
+	DesertKit.spearman(world, "DungeonSpear1", 1150.0, G)
 	DesertKit.slug(world, "DungeonSlug1", 3900.0, G)
 	DesertKit.spearman(world, "DungeonSpear2", 4700.0, G)
 	TowerKit.mine(world, Vector2(2350.0, G), "DungeonMine0")

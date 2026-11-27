@@ -761,7 +761,7 @@ cooldown_time = 2.6
 initial_delay = 1.6
 
 [node name="BattlementSpearman0" type="CharacterBody2D" parent="LevelTwentysevenGenerated" unique_id=2016000135 groups=["enemies"] instance=ExtResource("16_umchk")]
-position = Vector2(600, 610)
+position = Vector2(1870, 616)
 collision_layer = 4
 script = ExtResource("17_ol1fv")
 
@@ -977,7 +977,7 @@ script = ExtResource("14_p52vn")
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
 
 [node name="BattlementHigh0Archer" type="CharacterBody2D" parent="LevelTwentysevenGenerated" unique_id=1916818310 groups=["enemies"] instance=ExtResource("23_oy1wa")]
-position = Vector2(810, 380)
+position = Vector2(1639, 616)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("24_gj1xq")
@@ -1007,13 +1007,8 @@ position = Vector2(1750, 262)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_p52vn")
+kind = 3
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
-
-[node name="SpikeTrap" type="Area2D" parent="LevelTwentysevenGenerated" unique_id=1235682738 groups=["spikes", "traps"] instance=ExtResource("27_ehfu3")]
-position = Vector2(1810, 242)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("28_wnc2x")
 
 [node name="BattlementHigh3" type="AnimatableBody2D" parent="LevelTwentysevenGenerated" unique_id=1377788339 instance=ExtResource("13_q1f4j")]
 position = Vector2(2050, 431)
@@ -1086,14 +1081,9 @@ position = Vector2(6450, 405)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_p52vn")
+kind = 3
 platform_size = Vector2(220, 24)
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
-
-[node name="Area2D_122" type="Area2D" parent="LevelTwentysevenGenerated" unique_id=1336824161 groups=["spikes", "traps"] instance=ExtResource("27_ehfu3")]
-position = Vector2(6516, 385)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("28_wnc2x")
 
 [node name="FinalHigh4" type="AnimatableBody2D" parent="LevelTwentysevenGenerated" unique_id=139715127 instance=ExtResource("13_q1f4j")]
 position = Vector2(6850, 262)

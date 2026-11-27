@@ -5,6 +5,32 @@ faltan. Los niveles 1-21 ya existen. Cada nivel se construye con un generador
 (`scripts/levels/level_*_layout.gd`), se hornea a escena editable y lleva su
 smoke test (ver `AGENTS.md`, secciones 2 y 7).
 
+## 0. Reglas generales de diseño (obligatorias en TODOS los niveles)
+
+Se aplican a cualquier nivel nuevo o editado. Están centralizadas en
+`scripts/levels/level_design_rules.gd` (`LevelDesignRules`) y las comprueba
+`critical_path_smoke_test` sobre todos los niveles del registro: si un nivel
+incumple una regla, la suite falla.
+
+- **R1 · Salida a la vista**: ningún enemigo en la **primera mitad de la
+  pantalla inicial** (lo que muestra la cámara al empezar; la mitad del lado
+  por el que se empieza: izquierda si el portal está a la derecha, derecha si
+  el nivel va hacia la izquierda). El jugador debe poder ver el nivel antes de
+  que nada pueda atacarle. En niveles tipo hub (el jugador empieza en el
+  centro de la pantalla) eso incluye la mitad que queda detrás de él.
+- **R2 · Salida segura**: el jugador nace apoyado y ningún enemigo nace a
+  menos de 160 px de él.
+- **R3 · Espaciado**: huecos entre plataformas >= 1,5x el jugador (45 px en
+  horizontal, 72 px en vertical); en diagonal basta con uno (`PlatformSpacing`).
+- **R4 · Meta alcanzable**: portal y controles apoyados en suelo, dentro de la
+  cámara, y la escena siguiente existe.
+- **R5 · Clavos legibles**: si una plataforma lleva clavos, se usa la
+  plataforma con clavos en los bordes y el centro libre
+  (`Platform.Kind.SPIKED`); nunca un pincho suelto encima de una plataforma.
+  Los pinchos sueltos solo van sobre el suelo.
+- Trampas con aviso antes de dañar (salvo peligros estáticos y visibles) y
+  ataques enemigos que empiezan solo dentro de la pantalla (`EnemySenses`).
+
 ## 1. Principios
 
 1. **Una idea nueva por nivel.** Cada nivel introduce *una* mecánica, enemigo,

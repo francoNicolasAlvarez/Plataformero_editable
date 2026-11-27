@@ -852,7 +852,7 @@ kind = 1
 respawn_time = 8.0
 
 [node name="CatapultSpearman3" type="CharacterBody2D" parent="LevelTwentynineGenerated" unique_id=1024332929 groups=["enemies"] instance=ExtResource("17_wnkei")]
-position = Vector2(700, 610)
+position = Vector2(2150, 616)
 collision_layer = 4
 script = ExtResource("18_bcjo4")
 
@@ -907,7 +907,7 @@ script = ExtResource("14_oqkin")
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
 
 [node name="Catapult0High0Archer" type="CharacterBody2D" parent="LevelTwentynineGenerated" unique_id=1950941859 groups=["enemies"] instance=ExtResource("19_vb100")]
-position = Vector2(860, 380)
+position = Vector2(1539, 616)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("20_epn15")
@@ -969,13 +969,8 @@ position = Vector2(3600, 288)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_oqkin")
+kind = 3
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
-
-[node name="SpikeTrap" type="Area2D" parent="LevelTwentynineGenerated" unique_id=1375194314 groups=["spikes", "traps"] instance=ExtResource("27_o4lxr")]
-position = Vector2(3660, 268)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("28_kjnlk")
 
 [node name="Catapult0High5" type="AnimatableBody2D" parent="LevelTwentynineGenerated" unique_id=1038549999 instance=ExtResource("13_0ggv1")]
 position = Vector2(4150, 431)

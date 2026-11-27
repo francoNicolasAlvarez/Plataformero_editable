@@ -1752,7 +1752,7 @@ actualizar esos tests.
 - **Suite: 68 smoke tests, todos en verde** (`tools/run_tests.ps1`, ~200 s con
   4 jobs). Los dos fallos históricos del nivel 8 se resolvieron el 2026-11-27.
   Redes de seguridad sobre todos los niveles: `project_integrity`, `all_levels`,
-  `critical_path` y `performance_budget`.
+  `critical_path` (incluye las reglas R1-R5) y `performance_budget`.
 - Rendimiento medido (2026-11-27): ningún nivel añade más de ~0,6 ms por
   fotograma de física y proceso (el más pesado es el 1, con ~8900 nodos).
 - `SaveGame.DEV_UNLOCK_ALL` sigue en `true` (modo de pruebas): ponerlo en
@@ -1880,3 +1880,28 @@ actualizar esos tests.
     cañones de pared, catapultas y objetos sujetables.
     `visual_guide_smoke_test` comprueba las capas en el nivel 2.
     Rollback previo: `git reset --hard rollback/2026-11-27-04-antes-capas-trampas`.
+
+90. **Plataformas con clavos y reglas generales de diseño (2026-11-27)**.
+    Rollback previo: `git reset --hard rollback/2026-11-27-06-antes-plataformas-clavos`.
+    - **Clavos**: las 8 plataformas que llevaban un pincho suelto encima
+      (opción `"spike"` de `FortressKit.high_row`, niveles 25-29) pasan a
+      `Platform.Kind.SPIKED` (clavos en los bordes, centro libre); el pincho
+      suelto se borró de las escenas y `high_row` ya no lo crea.
+    - **Reglas generales R1-R5**: `LevelDesignRules`
+      (`scripts/levels/level_design_rules.gd`) y la sección 0 de
+      `DISENO_NIVELES.md`. R1: ningún enemigo en la primera mitad de la
+      pantalla inicial (`enemies_in_start_half()`), para no ser atacado antes de
+      ver el nivel. `critical_path_smoke_test` comprueba R1 y R5 en todos los
+      niveles (270 comprobaciones).
+    - **Niveles corregidos para R1** (22 enemigos en 9 niveles): se movieron
+      hacia delante, a una superficie de la misma altura cuando la había (en
+      escenas horneadas): 2 (mago y caminante), 3 (caminante), 22 (4), 25
+      (lancero: al borde izquierdo, fuera de la vista, porque el nivel es un
+      hub), 26 (3), 27 (2), 28 (4: lancero y mago a la celda izquierda,
+      babosa a la celda derecha y arquero a la cornisa alta; no cabían en el
+      patio lejos de la salida), 29 (2) y 30 (mago a la cornisa alta, babosa y
+      élite A con su escudo a la mitad derecha de la arena). Se respetan R2 y
+      los 200 px entre enemigos de `world6_smoke_test`. Generadores
+      actualizados: 30 y parte del 28; los de 2, 3, 22, 25-27, 29 y las filas
+      altas del 28 siguen con las posiciones antiguas (re-hornearlos haría
+      fallar R1 en el test).

@@ -9,6 +9,9 @@ extends SceneTree
 ## 4. La escena siguiente existe (la cadena de niveles no se rompe).
 ## 5. Entrar en el portal completa el nivel; si el portal empieza bloqueado
 ##    (niveles con condición de victoria) se comprueba que no lo completa.
+## 6. Reglas generales de `LevelDesignRules` (2026-11-27): R1 ningún enemigo en
+##    la primera mitad de la pantalla inicial; R5 ningún pincho suelto sobre
+##    una plataforma (se usa la plataforma con clavos en los bordes).
 ## Ejecutar con:
 ## godot --headless --path . --script res://tests/critical_path_smoke_test.gd
 
@@ -55,6 +58,14 @@ func _check_level(number: int, path: String) -> void:
 			close += 1
 	_check(close == 0, "%s: ningún enemigo nace a menos de %d px del jugador" % [tag, int(SPAWN_SAFE_RADIUS)])
 
+	var early := LevelDesignRules.enemies_in_start_half(level)
+	var names: Array[String] = []
+	for enemy in early:
+		names.append(String(enemy.name))
+	_check(early.is_empty(), "%s: R1 ningún enemigo en la primera mitad de la pantalla inicial %s" % [tag, str(names)])
+	var loose := _loose_spikes_on_platforms(level)
+	_check(loose.is_empty(), "%s: R5 sin pinchos sueltos sobre plataformas %s" % [tag, str(loose)])
+
 	var camera := level.get_node("Camera") as Camera2D
 	var portal := level.get_node("ExitPortal") as ExitPortal
 	_check(_has_surface(level, portal.global_position, down), "%s: el portal tiene suelo debajo" % tag)
@@ -82,6 +93,25 @@ func _check_level(number: int, path: String) -> void:
 	level.queue_free()
 	for _frame in 3:
 		await process_frame
+
+
+func _loose_spikes_on_platforms(level: Node) -> Array[String]:
+	## Pinchos sueltos (no hijos de una plataforma) apoyados en la cara superior
+	## de una plataforma fina (< 60 px: no el suelo).
+	var found: Array[String] = []
+	var platforms := level.find_children("*", "Platform", true, false)
+	for spike in get_nodes_in_group("spikes"):
+		if not level.is_ancestor_of(spike) or spike.get_parent() is Platform:
+			continue
+		var at: Vector2 = (spike as Node2D).global_position
+		for node in platforms:
+			var platform := node as Platform
+			if platform.platform_size.y >= 60.0:
+				continue
+			var rect := Rect2(platform.global_position - platform.platform_size * 0.5, platform.platform_size)
+			if at.x >= rect.position.x - 4.0 and at.x <= rect.end.x + 4.0 and absf(at.y + 8.0 - rect.position.y) < 14.0:
+				found.append(String(spike.name))
+	return found
 
 
 func _has_surface(level: Node, point: Vector2, down: float) -> bool:

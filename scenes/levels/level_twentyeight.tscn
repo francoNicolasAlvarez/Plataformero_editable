@@ -786,11 +786,6 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("30_bxx4p")
 
-[node name="DungeonSlug0" type="CharacterBody2D" parent="LevelTwentyeightGenerated" unique_id=289671334 groups=["enemies"] instance=ExtResource("31_01q4e")]
-position = Vector2(2700, 622)
-collision_layer = 4
-script = ExtResource("32_y4kt0")
-
 [node name="DungeonMage0" type="CharacterBody2D" parent="LevelTwentyeightGenerated" unique_id=2077090416 groups=["enemies"] instance=ExtResource("23_gehkd")]
 position = Vector2(3650, 586)
 collision_layer = 4
@@ -804,9 +799,14 @@ collision_layer = 4
 script = ExtResource("19_dun5e")
 
 [node name="DungeonSpear1" type="CharacterBody2D" parent="LevelTwentyeightGenerated" unique_id=870080979 groups=["enemies"] instance=ExtResource("18_5ccfd")]
-position = Vector2(3000, 610)
+position = Vector2(1150, 616)
 collision_layer = 4
 script = ExtResource("19_dun5e")
+
+[node name="DungeonSlug0" type="CharacterBody2D" parent="LevelTwentyeightGenerated" unique_id=289671334 groups=["enemies"] instance=ExtResource("31_01q4e")]
+position = Vector2(5250, 624)
+collision_layer = 4
+script = ExtResource("32_y4kt0")
 
 [node name="DungeonSlug1" type="CharacterBody2D" parent="LevelTwentyeightGenerated" unique_id=2030186752 groups=["enemies"] instance=ExtResource("31_01q4e")]
 position = Vector2(3900, 622)
@@ -840,7 +840,7 @@ script = ExtResource("14_uxytu")
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
 
 [node name="DungeonHigh0Archer" type="CharacterBody2D" parent="LevelTwentyeightGenerated" unique_id=563247260 groups=["enemies"] instance=ExtResource("25_xpsul")]
-position = Vector2(2360, 367)
+position = Vector2(3290, 216)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("26_de8q0")
@@ -858,7 +858,7 @@ script = ExtResource("14_uxytu")
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
 
 [node name="DungeonHigh1Mage" type="CharacterBody2D" parent="LevelTwentyeightGenerated" unique_id=1894519967 groups=["enemies"] instance=ExtResource("23_gehkd")]
-position = Vector2(2660, 274)
+position = Vector2(1800, 616)
 collision_layer = 4
 floor_snap_length = 6.0
 script = ExtResource("24_xqo54")
@@ -901,13 +901,8 @@ position = Vector2(1700, 431)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("14_uxytu")
+kind = 3
 platform_color = Color(0.49019608, 0.45490196, 0.53333336, 1)
-
-[node name="SpikeTrap" type="Area2D" parent="LevelTwentyeightGenerated" unique_id=209322206 groups=["spikes", "traps"] instance=ExtResource("35_uechi")]
-position = Vector2(1760, 411)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("36_5hqme")
 
 [node name="DungeonAerialSaw0" type="Area2D" parent="LevelTwentyeightGenerated" unique_id=2011280864 groups=["saws", "traps"] instance=ExtResource("37_uvcyc")]
 position = Vector2(2600, 540)

@@ -39,13 +39,16 @@ static func build(level: Node2D) -> void:
 	var ceiling_button := FortressKit.button(world, Vector2(850.0, CEILING_Y + CEILING_THICKNESS), "T", "ThroneButtonCeiling")
 	ceiling_button.scale = Vector2(1.0, -1.0)
 	# Soldados de la arena (cuentan para la victoria).
-	var mage := DesertKit.mage(world, "ThroneMage", 330.0, 480.0)
+	# R1 (2026-11-27): ningún enemigo en la primera mitad de la pantalla inicial
+	# (x < ~930): el mago sube a la cornisa alta y la babosa y la élite A se
+	# mueven a la mitad derecha de la arena.
+	var mage := DesertKit.mage(world, "ThroneMage", 1440.0, HIGH_LEDGE_TOP)
 	var archer := DesertKit.archer(world, "ThroneArcher", 1500.0, G)
-	var slug := DesertKit.slug(world, "ThroneSlug", 700.0, G)
+	var slug := DesertKit.slug(world, "ThroneSlug", 1000.0, G)
 	var spear := DesertKit.spearman(world, "ThroneSpearman", 1200.0, G)
 	FortressKit.ledge(world, 200.0, 460.0, 480.0, "ThroneLedgeLeft")
 	# Élite con escudo: dos lanceros que caen con los dos botones (canal T).
-	var elite_a := DesertKit.spearman(world, "ThroneEliteA", 450.0, G)
+	var elite_a := DesertKit.spearman(world, "ThroneEliteA", 1350.0, G)
 	var elite_b := DesertKit.spearman(world, "ThroneEliteB", 1650.0, G)
 	FortressKit.lock(world, elite_a, "T", "ThroneLockA")
 	FortressKit.lock(world, elite_b, "T", "ThroneLockB")
